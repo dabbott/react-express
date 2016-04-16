@@ -12,3 +12,6 @@ export MiniInfoBar from './MiniInfoBar/MiniInfoBar';
 export SurveyForm from './SurveyForm/SurveyForm';
 export WidgetForm from './WidgetForm/WidgetForm';
 export EditorTranspiler from './EditorTranspiler';
+export Phone from './Phone';
+export Player from './Player';
+export EditorPlayer from './EditorPlayer';

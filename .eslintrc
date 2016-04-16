@@ -18,7 +18,8 @@
     "no-console": 0,
     "no-alert": 0,
     "semi": 0,
-    "id-length": 0
+    "id-length": 0,
+    "no-eval": 0
   },
   "plugins": [
     "react", "import"

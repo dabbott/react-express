@@ -124,6 +124,7 @@
     "react-dom": "^0.14.1",
     "react-helmet": "^2.2.0",
     "react-inline-css": "^2.0.0",
+    "react-native-web": "0.0.21",
     "react-redux": "^4.0.0",
     "react-router": "2.0.0",
     "react-router-bootstrap": "^0.20.1",
