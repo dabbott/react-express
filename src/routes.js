@@ -15,6 +15,7 @@ import {
   } from 'containers';
 
 import Babel from 'containers/Pages/Babel';
+import ES6 from 'containers/Pages/ES6';
 
 export default (store) => {
   const requireLogin = (nextState, replace, cb) => {
@@ -50,6 +51,7 @@ export default (store) => {
 
       { /* Routes */ }
       <Route path="babel" component={Babel}/>
+      <Route path="es6" component={ES6}/>
       <Route path="login" component={Login}/>
       <Route path="survey" component={Survey}/>
       <Route path="widgets" component={Widgets}/>

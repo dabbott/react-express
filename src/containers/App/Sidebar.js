@@ -29,7 +29,9 @@ const sections = [
     ['Introduction', 'intro'], [
       ['Getting Started', 'start'],
       ['Environment', 'env'],
-      ['Babel + ES6 + JSX', 'babel'],
+      ['Babel', 'babel'],
+      ['ES6', 'es6'],
+      ['JSX', 'jsx'],
     ]
   ],
   [

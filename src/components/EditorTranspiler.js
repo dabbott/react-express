@@ -105,7 +105,7 @@ export default class EditorTranspiler extends Component {
 
       const readOnly = Object.assign({}, options, {
         readOnly: true,
-        value: Babel.transform(value, { presets: ['es2015'] }).code,
+        value: '',
         theme: 'read-only',
       })
 
@@ -113,32 +113,38 @@ export default class EditorTranspiler extends Component {
       this.cm2 = require('codemirror')(this.refs.cmBlockScopedVariablesOutput, readOnly)
 
       this.cm1.on('changes', (cm) => {
-        try {
-          if (this.panel) {
-            this.panel.clear()
-            delete this.panel
-          }
+        this.compile(cm)
+      })
 
-          const code = Babel.transform(cm.getValue(), { presets: ['es2015'] }).code
-          this.cm2.setValue(code)
-        } catch (e) {
-          const div = document.createElement('div')
-          div.setAttribute('style', 'overflow: auto; border-top: 1px solid whitesmoke;')
-          div.innerHTML = ReactDOM.renderToStaticMarkup(
-            <div style={{
-              color: '#ac4142',
-              padding: '15px 20px',
-              whiteSpace: 'pre',
-              fontFamily: 'monospace',
-            }}>
-              {e.message.replace('unknown', e.name)}
-            </div>
-          )
-          this.panel = this.cm2.addPanel(div, {
-            position: 'bottom',
-            replace: this.panel,
-          })
-        }
+      this.compile(this.cm1)
+    }
+  }
+
+  compile(cm) {
+    try {
+      if (this.panel) {
+        this.panel.clear()
+        delete this.panel
+      }
+
+      const code = Babel.transform(cm.getValue(), { presets: ['es2015'] }).code
+      this.cm2.setValue(code)
+    } catch (e) {
+      const div = document.createElement('div')
+      div.setAttribute('style', 'overflow: auto; border-top: 1px solid whitesmoke;')
+      div.innerHTML = ReactDOM.renderToStaticMarkup(
+        <div style={{
+          color: '#ac4142',
+          padding: '15px 20px',
+          whiteSpace: 'pre',
+          fontFamily: 'monospace',
+        }}>
+          {e.message.replace('unknown', e.name)}
+        </div>
+      )
+      this.panel = this.cm2.addPanel(div, {
+        position: 'bottom',
+        replace: this.panel,
       })
     }
   }
