@@ -127,7 +127,7 @@ export default class EditorTranspiler extends Component {
         delete this.panel
       }
 
-      const code = Babel.transform(cm.getValue(), { presets: ['es2015'] }).code
+      const code = Babel.transform(cm.getValue(), { presets: ['es2015', 'react'] }).code
       this.cm2.setValue(code)
     } catch (e) {
       const div = document.createElement('div')

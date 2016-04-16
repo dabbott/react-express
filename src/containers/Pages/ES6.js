@@ -9,7 +9,7 @@ export default class ES6 extends Component {
       <Page
         title={'ES6'}>
         <div style={styles.well}>
-          <div style={styles.h3}>ES6</div>
+          <div style={styles.h3}>What is ES6, anyway?</div>
           <div style={styles.p}>
             ECMAScript is the language specification used to implement the JavaScript language. ES6, or ECMAScript 6, is the first significant update to the language since ES5 was initially released in 2009.
           </div>
