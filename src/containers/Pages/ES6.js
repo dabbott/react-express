@@ -71,6 +71,9 @@ export default class ES6 extends Component {
           <div style={styles.h4}>Classes</div>
           <div style={styles.h4}>Imports and Exports</div>
         </div>
+        <div style={styles.well}>
+          {this.props.navigatorButton}
+        </div>
       </Page>
     )
   }

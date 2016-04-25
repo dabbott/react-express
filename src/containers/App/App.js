@@ -13,6 +13,8 @@ import { routeActions } from 'react-router-redux';
 // import config from '../../config';
 import { asyncConnect } from 'redux-async-connect';
 import Sidebar from './Sidebar'
+import NavigatorButton from './NavigatorButton'
+import { getNextSection, getPreviousSection } from '../../constants/Sections'
 
 const innerStyle = {
   flex: '1 1 auto',
@@ -89,7 +91,6 @@ export default class App extends Component {
   };
 
   render() {
-    // const {user} = this.props;
     const style = {
       position: 'absolute',
       top: 0,
@@ -103,12 +104,24 @@ export default class App extends Component {
       minHeight: 0,
     }
 
+    const children = React.Children.map(this.props.children, (child) => {
+      const path = this.props.location.pathname
+      return React.cloneElement(child, {
+        navigatorButton: (
+          <NavigatorButton
+            nextSection={getNextSection(path)}
+            previousSection={getPreviousSection(path)}
+          />
+        ),
+      })
+    })
+
     return (
       <div style={style}>
         <div style={innerStyle}>
           <Sidebar style={sidebarStyle} />
           <div style={contentStyle}>
-            {this.props.children}
+            {children}
           </div>
         </div>
       </div>

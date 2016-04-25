@@ -16,6 +16,7 @@ const screenStyle = {
   alignItems: 'stretch',
   position: 'relative',
   transform: `scale3d(${2}, ${2}, 1)`,
+  overflow: 'hidden',
 }
 
 export default class Phone extends Component {
@@ -35,12 +36,13 @@ export default class Phone extends Component {
     const containerStyle = {
       width,
       height,
+      margin: '0 auto',
     }
 
     const phoneStyle = {
       width: dimensions.deviceImageWidth,
       height: dimensions.deviceImageHeight,
-      backgroundImage: `url(iphone-6-silver.png)`,
+      backgroundImage: `url(/iphone-6-silver.png)`,
       transform: `scale3d(${scale}, ${scale}, 1)`,
       transformOrigin: '0 0 0px',
       display: 'flex',

@@ -1,6 +1,6 @@
 const backgroundImage = require('./background.png')
 
-export default {
+const styles = {
   title: {
     textAlign: 'center',
     fontSize: 60,
@@ -77,3 +77,13 @@ export default {
     color: 'rgba(0,0,0,0.8)',
   },
 }
+
+Object.assign(styles, {
+  h4_monospace: {
+    ...styles.h4,
+    fontFamily: 'monospace',
+    fontWeight: 'bold',
+  },
+})
+
+export default styles

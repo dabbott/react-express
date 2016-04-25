@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom/server';
-import Player from './Player'
+// import ReactDOM from 'react-dom/server';
+import PlayerFrame from './PlayerFrame'
 import { options, requireAddons } from '../constants/CodeMirror'
 
 const Babel = require('babel-standalone')
@@ -10,7 +10,6 @@ const widgetContainerStyle = {
   display: 'flex',
   flexDirection: 'row',
   alignItems: 'stretch',
-  height: 450,
   minWidth: 0,
   minHeight: 0,
 }
@@ -34,6 +33,7 @@ const playerContainerStyle = {
   display: 'flex',
   flexDirection: 'row',
   justifyContent: 'center',
+  position: 'relative',
 }
 
 const cmHeaderStyle = {
@@ -43,6 +43,21 @@ const cmHeaderStyle = {
   paddingTop: 10,
   paddingLeft: 20,
   paddingBottom: 10,
+}
+
+const errorContainerStyle = {
+  position: 'absolute',
+  bottom: 0,
+  left: 0,
+  right: 0,
+  backgroundColor: 'white',
+  overflow: 'auto',
+  borderTop: '1px solid whitesmoke',
+  color: '#ac4142',
+  padding: '15px 20px',
+  whiteSpace: 'pre',
+  fontFamily: 'monospace',
+  zIndex: 1,
 }
 
 export default class EditorTranspiler extends Component {
@@ -69,7 +84,7 @@ export default class EditorTranspiler extends Component {
         this.runApplication(cm)
       })
 
-      this.cm1.setSize('100%', '360')
+      this.cm1.setSize('100%', '500')
 
       this.runApplication(this.cm1)
     }
@@ -85,31 +100,32 @@ export default class EditorTranspiler extends Component {
 
   compile(cm) {
     try {
-      if (this.panel) {
-        this.panel.clear()
-        delete this.panel
-      }
-
       const code = Babel.transform(cm.getValue(), { presets: ['es2015', 'react'] }).code
+
+      this.setState({
+        compilerError: null
+      })
 
       return code
     } catch (e) {
-      const div = document.createElement('div')
-      div.setAttribute('style', 'overflow: auto; border-top: 1px solid whitesmoke;')
-      div.innerHTML = ReactDOM.renderToStaticMarkup(
-        <div style={{
-          color: '#ac4142',
-          padding: '15px 20px',
-          whiteSpace: 'pre',
-          fontFamily: 'monospace',
-        }}>
-          {e.message.replace('unknown', e.name)}
+      this.setState({
+        compilerError: e.message.replace('unknown', e.name)
+      })
+    }
+
+    return null
+  }
+
+  renderError() {
+    const {compilerError, runtimeError} = this.state
+    const e = compilerError || runtimeError
+
+    if (e) {
+      return (
+        <div style={errorContainerStyle}>
+          {e}
         </div>
       )
-      this.panel = this.cm1.addPanel(div, {
-        position: 'bottom',
-        replace: this.panel,
-      })
     }
 
     return null
@@ -122,10 +138,17 @@ export default class EditorTranspiler extends Component {
       <div style={widgetContainerStyle}>
         <div style={widgetStyle}>
           <div style={cmHeaderStyle}>{inputHeader}</div>
-          <div style={{height: 410}} ref={'editor'} />
+          <div style={{height: 500}} ref={'editor'} />
         </div>
         <div style={playerContainerStyle}>
-          <Player ref={'player'} />
+          {this.renderError()}
+          <PlayerFrame ref={'player'}
+            onRun={() => {
+              this.setState({runtimeError: null})
+            }}
+            onError={(e) => {
+              this.setState({runtimeError: e})
+            }}/>
         </div>
       </div>
     )

@@ -1,65 +1,65 @@
-import React, { Component } from 'react';
-import { AppRegistry } from 'react-native-web'
+import React, { Component } from 'react'
+import ReactDOM from 'react-dom'
 
 import Phone from './Phone'
-
-
-// // Styles
-// const styles = StyleSheet.create({
-//   card: {
-//     flexGrow: 1,
-//     justifyContent: 'center',
-//     backgroundColor: 'teal',
-//   },
-//   title: {
-//     fontSize: '1.25rem',
-//     fontWeight: 'bold',
-//   },
-//   image: {
-//     height: 300,
-//     marginVertical: 10,
-//     width: 300,
-//   }
-// })
-//
-// // Components
-// const Card = ({ children }) => <View style={styles.card}>{children}</View>
-// const Title = ({ children }) => <Text style={styles.title}>{children}</Text>
-// const Photo = ({ uri }) => <Image source={{ uri }} style={styles.image} />
-// const App = () => (
-//   <Card>
-//     <Title>App Card</Title>
-//     <Photo uri="logo.jpg" />
-//   </Card>
-// )
-//
-// // App registration and rendering
-// AppRegistry.registerComponent('MyApp', () => App)
 
 export default class Player extends Component {
 
   static defaultProps = {
     code: '',
+    onRun: () => {},
+    onError: () => {},
+  }
+
+  constructor(props) {
+    super(props)
   }
 
   componentDidMount() {
-    const {code} = this.props
+    window.onmessage = (e) => {
+      this.runApplication(e.data)
+    }
 
-    this.runApplication(code)
+    // window.onerror = (e) => {
+    //   console.warn('ERROR', e)
+    //   parent.postMessage(JSON.stringify({
+    //     id: this.props.id,
+    //     type: 'error',
+    //     payload: e,
+    //   }), '*')
+    // }
+
+    parent.postMessage(JSON.stringify({
+      id: this.props.id,
+      type: 'ready',
+    }), '*')
   }
 
   runApplication(code) {
+    const {AppRegistry} = require('react-native-web')
+
     const screenElement = this.refs.phone.getScreenNode()
 
-    this.evaluate(code)
+    this.resetApplication()
+
+    this.props.onRun()
 
     try {
+      this.evaluate(code)
+
       AppRegistry.runApplication('MyApp', {
         rootTag: screenElement,
       })
     } catch (e) {
-      console.log('Failed to run MyApp', e)
+      // console.log('Failed to run MyApp', e)
+      this.props.onError(e)
     }
+  }
+
+  resetApplication() {
+    const screenElement = this.refs.phone.getScreenNode()
+
+    ReactDOM.unmountComponentAtNode(screenElement)
   }
 
   evaluate(code) {

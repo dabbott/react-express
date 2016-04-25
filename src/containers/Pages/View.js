@@ -39,8 +39,7 @@ import { EditorPlayer } from '../../components'
 // AppRegistry.registerComponent('MyApp', () => App)
 // `
 
-const defaultValue = `
-import React, { AppRegistry, View } from 'react-native'
+const defaultValue = `import React, { AppRegistry, View } from 'react-native'
 
 const App = () => {
   const style = {
@@ -52,7 +51,7 @@ const App = () => {
   const boxStyle = {
     width: 200,
     height: 200,
-    backgroundColor: 'rgb(0,127,244)'
+    backgroundColor: 'rgb(74,124,226)',
   }
 
   return (
@@ -63,8 +62,7 @@ const App = () => {
 }
 
 // App registration and rendering
-AppRegistry.registerComponent('MyApp', () => App)
-`
+AppRegistry.registerComponent('MyApp', () => App)`
 
 export default class View extends Component {
   render() {
@@ -74,12 +72,21 @@ export default class View extends Component {
         <div style={styles.well}>
           <div style={styles.h3}>View</div>
           <div style={styles.p}>
-            <code>View</code>s are the building block of React Native apps, much like how <code>div</code>s are the building block of websites.
+            <code>View</code>s are the most basic building block of React Native apps, much like how <code>div</code>s are the most basic building block of websites. In terms of implementation, <code>View</code> is an abstraction layer on top of the target platform's native equivalent, whether that's <code>UIView</code>, <code>android.view</code>, <code>{'<div>'}</code>, or something else.
+          </div>
+          <div style={styles.p}>
+            <code>View</code>s are primarily used for styling and layout of children elements. Let's look at a few of the ways we can style views.
           </div>
           <EditorPlayer
             value={defaultValue}
             inputHeader={'Using Views'}
           />
+          <div style={styles.p}>
+            <code>View</code>s are the building block of React Native apps, much like how <code>div</code>s are the building block of websites.
+          </div>
+        </div>
+        <div style={styles.well}>
+          {this.props.navigatorButton}
         </div>
       </Page>
     )

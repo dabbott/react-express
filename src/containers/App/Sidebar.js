@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
-import { Link } from 'react-router';
+import { Link, IndexLink } from 'react-router';
+import SECTIONS from '../../constants/Sections'
 
 const sidebarTitleStyle = {
   fontSize: 18,
@@ -23,38 +24,6 @@ const rowStyle = {
   color: '#263053',
   margin: 0,
 }
-
-const sections = [
-  [
-    ['Introduction', 'intro'], [
-      ['Getting Started', 'start'],
-      ['Environment', 'env'],
-      ['Babel', 'babel'],
-      ['ES6', 'es6'],
-      ['JSX', 'jsx'],
-    ]
-  ],
-  [
-    ['Components', 'components'], [
-      ['View', 'view'],
-      ['Text', 'text'],
-      ['Image', 'image'],
-      ['ScrollView', 'scrollview'],
-    ]
-  ],
-  [
-    ['Organizing Data', 'data'], [
-      ['Flux', 'flux'],
-      ['Redux', 'redux'],
-    ]
-  ],
-  [
-    ['Persistence', 'persistence'], [
-      ['AsyncStorage', 'asyncstorage'],
-      ['Firebase', 'firebase'],
-    ]
-  ],
-]
 
 const numeralStyle = {
   flex: '0 0 50px',
@@ -93,12 +62,14 @@ export default class Sidebar extends Component {
     const {style} = this.props
     return (
       <div style={style}>
-        <h4 style={sidebarTitleStyle}>Learn React Native</h4>
+        <IndexLink to={'/'}>
+          <h4 style={sidebarTitleStyle}>Learn React Native</h4>
+        </IndexLink>
         <div style={{overflowY: 'auto', paddingTop: 30}}>
-          {sections.map(([title, subsections], i) => {
+          {SECTIONS.map((subsections, i) => {
             return [
-              this.renderRow(i + 1, title),
-              ...subsections.map((subtitle, j) => {
+              this.renderRow(i + 1, subsections[0]),
+              ...subsections.slice(1).map((subtitle, j) => {
                 return this.renderRow(`${i + 1}.${j + 1}`, subtitle)
               }),
               <div style={{height: 60, alignItems: 'center', justifyContent: 'center', display: 'flex'}}>

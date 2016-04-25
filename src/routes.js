@@ -11,12 +11,16 @@ import {
     LoginSuccess,
     Survey,
     NotFound,
-    Learn,
+    Sandbox,
   } from 'containers';
 
 import Babel from 'containers/Pages/Babel';
 import ES6 from 'containers/Pages/ES6';
 import View from 'containers/Pages/View';
+import ComponentPage from 'containers/Pages/Component';
+import ComponentAPI from 'containers/Pages/ComponentAPI';
+import LifecycleAPI from 'containers/Pages/LifecycleAPI';
+import Introduction from 'containers/Pages/Introduction';
 
 export default (store) => {
   const requireLogin = (nextState, replace, cb) => {
@@ -40,26 +44,35 @@ export default (store) => {
    * Please keep routes in alphabetical order
    */
   return (
-    <Route path="/" component={App}>
-      { /* Home (main) route */ }
-      <IndexRoute component={Learn}/>
+    <Route path="/">
 
-      { /* Routes requiring login */ }
-      <Route onEnter={requireLogin}>
-        <Route path="chat" component={Chat}/>
-        <Route path="loginSuccess" component={LoginSuccess}/>
+      <Route path="sandbox/:sandboxId" component={Sandbox}/>
+
+      <Route component={App}>
+        { /* Home (main) route */ }
+        <IndexRoute component={Introduction}/>
+
+        { /* Routes requiring login */ }
+        <Route onEnter={requireLogin}>
+          <Route path="chat" component={Chat}/>
+          <Route path="loginSuccess" component={LoginSuccess}/>
+        </Route>
+
+        { /* Routes */ }
+        <Route path="intro" component={Introduction}/>
+        <Route path="babel" component={Babel}/>
+        <Route path="components" component={ComponentPage}/>
+        <Route path="component_api" component={ComponentAPI}/>
+        <Route path="Lifecycle_api" component={LifecycleAPI}/>
+        <Route path="es6" component={ES6}/>
+        <Route path="view" component={View}/>
+        <Route path="login" component={Login}/>
+        <Route path="survey" component={Survey}/>
+        <Route path="widgets" component={Widgets}/>
+
+        { /* Catch all route */ }
+        <Route path="*" component={NotFound} status={404} />
       </Route>
-
-      { /* Routes */ }
-      <Route path="babel" component={Babel}/>
-      <Route path="es6" component={ES6}/>
-      <Route path="view" component={View}/>
-      <Route path="login" component={Login}/>
-      <Route path="survey" component={Survey}/>
-      <Route path="widgets" component={Widgets}/>
-
-      { /* Catch all route */ }
-      <Route path="*" component={NotFound} status={404} />
     </Route>
   );
 };
