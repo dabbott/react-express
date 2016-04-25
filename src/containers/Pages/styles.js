@@ -7,6 +7,13 @@ const styles = {
     fontWeight: 100,
   },
 
+  subtitle: {
+    textAlign: 'center',
+    fontSize: 18,
+    fontWeight: 300,
+    paddingTop: 10,
+  },
+
   banner: {
     position: 'absolute',
     top: 0,
@@ -19,6 +26,7 @@ const styles = {
     alignItems: 'center',
     justifyContent: 'center',
     zIndex: -1,
+    flexDirection: 'column',
   },
 
   container: {

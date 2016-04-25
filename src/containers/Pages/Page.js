@@ -25,7 +25,7 @@ export default class Page extends Component {
   }
 
   render() {
-    const {children, title} = this.props
+    const {children, title, subtitle} = this.props
 
     const moveBannerStyle = Object.assign({}, styles.banner, {
       top: - this.state.scrollTop / 1.8,
@@ -35,6 +35,11 @@ export default class Page extends Component {
       <div style={styles.container}>
         <div style={moveBannerStyle}>
           <div style={styles.title}>{title}</div>
+          {
+            subtitle && (
+              <div style={styles.subtitle}>{subtitle}</div>
+            )
+          }
         </div>
         <div ref={'scrollable'} style={styles.content}>
           <div style={styles.scroller}>

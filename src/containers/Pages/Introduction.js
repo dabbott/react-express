@@ -1,20 +1,44 @@
 import React, { Component } from 'react';
 import Page from './Page'
 import styles from './styles'
+import { Link } from 'react-router';
+
+const buttonStyle = {
+  padding: '10px 15px',
+  color: 'white',
+  borderRadius: 3,
+  backgroundColor: 'rgb(54,203,170)',
+  textAlign: 'center',
+  display: 'block',
+}
 
 export default class extends Component {
   render() {
     return (
       <Page
-        title={'Introduction'}>
+        title={'React Native'}
+        subtitle={'Build native, cross-platform apps faster'}>
         <div style={styles.well}>
-          <div style={styles.h3}>Modern JavaScript</div>
+          <div style={styles.h3}>Learning React Native</div>
           <div style={styles.p}>
-            In the old days, you could just include a <code>{`<script>`}</code> tag in the header, and your JavaScript would run as intended. These days, we preprocess our JavaScript in order to access experimental features and language extensions like JSX.
+            React Native is a framework for building cross-platform apps.
           </div>
           <div style={styles.p}>
-            Babel is the main tool used to preprocess JavaScript. Babel is a highly configurable parser that lets you use experimental features and extensions, compiling down into old-style JavaScript that can be supported on a wider range of platforms. Of course, if a native platform doesn't support an ES6 feature like <code>Map()</code>, Babel won't fully be able to help -- but it can in many cases polyfill missing APIs to provide this functionality.
+            Building with React Native is extremely efficient and highly addictive - but getting started can be a little tricky. You should use this guide as a companion to the official Facebook documentation for <a href={'https://facebook.github.io/react-native/docs/getting-started.html'}>
+              getting started
+            </a>.
           </div>
+          <div style={styles.p}>
+            This guide uses the awesome project <a href={'https://github.com/necolas/react-native-web'}>react-native-web</a> to provide interactive examples in your browser.
+          </div>
+          <div style={styles.p}>
+            Additionally, the Facebook guide assumes some existing knowledge about React development for the web. If you run into topics that aren't covered thoroughly, e.g. how Babel works, this guide provides interactive examples for you to play with and learn from.
+          </div>
+        </div>
+        <div style={styles.well}>
+          <Link to={'start'} style={buttonStyle}>
+            Let's get started!
+          </Link>
         </div>
       </Page>
     )
