@@ -52,6 +52,9 @@ const App = () => {
     width: 200,
     height: 200,
     backgroundColor: 'rgb(74,124,226)',
+    borderWidth: 2,
+    borderColor: 'blue',
+    borderRadius: 20,
   }
 
   return (
@@ -59,6 +62,105 @@ const App = () => {
       <View style={boxStyle} />
     </View>
   )
+}
+
+// App registration and rendering
+AppRegistry.registerComponent('MyApp', () => App)`
+
+const flexboxExample = `import React, {
+  Component,
+  AppRegistry,
+  View,
+  Text,
+  TouchableOpacity
+} from 'react-native'
+
+const Toggle = ({value, options, onChange}) => {
+  const style = {
+    flexDirection: 'row',
+  }
+  const textStyle = {
+    fontSize: 14,
+  }
+  const defaultOptionStyle = {
+    padding: 4,
+    backgroundColor: 'whitesmoke',
+  }
+  const activeOptionStyle = Object.assign({}, defaultOptionStyle, {
+    backgroundColor: 'rgba(74,124,226,0.4)',
+  })
+  return (
+    <View style={style}>
+      {options.map((option) => {
+        const optionStyle = option === value ? activeOptionStyle : defaultOptionStyle
+        return (
+          <TouchableOpacity
+            style={optionStyle}
+            onPress={() => onChange(option)}>
+
+          	<Text style={textStyle}>{option}</Text>
+          </TouchableOpacity>
+        )
+      })}
+    </View>
+  )
+}
+
+class App extends Component {
+  constructor() {
+    super()
+    this.state = {
+      flexDirection: 'row',
+      justifyContent: 'center',
+      alignItems: 'center',
+    }
+  }
+  render() {
+    const {flexDirection, alignItems, justifyContent} = this.state
+
+    const style = {
+      flex: 1,
+    }
+
+    const layoutStyle = {
+      flex: 1,
+      flexDirection,
+      justifyContent,
+      alignItems,
+    }
+
+    const boxStyle = {
+      width: 50,
+      height: 50,
+      backgroundColor: 'rgb(74,124,226)',
+      margin: 10,
+    }
+
+    return (
+      <View style={style}>
+        <Toggle
+          value={flexDirection}
+          options={['row', 'column']}
+          onChange={(option) => this.setState({flexDirection: option})}
+        />
+        <Toggle
+          value={justifyContent}
+          options={['flex-start', 'center', 'flex-end', 'space-around', 'space-between']}
+          onChange={(option) => this.setState({justifyContent: option})}
+        />
+        <Toggle
+          value={alignItems}
+          options={['flex-start', 'center', 'flex-end', 'stretch']}
+          onChange={(option) => this.setState({alignItems: option})}
+        />
+        <View style={layoutStyle}>
+          <View style={boxStyle} />
+          <View style={boxStyle} />
+          <View style={boxStyle} />
+        </View>
+      </View>
+    )
+  }
 }
 
 // App registration and rendering
@@ -82,8 +184,15 @@ export default class View extends Component {
             inputHeader={'Using Views'}
           />
           <div style={styles.p}>
-            <code>View</code>s are the building block of React Native apps, much like how <code>div</code>s are the building block of websites.
+            The example above contains two <code>View</code>s: the outer view which specifies the alignment of the content contained within, and the inner view which draws a blue square.
           </div>
+          <div style={styles.p}>
+            Content within a view is layed out using the <b>flexbox</b> algorithm.
+          </div>
+          <EditorPlayer
+            value={flexboxExample}
+            inputHeader={'Flexbox'}
+          />
         </div>
         <div style={styles.well}>
           {this.props.navigatorButton}

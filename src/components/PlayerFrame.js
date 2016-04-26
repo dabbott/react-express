@@ -2,6 +2,11 @@ import React, { Component } from 'react'
 
 export default class extends Component {
 
+  static defaultProps = {
+    height: 600,
+    width: 400,
+  }
+
   constructor(props) {
     super(props)
 
@@ -14,7 +19,7 @@ export default class extends Component {
   }
 
   componentDidMount() {
-    window.onmessage = (e) => {
+    window.addEventListener('message', (e) => {
       let data
       try {
         data = JSON.parse(e.data)
@@ -38,7 +43,7 @@ export default class extends Component {
           break
         default:
       }
-    }
+    })
   }
 
   runApplication(code) {
@@ -54,12 +59,14 @@ export default class extends Component {
   }
 
   render() {
+    const {width, height} = this.props
+
     return (
       <iframe
         ref={'iframe'}
         frameBorder={0}
-        width={300}
-        height={500}
+        width={width}
+        height={height}
         src={`sandbox/${this.state.id}`}
       />
     )

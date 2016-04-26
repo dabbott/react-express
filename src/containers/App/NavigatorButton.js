@@ -26,10 +26,12 @@ export default class extends Component {
     return (
       <div style={style}>
         {
-          previousSection && (
+          previousSection ? (
             <Link to={previousSection[1]} style={itemStyle}>
               Previous - {previousSection[0]}
             </Link>
+          ) : (
+            <div />
           )
         }
         {

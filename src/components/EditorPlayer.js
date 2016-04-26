@@ -5,6 +5,9 @@ import { options, requireAddons } from '../constants/CodeMirror'
 
 const Babel = require('babel-standalone')
 
+const playerWidth = 400
+const editorHeight = 600
+
 const widgetContainerStyle = {
   margin: '20px 0px 30px 0px',
   display: 'flex',
@@ -17,7 +20,7 @@ const widgetContainerStyle = {
 const widgetStyle = {
   // width: 'calc(50%)',
   // display: 'inline-block',
-  flex: '0 0 calc(100% - 300px)',
+  flex: `0 0 calc(100% - ${playerWidth}px)`,
   // position: 'relative',
   minWidth: 0,
   minHeight: 0,
@@ -27,7 +30,7 @@ const widgetStyle = {
 }
 
 const playerContainerStyle = {
-  flex: '0 0 300px',
+  flex: `0 0 ${playerWidth}px`,
   minWidth: 0,
   minHeight: 0,
   display: 'flex',
@@ -84,7 +87,7 @@ export default class EditorTranspiler extends Component {
         this.runApplication(cm)
       })
 
-      this.cm1.setSize('100%', '500')
+      this.cm1.setSize('100%', '' + editorHeight)
 
       this.runApplication(this.cm1)
     }
@@ -138,11 +141,13 @@ export default class EditorTranspiler extends Component {
       <div style={widgetContainerStyle}>
         <div style={widgetStyle}>
           <div style={cmHeaderStyle}>{inputHeader}</div>
-          <div style={{height: 500}} ref={'editor'} />
+          <div style={{height: editorHeight}} ref={'editor'} />
         </div>
         <div style={playerContainerStyle}>
           {this.renderError()}
           <PlayerFrame ref={'player'}
+            width={playerWidth}
+            height={editorHeight}
             onRun={() => {
               this.setState({runtimeError: null})
             }}

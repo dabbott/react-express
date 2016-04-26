@@ -25,10 +25,15 @@ export default class Page extends Component {
   }
 
   render() {
-    const {children, title, subtitle} = this.props
+    const {children, title, subtitle, bannerHeight} = this.props
 
     const moveBannerStyle = Object.assign({}, styles.banner, {
       top: - this.state.scrollTop / 1.8,
+      height: bannerHeight || 200,
+    })
+
+    const contentStyle = Object.assign({}, styles.content, {
+      paddingTop: bannerHeight || 200,
     })
 
     return (
@@ -41,7 +46,7 @@ export default class Page extends Component {
             )
           }
         </div>
-        <div ref={'scrollable'} style={styles.content}>
+        <div ref={'scrollable'} style={contentStyle}>
           <div style={styles.scroller}>
             {children}
           </div>

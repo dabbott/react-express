@@ -21,7 +21,7 @@ const screenStyle = {
 
 export default class Phone extends Component {
   static defaultProps = {
-    height: 450,
+    height: 600,
   }
 
   getScreenNode() {
