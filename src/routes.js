@@ -25,6 +25,7 @@ import GettingStarted from 'containers/Pages/GettingStarted';
 import JSX from 'containers/Pages/JSX';
 import CoreComponents from 'containers/Pages/CoreComponents';
 import Flexbox from 'containers/Pages/Flexbox';
+import Text from 'containers/Pages/Text';
 
 export default (store) => {
   const requireLogin = (nextState, replace, cb) => {
@@ -73,6 +74,7 @@ export default (store) => {
         <Route path="flexbox" component={Flexbox}/>
         <Route path="jsx" component={JSX}/>
         <Route path="view" component={View}/>
+        <Route path="text" component={Text}/>
         <Route path="login" component={Login}/>
         <Route path="survey" component={Survey}/>
         <Route path="start" component={GettingStarted}/>
