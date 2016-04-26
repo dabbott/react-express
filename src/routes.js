@@ -22,6 +22,8 @@ import ComponentAPI from 'containers/Pages/ComponentAPI';
 import LifecycleAPI from 'containers/Pages/LifecycleAPI';
 import Introduction from 'containers/Pages/Introduction';
 import GettingStarted from 'containers/Pages/GettingStarted';
+import JSX from 'containers/Pages/JSX';
+import CoreComponents from 'containers/Pages/CoreComponents';
 
 export default (store) => {
   const requireLogin = (nextState, replace, cb) => {
@@ -64,8 +66,10 @@ export default (store) => {
         <Route path="babel" component={Babel}/>
         <Route path="components" component={ComponentPage}/>
         <Route path="component_api" component={ComponentAPI}/>
+        <Route path="core_components" component={CoreComponents}/>
         <Route path="lifecycle_api" component={LifecycleAPI}/>
         <Route path="es6" component={ES6}/>
+        <Route path="jsx" component={JSX}/>
         <Route path="view" component={View}/>
         <Route path="login" component={Login}/>
         <Route path="survey" component={Survey}/>
