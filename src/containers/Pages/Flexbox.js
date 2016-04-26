@@ -70,22 +70,25 @@ class App extends Component {
       margin: 10,
     }
 
+    const primaryAxis = flexDirection === 'row' ? 'Horizontal' : 'Vertical'
+    const secondaryAxis = flexDirection === 'row' ? 'Vertical' : 'Horizontal'
+
     return (
       <View style={style}>
         <Toggle
-          label={'flexDirection'}
+          label={'Primary axis (flexDirection)'}
           value={flexDirection}
           options={['row', 'column']}
           onChange={(option) => this.setState({flexDirection: option})}
         />
         <Toggle
-          label={'justifyContent'}
+          label={primaryAxis + ' distribution (justifyContent)'}
           value={justifyContent}
           options={['flex-start', 'center', 'flex-end', 'space-around', 'space-between']}
           onChange={(option) => this.setState({justifyContent: option})}
         />
         <Toggle
-          label={'alignItems'}
+          label={secondaryAxis + ' alignment (alignItems)'}
           value={alignItems}
           options={['flex-start', 'center', 'flex-end', 'stretch']}
           onChange={(option) => this.setState({alignItems: option})}

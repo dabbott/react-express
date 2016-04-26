@@ -139,7 +139,6 @@ export default class ES6 extends Component {
           <div style={styles.p}>
             For full details on the importing/exporting syntax, see the MDN reference for <a href={'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import'}>import</a> and <a href={'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/export'}>export</a>.
           </div>
-          <div style={styles.h4}>Classes</div>
         </div>
         <div style={styles.well}>
           {this.props.navigatorButton}

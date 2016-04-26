@@ -15,8 +15,8 @@ const sections = [
     ['Flexbox', 'flexbox'],
     ['View', 'view'],
     ['Text', 'text'],
-    ['Image', 'image'],
-    ['ScrollView', 'scrollview'],
+    // ['Image', 'image'],
+    // ['ScrollView', 'scrollview'],
   ],
   // [
   //   ['Organizing Data', 'data'], [
