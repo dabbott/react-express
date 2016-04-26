@@ -128,8 +128,8 @@ export default class View extends Component {
             <tbody>
               <tr>
                 <td><code>flexDirection</code></td>
-                <td><code>'column'</code></td>
-                <td><code>'row', 'column'</code></td>
+                <td><code>column</code></td>
+                <td><code>row, column</code></td>
                 <td>Do you want a vertical (<code>column</code>) or horizontal (<code>row</code>) layout?. This choice determines the orientation of the <b>primary axis</b> of your layout.</td>
               </tr>
               <tr>
