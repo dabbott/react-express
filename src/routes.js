@@ -24,6 +24,7 @@ import Introduction from 'containers/Pages/Introduction';
 import GettingStarted from 'containers/Pages/GettingStarted';
 import JSX from 'containers/Pages/JSX';
 import CoreComponents from 'containers/Pages/CoreComponents';
+import Flexbox from 'containers/Pages/Flexbox';
 
 export default (store) => {
   const requireLogin = (nextState, replace, cb) => {
@@ -69,6 +70,7 @@ export default (store) => {
         <Route path="core_components" component={CoreComponents}/>
         <Route path="lifecycle_api" component={LifecycleAPI}/>
         <Route path="es6" component={ES6}/>
+        <Route path="flexbox" component={Flexbox}/>
         <Route path="jsx" component={JSX}/>
         <Route path="view" component={View}/>
         <Route path="login" component={Login}/>

@@ -16,7 +16,7 @@ export default class extends Component {
             Nearly all the core components extend the <code>View</code> component, and can be passed an optional <code>style</code> prop. The style can include visual properties like colors and borders, as well as layout properties. Components use the flexbox algorithm to specify the layout of their children.
           </div>
           <div style={styles.p}>
-            Let's take a more in-depth look at some of the most common core components.
+            Let's take a more in-depth look at the flexbox algorithm and some of the most common core components.
           </div>
         </div>
         <div style={styles.well}>

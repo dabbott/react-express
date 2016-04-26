@@ -12,6 +12,7 @@ const sections = [
   ],
   [
     ['Core Components', 'core_components'],
+    ['Flexbox', 'flexbox'],
     ['View', 'view'],
     ['Text', 'text'],
     ['Image', 'image'],
