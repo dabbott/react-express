@@ -4,13 +4,7 @@
  *  ie: import { CounterButton, InfoBar } from 'components';
  *
  */
-
-export CounterButton from './CounterButton/CounterButton';
 export GithubButton from './GithubButton/GithubButton';
-export InfoBar from './InfoBar/InfoBar';
-export MiniInfoBar from './MiniInfoBar/MiniInfoBar';
-export SurveyForm from './SurveyForm/SurveyForm';
-export WidgetForm from './WidgetForm/WidgetForm';
 export EditorTranspiler from './EditorTranspiler';
 export Phone from './Phone';
 export Player from './Player';
