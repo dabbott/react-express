@@ -34,7 +34,7 @@ export default class Html extends Component {
           {head.script.toComponent()}
           <script src="https://use.typekit.net/ntm8fov.js"></script>
           <script>{`try{Typekit.load({ async: true });}catch(e){}`}</script>
-          <link rel="shortcut icon" href="/favicon.ico" />
+          <link rel="shortcut icon" href="/favicon.ico?v=2" />
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           {/* styles (will be present only in production with webpack extract text plugin) */}
           {Object.keys(assets.styles).map((style, key) =>
