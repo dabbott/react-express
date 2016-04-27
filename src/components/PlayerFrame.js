@@ -11,7 +11,7 @@ export default class extends Component {
     super(props)
 
     this.state = {
-      id: Math.random().toString().slice(2)
+      id: null,
     }
 
     this.status = 'loading'
@@ -19,6 +19,10 @@ export default class extends Component {
   }
 
   componentDidMount() {
+    this.setState({
+      id: Math.random().toString().slice(2)
+    })
+
     window.addEventListener('message', (e) => {
       let data
       try {
@@ -60,14 +64,15 @@ export default class extends Component {
 
   render() {
     const {width, height} = this.props
+    const {id} = this.state
 
-    return (
+    return id && (
       <iframe
         ref={'iframe'}
         frameBorder={0}
         width={width}
         height={height}
-        src={`sandbox/${this.state.id}`}
+        src={`sandbox/${id}`}
       />
     )
   }

@@ -19,7 +19,8 @@
     "no-alert": 0,
     "semi": 0,
     "id-length": 0,
-    "no-eval": 0
+    "no-eval": 0,
+    "react/no-did-mount-set-state": 0
   },
   "plugins": [
     "react", "import"
@@ -34,7 +35,7 @@
     "__DEVELOPMENT__": true,
     "__CLIENT__": true,
     "__SERVER__": true,
-    "__DISABLE_SSR__": true,
+    "__DISABLE_SSR__": false,
     "__DEVTOOLS__": true,
     "socket": true,
     "webpackIsomorphicTools": true

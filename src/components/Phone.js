@@ -42,7 +42,7 @@ export default class Phone extends Component {
     const phoneStyle = {
       width: dimensions.deviceImageWidth,
       height: dimensions.deviceImageHeight,
-      backgroundImage: `url(/iphone-6-silver.png)`,
+      backgroundImage: `url(https://cdn.rawgit.com/koenbok/Framer/master/extras/DeviceResources/iphone-6-silver.png)`,
       transform: `scale3d(${scale}, ${scale}, 1)`,
       transformOrigin: '0 0 0px',
       display: 'flex',
