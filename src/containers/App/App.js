@@ -15,6 +15,8 @@ import { asyncConnect } from 'redux-async-connect';
 import Sidebar from './Sidebar'
 import NavigatorButton from './NavigatorButton'
 import { getNextSection, getPreviousSection } from '../../constants/Sections'
+import config from '../../config'
+import Helmet from 'react-helmet'
 
 const innerStyle = {
   flex: '1 1 auto',
@@ -118,6 +120,7 @@ export default class App extends Component {
 
     return (
       <div style={style}>
+        <Helmet {...config.app.head}/>
         <div style={innerStyle}>
           <Sidebar style={sidebarStyle} />
           <div style={contentStyle}>

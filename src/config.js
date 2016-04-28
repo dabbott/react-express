@@ -30,8 +30,8 @@ module.exports = Object.assign({
         {property: 'og:card', content: 'summary'},
         {property: 'og:site', content: '@devinaabbott'},
         {property: 'og:creator', content: '@devinaabbott'},
-        {property: 'og:image:width', content: '200'},
-        {property: 'og:image:height', content: '200'}
+        {property: 'og:image:width', content: '256'},
+        {property: 'og:image:height', content: '256'}
       ]
     }
   },
