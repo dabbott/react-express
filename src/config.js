@@ -23,7 +23,7 @@ module.exports = Object.assign({
         {name: 'description', content: 'The fastest way to learn React Native.'},
         {charset: 'utf-8'},
         {property: 'og:site_name', content: 'React Native Express'},
-        {property: 'og:image', content: 'https://react-redux.herokuapp.com/logo.jpg'},
+        {property: 'og:image', content: 'https://www.reactnativeexpress.com/logo.png'},
         {property: 'og:locale', content: 'en_US'},
         {property: 'og:title', content: 'React Native Express'},
         {property: 'og:description', content: 'The fastest way to learn React Native.'},

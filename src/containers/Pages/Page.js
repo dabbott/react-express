@@ -25,7 +25,7 @@ export default class Page extends Component {
   }
 
   render() {
-    const {children, title, subtitle, bannerHeight} = this.props
+    const {children, title, subtitle, bannerHeight, logo} = this.props
 
     const moveBannerStyle = Object.assign({}, styles.banner, {
       top: - this.state.scrollTop / 1.8,
@@ -43,6 +43,15 @@ export default class Page extends Component {
           {
             subtitle && (
               <div style={styles.subtitle}>{subtitle}</div>
+            )
+          }
+          {
+            logo && (
+              <img
+                style={{paddingTop: 40}}
+                src={`${logo}.png`}
+                srcSet={`${logo}.png 1x, ${logo}@2x.png 2x`}
+              />
             )
           }
         </div>

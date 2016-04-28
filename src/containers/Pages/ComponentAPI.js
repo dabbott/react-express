@@ -1,6 +1,54 @@
 import React, { Component } from 'react';
 import Page from './Page'
 import styles from './styles'
+import { EditorPlayer } from '../../components'
+
+const defaultValue = `import React, { AppRegistry, View, Component, Text } from 'react-native'
+
+class Counter extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      count: 0,
+    }
+  }
+  componentDidMount() {
+    setInterval(() => {
+      this.setState({count: this.state.count + 1})
+    }, 1000)
+  }
+  render() {
+    const {count} = this.state
+    const {color, size} = this.props
+    const style = {
+      fontSize: size,
+      color,
+    }
+
+    return (
+      <Text style={style}>
+        {count}
+      </Text>
+    )
+  }
+}
+
+const App = () => {
+  const style = {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  }
+
+  return (
+    <View style={style}>
+      <Counter color={'teal'} size={32} />
+    </View>
+  )
+}
+
+// App registration and rendering
+AppRegistry.registerComponent('MyApp', () => App)`
 
 export default class extends Component {
   render() {
@@ -27,6 +75,20 @@ export default class extends Component {
           <div style={styles.p}>
             <code>Components</code> may update their <code>state</code> by passing an object to the method <code>this.setState()</code>. Any keys in the object passed to the method will be merged into (and override any existing keys in) <code>this.state</code>.
           </div>
+        </div>
+        <div style={styles.well}>
+          <div style={styles.h3}>Example</div>
+          <div style={styles.p}>
+            The following example includes a <code>Counter</code> component that maintains the elapsed time internally as <code>state.count</code>. The <code>App</code> component renders a <code>Counter</code> with two <code>props</code>: <code>size</code> and <code>color</code>.
+          </div>
+          <EditorPlayer
+            value={defaultValue}
+            inputHeader={
+              <div>
+                Using <code style={styles.cmHeaderCode}>props</code> and <code style={styles.cmHeaderCode}>state</code>
+              </div>
+            }
+          />
         </div>
         <div style={styles.well}>
           {this.props.navigatorButton}

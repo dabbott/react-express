@@ -5,6 +5,7 @@ const styles = {
     textAlign: 'center',
     fontSize: 60,
     fontWeight: 100,
+    color: 'rgb(38, 48, 83)',
   },
 
   subtitle: {
@@ -12,6 +13,7 @@ const styles = {
     fontSize: 18,
     fontWeight: 300,
     paddingTop: 10,
+    color: 'rgb(38, 48, 83)',
   },
 
   banner: {

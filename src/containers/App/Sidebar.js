@@ -63,7 +63,7 @@ export default class Sidebar extends Component {
     return (
       <div style={style}>
         <IndexLink to={'/'}>
-          <h4 style={sidebarTitleStyle}>Learn React Native</h4>
+          <h4 style={sidebarTitleStyle}>React Native Express</h4>
         </IndexLink>
         <div style={{overflowY: 'auto', paddingTop: 30}}>
           {SECTIONS.map((subsections, i) => {

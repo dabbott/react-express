@@ -16,9 +16,10 @@ export default class extends Component {
   render() {
     return (
       <Page
-        title={'React Native'}
-        subtitle={'Build native, cross-platform apps faster'}
-        bannerHeight={400}>
+        title={'React Native Express'}
+        subtitle={'Learn React Native, the cross-platform app framework'}
+        logo={'logo'}
+        bannerHeight={560}>
         <div style={styles.well}>
           <div style={styles.h3}>Learning React Native</div>
           <div style={styles.p}>
