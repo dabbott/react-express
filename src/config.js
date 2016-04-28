@@ -25,7 +25,7 @@ module.exports = Object.assign({
         {property: 'og:type', content: 'article'},
         {property: 'og:url', content: 'http://www.reactnativeexpress.com/'},
         {property: 'og:site_name', content: 'React Native Express'},
-        {property: 'og:image', content: 'https://www.reactnativeexpress.com/logo@2x.png'},
+        {property: 'og:image', content: 'http://www.reactnativeexpress.com/logo@2x.png'},
         {property: 'og:locale', content: 'en_US'},
         {property: 'og:title', content: 'React Native Express'},
         {property: 'og:description', content: 'Learn React Native with interactive examples.'},
