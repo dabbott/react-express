@@ -1,12 +1,28 @@
 import { createStore as _createStore, applyMiddleware, compose } from 'redux';
 import createMiddleware from './middleware/clientMiddleware';
 import { syncHistory } from 'react-router-redux';
+import ga from 'react-ga'
+
+if (typeof window !== 'undefined') {
+  ga.initialize('UA-77053427-1')
+}
 
 export default function createStore(history, client, data) {
   // Sync dispatched route actions to the history
   const reduxRouterMiddleware = syncHistory(history);
 
-  const middleware = [createMiddleware(client), reduxRouterMiddleware];
+  function logPathChange() {
+    return (next) =>
+      (action) => {
+        if (action.type === '@@router/UPDATE_LOCATION') {
+          console.info(`Route Changed: ${action.payload.pathname}`);
+          ga.pageview(action.payload.pathname);
+        }
+        return next(action);
+      };
+  }
+
+  const middleware = [createMiddleware(client), reduxRouterMiddleware, logPathChange]
 
   let finalCreateStore;
   if (__DEVELOPMENT__ && __CLIENT__ && __DEVTOOLS__) {
