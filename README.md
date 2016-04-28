@@ -25,10 +25,10 @@ npm run start
 
 ## Demo
 
-The production version of this app is running [here](https://www.reactnativeexpress.com).
+The production version of this app is running [here](http://www.reactnativeexpress.com).
 
 ## Contributing
 
 Please contribute!
 
-– Devin Abbott, [@devinaabbott](https://twitter.com/devinaabbott)
+– Devin Abbott, [@devinaabbott](http://twitter.com/devinaabbott)
