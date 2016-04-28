@@ -31,4 +31,11 @@ The production version of this app is running [here](http://www.reactnativeexpre
 
 Please contribute!
 
-– Devin Abbott, [@devinaabbott](http://twitter.com/devinaabbott)
+## License
+
+MIT, Copyright (c) 2016 Devin Abbott
+
+This project is based on the starter template: https://github.com/erikras/react-redux-universal-hot-example
+MIT, Copyright (c) 2015 Erik Rasmussen
+
+- Devin Abbott, [@devinaabbott](http://twitter.com/devinaabbott)
