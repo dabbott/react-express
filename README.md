@@ -33,9 +33,17 @@ Please contribute!
 
 ## License
 
-MIT, Copyright (c) 2016 Devin Abbott
+MIT
 
-This project is based on the starter template: https://github.com/erikras/react-redux-universal-hot-example
+Copyright (c) 2016 Devin Abbott
+
+
+This project is based on the starter template:
+
+https://github.com/erikras/react-redux-universal-hot-example
+
 MIT, Copyright (c) 2015 Erik Rasmussen
 
-- Devin Abbott, [@devinaabbott](http://twitter.com/devinaabbott)
+## Author
+
+Devin Abbott, [@devinaabbott](http://twitter.com/devinaabbott)
