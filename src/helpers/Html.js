@@ -35,7 +35,7 @@ export default class Html extends Component {
           <script src="https://use.typekit.net/ntm8fov.js"></script>
           <script>{`try{Typekit.load({ async: true });}catch(e){}`}</script>
           <link rel="shortcut icon" href="/favicon.ico?v=3" />
-          <meta name="viewport" content="width=device-width, initial-scale=1" />
+          {/* <meta name="viewport" content="width=device-width, initial-scale=1" /> */}
           {/* styles (will be present only in production with webpack extract text plugin) */}
           {Object.keys(assets.styles).map((style, key) =>
             <link href={assets.styles[style]} key={key} media="screen, projection"
