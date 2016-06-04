@@ -30,9 +30,6 @@ export default class extends Component {
             JSX is tag-based like XML. Each tag, like <code>{'<View />'}</code>, is transformed into a call to <code>React.createElement()</code>. Any attributes become <code>props</code> of the instantiated component. Attributes can be strings like <code>foo='hello'</code>, or they can be interpolated JavaScript expressions when wrapped in curly braces as in <code>{'bar={baz}'}</code> (which would refer to the variable baz).
           </div>
           <div style={styles.p}>
-            Each tag, like <code>View</code>, is transformed into a call to <code>React.createElement()</code>. Any attributes become <code>props</code> of the instantiated component. Attributes can be strings like <code>foo='hello'</code>, or they can be interpolated JavaScript expressions when wrapped in curly braces as in <code>{'bar={baz}'}</code> (which would refer to the variable baz).
-          </div>
-          <div style={styles.p}>
             Tags can be self-closing, like <code>{'<View />'}</code>, or they can include both an opening and closing tag, like <code>{'<View></View>'}</code>. To include children elements, you will need to use an opening and closing tag and put the children tags within.
           </div>
           <EditorTranspiler
