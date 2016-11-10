@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import Page from './Page'
 import styles from './styles'
-import { EditorPlayer } from '../../components'
+import { WebPlayer } from '../../components'
 
-const defaultValue = `import React, { AppRegistry, View, Text } from 'react-native'
+const code = `import React from 'react'
+import { AppRegistry, View, Text } from 'react-native'
 
 const App = () => {
   const style = {
@@ -14,7 +15,7 @@ const App = () => {
 
   const textStyle = {
     backgroundColor: 'whitesmoke',
-    color: 'teal',
+    color: '#4A90E2',
     fontSize: 24,
     padding: 10,
   }
@@ -39,10 +40,7 @@ export default class View extends Component {
           <div style={styles.p}>
             <code>Text</code> is used to render text. Unlike on the web, text <i>must</i> be wrapped in a <code>{'<Text>'}</code> component.
           </div>
-          <EditorPlayer
-            value={defaultValue}
-            inputHeader={'Using Text'}
-          />
+          <WebPlayer code={code} />
         </div>
         <div style={styles.well}>
           {this.props.navigatorButton}

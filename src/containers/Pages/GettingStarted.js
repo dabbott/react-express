@@ -1,23 +1,24 @@
 import React, { Component } from 'react';
 import Page from './Page'
 import styles from './styles'
-import { EditorPlayer } from '../../components'
+import { WebPlayer } from '../../components'
 import { Link } from 'react-router'
 
-const defaultValue = `/**
+const code = `/**
  * Sample React Native App
  * https://github.com/facebook/react-native
+ * @flow
  */
 
-import React, {
+import React, { Component } from 'react';
+import {
   AppRegistry,
-  Component,
   StyleSheet,
   Text,
   View
 } from 'react-native';
 
-class App extends Component {
+export default class Project extends Component {
   render() {
     return (
       <View style={styles.container}>
@@ -55,7 +56,7 @@ const styles = StyleSheet.create({
   },
 });
 
-AppRegistry.registerComponent('MyApp', () => App);`
+AppRegistry.registerComponent('Project', () => Project);`
 
 export default class extends Component {
   render() {
@@ -78,10 +79,7 @@ export default class extends Component {
           <div style={styles.p}>
             When you create a new React Native app, it will look like this:
           </div>
-          <EditorPlayer
-            value={defaultValue}
-            inputHeader={'Hello World'}
-          />
+          <WebPlayer code={code} />
           <div style={styles.p}>
             You may notice the code doesn't look like the JavaScript you write currently. This is because it uses new language features (ES6 imports, classes, block-scoped variable declarations) and the JSX language extension.
           </div>

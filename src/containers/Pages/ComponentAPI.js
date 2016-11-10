@@ -1,22 +1,25 @@
 import React, { Component } from 'react';
 import Page from './Page'
 import styles from './styles'
-import { EditorPlayer } from '../../components'
+import { WebPlayer } from '../../components'
 
-const defaultValue = `import React, { AppRegistry, View, Component, Text } from 'react-native'
+const code = `import React, { Component } from 'react'
+import { AppRegistry, View, Text } from 'react-native'
 
-class Counter extends Component {
+export default class Counter extends Component {
   constructor(props) {
     super(props)
     this.state = {
       count: 0,
     }
   }
+
   componentDidMount() {
     setInterval(() => {
       this.setState({count: this.state.count + 1})
     }, 1000)
   }
+
   render() {
     const {count} = this.state
     const {color, size} = this.props
@@ -42,7 +45,7 @@ const App = () => {
 
   return (
     <View style={style}>
-      <Counter color={'teal'} size={32} />
+      <Counter color={'#4A90E2'} size={32} />
     </View>
   )
 }
@@ -81,14 +84,7 @@ export default class extends Component {
           <div style={styles.p}>
             The following example includes a <code>Counter</code> component that maintains the elapsed time internally as <code>state.count</code>. The <code>App</code> component renders a <code>Counter</code> with two <code>props</code>: <code>size</code> and <code>color</code>.
           </div>
-          <EditorPlayer
-            value={defaultValue}
-            inputHeader={
-              <div>
-                Using <code style={styles.cmHeaderCode}>props</code> and <code style={styles.cmHeaderCode}>state</code>
-              </div>
-            }
-          />
+          <WebPlayer code={code} />
         </div>
         <div style={styles.well}>
           {this.props.navigatorButton}

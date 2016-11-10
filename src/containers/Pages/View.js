@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import Page from './Page'
 import styles from './styles'
-import { EditorPlayer } from '../../components'
+import { WebPlayer } from '../../components'
 
-const defaultValue = `import React, { AppRegistry, View } from 'react-native'
+const code = `import React from 'react'
+import { AppRegistry, View } from 'react-native'
 
 const App = () => {
   const style = {
@@ -44,10 +45,7 @@ export default class View extends Component {
           <div style={styles.p}>
             <code>View</code>s are primarily used for styling and layout of children elements. Let's look at a few of the styles we can apply to views. The example below contains two <code>View</code>s: the outer view which specifies the alignment of the content contained within, and the inner view which draws a blue square.
           </div>
-          <EditorPlayer
-            value={defaultValue}
-            inputHeader={'Using Views'}
-          />
+          <WebPlayer code={code} />
           <div style={styles.p}>
             Below you can find the most common styles. Feel free to experiment with them in the example code.
           </div>

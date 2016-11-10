@@ -1,15 +1,10 @@
 import React, { Component } from 'react';
 import Page from './Page'
 import styles from './styles'
-import { EditorPlayer } from '../../components'
+import { WebPlayer } from '../../components'
 
-const flexboxExample = `import React, {
-  Component,
-  AppRegistry,
-  View,
-  Text,
-  TouchableOpacity
-} from 'react-native'
+const flexboxExample = `import React, { Component } from 'react'
+import { AppRegistry, View, Text, TouchableOpacity } from 'react-native'
 
 const Toggle = ({value, options, label, onChange}) => {
   const textStyle = {
@@ -25,7 +20,7 @@ const Toggle = ({value, options, label, onChange}) => {
   return (
     <View style={{flexDirection: 'column', paddingBottom: 20,}}>
       <Text style={[textStyle, {padding: 4}]}>{label}</Text>
-      <View style={{flexDirection: 'row'}}>
+      <View style={{flexDirection: 'row', flexWrap: 'wrap'}}>
         {options.map((option) => {
           const optionStyle = option === value ? activeOptionStyle : defaultOptionStyle
           return (
@@ -62,6 +57,7 @@ class App extends Component {
       flexDirection,
       justifyContent,
       alignItems,
+      backgroundColor: 'rgba(0,0,0,0.05)',
     }
 
     const boxStyle = {
@@ -152,10 +148,7 @@ export default class View extends Component {
           <div style={styles.p}>
             The following example lets you try all the possible combinations of flexbox properties and layouts.
           </div>
-          <EditorPlayer
-            value={flexboxExample}
-            inputHeader={'Flexbox'}
-          />
+          <WebPlayer code={flexboxExample} />
         </div>
         <div style={styles.well}>
           {this.props.navigatorButton}
