@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { Link, IndexLink } from 'react-router';
-import SECTIONS from '../../constants/Sections'
+import { chapters } from '../../constants/Sections'
 
 const sidebarTitleStyle = {
   fontSize: 18,
@@ -25,6 +25,12 @@ const rowStyle = {
   margin: 0,
 }
 
+const patchRowStyle = {
+  ...rowStyle,
+  fontSize: 14,
+  paddingLeft: 50,
+}
+
 const numeralStyle = {
   flex: '0 0 50px',
 }
@@ -37,27 +43,43 @@ const dotStyle = {
   backgroundColor: '#DEDFE8',
 }
 
+const linkStyle = {
+  textDecoration: 'underline',
+  fontWeight: 500,
+}
+
 export default class Sidebar extends Component {
   static propTypes = {
     style: PropTypes.object,
   }
 
-  renderRow(numeral, title) {
+  renderRow = ({title, slug, depth, major, minor, patch}) => {
+    let numeral = `${major}`
+
+    if (depth >= 1) {
+      numeral += `.${minor}`
+    }
+
+    if (depth >= 2) {
+      numeral += `.${patch}`
+    }
+
+    const majorOrMinor = depth === 0 || depth === 1
+
     return (
-      <div style={rowStyle}>
-        <span style={numeralStyle}>{numeral}</span>
-        <Link to={title[1]}
-          activeStyle={{
-            textDecoration: 'underline',
-            fontWeight: 500,
-          }}>
+      <div style={majorOrMinor ? rowStyle : patchRowStyle}>
+        <span style={numeralStyle}>
+          {majorOrMinor ? numeral : ''}
+        </span>
+        <Link to={slug} activeStyle={linkStyle}>
           <span style={{color: '#263053'}}>
-            {title[0]}
+            {title}
           </span>
         </Link>
       </div>
     )
   }
+
   render() {
     const {style} = this.props
     return (
@@ -66,12 +88,12 @@ export default class Sidebar extends Component {
           <h4 style={sidebarTitleStyle}>React Native Express</h4>
         </IndexLink>
         <div style={{overflowY: 'auto', paddingTop: 30}}>
-          {SECTIONS.map((subsections, i) => {
+          {chapters.map(group => {
+            const [first, ...rest] = group
+
             return [
-              this.renderRow(i + 1, subsections[0]),
-              ...subsections.slice(1).map((subtitle, j) => {
-                return this.renderRow(`${i + 1}.${j + 1}`, subtitle)
-              }),
+              this.renderRow(first),
+              rest.map(this.renderRow),
               <div style={{height: 60, alignItems: 'center', justifyContent: 'center', display: 'flex'}}>
                 <span style={dotStyle} />
               </div>,

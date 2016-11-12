@@ -27,8 +27,8 @@ export default class extends Component {
       <div style={style}>
         {
           previousSection ? (
-            <Link to={previousSection[1]} style={itemStyle}>
-              Previous - {previousSection[0]}
+            <Link to={previousSection.slug} style={itemStyle}>
+              Previous - {previousSection.title}
             </Link>
           ) : (
             <div />
@@ -36,8 +36,8 @@ export default class extends Component {
         }
         {
           nextSection && (
-            <Link to={nextSection[1]} style={nextItemStyle}>
-              Next - {nextSection[0]}
+            <Link to={nextSection.slug} style={nextItemStyle}>
+              Next - {nextSection.title}
             </Link>
           )
         }

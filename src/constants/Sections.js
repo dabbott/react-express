@@ -1,98 +1,86 @@
-const sections = [
-  [
-    ['Getting Started', 'start'],
-    ['Babel', 'babel'],
-    ['ES6', 'es6'],
-    ['JSX', 'jsx'],
-  ],
-  [
-    ['Components', 'components'],
-    ['Component API', 'component_api'],
-    ['Lifecycle API', 'lifecycle_api'],
-  ],
-  [
-    ['Core Components', 'core_components'],
-    ['Flexbox', 'flexbox'],
-    ['View', 'view'],
-    ['Text', 'text'],
-    // ['Image', 'image'],
-    // ['ScrollView', 'scrollview'],
-  ],
-  // [
-  //   ['Organizing Data', 'data'], [
-  //     ['Flux', 'flux'],
-  //     ['Redux', 'redux'],
-  //   ]
-  // ],
-  // [
-  //   ['Persistence', 'persistence'], [
-  //     ['AsyncStorage', 'asyncstorage'],
-  //     ['Firebase', 'firebase'],
-  //   ]
-  // ],
+let sections = [
+  {depth: 0, title: 'Getting Started', slug: 'start'},
+  {depth: 1, title: 'Babel', slug: 'babel'},
+  {depth: 1, title: 'ES6', slug: 'es6'},
+  {depth: 1, title: 'JSX', slug: 'jsx'},
+
+  {depth: 0, title: 'Components', slug: 'components'},
+  {depth: 1, title: 'Component API', slug: 'component_api'},
+  {depth: 1, title: 'Lifecycle API', slug: 'lifecycle_api'},
+
+  {depth: 0, title: 'Core Components', slug: 'core_components'},
+  {depth: 1, title: 'Flexbox', slug: 'flexbox'},
+  {depth: 1, title: 'View', slug: 'view'},
+  {depth: 1, title: 'Text', slug: 'text'},
+  {depth: 1, title: 'Image', slug: 'image'},
+  {depth: 1, title: 'ScrollView', slug: 'scrollview'},
+  {depth: 1, title: 'ListView', slug: 'listview'},
+
+  {depth: 0, title: 'Data Management', slug: 'data'},
+  {depth: 1, title: 'Component State', slug: 'data_component_state'},
+  {depth: 1, title: 'Redux Basics', slug: 'redux'},
+  {depth: 2, title: 'React Redux', slug: 'react_redux'},
+  {depth: 2, title: 'Async Control Flow', slug: 'redux_async'},
+  {depth: 1, title: 'Realm', slug: 'realm'},
+  {depth: 1, title: 'Firebase', slug: 'firebase_data'},
+
+  {depth: 0, title: 'Persistence', slug: 'persistence'},
+  {depth: 1, title: 'AsyncStorage', slug: 'asyncstorage'},
+  {depth: 1, title: 'Redux Persist', slug: 'redux_persist'},
+
+  {depth: 0, title: 'Boilerplates', slug: 'boilerplates'},
+  {depth: 1, title: 'Ignite', slug: 'ignite'},
 ]
+
+sections = sections.reduce((acc, section) => {
+  let {major, minor, patch} = acc
+  const {depth} = section
+
+  if (depth === 0) {
+    major++
+    minor = 0
+    patch = 0
+  } else if (depth === 1) {
+    minor++
+    patch = 0
+  } else {
+    patch++
+  }
+
+  acc.sections.push({...section, major, minor, patch})
+
+  return {...acc, major, minor, patch}
+}, {sections: [], major: 0, minor: 0, patch: 0}).sections
 
 export default sections
 
 const matches = (path, section) => {
-  return path.endsWith(section[1])
+  return path.endsWith(section.slug)
 }
 
-const getSectionIndex = (path) => {
-  let major = -1
-  let minor = -1
+export const getSection = (path, offset) => {
+  const index = sections.findIndex(section => matches(path, section))
 
-  sections.forEach((subsections, i) => {
-    subsections.forEach((subSection, j) => {
-      if (matches(path, subSection)) {
-        major = i
-        minor = j
-        return false
-      }
-    })
-  })
+  if (index === -1) return null
 
-  return [major, minor]
+  return sections[index + offset]
 }
 
-export const getSection = (path) => {
-  const [major, minor] = getSectionIndex(path)
+export const getNextSection = (path) => getSection(path, 1)
 
-  if (major !== -1 && minor !== -1) {
-    return sections[major][minor]
-  }
+export const getPreviousSection = (path) => getSection(path, -1)
 
-  return null
-}
+export const chapters = sections.reduce(
+  (ch, section) => {
+    const {depth} = section
 
-export const getNextSection = (path) => {
-  const [major, minor] = getSectionIndex(path)
+    if (depth === 0) {
+      ch.push([])
+    }
 
-  if (major === -1 || minor === -1) {
-    return null
-  }
+    ch[ch.length - 1].push(section)
 
-  if (minor < sections[major].length - 1) {
-    return sections[major][minor + 1]
-  } else if (major < sections.length - 1) {
-    return sections[major + 1][0]
-  }
+    return ch
+  }, []
+)
 
-  return null
-}
-
-export const getPreviousSection = (path) => {
-  const [major, minor] = getSectionIndex(path)
-
-  if (major === -1 || minor === -1) {
-    return null
-  }
-
-  if (minor > 0) {
-    return sections[major][minor - 1]
-  } else if (major > 0) {
-    return sections[major - 1][sections[major - 1].length - 1]
-  }
-
-  return null
-}

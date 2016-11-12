@@ -18,33 +18,39 @@ import JSX from 'containers/Pages/JSX'
 import CoreComponents from 'containers/Pages/CoreComponents'
 import Flexbox from 'containers/Pages/Flexbox'
 import Text from 'containers/Pages/Text'
+import Image from 'containers/Pages/Image'
+import Boilerplates from 'containers/Pages/Boilerplates'
+import Data from 'containers/Pages/Data'
 
 export default () => {
   return (
-    <Route path="/">
+    <Route path={"/"}>
 
-      <Route path="sandbox/:sandboxId" component={Sandbox}/>
+      <Route path={"sandbox/:sandboxId"} component={Sandbox} />
 
       <Route component={App}>
         { /* Home (main) route */ }
-        <IndexRoute component={Introduction}/>
+        <IndexRoute component={Introduction} />
 
         { /* Routes */ }
-        <Route path="intro" component={Introduction}/>
-        <Route path="babel" component={Babel}/>
-        <Route path="components" component={ComponentPage}/>
-        <Route path="component_api" component={ComponentAPI}/>
-        <Route path="core_components" component={CoreComponents}/>
-        <Route path="lifecycle_api" component={LifecycleAPI}/>
-        <Route path="es6" component={ES6}/>
-        <Route path="flexbox" component={Flexbox}/>
-        <Route path="jsx" component={JSX}/>
-        <Route path="view" component={View}/>
-        <Route path="text" component={Text}/>
-        <Route path="start" component={GettingStarted}/>
+        <Route path={"intro"} component={Introduction} />
+        <Route path={"babel"} component={Babel} />
+        <Route path={"components"} component={ComponentPage} />
+        <Route path={"component_api"} component={ComponentAPI} />
+        <Route path={"core_components"} component={CoreComponents} />
+        <Route path={"lifecycle_api"} component={LifecycleAPI} />
+        <Route path={"es6"} component={ES6} />
+        <Route path={"flexbox"} component={Flexbox} />
+        <Route path={"jsx"} component={JSX} />
+        <Route path={"view"} component={View} />
+        <Route path={"text"} component={Text} />
+        <Route path={"image"} component={Image} />
+        <Route path={"data"} component={Data} />
+        <Route path={"start"} component={GettingStarted} />
+        <Route path={"boilerplates"} component={Boilerplates} />
 
         { /* Catch all route */ }
-        <Route path="*" component={NotFound} status={404} />
+        <Route path={"*"} component={NotFound} status={404} />
       </Route>
     </Route>
   )

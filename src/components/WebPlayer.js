@@ -13,7 +13,7 @@ const styles = {
   },
 }
 
-const WEB_PLAYER_VERSION = '1.2.6'
+const WEB_PLAYER_VERSION = '1.3.0'
 
 export default class WebPlayer extends Component {
 
