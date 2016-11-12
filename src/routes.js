@@ -21,6 +21,7 @@ import Text from 'containers/Pages/Text'
 import Image from 'containers/Pages/Image'
 import Boilerplates from 'containers/Pages/Boilerplates'
 import Data from 'containers/Pages/Data'
+import ComponentState from 'containers/Pages/ComponentState'
 
 export default () => {
   return (
@@ -34,6 +35,7 @@ export default () => {
 
         { /* Routes */ }
         <Route path={"intro"} component={Introduction} />
+        <Route path={"start"} component={GettingStarted} />
         <Route path={"babel"} component={Babel} />
         <Route path={"components"} component={ComponentPage} />
         <Route path={"component_api"} component={ComponentAPI} />
@@ -46,7 +48,7 @@ export default () => {
         <Route path={"text"} component={Text} />
         <Route path={"image"} component={Image} />
         <Route path={"data"} component={Data} />
-        <Route path={"start"} component={GettingStarted} />
+        <Route path={"data_component_state"} component={ComponentState} />
         <Route path={"boilerplates"} component={Boilerplates} />
 
         { /* Catch all route */ }

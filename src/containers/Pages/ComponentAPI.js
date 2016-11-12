@@ -6,7 +6,7 @@ import { WebPlayer } from '../../components'
 const code = `import React, { Component } from 'react'
 import { AppRegistry, View, Text } from 'react-native'
 
-export default class Counter extends Component {
+class Counter extends Component {
   constructor(props) {
     super(props)
     this.state = {

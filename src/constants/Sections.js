@@ -4,7 +4,7 @@ let sections = [
   {depth: 1, title: 'ES6', slug: 'es6'},
   {depth: 1, title: 'JSX', slug: 'jsx'},
 
-  {depth: 0, title: 'Components', slug: 'components'},
+  {depth: 0, title: 'React Components', slug: 'components'},
   {depth: 1, title: 'Component API', slug: 'component_api'},
   {depth: 1, title: 'Lifecycle API', slug: 'lifecycle_api'},
 
@@ -18,7 +18,7 @@ let sections = [
 
   {depth: 0, title: 'Data Management', slug: 'data'},
   {depth: 1, title: 'Component State', slug: 'data_component_state'},
-  {depth: 1, title: 'Redux Basics', slug: 'redux'},
+  {depth: 1, title: 'Redux', slug: 'redux'},
   {depth: 2, title: 'React Redux', slug: 'react_redux'},
   {depth: 2, title: 'Async Control Flow', slug: 'redux_async'},
   {depth: 1, title: 'Realm', slug: 'realm'},
@@ -83,4 +83,3 @@ export const chapters = sections.reduce(
     return ch
   }, []
 )
-
