@@ -14,7 +14,7 @@ export const options = {
   addModeClass: true,
   showCursorWhenSelecting: true,
   highlightSelectionMatches: true,
-  theme: 'base16-light',
+  theme: 'react',
   extraKeys: {
     'Cmd-/': (cm) => {
       cm.listSelections().forEach((selection) => {
@@ -40,7 +40,6 @@ export const options = {
 
 export const readOnlyOptions = Object.assign({}, options, {
   readOnly: true,
-  theme: 'read-only',
 })
 
 export const requireAddons = () => {

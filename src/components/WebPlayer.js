@@ -1,5 +1,11 @@
 import React, { Component } from 'react'
 
+const createUrlParams = (params) => {
+  return Object.keys(params).map(key => {
+    return `${key}=${encodeURIComponent(params[key])}`
+  }).join('&')
+}
+
 const styles = {
   container: {
     display: 'flex',
@@ -13,19 +19,54 @@ const styles = {
   },
 }
 
-const WEB_PLAYER_VERSION = '1.2.6'
+const WEB_PLAYER_VERSION = '1.4.0'
+
+const playerStyles = {
+  tab: {
+    backgroundColor: 'rgb(250,250,250)',
+  },
+  tabText: {
+    color: '#AAA',
+  },
+  tabTextActive: {
+    color: '#000',
+  },
+}
 
 export default class WebPlayer extends Component {
 
   static defaultProps = {
-    code: '',
     height: 700,
+    code: '',
+    files: [],
+    vendorComponents: [],
   }
 
   render() {
-    const {code, height} = this.props
+    const {code, files, entry, height, vendorComponents} = this.props
 
-    const hash = `#width=260&scale=0.75&code=${encodeURIComponent(code)}`
+    const params = {
+      width: 260,
+      scale: 0.75,
+      fullscreen: true,
+      styles: JSON.stringify(playerStyles),
+    }
+
+    if (files.length > 0) {
+      params.files = JSON.stringify(files)
+    } else {
+      params.code = code
+    }
+
+    if (vendorComponents.length) {
+      params.vendorComponents = JSON.stringify(vendorComponents)
+    }
+
+    if (entry) {
+      params.entry = entry
+    }
+
+    const hash = '#' + createUrlParams(params)
 
     return (
       <div style={styles.container}>
@@ -33,6 +74,7 @@ export default class WebPlayer extends Component {
           style={styles.player}
           height={height}
           frameBorder={0}
+          allowFullScreen
           src={`//cdn.rawgit.com/dabbott/react-native-web-player/gh-v${WEB_PLAYER_VERSION}/index.html${hash}`}
         />
       </div>

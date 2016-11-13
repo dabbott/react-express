@@ -16,16 +16,18 @@ const widgetContainerStyle = {
 }
 
 const widgetStyle = {
-  // width: 'calc(50%)',
-  // display: 'inline-block',
   flex: '0 0 50%',
-  // position: 'relative',
   minWidth: 0,
   minHeight: 0,
 }
 
+const outputWidgetStyle = {
+  ...widgetStyle,
+  backgroundColor: 'rgb(238,238,238)',
+}
+
 const cmHeaderStyle = {
-  backgroundColor: 'rgb(245,245,245)',
+  borderLeft: '4px solid rgb(238,238,238)',
   color: 'rgba(0,0,0,0.8)',
   height: 40,
   paddingTop: 10,
@@ -34,7 +36,7 @@ const cmHeaderStyle = {
 }
 
 const outputHeaderStyle = {
-  backgroundColor: 'white',
+  backgroundColor: 'rgb(238,238,238)',
   color: 'rgba(0,0,0,0.8)',
   height: 40,
   paddingTop: 10,
@@ -56,14 +58,14 @@ export default class EditorTranspiler extends Component {
       requireAddons()
 
       this.cm1 = require('codemirror')(
-        this.refs.cmBlockScopedVariables,
+        this.refs.cmInput,
         Object.assign({}, options, {
           value,
         })
       )
 
       this.cm2 = require('codemirror')(
-        this.refs.cmBlockScopedVariablesOutput,
+        this.refs.cmOutput,
         readOnlyOptions
       )
 
@@ -86,7 +88,7 @@ export default class EditorTranspiler extends Component {
       this.cm2.setValue(code)
     } catch (e) {
       const div = document.createElement('div')
-      div.setAttribute('style', 'overflow: auto; border-top: 1px solid whitesmoke;')
+      div.setAttribute('style', 'overflow: auto; border-top: 1px solid white;')
       div.innerHTML = ReactDOM.renderToStaticMarkup(
         <div style={{
           color: '#ac4142',
@@ -111,11 +113,11 @@ export default class EditorTranspiler extends Component {
       <div style={widgetContainerStyle}>
         <div style={widgetStyle}>
           <div style={cmHeaderStyle}>{inputHeader}</div>
-          <div ref={'cmBlockScopedVariables'} />
+          <div ref={'cmInput'} />
         </div>
-        <div style={widgetStyle}>
+        <div style={outputWidgetStyle} className={'readyonly-background'}>
           <div style={outputHeaderStyle}>{outputHeader}</div>
-          <div ref={'cmBlockScopedVariablesOutput'} />
+          <div ref={'cmOutput'} />
         </div>
       </div>
     )

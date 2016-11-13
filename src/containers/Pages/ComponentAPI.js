@@ -4,15 +4,11 @@ import styles from './styles'
 import { WebPlayer } from '../../components'
 
 const code = `import React, { Component } from 'react'
-import { AppRegistry, View, Text } from 'react-native'
+import { AppRegistry, View, Text, StyleSheet } from 'react-native'
 
-export default class Counter extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      count: 0,
-    }
-  }
+class Counter extends Component {
+
+  state = {count: 0}
 
   componentDidMount() {
     setInterval(() => {
@@ -23,35 +19,38 @@ export default class Counter extends Component {
   render() {
     const {count} = this.state
     const {color, size} = this.props
-    const style = {
-      fontSize: size,
-      color,
-    }
 
     return (
-      <Text style={style}>
+      <Text style={{color, fontSize: size}}>
         {count}
       </Text>
     )
   }
 }
 
-const App = () => {
-  const style = {
+class App extends Component {
+  render() {
+    return (
+      <View style={styles.container}>
+        <Counter color={'lightblue'} size={16} />
+        <Counter color={'skyblue'} size={32} />
+        <Counter color={'steelblue'} size={80} />
+        <Counter color={'darkblue'} size={140} />
+      </View>
+    )
+  }
+}
+
+const styles = StyleSheet.create({
+  container: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-  }
+  },
+})
 
-  return (
-    <View style={style}>
-      <Counter color={'#4A90E2'} size={32} />
-    </View>
-  )
-}
-
-// App registration and rendering
-AppRegistry.registerComponent('MyApp', () => App)`
+AppRegistry.registerComponent('App', () => App)
+`
 
 export default class extends Component {
   render() {
@@ -82,7 +81,7 @@ export default class extends Component {
         <div style={styles.well}>
           <div style={styles.h3}>Example</div>
           <div style={styles.p}>
-            The following example includes a <code>Counter</code> component that maintains the elapsed time internally as <code>state.count</code>. The <code>App</code> component renders a <code>Counter</code> with two <code>props</code>: <code>size</code> and <code>color</code>.
+            The following example includes a <code>Counter</code> component that maintains the elapsed time internally as <code>state.count</code>. The <code>App</code> component renders the <code>Counter</code> component with two <code>props</code>: <code>size</code> and <code>color</code>. The <code>App</code> can easily render several <code>Counter</code> components with different sizes and colors.
           </div>
           <WebPlayer code={code} />
         </div>

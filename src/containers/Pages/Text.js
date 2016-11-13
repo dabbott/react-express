@@ -3,32 +3,35 @@ import Page from './Page'
 import styles from './styles'
 import { WebPlayer } from '../../components'
 
-const code = `import React from 'react'
-import { AppRegistry, View, Text } from 'react-native'
+const code = `import React, { Component } from 'react'
+import { AppRegistry, View, Text, StyleSheet } from 'react-native'
 
-const App = () => {
-  const style = {
+class App extends Component {
+  render() {
+    return (
+      <View style={styles.container}>
+        <Text style={styles.text}>Hello!</Text>
+      </View>
+    )
+  }
+}
+
+const styles = StyleSheet.create({
+  container: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-  }
-
-  const textStyle = {
+  },
+  text: {
     backgroundColor: 'whitesmoke',
     color: '#4A90E2',
     fontSize: 24,
     padding: 10,
-  }
+  },
+})
 
-  return (
-    <View style={style}>
-      <Text style={textStyle}>Hello!</Text>
-    </View>
-  )
-}
-
-// App registration and rendering
-AppRegistry.registerComponent('MyApp', () => App)`
+AppRegistry.registerComponent('App', () => App)
+`
 
 export default class View extends Component {
   render() {
