@@ -31,10 +31,13 @@ export default class extends Component {
           <div style={styles.p}>
             Building with React Native is extremely efficient and highly addictive - but getting started can be a little tricky. You should use this guide as a companion to the official Facebook documentation for <a href={'https://facebook.github.io/react-native/docs/getting-started.html'}>
               getting started
-            </a>. The Facebook guide assumes some existing knowledge about React development for the web. If you run into topics that aren't covered thoroughly, e.g. how Babel works, play with the examples in this guide to quickly get up to speed.
+            </a>. The Facebook guide assumes some existing knowledge about React development for the web. If you run into topics that aren't covered thoroughly, e.g. how Babel works, play with the examples in this guide to quickly get up to speed. This guide also covers related topics, such as Redux, which are beyond the scope of the React Native docs.
           </div>
           <div style={styles.p}>
             This guide uses the awesome project <a href={'https://github.com/necolas/react-native-web'}>react-native-web</a> to provide interactive examples in your browser.
+          </div>
+          <div>
+            I hope you enjoy learning React Native. Reach out to me, <a href={'https://twitter.com/devinaabbott'}>@devinaabbott</a>, on Twitter with comments or questions you have along the way.
           </div>
         </div>
         <div style={styles.well}>

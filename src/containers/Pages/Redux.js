@@ -3,6 +3,43 @@ import Page from './Page'
 import styles from './styles'
 import { WebPlayer } from '../../components'
 
+const minimalRedux = `import { AppRegistry, Text } from 'react-native'
+import { createStore } from 'redux'
+
+// Define action types
+const types = {
+  INCREMENT: 'INCREMENT',
+}
+
+// Define a reducer
+const reducer = (state, action) => {
+  if (action.type === 'INCREMENT') {
+    return {count: state.count + 1}
+  }
+  return state
+}
+
+// Define the initial state of our store
+const initialState = {count: 0}
+
+// Create a store, passing our reducer function and our initial state
+const store = createStore(reducer, initialState)
+
+
+/// We're done! Redux is all set up. Here's how we can use it:
+
+
+// Now we can dispatch actions, which are understood by our store/reducer
+store.dispatch({type: 'INCREMENT'})
+store.dispatch({type: 'INCREMENT'})
+store.dispatch({type: 'INCREMENT'})
+
+// Calling \`store.getState()\` returns our state object
+const App = () => <Text>{store.getState().count}</Text>
+
+AppRegistry.registerComponent('App', () => App)
+`
+
 const indexFile = `import { AppRegistry, View } from 'react-native'
 import { createStore } from 'redux'
 
@@ -103,7 +140,12 @@ const initialState = {
 }
 
 // Function to handle actions and update the state of the store.
-// The reducer *must* return a *new* state object. It must *never* *modify* the state object.
+// Notes:
+// - The reducer must return a new state object. It must never modify
+//   the state object. State objects should be treated as immutable.
+// - We set \`state\` to our \`initialState\` by default. Redux will
+//   call reducer() with no state on startup, and we are expected to
+//   return the initial state of the app in this case.
 export const reducer = (state = initialState, action) => {
   const {todos} = state
   const {type, payload} = action
@@ -147,39 +189,50 @@ export default class extends Component {
         <div style={styles.well}>
           <div style={styles.h3}>Redux</div>
           <p>
-            Storing data in the <code>state</code> of your components is great for small apps, and portions of an app which are isolated from the rest of the app.
-          </p>
-          <p>
-            The best way to build components is generally to group them in two categories: <b>containers</b> and <b>components</b>.
-          </p>
-          <div style={styles.h4}>Smart/Container Components</div>
-          <p>
-            Container components are application-logic-specific components. They're usually just called "containers". You may also hear "smart" components, or occasionally, View-Controllers.
-          </p>
-          <p>
-            Containers are aware of the data and logic unique to your application. Containers pass data and callbacks as props to "dumb" components, and handle updating the data when a user interacts with the app.
-          </p>
-          <div style={styles.h4}>Dumb Components</div>
-          <p>
-            Most components should not contain any business-logic. These "dumb" components could easily be used in a different app, since they are completely generic, and their only input is their <code>props</code>. These dumb components are often simply called "components".
+            Most medium and large React Native apps use Redux for managing data and state throughout the application. Redux is a fairly expansive topic, so we'll just cover basic usage with React Native here, leaving more advanced usage to the <a href={"http://redux.js.org/"}>Redux docs</a>.
           </p>
         </div>
         <div style={styles.well}>
-          <div style={styles.h3}>Example</div>
+          <div style={styles.h3}>Redux Architecture</div>
+          <div style={styles.h4}><code>store</code></div>
+          <p>
+            An application will create a single Redux <code>store</code> to hold <i>all</i> data and state. We can view the state of the store by calling <code>store.getState()</code>. The store's state should never be modified directly; instead, we call <code>store.dispatch(action)</code> to dispatch actions into the store.
+          </p>
+          <div style={styles.h4}><code>action</code></div>
+          <p>
+            <code>action</code>s should be plain objects containing a <code>type</code> field, e.g. <code>{`{type: 'INCREMENT'}`}</code>. You can define any types you want. You may also include other fields in the <code>action</code> object. By convention, we often pass extra data in a <code>payload</code> field, e.g. <code>{`{type: 'SET_VALUE', payload: 42}`}</code>. Read more about <code>action</code> conventions here: <a href={'https://github.com/acdlite/flux-standard-action'}>Flux Standard Actions</a>.
+          </p>
+          <div style={styles.h4}><code>reducer</code></div>
+          <p>
+            You then define a function to handle <code>action</code>s, and update the <code>store</code> accordingly. You can choose how to update the state depending on which <code>type</code> of action your <code>reducer</code> function receives. Redux will pass this function the current state of the store, and the action you dispatched, expecting an updated state object to be returned: <code>(state, action) => newState</code>. We call this function a <code>reducer</code> function.
+          </p>
+          <div style={styles.h4}>That's it!</div>
+          <p>
+            There are a lot of new terms, but it's actually not that complicated once you start using it. We'll look at two examples: an extremely minimal (contrived) example, and then the same To-Do list app from the Component State example.
+          </p>
+        </div>
+        <div style={styles.well}>
+          <div style={styles.h3}>Minimal Example</div>
+          <div style={styles.p}>
+            This example shows the bare minimum steps necessary to set up a redux <code>store</code>, define <code>action</code> types, and define a <code>reducer</code> function to handle them.
+          </div>
+          <WebPlayer
+            code={minimalRedux}
+            vendorComponents={vendorComponents}
+          />
+        </div>
+        <div style={styles.well}>
+          <div style={styles.h3}>To-Do List Example</div>
           <div style={styles.p}>
             Let's take a look at our To-Do List app again, now that it's using Redux.
-          </div>
-          <div style={styles.p}>
-            This app has 1 container, <code>App</code>, and 3 components: <code>List</code>, <code>Input</code>, and <code>Title</code>. Generally, each container and component should live in a separate file, and should be the <code>default</code> export of that file. We give the file the same name as the component, e.g. a component called <code>Input</code> should live in <code>Input.js</code>. In React Native, component names <i>must</i> be capitalized, so the file name will usually be capitalized too.
           </div>
           <div style={styles.h4}>Files</div>
           <div style={styles.p}>
             <ul>
-              <li><code>index.js</code><br />The index file is the entry point to a project. This file is run automatically when the project starts, and is responsible for registering an app with <code>AppRegistry.registerComponent</code>. The index commonly contains or <code>require</code>s setup code for the project.<br /><br /></li>
-              <li><code>App.js</code><br /><code>App</code> is a "smart" container component, containing the To-Do list data and logic for adding/removing items. <code>App</code> renders the <code>List</code>, <code>Input</code>, and <code>Title</code> components, passing To-Do list data and callbacks for modifying the list.<br /><br /></li>
-              <li><code>List.js</code><br />This component renders a list of strings. It fires an <code>onPressItem</code> callback when an item is pressed.<br /><br /></li>
-              <li><code>Input.js</code><br />This component renders an input field. It maintains the current input in its state, and then fires a callback, <code>onSubmitEditing</code> when the user presses Submit.<br /><br /></li>
-              <li><code>Title.js</code><br />A simple title component. Purely visual.<br /><br /></li>
+              <li><code>index.js</code><br />This file handles creating the redux store and passing it to our <code>App</code> container.<br /><br /></li>
+              <li><code>todoListRedux.js</code><br />Defines the action types, the reducer function, and <code>actionCreators</code> helper functions to create actions. Note that we also moved <code>initialState</code> into this file (redux allows you to either pass it into your store on creation, or return it from your reducer).<br /><br /></li>
+              <li><code>App.js</code><br /><code>App</code> is a "smart" container component. It is aware of our application's state and can fire actions to update the state, using the helper functions we defined in <code>actionCreators</code>.<br /><br /></li>
+              <li><code>List.js</code>, <code>Input.js</code>, <code>Title.js</code><br />"Dumb" components - these are the same as in the Component State example.<br /><br /></li>
             </ul>
           </div>
           <WebPlayer
