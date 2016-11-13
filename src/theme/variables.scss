@@ -24,7 +24,6 @@ $font-size-base: 14px;
 $font-family-sans-serif: "Helvetica Neue", Helvetica, sans-serif;
 
 @import "../../node_modules/codemirror/lib/codemirror";
-@import "../../node_modules/codemirror/theme/base16-light";
 
 .cm-s-react {
   font-family: 'source-code-pro', Menlo, 'Courier New', Consolas, monospace;

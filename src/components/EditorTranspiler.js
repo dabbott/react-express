@@ -88,7 +88,7 @@ export default class EditorTranspiler extends Component {
       this.cm2.setValue(code)
     } catch (e) {
       const div = document.createElement('div')
-      div.setAttribute('style', 'overflow: auto; border-top: 1px solid whitesmoke;')
+      div.setAttribute('style', 'overflow: auto; border-top: 1px solid white;')
       div.innerHTML = ReactDOM.renderToStaticMarkup(
         <div style={{
           color: '#ac4142',
