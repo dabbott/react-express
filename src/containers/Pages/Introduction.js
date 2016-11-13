@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Page from './Page'
 import styles from './styles'
+import { GithubCorner } from '../../components'
 import { Link } from 'react-router'
 
 const buttonStyle = {
@@ -19,7 +20,9 @@ export default class extends Component {
         title={'React Native Express'}
         subtitle={'Learn React Native, the cross-platform app framework'}
         logo={'logo'}
-        bannerHeight={560}>
+        bannerHeight={560}
+      >
+        <GithubCorner />
         <div style={styles.well}>
           <div style={styles.h3}>Learning React Native</div>
           <div style={styles.p}>

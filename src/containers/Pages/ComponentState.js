@@ -3,7 +3,15 @@ import Page from './Page'
 import styles from './styles'
 import { WebPlayer } from '../../components'
 
-const indexFile = `import React, { Component } from 'react'
+const indexFile = `import { AppRegistry, View } from 'react-native'
+
+// Import the App container component
+import App from './App'
+
+AppRegistry.registerComponent('App', () => App)
+`
+
+const appFile = `import React, { Component } from 'react'
 import { AppRegistry, View } from 'react-native'
 
 import List from './List'
@@ -46,15 +54,12 @@ export default class App extends Component {
         />
         <List
           list={todos}
-          onAddItem={this.onAddTodo}
-          onRemoveItem={this.onRemoveTodo}
+          onPressItem={this.onRemoveTodo}
         />
       </View>
     )
   }
 }
-
-AppRegistry.registerComponent('MyApp', () => App)
 `
 
 const todoListFile = `import React, { Component } from 'react'
@@ -63,12 +68,12 @@ import { AppRegistry, View, TouchableOpacity, Text, StyleSheet } from 'react-nat
 export default class List extends Component {
 
   renderItem = (text, i) => {
-    const {onRemoveItem} = this.props
+    const {onPressItem} = this.props
 
     return (
       <TouchableOpacity
         style={styles.item}
-        onPress={() => onRemoveItem(i)}
+        onPress={() => onPressItem(i)}
       >
         <Text>{text}</Text>
       </TouchableOpacity>
@@ -167,6 +172,7 @@ const styles = StyleSheet.create({
 
 const files = [
   ['index.js', indexFile],
+  ['App.js', appFile],
   ['List.js', todoListFile],
   ['Input.js', inputFile],
   ['Title.js', titleFile],
@@ -202,7 +208,17 @@ export default class extends Component {
             Let's take a look at a To-Do List app.
           </div>
           <div style={styles.p}>
-            This app has 1 container, <code>App</code>, and 3 components: <code>List</code>, <code>Input</code>, and <code>Title</code>. Generally, each container and component should live in a separate file, and should be the <code>default</code> export of that file. We give the file the same name as the component, e.g. a component called <code>{'Input'}</code> should live in <code>{'Input.js'}</code>. In React Native, component names <i>must</i> be capitalized, so the file name will usually be capitalized too.
+            This app has 1 container, <code>App</code>, and 3 components: <code>List</code>, <code>Input</code>, and <code>Title</code>. Generally, each container and component should live in a separate file, and should be the <code>default</code> export of that file. We give the file the same name as the component, e.g. a component called <code>Input</code> should live in <code>Input.js</code>. In React Native, component names <i>must</i> be capitalized, so the file name will usually be capitalized too.
+          </div>
+          <div style={styles.h4}>Files</div>
+          <div style={styles.p}>
+            <ul>
+              <li><code>index.js</code><br />The index file is the entry point to a project. This file is run automatically when the project starts, and is responsible for registering an app with <code>AppRegistry.registerComponent</code>. The index commonly contains or <code>require</code>s setup code for the project.<br /><br /></li>
+              <li><code>App.js</code><br /><code>App</code> is a "smart" container component, containing the To-Do list data and logic for adding/removing items. <code>App</code> renders the <code>List</code>, <code>Input</code>, and <code>Title</code> components, passing To-Do list data and callbacks for modifying the list.<br /><br /></li>
+              <li><code>List.js</code><br />This component renders a list of strings. It fires an <code>onPressItem</code> callback when an item is pressed.<br /><br /></li>
+              <li><code>Input.js</code><br />This component renders an input field. It maintains the current input in its state, and then fires a callback, <code>onSubmitEditing</code> when the user presses Submit.<br /><br /></li>
+              <li><code>Title.js</code><br />A simple title component. Purely visual.<br /><br /></li>
+            </ul>
           </div>
           <WebPlayer files={files} />
         </div>

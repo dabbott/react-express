@@ -30,6 +30,24 @@ let sections = [
 
   {depth: 0, title: 'Boilerplates', slug: 'boilerplates'},
   {depth: 1, title: 'Ignite', slug: 'ignite'},
+
+  {depth: 0, title: 'Projects', slug: 'boilerplates'},
+  {depth: 1, title: 'Twitter Clone', slug: 'project_twitter'},
+  {depth: 2, title: 'Project Setup', slug: 'project_twitter_setup'},
+  {depth: 2, title: 'Item Component', slug: 'project_twitter_list_item'},
+  {depth: 2, title: 'List Component', slug: 'project_twitter_list'},
+  {depth: 2, title: 'Images', slug: 'project_twitter_images'},
+  {depth: 2, title: 'Video', slug: 'project_twitter_video'},
+  {depth: 2, title: 'Performance', slug: 'project_twitter_performance'},
+  {depth: 2, title: 'Bonus: Compose', slug: 'project_twitter_compose'},
+  {depth: 1, title: 'Uber Clone', slug: 'project_uber'},
+  {depth: 2, title: 'Project Setup', slug: 'project_uber'},
+  {depth: 2, title: 'Item Component', slug: 'project_uber'},
+  {depth: 2, title: 'List Component', slug: 'project_uber'},
+  {depth: 2, title: 'Images', slug: 'project_uber'},
+  {depth: 2, title: 'Video', slug: 'project_uber'},
+  {depth: 2, title: 'Performance', slug: 'project_uber'},
+  {depth: 2, title: 'Bonus: Compose', slug: 'project_uber'},
 ]
 
 sections = sections.reduce((acc, section) => {

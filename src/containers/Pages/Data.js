@@ -43,7 +43,7 @@ export default class Data extends Component {
             <tbody>
               <tr>
                 <td><b>Firebase</b></td>
-                <td><a href={'https://firebase.google.com/'}>Firebase</a> is a cloud service for storing and syncing data. Firebase is a great option when you don't have a backend or existing API to work with, since you can build a mobile app without setting up any infrastructure. Firebase's offers impressive realtime synchronization of data between multiple (potentially thousands of) clients. The service also provides a web dashboard for viewing/modifying your data, user accounts & authentication, analytics, crash reporting, and more.</td>
+                <td><a href={'https://firebase.google.com/'}>Firebase</a> is a cloud service for storing and syncing data. Firebase is a great option when you don't have a backend or existing API to work with, since you can build a mobile app without setting up any infrastructure. Firebase's offers impressive realtime synchronization of data between (potentially thousands of) clients. The service also provides a web dashboard for viewing/modifying your data, user accounts & authentication, analytics, crash reporting, and more.</td>
               </tr>
             </tbody>
           </table>

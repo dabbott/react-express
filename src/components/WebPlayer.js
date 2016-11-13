@@ -42,7 +42,7 @@ export default class WebPlayer extends Component {
   }
 
   render() {
-    const {code, files, height} = this.props
+    const {code, files, entry, height} = this.props
 
     const params = {
       width: 260,
@@ -55,6 +55,10 @@ export default class WebPlayer extends Component {
       params.files = JSON.stringify(files)
     } else {
       params.code = code
+    }
+
+    if (entry) {
+      params.entry = entry
     }
 
     const hash = '#' + createUrlParams(params)
