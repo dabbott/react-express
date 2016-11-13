@@ -35,7 +35,11 @@ store.dispatch({type: 'INCREMENT'})
 store.dispatch({type: 'INCREMENT'})
 
 // Calling \`store.getState()\` returns our state object
-const App = () => <Text>{store.getState().count}</Text>
+const App = () => (
+  <Text style={{fontSize: 100}}>
+    {store.getState().count}
+  </Text>
+)
 
 AppRegistry.registerComponent('App', () => App)
 `
