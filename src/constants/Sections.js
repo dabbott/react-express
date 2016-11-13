@@ -77,7 +77,13 @@ sections = sections.reduce((acc, section) => {
 export default sections
 
 const matches = (path, section) => {
-  return path.endsWith(section.slug)
+  let normalizedPath = path
+
+  if (normalizedPath.startsWith('/')) {
+    normalizedPath = normalizedPath.slice(1)
+  }
+
+  return normalizedPath === section.slug
 }
 
 export const getSection = (path, offset) => {
