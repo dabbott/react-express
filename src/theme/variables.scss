@@ -26,45 +26,51 @@ $font-family-sans-serif: "Helvetica Neue", Helvetica, sans-serif;
 @import "../../node_modules/codemirror/lib/codemirror";
 @import "../../node_modules/codemirror/theme/base16-light";
 
-/*
-
-    Name:       Base16 Default Light
-    Author:     Chris Kempson (http://chriskempson.com)
-
-    CodeMirror template by Jan T. Sott (https://github.com/idleberg/read-only-codemirror)
-    Original Base16 color scheme by Chris Kempson (https://github.com/chriskempson/read-only)
-
-*/
-
-.cm-s-base16-light span.cm-comment {
-    color: #B7B7B7;
+.cm-s-react {
+  font-family: 'source-code-pro', Menlo, 'Courier New', Consolas, monospace;
+  font-size: 13px;
+  line-height: 20px;
+  color: #484848;
 }
 
-.cm-s-read-only.CodeMirror { background: white; color: #202020; }
-.cm-s-read-only div.CodeMirror-selected { background: #e0e0e0; }
-.cm-s-read-only .CodeMirror-line::selection, .cm-s-read-only .CodeMirror-line > span::selection, .cm-s-read-only .CodeMirror-line > span > span::selection { background: #e0e0e0; }
-.cm-s-read-only .CodeMirror-line::-moz-selection, .cm-s-read-only .CodeMirror-line > span::-moz-selection, .cm-s-read-only .CodeMirror-line > span > span::-moz-selection { background: #e0e0e0; }
-.cm-s-read-only .CodeMirror-gutters { background: white; border-right: 0px; }
-.cm-s-read-only .CodeMirror-guttermarker { color: #ac4142; }
-.cm-s-read-only .CodeMirror-guttermarker-subtle { color: #b0b0b0; }
-.cm-s-read-only .CodeMirror-linenumber { color: #b0b0b0; }
-.cm-s-read-only .CodeMirror-cursor { border-left: 1px solid #505050; }
+.cm-s-react .CodeMirror-linenumber {
+  color: #D8D8D8;
+  padding: 0 3px 0 3px;
+  font-size: 10px;
+  line-height: 22px;
+}
 
-.cm-s-read-only span.cm-comment { color: #B7B7B7; }
-.cm-s-read-only span.cm-atom { color: #aa759f; }
-.cm-s-read-only span.cm-number { color: #aa759f; }
+.cm-s-react .CodeMirror-gutters {
+  background: white;
+  border-left: 4px solid rgba(238,238,238,1);
+  border-right: 0px;
+}
 
-.cm-s-read-only span.cm-property, .cm-s-read-only span.cm-attribute { color: #90a959; }
-.cm-s-read-only span.cm-keyword { color: #ac4142; }
-.cm-s-read-only span.cm-string { color: #f4bf75; }
+.cm-s-react span.cm-keyword { color: #1990B8; }
+.cm-s-react span.cm-atom { color: #C92C2C; }
+.cm-s-react span.cm-number { color: #C92C2C; }
+.cm-s-react span.cm-variable { color: black; }
+.cm-s-react span.cm-variable-2 { color: #0000C0; }
+.cm-s-react span.cm-variable-3 { color: #0000C0; }
+.cm-s-react span.cm-property { color: black; }
+.cm-s-react span.cm-operator { color: black; }
+.cm-s-react span.cm-comment { color: #7D8B99; }
+.cm-s-react span.cm-string { color: #2F9C0A; }
+.cm-s-react span.cm-string-2 { color: #2F9C0A; }
+.cm-s-react span.cm-link { color: #C92C2C; }
 
-.cm-s-read-only span.cm-variable { color: #90a959; }
-.cm-s-read-only span.cm-variable-2 { color: #6a9fb5; }
-.cm-s-read-only span.cm-def { color: #d28445; }
-.cm-s-read-only span.cm-bracket { color: #202020; }
-.cm-s-read-only span.cm-tag { color: #ac4142; }
-.cm-s-read-only span.cm-link { color: #aa759f; }
-.cm-s-read-only span.cm-error { background: #ac4142; color: #505050; }
+.cm-s-react .CodeMirror-activeline-background { background: #e8f2ff; }
+.cm-s-react .CodeMirror-matchingtag { background: transparent; }
+.cm-s-react .cm-tag.CodeMirror-matchingtag:not(.cm-bracket) { text-decoration: underline; }
 
-.cm-s-read-only .CodeMirror-activeline-background { background: #DDDCDC; }
-.cm-s-read-only .CodeMirror-matchingbracket { text-decoration: underline; color: white !important; }
+.readyonly-background {
+  .CodeMirror {
+    background: rgb(238,238,238);
+  }
+  .CodeMirror-gutters {
+    background: rgb(238,238,238);
+  }
+  .CodeMirror-linenumber {
+    color: #BCBCBC;
+  }
+}
