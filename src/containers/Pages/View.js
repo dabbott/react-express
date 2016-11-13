@@ -3,34 +3,37 @@ import Page from './Page'
 import styles from './styles'
 import { WebPlayer } from '../../components'
 
-const code = `import React from 'react'
-import { AppRegistry, View } from 'react-native'
+const code = `import React, { Component } from 'react'
+import { AppRegistry, View, StyleSheet } from 'react-native'
 
-const App = () => {
-  const style = {
+class App extends Component {
+  render() {
+    return (
+      <View style={styles.container}>
+        <View style={styles.box} />
+      </View>
+    )
+  }
+}
+
+const styles = StyleSheet.create({
+  container: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-  }
-
-  const boxStyle = {
+  },
+  box: {
     width: 200,
     height: 200,
     backgroundColor: 'rgb(74,124,226)',
     borderWidth: 2,
     borderColor: 'blue',
     borderRadius: 20,
-  }
+  },
+})
 
-  return (
-    <View style={style}>
-      <View style={boxStyle} />
-    </View>
-  )
-}
-
-// App registration and rendering
-AppRegistry.registerComponent('MyApp', () => App)`
+AppRegistry.registerComponent('App', () => App)
+`
 
 export default class View extends Component {
   render() {
