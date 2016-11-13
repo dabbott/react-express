@@ -235,7 +235,7 @@ export default class extends Component {
             <ul>
               <li><code>index.js</code><br />This file handles creating the redux store and passing it to our <code>App</code> container.<br /><br /></li>
               <li><code>todoListRedux.js</code><br />Defines the action types, the reducer function, and <code>actionCreators</code> helper functions to create actions. Note that we also moved <code>initialState</code> into this file (redux allows you to either pass it into your store on creation, or return it from your reducer).<br /><br /></li>
-              <li><code>App.js</code><br /><code>App</code> is a "smart" container component. It is aware of our application's state and can fire actions to update the state, using the helper functions we defined in <code>actionCreators</code>.<br /><br /></li>
+              <li><code>App.js</code><br /><code>App</code> is a "smart" container component. It is aware of our application's state and can fire actions to update the state, using the helper functions we defined in <code>actionCreators</code>. The container subscribes to the store, updating its own state and the props of its children whenever the store's state changes in response to an action.<br /><br /></li>
               <li><code>List.js</code>, <code>Input.js</code>, <code>Title.js</code><br />"Dumb" components - these are the same as in the Component State example.<br /><br /></li>
             </ul>
           </div>
