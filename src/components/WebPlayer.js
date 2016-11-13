@@ -36,13 +36,14 @@ const playerStyles = {
 export default class WebPlayer extends Component {
 
   static defaultProps = {
+    height: 700,
     code: '',
     files: [],
-    height: 700,
+    vendorComponents: [],
   }
 
   render() {
-    const {code, files, entry, height} = this.props
+    const {code, files, entry, height, vendorComponents} = this.props
 
     const params = {
       width: 260,
@@ -55,6 +56,10 @@ export default class WebPlayer extends Component {
       params.files = JSON.stringify(files)
     } else {
       params.code = code
+    }
+
+    if (vendorComponents.length) {
+      params.vendorComponents = JSON.stringify(vendorComponents)
     }
 
     if (entry) {

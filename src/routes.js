@@ -22,6 +22,7 @@ import Image from 'containers/Pages/Image'
 import Boilerplates from 'containers/Pages/Boilerplates'
 import Data from 'containers/Pages/Data'
 import ComponentState from 'containers/Pages/ComponentState'
+import Redux from 'containers/Pages/Redux'
 
 export default () => {
   return (
@@ -49,6 +50,7 @@ export default () => {
         <Route path={"image"} component={Image} />
         <Route path={"data"} component={Data} />
         <Route path={"data_component_state"} component={ComponentState} />
+        <Route path={"redux"} component={Redux} />
         <Route path={"boilerplates"} component={Boilerplates} />
 
         { /* Catch all route */ }

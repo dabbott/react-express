@@ -3,33 +3,60 @@ import Page from './Page'
 import styles from './styles'
 import { WebPlayer } from '../../components'
 
+const indexFile = `import { AppRegistry, View } from 'react-native'
+import { createStore } from 'redux'
+
+// Import the reducer and create a store
+import { reducer } from './todoListRedux'
+const store = createStore(reducer)
+
+// Import the App container component
+import App from './App'
+
+// Pass the store into the app container
+const AppWithStore = () => <App store={store} />
+
+AppRegistry.registerComponent('App', () => AppWithStore)
+`
+
 const appFile = `import React, { Component } from 'react'
 import { AppRegistry, View } from 'react-native'
 
+import { actionCreators } from './todoListRedux'
 import List from './List'
 import Input from './Input'
 import Title from './Title'
 
 export default class App extends Component {
 
-  state = {
-    todos: ['Click to remove', 'Learn React Native', 'Write Code', 'Ship App'],
+  state = {}
+
+  componentWillMount() {
+    const {store} = this.props
+
+    const {todos} = store.getState()
+    this.setState({todos})
+
+    this.unsubscribe = store.subscribe(() => {
+      const {todos} = store.getState()
+      this.setState({todos})
+    })
+  }
+
+  componentWillUnmount() {
+    this.unsubscribe()
   }
 
   onAddTodo = (text) => {
-    const {todos} = this.state
+    const {store} = this.props
 
-    this.setState({
-      todos: [text, ...todos],
-    })
+    store.dispatch(actionCreators.add(text))
   }
 
   onRemoveTodo = (index) => {
-    const {todos} = this.state
+    const {store} = this.props
 
-    this.setState({
-      todos: todos.filter((todo, i) => i !== index),
-    })
+    store.dispatch(actionCreators.remove(index))
   }
 
   render() {
@@ -54,20 +81,71 @@ export default class App extends Component {
 }
 `
 
+const reduxFile = `// The types of actions that you can dispatch to modify the state of the store
+export const types = {
+  ADD: 'ADD',
+  REMOVE: 'REMOVE',
+}
+
+// Helper functions to dispatch actions, optionally with payloads
+export const actionCreators = {
+  add: (item) => {
+    return {type: types.ADD, payload: item}
+  },
+  remove: (index) => {
+    return {type: types.REMOVE, payload: index}
+  }
+}
+
+// Initial state of the store
+const initialState = {
+  todos: ['Click to remove', 'Learn React Native', 'Write Code', 'Ship App'],
+}
+
+// Function to handle actions and update the state of the store.
+// The reducer *must* return a *new* state object. It must *never* *modify* the state object.
+export const reducer = (state = initialState, action) => {
+  const {todos} = state
+  const {type, payload} = action
+
+  switch (type) {
+    case types.ADD: {
+      return {
+        ...state,
+        todos: [payload, ...todos],
+      }
+    }
+    case types.REMOVE: {
+      return {
+        ...state,
+        todos: todos.filter((todo, i) => i !== payload),
+      }
+    }
+  }
+
+  return state
+}
+`
+
 const files = [
-  ['index.js', require('../../examples/IndexRegisterApp')],
+  ['index.js', indexFile],
+  ['todoListRedux.js', reduxFile],
   ['App.js', appFile],
   ['List.js', require('../../examples/List')],
   ['Input.js', require('../../examples/Input')],
   ['Title.js', require('../../examples/Title')],
 ]
 
+const vendorComponents = [
+  ['redux', 'Redux', 'https://cdnjs.cloudflare.com/ajax/libs/redux/3.6.0/redux.min.js'],
+]
+
 export default class extends Component {
   render() {
     return (
-      <Page title={'Component State'}>
+      <Page title={'Redux'}>
         <div style={styles.well}>
-          <div style={styles.h3}>Component State</div>
+          <div style={styles.h3}>Redux</div>
           <p>
             Storing data in the <code>state</code> of your components is great for small apps, and portions of an app which are isolated from the rest of the app.
           </p>
@@ -89,7 +167,7 @@ export default class extends Component {
         <div style={styles.well}>
           <div style={styles.h3}>Example</div>
           <div style={styles.p}>
-            Let's take a look at a To-Do List app.
+            Let's take a look at our To-Do List app again, now that it's using Redux.
           </div>
           <div style={styles.p}>
             This app has 1 container, <code>App</code>, and 3 components: <code>List</code>, <code>Input</code>, and <code>Title</code>. Generally, each container and component should live in a separate file, and should be the <code>default</code> export of that file. We give the file the same name as the component, e.g. a component called <code>Input</code> should live in <code>Input.js</code>. In React Native, component names <i>must</i> be capitalized, so the file name will usually be capitalized too.
@@ -104,7 +182,10 @@ export default class extends Component {
               <li><code>Title.js</code><br />A simple title component. Purely visual.<br /><br /></li>
             </ul>
           </div>
-          <WebPlayer files={files} />
+          <WebPlayer
+            files={files}
+            vendorComponents={vendorComponents}
+          />
         </div>
         <div style={styles.well}>
           {this.props.navigatorButton}
