@@ -3,74 +3,95 @@ import Page from './Page'
 import styles from './styles'
 import { WebPlayer } from '../../components'
 
-const flexboxExample = `import React, { Component } from 'react'
-import { AppRegistry, View, Text, TouchableOpacity } from 'react-native'
+const toggleFile = `import React, { Component } from 'react'
+import { AppRegistry, View, Text, TouchableOpacity, StyleSheet } from 'react-native'
 
-const Toggle = ({value, options, label, onChange}) => {
-  const textStyle = {
-    fontSize: 14,
+export default class Toggle extends Component {
+
+  onPress = (option) => {
+    const {onChange} = this.props
+
+    onChange(option)
   }
-  const defaultOptionStyle = {
-    padding: 4,
-    backgroundColor: 'whitesmoke',
+
+  renderOption = (option) => {
+    const {value, options} = this.props
+
+    return (
+      <TouchableOpacity
+        style={[styles.option, option === value && styles.activeOption]}
+        onPress={this.onPress.bind(this, option)}
+      >
+        <Text style={styles.text}>
+          {option}
+        </Text>
+      </TouchableOpacity>
+    )
   }
-  const activeOptionStyle = Object.assign({}, defaultOptionStyle, {
-    backgroundColor: 'rgba(74,124,226,0.4)',
-  })
-  return (
-    <View style={{flexDirection: 'column', paddingBottom: 20,}}>
-      <Text style={[textStyle, {padding: 4}]}>{label}</Text>
-      <View style={{flexDirection: 'row', flexWrap: 'wrap'}}>
-        {options.map((option) => {
-          const optionStyle = option === value ? activeOptionStyle : defaultOptionStyle
-          return (
-            <TouchableOpacity
-              style={optionStyle}
-              onPress={() => onChange(option)}>
-            	<Text style={textStyle}>{option}</Text>
-            </TouchableOpacity>
-          )
-        })}
+
+  render() {
+    const {label, options} = this.props
+
+    return (
+      <View style={styles.container}>
+        <Text style={[styles.text, styles.label]}>
+          {label}
+        </Text>
+        <View style={styles.optionsContainer}>
+          {options.map(this.renderOption)}
+        </View>
       </View>
-    </View>
-  )
+    )
+  }
 }
 
+const styles = StyleSheet.create({
+  container: {
+    flexDirection: 'column',
+    paddingBottom: 20,
+  },
+  text: {
+    fontSize: 14,
+  },
+  label: {
+    padding: 4,
+  },
+  optionsContainer: {
+    flexDirection: 'row',
+    flexWrap: 'wrap'
+  },
+  option: {
+    padding: 4,
+    backgroundColor: 'whitesmoke',
+  },
+  activeOption: {
+    backgroundColor: 'skyblue',
+  },
+})
+`
+
+const indexFile = `import React, { Component } from 'react'
+import { AppRegistry, View, StyleSheet } from 'react-native'
+
+import Toggle from './Toggle'
+
 class App extends Component {
-  constructor() {
-    super()
-    this.state = {
-      flexDirection: 'row',
-      justifyContent: 'center',
-      alignItems: 'center',
-    }
+
+  state = {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
   }
+
   render() {
     const {flexDirection, alignItems, justifyContent} = this.state
-
-    const style = {
-      flex: 1,
-    }
-
-    const layoutStyle = {
-      flex: 1,
-      flexDirection,
-      justifyContent,
-      alignItems,
-      backgroundColor: 'rgba(0,0,0,0.05)',
-    }
-
-    const boxStyle = {
-      padding: 25,
-      backgroundColor: 'rgb(74,124,226)',
-      margin: 10,
-    }
+    const layoutStyle = {flexDirection, justifyContent, alignItems}
 
     const primaryAxis = flexDirection === 'row' ? 'Horizontal' : 'Vertical'
     const secondaryAxis = flexDirection === 'row' ? 'Vertical' : 'Horizontal'
 
     return (
-      <View style={style}>
+      <View style={styles.container}>
         <Toggle
           label={'Primary axis (flexDirection)'}
           value={flexDirection}
@@ -89,18 +110,38 @@ class App extends Component {
           options={['flex-start', 'center', 'flex-end', 'stretch']}
           onChange={(option) => this.setState({alignItems: option})}
         />
-        <View style={layoutStyle}>
-          <View style={boxStyle} />
-          <View style={boxStyle} />
-          <View style={boxStyle} />
+        <View style={[styles.layout, layoutStyle]}>
+          <View style={styles.box} />
+          <View style={styles.box} />
+          <View style={styles.box} />
         </View>
       </View>
     )
   }
 }
 
-// App registration and rendering
-AppRegistry.registerComponent('MyApp', () => App)`
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+  layout: {
+    flex: 1,
+    backgroundColor: 'rgba(0,0,0,0.05)',
+  },
+  box: {
+    padding: 25,
+    backgroundColor: 'steelblue',
+    margin: 5,
+  },
+})
+
+AppRegistry.registerComponent('App', () => App)
+`
+
+const files = [
+  ['index.js', indexFile],
+  ['Toggle.js', toggleFile],
+]
 
 export default class View extends Component {
   render() {
@@ -148,7 +189,7 @@ export default class View extends Component {
           <div style={styles.p}>
             The following example lets you try all the possible combinations of flexbox properties and layouts.
           </div>
-          <WebPlayer code={flexboxExample} />
+          <WebPlayer files={files} />
         </div>
         <div style={styles.well}>
           {this.props.navigatorButton}
