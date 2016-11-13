@@ -27,8 +27,8 @@ const squareSum = (...args) => {
 
 this.items.map(x => this.doSomethingWith(x))`
 
-const destructuringExample = `const arr = ['one!', 'two!', 'three!']
-const [one, two, three] = arr
+const destructuringExample = `const arr = ['one!', 'two!', 'three!', 'four!']
+const [one, two, ...rest] = arr
 
 const obj = {a: 'x', b: 'y', c: 'z'}
 const {a, b, c} = obj`
@@ -39,7 +39,7 @@ import React from 'react-native'
 // import other named exports
 import {View, Text, Image} from 'react-native'
 
-// import default and others simulatenously
+// import default and others simultaneously
 // import React, {View, Text, Image} from 'react-native'`
 
 const exportExample = `export default React
@@ -106,7 +106,7 @@ export default class ES6 extends Component {
           />
           <div style={styles.h4}>Destructuring</div>
           <div style={styles.p}>
-            Destructuring is a convenient way to extract multiple keys from an object or array simulatenously and assign the values to local variables.
+            Destructuring is a convenient way to extract multiple keys from an object or array simultaneously and assign the values to local variables.
           </div>
           <EditorTranspiler
             value={destructuringExample}
