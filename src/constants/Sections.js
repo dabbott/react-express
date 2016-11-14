@@ -21,10 +21,10 @@ let sections = [
   {depth: 1, title: 'Redux', slug: 'redux'},
   {depth: 2, title: 'React Redux', slug: 'react_redux'},
   // {depth: 2, title: 'Async Control Flow', slug: 'redux_async'},
-  // {depth: 1, title: 'Realm', slug: 'realm'},
+  {depth: 1, title: 'Realm', slug: 'realm'},
   // {depth: 1, title: 'Firebase', slug: 'firebase_data'},
   //
-  // {depth: 0, title: 'Persistence', slug: 'persistence'},
+  {depth: 0, title: 'Persistence', slug: 'persistence'},
   // {depth: 1, title: 'AsyncStorage', slug: 'asyncstorage'},
   // {depth: 1, title: 'Redux Persist', slug: 'redux_persist'},
   //

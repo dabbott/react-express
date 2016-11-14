@@ -25,6 +25,9 @@ import Data from 'containers/Pages/Data'
 import ComponentState from 'containers/Pages/ComponentState'
 import Redux from 'containers/Pages/Redux'
 import ReactRedux from 'containers/Pages/ReactRedux'
+import Realm from 'containers/Pages/Realm'
+
+import Persistence from 'containers/Pages/Persistence'
 
 import Boilerplates from 'containers/Pages/Boilerplates'
 
@@ -58,6 +61,8 @@ export default () => {
         <Route path={"data_component_state"} component={ComponentState} />
         <Route path={"redux"} component={Redux} />
         <Route path={"react_redux"} component={ReactRedux} />
+        <Route path={"realm"} component={Realm} />
+        <Route path={"persistence"} component={Persistence} />
         <Route path={"boilerplates"} component={Boilerplates} />
 
         { /* Catch all route */ }
