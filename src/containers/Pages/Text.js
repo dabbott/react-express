@@ -36,8 +36,7 @@ AppRegistry.registerComponent('App', () => App)
 export default class View extends Component {
   render() {
     return (
-      <Page
-        title={'Text'}>
+      <Page title={'Text'}>
         <div style={styles.well}>
           <div style={styles.h3}>Text</div>
           <div style={styles.p}>

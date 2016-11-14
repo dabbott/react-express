@@ -16,8 +16,7 @@ const b = (
 export default class extends Component {
   render() {
     return (
-      <Page
-        title={'JSX'}>
+      <Page title={'JSX'}>
         <div style={styles.well}>
           <div style={styles.h3}>JSX</div>
           <div style={styles.p}>

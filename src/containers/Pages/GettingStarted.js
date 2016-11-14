@@ -61,8 +61,7 @@ AppRegistry.registerComponent('Project', () => Project);`
 export default class extends Component {
   render() {
     return (
-      <Page
-        title={'Getting Started'}>
+      <Page title={'Getting Started'}>
         <div style={styles.well}>
           <div style={styles.h3}>Getting Started</div>
           <div style={styles.p}>

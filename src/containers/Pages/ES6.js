@@ -48,8 +48,7 @@ export {View, Text, Image}`
 export default class ES6 extends Component {
   render() {
     return (
-      <Page
-        title={'ES6'}>
+      <Page title={'ES6'}>
         <div style={styles.well}>
           <div style={styles.h3}>What is ES6, anyway?</div>
           <div style={styles.p}>

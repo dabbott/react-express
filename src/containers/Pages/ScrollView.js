@@ -50,8 +50,7 @@ AppRegistry.registerComponent('App', () => App)
 export default class View extends Component {
   render() {
     return (
-      <Page
-        title={'ScrollView'}>
+      <Page title={'ScrollView'}>
         <div style={styles.well}>
           <div style={styles.h3}>ScrollView</div>
           <div style={styles.p}>

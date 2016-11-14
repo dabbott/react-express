@@ -5,8 +5,7 @@ import styles from './styles'
 export default class extends Component {
   render() {
     return (
-      <Page
-        title={'Components'}>
+      <Page title={'Components'}>
         <div style={styles.well}>
           <div style={styles.h3}>Components</div>
           <div style={styles.p}>
