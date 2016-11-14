@@ -32,6 +32,11 @@ let sections = [
   // {depth: 1, title: 'React Native Router Flux', slug: 'react_native_router_flux'},
   // {depth: 1, title: 'React Native Navigation', slug: 'react_native_navigation'},
   //
+  {depth: 0, title: 'Animation', slug: 'animation'},
+  {depth: 1, title: 'Animated', slug: 'animated'},
+  // {depth: 1, title: 'React Native Animatable', slug: 'animatable'},
+  // {depth: 1, title: 'Gestures', slug: 'gestures'},
+  //
   // {depth: 0, title: 'Boilerplates', slug: 'boilerplates'},
   // {depth: 1, title: 'Ignite', slug: 'ignite'},
   //
