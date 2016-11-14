@@ -117,7 +117,7 @@ export default class extends Component {
           <div style={styles.h3}>React Redux API</div>
           <div style={styles.h4}><code>Provider</code></div>
           <p>
-            React Redux exposes the <code>Provider</code> component to handle passing our store to every container component. We'll generally use this to wrap the root component of our app, e.g. {`<Provider store={store}> ... </Provider>`}.
+            React Redux exposes the <code>Provider</code> component to handle passing our store to every container component. We'll generally use this to wrap the root component of our app, e.g. <code>{`<Provider store={store}> ... </Provider>`}</code>.
           </p>
           <div style={styles.h4}><code>connect(mapStateToProps)(Component) => Component</code></div>
           <p>
