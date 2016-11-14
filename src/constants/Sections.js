@@ -25,7 +25,7 @@ let sections = [
   // {depth: 1, title: 'Firebase', slug: 'firebase_data'},
   //
   {depth: 0, title: 'Persistence', slug: 'persistence'},
-  // {depth: 1, title: 'AsyncStorage', slug: 'asyncstorage'},
+  {depth: 1, title: 'AsyncStorage', slug: 'asyncstorage'},
   // {depth: 1, title: 'Redux Persist', slug: 'redux_persist'},
   //
   // {depth: 0, title: 'Navigation', slug: 'navigation'},

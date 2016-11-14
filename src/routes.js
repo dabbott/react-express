@@ -28,6 +28,7 @@ import ReactRedux from 'containers/Pages/ReactRedux'
 import Realm from 'containers/Pages/Realm'
 
 import Persistence from 'containers/Pages/Persistence'
+import AsyncStorage from 'containers/Pages/AsyncStorage'
 
 import Boilerplates from 'containers/Pages/Boilerplates'
 
@@ -63,6 +64,7 @@ export default () => {
         <Route path={"react_redux"} component={ReactRedux} />
         <Route path={"realm"} component={Realm} />
         <Route path={"persistence"} component={Persistence} />
+        <Route path={"asyncstorage"} component={AsyncStorage} />
         <Route path={"boilerplates"} component={Boilerplates} />
 
         { /* Catch all route */ }
