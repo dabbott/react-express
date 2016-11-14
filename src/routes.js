@@ -24,6 +24,7 @@ import ListView from 'containers/Pages/ListView'
 import Data from 'containers/Pages/Data'
 import ComponentState from 'containers/Pages/ComponentState'
 import Redux from 'containers/Pages/Redux'
+import ReactRedux from 'containers/Pages/ReactRedux'
 
 import Boilerplates from 'containers/Pages/Boilerplates'
 
@@ -56,6 +57,7 @@ export default () => {
         <Route path={"data"} component={Data} />
         <Route path={"data_component_state"} component={ComponentState} />
         <Route path={"redux"} component={Redux} />
+        <Route path={"react_redux"} component={ReactRedux} />
         <Route path={"boilerplates"} component={Boilerplates} />
 
         { /* Catch all route */ }

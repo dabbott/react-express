@@ -19,7 +19,7 @@ let sections = [
   {depth: 0, title: 'Data Management', slug: 'data'},
   {depth: 1, title: 'Component State', slug: 'data_component_state'},
   {depth: 1, title: 'Redux', slug: 'redux'},
-  // {depth: 2, title: 'React Redux', slug: 'react_redux'},
+  {depth: 2, title: 'React Redux', slug: 'react_redux'},
   // {depth: 2, title: 'Async Control Flow', slug: 'redux_async'},
   // {depth: 1, title: 'Realm', slug: 'realm'},
   // {depth: 1, title: 'Firebase', slug: 'firebase_data'},

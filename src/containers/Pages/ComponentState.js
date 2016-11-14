@@ -79,11 +79,11 @@ export default class extends Component {
             Container components are application-logic-specific components. They're usually just called "containers". You may also hear "smart" components, or occasionally, View-Controllers.
           </p>
           <p>
-            Containers are aware of the data and logic unique to your application. Containers pass data and callbacks as props to "dumb" components, and handle updating the data when a user interacts with the app.
+            Containers are aware of the data and logic unique to your application. Containers pass data and callbacks as props to presentational components, and handle updating the data when a user interacts with the app.
           </p>
-          <div style={styles.h4}>Dumb Components</div>
+          <div style={styles.h4}>Presentational/Dumb Components</div>
           <p>
-            Most components should not contain any business-logic. These "dumb" components could easily be used in a different app, since they are completely generic, and their only input is their <code>props</code>. These dumb components are often simply called "components".
+            Most components should not contain any business-logic. These presentational components could easily be used in a different app, since they are completely generic, and their only input is their <code>props</code>. Presentational components are often simply called "components".
           </p>
         </div>
         <div style={styles.well}>
@@ -101,7 +101,7 @@ export default class extends Component {
               <li><code>App.js</code><br /><code>App</code> is a "smart" container component, containing the To-Do list data and logic for adding/removing items. <code>App</code> renders the <code>List</code>, <code>Input</code>, and <code>Title</code> components, passing To-Do list data and callbacks for modifying the list.<br /><br /></li>
               <li><code>List.js</code><br />This component renders a list of strings. It fires an <code>onPressItem</code> callback when an item is pressed.<br /><br /></li>
               <li><code>Input.js</code><br />This component renders an input field. It maintains the current input in its state, and then fires a callback, <code>onSubmitEditing</code> when the user presses Submit.<br /><br /></li>
-              <li><code>Title.js</code><br />A simple title component. Purely visual.<br /><br /></li>
+              <li><code>Title.js</code><br />A simple title component. Purely presentational.<br /><br /></li>
             </ul>
           </div>
           <WebPlayer files={files} />
