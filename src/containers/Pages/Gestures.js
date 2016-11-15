@@ -152,11 +152,18 @@ export default class Gestures extends Component {
           </div>
         </div>
         <div style={styles.well}>
+          <div style={styles.h3}>Example</div>
+          <WebPlayer
+            code={code}
+            scale={1} // Fixes dragging position (almost)
+          />
+        </div>
+        <div style={styles.well}>
           <div style={styles.h3}>Responder Control Flow</div>
           <div style={styles.p}>
             The following diagram illustrates how a component can acquire responder status.
           </div>
-          <figure style={{textAlign: 'center'}}>
+          <figure>
             <img
               style={{paddingTop: 40, width: 550}}
               src={'pan-responder-flow.png'}
@@ -165,13 +172,6 @@ export default class Gestures extends Component {
               Figure 4-3, Obtaining touch responder status, from <em><a href={'http://shop.oreilly.com/product/0636920041511.do'}>Learning React Native</a>, First Edition, p. 56</em>
             </figcaption>
           </figure>
-        </div>
-        <div style={styles.well}>
-          <div style={styles.h3}>Example</div>
-          <WebPlayer
-            code={code}
-            scale={1} // Fixes dragging position (almost)
-          />
         </div>
         <div style={styles.well}>
           {this.props.navigatorButton}
