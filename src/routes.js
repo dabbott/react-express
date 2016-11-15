@@ -33,6 +33,7 @@ import AsyncStorage from 'containers/Pages/AsyncStorage'
 import Animation from 'containers/Pages/Animation'
 import Animated from 'containers/Pages/Animated'
 import ReactNativeAnimatable from 'containers/Pages/ReactNativeAnimatable'
+import Gestures from 'containers/Pages/Gestures'
 
 import Boilerplates from 'containers/Pages/Boilerplates'
 
@@ -72,6 +73,7 @@ export default () => {
         <Route path={"animation"} component={Animation} />
         <Route path={"animated"} component={Animated} />
         <Route path={"react_native_animatable"} component={ReactNativeAnimatable} />
+        <Route path={"gestures"} component={Gestures} />
         <Route path={"boilerplates"} component={Boilerplates} />
 
         { /* Catch all route */ }

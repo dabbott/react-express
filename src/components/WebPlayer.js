@@ -37,17 +37,19 @@ export default class WebPlayer extends Component {
 
   static defaultProps = {
     height: 700,
+    width: 260,
+    scale: 0.75,
     code: '',
     files: [],
     vendorComponents: [],
   }
 
   render() {
-    const {code, files, entry, height, vendorComponents} = this.props
+    const {code, files, entry, height, width, scale, vendorComponents} = this.props
 
     const params = {
-      width: 260,
-      scale: 0.75,
+      width,
+      scale,
       fullscreen: true,
       styles: JSON.stringify(playerStyles),
     }
