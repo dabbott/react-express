@@ -19,7 +19,7 @@ const styles = {
   },
 }
 
-const WEB_PLAYER_VERSION = '1.4.1'
+const WEB_PLAYER_VERSION = '1.5.1'
 
 const playerStyles = {
   tab: {

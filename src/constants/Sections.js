@@ -34,7 +34,7 @@ let sections = [
   //
   {depth: 0, title: 'Animation', slug: 'animation'},
   {depth: 1, title: 'Animated', slug: 'animated'},
-  // {depth: 1, title: 'React Native Animatable', slug: 'animatable'},
+  {depth: 1, title: 'RN Animatable', slug: 'react_native_animatable'},
   // {depth: 1, title: 'Gestures', slug: 'gestures'},
   //
   // {depth: 0, title: 'Boilerplates', slug: 'boilerplates'},
