@@ -2,6 +2,8 @@ let sections = [
   {depth: 0, title: 'Getting Started', slug: 'start'},
   {depth: 1, title: 'Babel', slug: 'babel'},
   {depth: 1, title: 'ES6', slug: 'es6'},
+  {depth: 1, title: 'ES6 Cont.', slug: 'es6continued'},
+  {depth: 1, title: 'ES7 and Beyond', slug: 'es7andbeyond'},
   {depth: 1, title: 'JSX', slug: 'jsx'},
 
   {depth: 0, title: 'React Components', slug: 'components'},
@@ -27,7 +29,7 @@ let sections = [
   {depth: 0, title: 'Persistence', slug: 'persistence'},
   {depth: 1, title: 'AsyncStorage', slug: 'asyncstorage'},
   // {depth: 1, title: 'Redux Persist', slug: 'redux_persist'},
-  //
+
   // {depth: 0, title: 'Navigation', slug: 'navigation'},
   // {depth: 1, title: 'React Native Router Flux', slug: 'react_native_router_flux'},
   // {depth: 1, title: 'React Native Navigation', slug: 'react_native_navigation'},

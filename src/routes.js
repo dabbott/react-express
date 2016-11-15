@@ -7,6 +7,8 @@ import Introduction from 'containers/Pages/Introduction'
 import GettingStarted from 'containers/Pages/GettingStarted'
 import Babel from 'containers/Pages/Babel'
 import ES6 from 'containers/Pages/ES6'
+import ES6Continued from 'containers/Pages/ES6Continued'
+import ES7AndBeyond from 'containers/Pages/ES7AndBeyond'
 import JSX from 'containers/Pages/JSX'
 
 import ComponentPage from 'containers/Pages/Component'
@@ -56,6 +58,8 @@ export default () => {
         <Route path={"core_components"} component={CoreComponents} />
         <Route path={"lifecycle_api"} component={LifecycleAPI} />
         <Route path={"es6"} component={ES6} />
+        <Route path={"es6continued"} component={ES6Continued} />
+        <Route path={"es7andbeyond"} component={ES7AndBeyond} />
         <Route path={"flexbox"} component={Flexbox} />
         <Route path={"jsx"} component={JSX} />
         <Route path={"view"} component={View} />
