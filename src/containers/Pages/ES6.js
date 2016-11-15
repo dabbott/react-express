@@ -1,4 +1,6 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
+import { Link } from 'react-router'
+
 import { EditorTranspiler } from '../../components'
 import Page from './Page'
 import styles from './styles'
@@ -61,7 +63,7 @@ export default class ES6 extends Component {
         <div style={styles.well}>
           <div style={styles.h3}>ES6 Highlights</div>
           <div style={styles.p}>
-            Let's take a look at some of the new language features we'll be using, and how they get compiled through Babel.
+            Let's take a look at some of the new language features we'll be using, and how they get compiled through Babel. There are a lot of language features to go through, so if you get tired, you can move on to <Link to={'components'}>React Components</Link>, and finish up the language sections another time.
           </div>
           <div style={styles.h4}>Variable Declarations: <code>const</code> and <code>let</code></div>
           <div style={styles.p}>

@@ -65,11 +65,7 @@ export default class ES6Continued extends Component {
           </div>
           <EditorTranspiler
             value={defaultParamExample}
-            inputHeader={
-              <div>
-                <code style={styles.cmHeaderCode}>Default parameters</code>
-              </div>
-            }
+            inputHeader={'Default parameters'}
             outputHeader={'Output compiled with Babel'}
           />
           <div style={styles.h4}>Classes</div>

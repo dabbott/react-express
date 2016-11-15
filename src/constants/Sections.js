@@ -1,10 +1,10 @@
 let sections = [
   {depth: 0, title: 'Getting Started', slug: 'start'},
   {depth: 1, title: 'Babel', slug: 'babel'},
-  {depth: 1, title: 'ES6', slug: 'es6'},
-  {depth: 1, title: 'ES6 Cont.', slug: 'es6continued'},
-  {depth: 1, title: 'ES7 and Beyond', slug: 'es7andbeyond'},
   {depth: 1, title: 'JSX', slug: 'jsx'},
+  {depth: 1, title: 'ES6', slug: 'es6'},
+  {depth: 1, title: 'ES6 Continued', slug: 'es6_continued'},
+  {depth: 1, title: 'ES7 and Beyond', slug: 'es7_and_beyond'},
 
   {depth: 0, title: 'React Components', slug: 'components'},
   {depth: 1, title: 'Component API', slug: 'component_api'},

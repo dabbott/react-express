@@ -58,8 +58,8 @@ export default () => {
         <Route path={"core_components"} component={CoreComponents} />
         <Route path={"lifecycle_api"} component={LifecycleAPI} />
         <Route path={"es6"} component={ES6} />
-        <Route path={"es6continued"} component={ES6Continued} />
-        <Route path={"es7andbeyond"} component={ES7AndBeyond} />
+        <Route path={"es6_continued"} component={ES6Continued} />
+        <Route path={"es7_and_beyond"} component={ES7AndBeyond} />
         <Route path={"flexbox"} component={Flexbox} />
         <Route path={"jsx"} component={JSX} />
         <Route path={"view"} component={View} />
