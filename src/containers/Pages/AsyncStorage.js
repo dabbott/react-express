@@ -87,15 +87,15 @@ export default class extends Component {
           <p>
             The AsyncStorage API is promise-based. All getting and setting of key-value pairs is asynchronous. Thanks to the new <code>async/await</code>, interacting with the API isn't much more difficult than if it were synchronous.
           </p>
-          <div style={styles.h4}><code>await getItem(key) => ?string</code></div>
+          <div style={styles.h4_monospace}>await getItem(key) => ?string</div>
           <p>
             Get the <code>value</code> stored at <code>key</code>. This will return a string, or null if no data has been stored yet for that <code>key</code>. Don't forget to call <code>JSON.parse(value)</code> if you're storing your data in JSON format.
           </p>
-          <div style={styles.h4}><code>await setItem(key, value)</code></div>
+          <div style={styles.h4_monospace}>await setItem(key, value)</div>
           <p>
             Store <code>value</code> at <code>key</code>. Don't forget to call <code>JSON.stringify(value)</code> if you're storing your data in JSON format.
           </p>
-          <div style={styles.h4}><code>await clear()</code></div>
+          <div style={styles.h4_monospace}>await clear()</div>
           <p>
             Clear all stored data.
           </p>
@@ -125,7 +125,7 @@ export default class extends Component {
           <div style={styles.h4}>Files</div>
           <div style={styles.p}>
             <ul>
-              <li><code>index.js</code><br />The <code>App</code> component loads the value at <code>STORAGE_KEY</code> into <code>this.state</code> when it mounts. Every time you type your name in the input field and hit enter, we save <code>name</code> to <code>STORAGE_KEY</code>, as well use updating the value in <code>this.state</code>. Note that we also catch errors thrown when loading/saving, which is simple thanks to <code>async/await</code>.<br /><br /></li>
+              <li><code>index.js</code><br />The <code>App</code> component loads the value at <code>STORAGE_KEY</code> into <code>this.state</code> when it mounts. Every time you type your name in the input field and hit enter, we save <code>name</code> to <code>STORAGE_KEY</code>, as well as updating the value in <code>this.state</code>. Note that we also catch errors thrown when loading/saving, which is simple thanks to <code>async/await</code>.<br /><br /></li>
               <li><code>Input.js</code><br />Presentational component<br /><br /></li>
             </ul>
           </div>

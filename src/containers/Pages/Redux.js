@@ -147,15 +147,15 @@ export default class extends Component {
         </div>
         <div style={styles.well}>
           <div style={styles.h3}>Redux Architecture</div>
-          <div style={styles.h4}><code>store</code></div>
+          <div style={styles.h4_monospace}>store</div>
           <p>
             An application will create a single Redux <code>store</code> to hold <i>all</i> data and state. We can view the state of the store by calling <code>store.getState()</code>. The store's state should never be modified directly; instead, we call <code>store.dispatch(action)</code> to dispatch actions into the store.
           </p>
-          <div style={styles.h4}><code>action</code></div>
+          <div style={styles.h4_monospace}>action</div>
           <p>
             <code>action</code>s should be plain objects containing a <code>type</code> field, e.g. <code>{`{type: 'INCREMENT'}`}</code>. You can define any types you want. You may also include other fields in the <code>action</code> object. By convention, we often pass extra data in a <code>payload</code> field, e.g. <code>{`{type: 'SET_VALUE', payload: 42}`}</code>. Read more about <code>action</code> conventions here: <a href={'https://github.com/acdlite/flux-standard-action'}>Flux Standard Actions</a>.
           </p>
-          <div style={styles.h4}><code>reducer</code></div>
+          <div style={styles.h4_monospace}>reducer</div>
           <p>
             You then define a function to handle <code>action</code>s, and update the <code>store</code> accordingly. You can choose how to update the state depending on which <code>type</code> of action your <code>reducer</code> function receives. Redux will pass this function the current state of the store, and the action you dispatched, expecting an updated state object to be returned: <code>(state, action) => newState</code>. We call this function a <code>reducer</code> function.
           </p>
