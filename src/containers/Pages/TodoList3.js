@@ -1,5 +1,4 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router';
+import React, { Component } from 'react'
 
 import Page from './Page'
 import styles from './styles'
@@ -11,36 +10,35 @@ const containerStyle = {
 
 const contentStyle = {
   paddingRight: '30px',
+  marginTop: '-15px',
 }
 
-const screenshotStyle = {
-  border: '1px solid black',
-}
-
-export default class TodoList1 extends Component {
+export default class TodoList3 extends Component {
   render() {
     return (
-      <Page title={'Todo List - Step 1'}>
+      <Page title={'Todo List - Step 3'}>
         <div style={styles.well}>
           <div style={containerStyle}>
             <div style={contentStyle}>
-              <div style={styles.h3}> Overview </div>
+              <div style={styles.h3}> List and Checkbox </div>
               <div style={styles.p}>
-                Our first exercise will be a simple Todo List. If you get stuck at any point, you can look to the examples in this guide, as there will be a lot of overlap in code.
+                The goal of this step is to render a list of items with working checkboxes and deletion. We'll also add redux actions to toggle item completion and remove individual items.
               </div>
-              <div style={styles.p}>
-                Let's build the app on the right. We'll break it down into smaller sections and build it piece-by-piece. Feel free to reference previous sections.
-              </div>
-              <div style={styles.h4}> Download </div>
-              <div style={styles.p}>
-                Download the basic project template here to begin:
-              </div>
-              <div style={styles.h4}> Sections </div>
+              <div style={styles.h4}> Tasks </div>
               <ul>
-                <li> <Link to={'todo_list_setup'}> Setup </Link> </li>
+                <li style={styles.li}> Add two new actions with actionCreators, <code>REMOVE_ITEM</code> and <code>TOGGLE_ITEM_COMPLETED</code> </li>
+                <li style={styles.li}> Update the reducer to handle these two new actions and update the redux state accordingly </li>
+                <li style={styles.li}> Complete the Checkbox component showing whether it's checked or not, with a callback triggered on toggle. </li>
+                <li style={styles.li}> Complete the List component to render all items with checkbox and delete character in a list that scrolls </li>
+                <li style={styles.li}> When item is checked/unchecked or deleted, dispatch the appropriate actions </li>
+              </ul>
+              <div style={styles.h4}> Hints </div>
+              <ul>
+                <li style={styles.li}> <code>[1, 2, 3, 4].filter((val) => val !== 2)</code> --> [1, 3, 4] </li>
+                <li style={styles.li}> <code>[1, 2, 3, 4].map((val) => val === 2 ? 10 : val)</code> --> [1, 10, 3, 4] </li>
               </ul>
             </div>
-            <div style={screenshotStyle}>
+            <div style={{border: '1px solid black'}}>
               <img
                 width={280}
                 src={'todo-screenshot.png'}

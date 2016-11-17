@@ -60,6 +60,10 @@ const styles = {
     padding: '20px 20px',
   },
 
+  li: {
+    margin: '10px 0',
+  },
+
   h3: {
     fontSize: 20,
     fontWeight: 300,
