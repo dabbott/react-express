@@ -1,18 +1,18 @@
 let sections = [
   {depth: 0, title: 'Getting Started', slug: 'start'},
   {depth: 1, title: 'Babel', slug: 'babel'},
-  {depth: 1, title: 'JSX', slug: 'jsx'},
   {depth: 1, title: 'ES6', slug: 'es6'},
   {depth: 1, title: 'ES6 Continued', slug: 'es6_continued'},
   {depth: 1, title: 'ES7 and Beyond', slug: 'es7_and_beyond'},
+  {depth: 1, title: 'JSX', slug: 'jsx'},
 
   {depth: 0, title: 'React Components', slug: 'components'},
   {depth: 1, title: 'Component API', slug: 'component_api'},
   {depth: 1, title: 'Lifecycle API', slug: 'lifecycle_api'},
 
   {depth: 0, title: 'Core Components', slug: 'core_components'},
-  {depth: 1, title: 'Flexbox', slug: 'flexbox'},
   {depth: 1, title: 'View', slug: 'view'},
+  {depth: 1, title: 'Flexbox', slug: 'flexbox'},
   {depth: 1, title: 'Text', slug: 'text'},
   {depth: 1, title: 'Image', slug: 'image'},
   {depth: 1, title: 'ScrollView', slug: 'scrollview'},
