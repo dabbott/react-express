@@ -28,13 +28,16 @@ export default class TodoList extends Component {
               <div style={styles.p}>
                 Let's build the app on the right. We'll break it down into smaller sections and build it piece-by-piece. Feel free to reference previous sections.
               </div>
-              <div style={styles.h4}> Download </div>
-              <div style={styles.p}>
-                Download the basic project template <a href={'https://raw.githubusercontent.com/gabergg/ReactNativeTodoList/starting-point/boilerplate/TodoList.zip'}>here</a> to begin.
-              </div>
+              <div style={styles.h4}>Project Setup</div>
+              <ol>
+                <li>Download the basic project template <a href={'https://raw.githubusercontent.com/gabergg/ReactNativeTodoList/starting-point/boilerplate/TodoList.zip'}>here</a></li>
+                <li>Unzip the project directory</li>
+                <li>After downloading, <code>npm install</code> in the project directory</li>
+                <li>Run <code>react-native run-ios</code> to build and launch the app</li>
+              </ol>
               <div style={styles.h4}> Completed </div>
               <div style={styles.p}>
-                View the source code for the completed project <a href={'https://github.com/gabergg/ReactNativeTodoList'}>here</a>.
+                You can view the completed project on github <a href={'https://github.com/gabergg/ReactNativeTodoList'}>here</a>.
               </div>
               <div style={styles.h4}> Sections </div>
               <ul>
