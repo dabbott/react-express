@@ -25,23 +25,27 @@ export default class Reddit extends Component {
               <div style={styles.p}>
                 This exercise will be a basic Reddit client. This exercise will include some more complex elements such as <code>fetch</code>, <code>AsyncStorage</code>, and authentication.
               </div>
-              <div style={styles.h4}> Download </div>
-              <div style={styles.p}>
-                Download the basic project template <a href={'https://github.com/decosoftware/RedditClient/archive/template.zip'}>here</a> to begin.
-              </div>
+              <div style={styles.h4}>Project Setup</div>
+              <ol>
+                <li>Download the basic project template <a href={'https://github.com/decosoftware/RedditClient/archive/template.zip'}>here</a></li>
+                <li>Unzip the project directory</li>
+                <li>After downloading, <code>npm install</code> in the project directory</li>
+                <li>Run <code>react-native run-ios</code> to build and launch the app</li>
+              </ol>
               <div style={styles.p}>
                 cd into the project and first, before anything, <code>npm install</code>
               </div>
               <div style={styles.h4}> Completed </div>
               <div style={styles.p}>
-                View the source code for the completed project <a href={'https://github.com/decosoftware/RedditClient/tree/go'}>here</a>.
+                You can view the completed project on github <a href={'https://github.com/decosoftware/RedditClient/tree/go'}>here</a>.
               </div>
               <div style={styles.h4}> Sections </div>
               <ul>
-                <li style={styles.li}> <Link to={'todo_list_1'}> Step 1 - Setup Router </Link> </li>
-                <li style={styles.li}> <Link to={'todo_list_2'}> Step 2 - Reddit OAuth </Link> </li>
-                <li style={styles.li}> <Link to={'todo_list_3'}> Step 3 - Persisting Token with AsyncStorage </Link> </li>
-                <li style={styles.li}> <Link to={'todo_list_4'}> Step 4 - Fetch and Display Reddit Posts </Link> </li>
+                <li style={styles.li}> <Link to={'reddit_1'}> Step 1 - Setup Router </Link> </li>
+                <li style={styles.li}> <Link to={'reddit_2'}> Step 2 - Reddit OAuth </Link> </li>
+                <li style={styles.li}> <Link to={'reddit_3'}> Step 3 - Persisting Token with AsyncStorage </Link> </li>
+                <li style={styles.li}> <Link to={'reddit_4'}> Step 4 - Fetch Reddit Posts </Link> </li>
+                <li style={styles.li}> <Link to={'reddit_5'}> Step 5 - Display Reddit Posts </Link> </li>
               </ul>
             </div>
             <div style={{border: '1px solid black', height: 528}}>
