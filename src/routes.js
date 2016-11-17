@@ -46,6 +46,11 @@ import TodoList3 from 'containers/Pages/TodoList3'
 import TodoList4 from 'containers/Pages/TodoList4'
 
 import Reddit from 'containers/Pages/Reddit'
+import Reddit1 from 'containers/Pages/Reddit1'
+import Reddit2 from 'containers/Pages/Reddit2'
+import Reddit3 from 'containers/Pages/Reddit3'
+import Reddit4 from 'containers/Pages/Reddit4'
+import Reddit5 from 'containers/Pages/Reddit5'
 
 import Uber from 'containers/Pages/Uber'
 import Uber1 from 'containers/Pages/Uber1'
@@ -102,6 +107,11 @@ export default () => {
         <Route path={"todo_list_3"} component={TodoList3} />
         <Route path={"todo_list_4"} component={TodoList4} />
         <Route path={"reddit"} component={Reddit} />
+        <Route path={"reddit_1"} component={Reddit1} />
+        <Route path={"reddit_2"} component={Reddit2} />
+        <Route path={"reddit_3"} component={Reddit3} />
+        <Route path={"reddit_4"} component={Reddit4} />
+        <Route path={"reddit_5"} component={Reddit5} />
         <Route path={"uber"} component={Uber} />
         <Route path={"uber_1"} component={Uber1} />
         <Route path={"uber_2"} component={Uber2} />
