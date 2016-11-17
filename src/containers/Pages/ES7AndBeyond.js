@@ -113,6 +113,9 @@ export default class ES7AndBeyond extends Component {
             outputHeader={'Output compiled with Babel'}
           />
         </div>
+        <div style={styles.well}>
+          {this.props.navigatorButton}
+        </div>
       </Page>
     )
   }
