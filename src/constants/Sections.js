@@ -50,6 +50,10 @@ let sections = [
   {depth: 1, title: 'Reddit', slug: 'reddit'},
 
   {depth: 1, title: 'Uber', slug: 'uber'},
+  {depth: 2, title: 'Search Header', slug: 'uber_1'},
+  {depth: 2, title: 'Results List', slug: 'uber_2'},
+  {depth: 2, title: 'Map & Geolocation', slug: 'uber_3'},
+  {depth: 2, title: 'UI Polish', slug: 'uber_4'},
   //
   // {depth: 0, title: 'Boilerplates', slug: 'boilerplates'},
   // {depth: 1, title: 'Ignite', slug: 'ignite'},

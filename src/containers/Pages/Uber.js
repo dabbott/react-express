@@ -1,30 +1,61 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router';
+
 import Page from './Page'
 import styles from './styles'
+
+const containerStyle = {
+  display: 'flex',
+  flexDirection: 'row',
+  justifyContent: 'space-between',
+}
 
 export default class Uber extends Component {
   render() {
     return (
       <Page title={'Uber'}>
         <div style={styles.well}>
-          <div style={styles.h3}>Modern JavaScript</div>
-          <div style={styles.p}>
-            In the old days, you could just include a <code>{`<script>`}</code> tag in the header of your webpage, and your JavaScript would run as intended. These days, we preprocess our JavaScript in order to access experimental features and language extensions like JSX.
-          </div>
-          <div style={styles.p}>
-            Uber is the main tool used to preprocess JavaScript. Uber is a highly configurable parser that lets you use experimental features and extensions, compiling down into old-style JavaScript that can be supported on a wider range of platforms. Of course, if a native platform doesn't support an ES6 feature like <code>Map()</code>, Uber won't fully be able to help -- but it can in many cases polyfill missing APIs to provide this functionality.
-          </div>
-          <div style={styles.p}>
-            Uber enables debugging of the the original source code by including <b>source maps</b> with the compiled JavaScript. JavaScript interpretters will run the compiled code, but map it to the source code in the debugger so that you can debug the source code instead of the (generally quite ugly) compiled output.
-          </div>
-        </div>
-        <div style={styles.well}>
-          <div style={styles.h3}>Uber Configuration</div>
-          <div style={styles.p}>
-            You can configure Uber by including a <code>{`.babelrc`}</code> file in the root directory of your project. This file can specify which experimental JS features to enable and which plugins to use (JSX).
-          </div>
-          <div style={styles.p}>
-            React Native takes care of properly configuring babel for you, so you generally won't need to create a <code>{`.babelrc`}</code>. However, if you want to modify the default presets, you can use the npm package <a href={'https://github.com/facebook/react-native/tree/master/babel-preset'}>babel-preset-react-native</a> as a base configuration, and apply additional plugins/configuration on top.
+          <div style={containerStyle}>
+            <div style={{paddingRight: '30px'}}>
+              <div style={styles.h3}>Overview</div>
+              <div style={styles.p}>
+                We'll now build the main UI for the Uber app. This is an <b>advanced</b> exercise, covering:
+              </div>
+              <ul>
+                <li>Animation using <code>react-native-animatable</code> (some of these are really tricky!)</li>
+                <li>Layout and absolute positioning</li>
+                <li>Using the <code>react-native-maps</code> native module</li>
+                <li>Geolocation API</li>
+                <li>ListView</li>
+              </ul>
+              <div style={styles.p}>
+                The project template includes all the assets you'll need to make the app on the right. The exact animations in the Uber app are very nuanced and change frequently, so don't worry about getting it <i>exactly</i> right. When in doubt, open the Uber app and try to observer how the animations work so you can piece them back together.
+              </div>
+              <div style={styles.h4}>Project Setup</div>
+              <ol>
+                <li>Download the basic project template <a href={'https://github.com/dabbott/UberExercise/raw/starting-point/boilerplate/UberExercise.zip'}>here</a></li>
+                <li>Unzip the project directory</li>
+                <li>After downloading, <code>npm install</code> in the project directory</li>
+                <li>Run <code>react-native run-ios</code> to build and launch the app</li>
+              </ol>
+              <div style={styles.h4}>Completed</div>
+              <div style={styles.p}>
+                You can view the completed project on github <a href={'https://github.com/dabbott/UberExercise'}>here</a>.
+              </div>
+              <div style={styles.h4}>Sections</div>
+              <ul>
+                <li><Link to={'todo_list_1'}> Step 1 - Search Header</Link></li>
+                <li><Link to={'todo_list_2'}> Step 2 - Results List</Link></li>
+                <li><Link to={'todo_list_3'}> Step 3 - Map & Geolocation</Link></li>
+                <li><Link to={'todo_list_3'}> Step 4 - UI Polish</Link></li>
+              </ul>
+            </div>
+            <div>
+              <img
+                width={280}
+                src={'uber-animation-small.gif'}
+              />
+            </div>
           </div>
         </div>
         <div style={styles.well}>

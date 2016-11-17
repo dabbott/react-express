@@ -46,7 +46,12 @@ import TodoList3 from 'containers/Pages/TodoList3'
 import TodoList4 from 'containers/Pages/TodoList4'
 
 import Reddit from 'containers/Pages/Reddit'
+
 import Uber from 'containers/Pages/Uber'
+import Uber1 from 'containers/Pages/Uber1'
+import Uber2 from 'containers/Pages/Uber2'
+import Uber3 from 'containers/Pages/Uber3'
+import Uber4 from 'containers/Pages/Uber4'
 
 import Boilerplates from 'containers/Pages/Boilerplates'
 
@@ -98,6 +103,10 @@ export default () => {
         <Route path={"todo_list_4"} component={TodoList4} />
         <Route path={"reddit"} component={Reddit} />
         <Route path={"uber"} component={Uber} />
+        <Route path={"uber_1"} component={Uber1} />
+        <Route path={"uber_2"} component={Uber2} />
+        <Route path={"uber_3"} component={Uber3} />
+        <Route path={"uber_4"} component={Uber4} />
 
         { /* Catch all route */ }
         <Route path={"*"} component={NotFound} status={404} />
