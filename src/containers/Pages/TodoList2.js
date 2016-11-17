@@ -17,7 +17,7 @@ const contentStyle = {
 export default class TodoList2 extends Component {
   render() {
     return (
-      <Page title={'Todo List - Step 2'}>
+      <Page title={'Input & Adding'}>
         <div style={styles.well}>
           <div style={containerStyle}>
             <div style={contentStyle}>

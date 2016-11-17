@@ -16,7 +16,7 @@ const contentStyle = {
 export default class TodoList4 extends Component {
   render() {
     return (
-      <Page title={'Todo List - Step 4'}>
+      <Page title={'Removal & Styling'}>
         <div style={styles.well}>
           <div style={containerStyle}>
             <div style={contentStyle}>
