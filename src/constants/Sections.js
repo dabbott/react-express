@@ -38,6 +38,18 @@ let sections = [
   {depth: 1, title: 'Animated', slug: 'animated'},
   {depth: 1, title: 'RN Animatable', slug: 'react_native_animatable'},
   {depth: 1, title: 'Gestures', slug: 'gestures'},
+
+  {depth: 0, title: 'Exercises', slug: 'exercises'},
+
+  {depth: 1, title: 'Todo List', slug: 'todo_list'},
+  {depth: 2, title: 'Step 1', slug: 'todo_list_1'},
+  {depth: 2, title: 'Step 2', slug: 'todo_list_2'},
+  {depth: 2, title: 'Step 3', slug: 'todo_list_3'},
+  {depth: 2, title: 'Step 4', slug: 'todo_list_4'},
+
+  {depth: 1, title: 'Reddit', slug: 'reddit'},
+
+  {depth: 1, title: 'Uber', slug: 'uber'},
   //
   // {depth: 0, title: 'Boilerplates', slug: 'boilerplates'},
   // {depth: 1, title: 'Ignite', slug: 'ignite'},

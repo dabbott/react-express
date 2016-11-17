@@ -37,6 +37,17 @@ import Animated from 'containers/Pages/Animated'
 import ReactNativeAnimatable from 'containers/Pages/ReactNativeAnimatable'
 import Gestures from 'containers/Pages/Gestures'
 
+import Exercises from 'containers/Pages/Exercises'
+
+import TodoList from 'containers/Pages/TodoList'
+import TodoList1 from 'containers/Pages/TodoList1'
+import TodoList2 from 'containers/Pages/TodoList2'
+import TodoList3 from 'containers/Pages/TodoList3'
+import TodoList4 from 'containers/Pages/TodoList4'
+
+import Reddit from 'containers/Pages/Reddit'
+import Uber from 'containers/Pages/Uber'
+
 import Boilerplates from 'containers/Pages/Boilerplates'
 
 export default () => {
@@ -79,6 +90,14 @@ export default () => {
         <Route path={"react_native_animatable"} component={ReactNativeAnimatable} />
         <Route path={"gestures"} component={Gestures} />
         <Route path={"boilerplates"} component={Boilerplates} />
+        <Route path={"exercises"} component={Exercises} />
+        <Route path={"todo_list"} component={TodoList} />
+        <Route path={"todo_list_1"} component={TodoList1} />
+        <Route path={"todo_list_2"} component={TodoList2} />
+        <Route path={"todo_list_3"} component={TodoList3} />
+        <Route path={"todo_list_4"} component={TodoList4} />
+        <Route path={"reddit"} component={Reddit} />
+        <Route path={"uber"} component={Uber} />
 
         { /* Catch all route */ }
         <Route path={"*"} component={NotFound} status={404} />
