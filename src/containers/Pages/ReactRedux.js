@@ -95,38 +95,38 @@ export default class extends Component {
       <Page title={'React Redux'}>
         <div style={styles.well}>
           <div style={styles.h3}>React Redux</div>
-          <p>
+          <div style={styles.p}>
             Redux has official bindings for React in a package called <a href={"http://redux.js.org/docs/basics/UsageWithReact.html"}>React Redux</a>.
-          </p>
-          <p>
+          </div>
+          <div style={styles.p}>
             In the previous examples, we passed the <code>store</code> object directly into our container component as a prop. We then started listening to changes in <code>componentWillMount</code> with <code>store.subscribe()</code>, and we made sure to unsubscribe in <code>componentWillUnmount</code>. We dispatched actions with <code>store.dispatch(action)</code>.
-          </p>
-          <p>
+          </div>
+          <div style={styles.p}>
             There are a few issues with using Redux this way:
             <ul>
               <li>Subscribing and unsubscribing to the store in our components is tedious and error-prone.</li>
               <li>Every container component will re-render on <i>every</i> change to the store, potentially becoming a performance issue.</li>
               <li>Using the store directly exposes the entire store API to our components; generally, components only need to be aware of the <code>dispatch()</code> API.</li>
             </ul>
-          </p>
-          <p>
+          </div>
+          <div style={styles.p}>
             React Redux addresses these issues.
-          </p>
+          </div>
         </div>
         <div style={styles.well}>
           <div style={styles.h3}>React Redux API</div>
           <div style={styles.h4}><code>Provider</code></div>
-          <p>
+          <div style={styles.p}>
             React Redux exposes the <code>Provider</code> component to handle passing our store to every container component. We'll generally use this to wrap the root component of our app, e.g. <code>{`<Provider store={store}> ... </Provider>`}</code>.
-          </p>
+          </div>
           <div style={styles.h4}><code>connect(mapStateToProps)(Component) => Component</code></div>
-          <p>
+          <div style={styles.p}>
             We use <code>connect()</code> to access the state of our <code>store</code> in our container components. Call <code>connect(mapStateToProps)</code> with a function that takes the state of the store, mapping it to <code>props</code> to be passed into our container component, <code>(state) => props</code>. Calling <code>connect()</code> returns <b>another function</b>, which we should then call with our container component, <code>connect(...)(Component)</code>, to get a "connected" component. This connected component will automatically have a <code>dispatch</code> prop (for dispatching actions), and the result of <code>mapStateToProps</code> will be merged into the component's props.
-          </p>
+          </div>
           <div style={styles.h4}>That's enough to get started!</div>
-          <p>
+          <div style={styles.p}>
             There are more APIs, and more parameters to the <code>connect()</code> function, but these are the ones you need to get going. Feel free to read more about React Redux in the <a href={"http://redux.js.org/docs/basics/UsageWithReact.html"}>docs</a>.
-          </p>
+          </div>
         </div>
         <div style={styles.well}>
           <div style={styles.h3}>To-Do List Example</div>

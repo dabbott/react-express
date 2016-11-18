@@ -28,7 +28,10 @@ let sections = [
   //
   {depth: 0, title: 'Persistence', slug: 'persistence'},
   {depth: 1, title: 'AsyncStorage', slug: 'asyncstorage'},
-  // {depth: 1, title: 'Redux Persist', slug: 'redux_persist'},
+  {depth: 1, title: 'Redux Persist', slug: 'redux_persist'},
+
+  {depth: 0, title: 'Networking', slug: 'networking'},
+  {depth: 2, title: 'With Redux', slug: 'networking_redux'},
 
   // {depth: 0, title: 'Navigation', slug: 'navigation'},
   // {depth: 1, title: 'React Native Router Flux', slug: 'react_native_router_flux'},
@@ -53,7 +56,6 @@ let sections = [
   {depth: 2, title: 'Persisting Token', slug: 'reddit_3'},
   {depth: 2, title: 'Fetch Posts', slug: 'reddit_4'},
   {depth: 2, title: 'Display Posts', slug: 'reddit_5'},
-
 
   {depth: 1, title: 'Uber', slug: 'uber'},
   {depth: 2, title: 'Search Header', slug: 'uber_1'},

@@ -90,6 +90,7 @@ export default class View extends Component {
         <div style={styles.well}>
           <div style={styles.h3}>Example</div>
           <WebPlayer
+            title={'React Native Animatable'}
             code={code}
             vendorComponents={vendorComponents}
           />

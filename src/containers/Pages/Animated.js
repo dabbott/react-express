@@ -90,7 +90,10 @@ export default class View extends Component {
         </div>
         <div style={styles.well}>
           <div style={styles.h3}>Example</div>
-          <WebPlayer code={code} />
+          <WebPlayer
+            title={'Animated'}
+            code={code}
+          />
         </div>
         <div style={styles.well}>
           {this.props.navigatorButton}

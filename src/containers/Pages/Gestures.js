@@ -154,6 +154,7 @@ export default class Gestures extends Component {
         <div style={styles.well}>
           <div style={styles.h3}>Example</div>
           <WebPlayer
+            title={'Gestures'}
             code={code}
             scale={1} // Fixes dragging position (almost)
           />

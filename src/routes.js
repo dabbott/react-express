@@ -31,6 +31,10 @@ import Realm from 'containers/Pages/Realm'
 
 import Persistence from 'containers/Pages/Persistence'
 import AsyncStorage from 'containers/Pages/AsyncStorage'
+import ReduxPersist from 'containers/Pages/ReduxPersist'
+
+import Networking from 'containers/Pages/Networking'
+import NetworkingRedux from 'containers/Pages/NetworkingRedux'
 
 import Animation from 'containers/Pages/Animation'
 import Animated from 'containers/Pages/Animated'
@@ -92,9 +96,12 @@ export default () => {
         <Route path={"data_component_state"} component={ComponentState} />
         <Route path={"redux"} component={Redux} />
         <Route path={"react_redux"} component={ReactRedux} />
+        <Route path={"networking"} component={Networking} />
+        <Route path={"networking_redux"} component={NetworkingRedux} />
         <Route path={"realm"} component={Realm} />
         <Route path={"persistence"} component={Persistence} />
         <Route path={"asyncstorage"} component={AsyncStorage} />
+        <Route path={"redux_persist"} component={ReduxPersist} />
         <Route path={"animation"} component={Animation} />
         <Route path={"animated"} component={Animated} />
         <Route path={"react_native_animatable"} component={ReactNativeAnimatable} />

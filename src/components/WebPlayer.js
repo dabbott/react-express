@@ -25,17 +25,27 @@ const playerStyles = {
   tab: {
     backgroundColor: 'rgb(250,250,250)',
   },
+  header: {
+    backgroundColor: 'rgb(250,250,250)',
+    boxShadow: 'rgba(0, 0, 0, 0.2) 0px 1px 1px',
+    zIndex: 10,
+  },
   tabText: {
     color: '#AAA',
   },
   tabTextActive: {
     color: '#000',
   },
+  headerText: {
+    color: '#AAA',
+    fontWeight: 'normal',
+  },
 }
 
 export default class WebPlayer extends Component {
 
   static defaultProps = {
+    title: null,
     height: 700,
     width: 260,
     scale: 0.75,
@@ -45,13 +55,17 @@ export default class WebPlayer extends Component {
   }
 
   render() {
-    const {code, files, entry, height, width, scale, vendorComponents} = this.props
+    const {code, files, entry, title, height, width, scale, vendorComponents} = this.props
 
     const params = {
       width,
       scale,
       fullscreen: true,
       styles: JSON.stringify(playerStyles),
+    }
+
+    if (title) {
+      params.title = title
     }
 
     if (files.length > 0) {
