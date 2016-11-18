@@ -33,14 +33,17 @@ let sections = [
   {depth: 0, title: 'Networking', slug: 'networking'},
   {depth: 2, title: 'With Redux', slug: 'networking_redux'},
 
-  // {depth: 0, title: 'Navigation', slug: 'navigation'},
-  // {depth: 1, title: 'React Native Router Flux', slug: 'react_native_router_flux'},
-  // {depth: 1, title: 'React Native Navigation', slug: 'react_native_navigation'},
-  //
   {depth: 0, title: 'Animation', slug: 'animation'},
   {depth: 1, title: 'Animated', slug: 'animated'},
   {depth: 1, title: 'RN Animatable', slug: 'react_native_animatable'},
   {depth: 1, title: 'Gestures', slug: 'gestures'},
+
+  // {depth: 0, title: 'Navigation', slug: 'navigation'},
+  // {depth: 1, title: 'React Native Router Flux', slug: 'react_native_router_flux'},
+  // {depth: 1, title: 'React Native Navigation', slug: 'react_native_navigation'},
+
+  {depth: 0, title: 'Boilerplates', slug: 'boilerplates'},
+  // {depth: 1, title: 'Ignite', slug: 'ignite'},
 
   {depth: 0, title: 'Exercises', slug: 'exercises'},
 
@@ -62,10 +65,7 @@ let sections = [
   {depth: 2, title: 'Results List', slug: 'uber_2'},
   {depth: 2, title: 'Map & Geolocation', slug: 'uber_3'},
   {depth: 2, title: 'UI Polish', slug: 'uber_4'},
-  //
-  // {depth: 0, title: 'Boilerplates', slug: 'boilerplates'},
-  // {depth: 1, title: 'Ignite', slug: 'ignite'},
-  //
+
   // {depth: 0, title: 'Projects', slug: 'boilerplates'},
   // {depth: 1, title: 'Twitter Clone', slug: 'project_twitter'},
   // {depth: 2, title: 'Project Setup', slug: 'project_twitter_setup'},

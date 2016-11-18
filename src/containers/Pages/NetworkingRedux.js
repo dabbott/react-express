@@ -46,14 +46,13 @@ export const actionCreators = {
       dispatch({type: types.FETCH_POSTS_RESPONSE, payload: e, error: true})
     }
   },
-  refreshPosts: () => async (dispatch, getState) => {
 
-    // We can await the completion of other actions. We can even access the
-    // return value - it's common for action creators to return a promise for
-    // easy chaining, such as this (async functions always return promises)
-    await dispatch({type: types.CLEAR_POSTS})
-
-    dispatch(actionCreators.fetchPosts())
+  // It's common for action creators to return a promise for easy chaining,
+  // which is why this is declared async (async functions always return promises).
+  clearPosts: () => async (dispatch, getState) => {
+    if (getState().posts.length > 0) {
+      dispatch({type: types.CLEAR_POSTS})
+    }
   }
 }
 
@@ -104,10 +103,13 @@ class App extends Component {
     dispatch(actionCreators.fetchPosts())
   }
 
-  refresh = () => {
+  refresh = async () => {
     const {dispatch} = this.props
 
-    dispatch(actionCreators.refreshPosts())
+    // We can await the completion of dispatch, so long as we returned a promise.
+    await dispatch(actionCreators.clearPosts())
+
+    dispatch(actionCreators.fetchPosts())
   }
 
   renderPost = ({id, title, body}, i) => {
