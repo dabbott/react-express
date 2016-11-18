@@ -32,9 +32,6 @@ export default class Reddit extends Component {
                 <li>After downloading, <code>npm install</code> in the project directory</li>
                 <li>Run <code>react-native run-ios</code> to build and launch the app</li>
               </ol>
-              <div style={styles.p}>
-                cd into the project and first, before anything, <code>npm install</code>
-              </div>
               <div style={styles.h4}> Completed </div>
               <div style={styles.p}>
                 You can view the completed project on github <a href={'https://github.com/decosoftware/RedditClient/tree/go'}>here</a>.

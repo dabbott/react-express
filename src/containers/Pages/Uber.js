@@ -44,10 +44,10 @@ export default class Uber extends Component {
               </div>
               <div style={styles.h4}>Sections</div>
               <ul>
-                <li><Link to={'todo_list_1'}> Step 1 - Search Header</Link></li>
-                <li><Link to={'todo_list_2'}> Step 2 - Results List</Link></li>
-                <li><Link to={'todo_list_3'}> Step 3 - Map & Geolocation</Link></li>
-                <li><Link to={'todo_list_3'}> Step 4 - UI Polish</Link></li>
+                <li style={styles.li}><Link to={'uber_1'}> Step 1 - Search Header</Link></li>
+                <li style={styles.li}><Link to={'uber_2'}> Step 2 - Results List</Link></li>
+                <li style={styles.li}><Link to={'uber_3'}> Step 3 - Map & Geolocation</Link></li>
+                <li style={styles.li}><Link to={'uber_4'}> Step 4 - UI Polish</Link></li>
               </ul>
             </div>
             <div>
