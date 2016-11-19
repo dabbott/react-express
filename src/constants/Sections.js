@@ -22,10 +22,9 @@ let sections = [
   {depth: 1, title: 'Component State', slug: 'data_component_state'},
   {depth: 1, title: 'Redux', slug: 'redux'},
   {depth: 2, title: 'React Redux', slug: 'react_redux'},
-  // {depth: 2, title: 'Async Control Flow', slug: 'redux_async'},
   {depth: 1, title: 'Realm', slug: 'realm'},
   // {depth: 1, title: 'Firebase', slug: 'firebase_data'},
-  //
+
   {depth: 0, title: 'Persistence', slug: 'persistence'},
   {depth: 1, title: 'AsyncStorage', slug: 'asyncstorage'},
   {depth: 1, title: 'Redux Persist', slug: 'redux_persist'},
@@ -65,24 +64,6 @@ let sections = [
   {depth: 2, title: 'Results List', slug: 'uber_2'},
   {depth: 2, title: 'Map & Geolocation', slug: 'uber_3'},
   {depth: 2, title: 'UI Polish', slug: 'uber_4'},
-
-  // {depth: 0, title: 'Projects', slug: 'boilerplates'},
-  // {depth: 1, title: 'Twitter Clone', slug: 'project_twitter'},
-  // {depth: 2, title: 'Project Setup', slug: 'project_twitter_setup'},
-  // {depth: 2, title: 'Item Component', slug: 'project_twitter_list_item'},
-  // {depth: 2, title: 'List Component', slug: 'project_twitter_list'},
-  // {depth: 2, title: 'Images', slug: 'project_twitter_images'},
-  // {depth: 2, title: 'Video', slug: 'project_twitter_video'},
-  // {depth: 2, title: 'Performance', slug: 'project_twitter_performance'},
-  // {depth: 2, title: 'Bonus: Compose', slug: 'project_twitter_compose'},
-  // {depth: 1, title: 'Uber Clone', slug: 'project_uber'},
-  // {depth: 2, title: 'Project Setup', slug: 'project_uber'},
-  // {depth: 2, title: 'Item Component', slug: 'project_uber'},
-  // {depth: 2, title: 'List Component', slug: 'project_uber'},
-  // {depth: 2, title: 'Images', slug: 'project_uber'},
-  // {depth: 2, title: 'Video', slug: 'project_uber'},
-  // {depth: 2, title: 'Performance', slug: 'project_uber'},
-  // {depth: 2, title: 'Bonus: Compose', slug: 'project_uber'},
 ]
 
 sections = sections.reduce((acc, section) => {
