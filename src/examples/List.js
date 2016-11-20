@@ -1,4 +1,4 @@
-export default `import React, { Component } from 'react'
+import React, { Component } from 'react'
 import { AppRegistry, View, TouchableOpacity, Text, StyleSheet } from 'react-native'
 
 export default class List extends Component {
@@ -34,4 +34,3 @@ const styles = StyleSheet.create({
     padding: 15,
   },
 })
-`

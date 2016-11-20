@@ -1,12 +1,5 @@
-/**
- *  Point of contact for component modules
- *
- *  ie: import { CounterButton, InfoBar } from 'components'
- *
- */
-export GithubButton from './GithubButton/GithubButton'
 export EditorTranspiler from './EditorTranspiler'
 export Phone from './Phone'
-export Player from './Player'
+// export Player from './Player'
 export WebPlayer from './WebPlayer'
 export GithubCorner from './GithubCorner'

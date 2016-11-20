@@ -1,4 +1,4 @@
-export default `// The types of actions that you can dispatch to modify the state of the store
+// The types of actions that you can dispatch to modify the state of the store
 export const types = {
   ADD: 'ADD',
   REMOVE: 'REMOVE',
@@ -47,4 +47,3 @@ export const reducer = (state = initialState, action) => {
 
   return state
 }
-`

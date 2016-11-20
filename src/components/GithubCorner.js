@@ -6,7 +6,7 @@ export default class GithubCorner extends Component {
       <a
         href={"https://github.com/dabbott/react-native-express"}
         className={"github-corner"}
-        ariaLabel={"View source on Github"}
+        title={"View source on Github"}
       >
         <svg
           width="80"

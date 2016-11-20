@@ -19,7 +19,7 @@ const styles = {
   },
 }
 
-const WEB_PLAYER_VERSION = '1.5.1'
+const WEB_PLAYER_VERSION = '1.6.1'
 
 const playerStyles = {
   tab: {
@@ -30,15 +30,24 @@ const playerStyles = {
     boxShadow: 'rgba(0, 0, 0, 0.2) 0px 1px 1px',
     zIndex: 10,
   },
+  headerText: {
+    color: '#AAA',
+    fontWeight: 'normal',
+  },
+  transpilerHeader: {
+    backgroundColor: 'rgb(240,240,240)',
+    boxShadow: 'rgba(0, 0, 0, 0.2) 0px 1px 1px',
+    zIndex: 10,
+  },
+  transpilerHeaderText: {
+    color: '#888',
+    fontWeight: 'normal',
+  },
   tabText: {
     color: '#AAA',
   },
   tabTextActive: {
     color: '#000',
-  },
-  headerText: {
-    color: '#AAA',
-    fontWeight: 'normal',
   },
 }
 
@@ -52,15 +61,30 @@ export default class WebPlayer extends Component {
     code: '',
     files: [],
     vendorComponents: [],
+    showTranspiler: false,
+    transpilerTitle: '',
+    fullscreen: true,
   }
 
   render() {
-    const {code, files, entry, title, height, width, scale, vendorComponents} = this.props
+    const {
+      code,
+      files,
+      entry,
+      title,
+      height,
+      width,
+      scale,
+      fullscreen,
+      showTranspiler,
+      transpilerTitle,
+      vendorComponents,
+    } = this.props
 
     const params = {
       width,
       scale,
-      fullscreen: true,
+      fullscreen,
       styles: JSON.stringify(playerStyles),
     }
 
@@ -80,6 +104,14 @@ export default class WebPlayer extends Component {
 
     if (entry) {
       params.entry = entry
+    }
+
+    if (showTranspiler) {
+      params.panes = JSON.stringify(['editor', 'transpiler'])
+    }
+
+    if (transpilerTitle) {
+      params.transpilerTitle = transpilerTitle
     }
 
     const hash = '#' + createUrlParams(params)

@@ -1,4 +1,4 @@
-export default `import React, { Component } from 'react'
+import React, { Component } from 'react'
 import { AppRegistry, TextInput, StyleSheet } from 'react-native'
 
 export default class Input extends Component {
@@ -41,4 +41,3 @@ const styles = StyleSheet.create({
     height: 50,
   },
 })
-`
