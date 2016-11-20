@@ -50,6 +50,21 @@ const style = {
 }
 
 export default class App extends Component {
+
+  componentWillUpdate(nextProps) {
+    const {location} = nextProps
+    const {pathname} = location
+
+    const nextSection = getNextSection(pathname)
+
+    // Pre-load the next section
+    if (nextSection) {
+      const {componentName} = nextSection
+
+      System.import(`../pages/${componentName}`)
+    }
+  }
+
   render() {
     const {children, location} = this.props
     const {pathname} = location
