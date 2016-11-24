@@ -1,5 +1,3 @@
 export EditorTranspiler from './EditorTranspiler'
-export Phone from './Phone'
-// export Player from './Player'
 export WebPlayer from './WebPlayer'
 export GithubCorner from './GithubCorner'
