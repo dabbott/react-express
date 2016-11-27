@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import { Router, IndexRoute, Route, browserHistory } from 'react-router'
+import { Router, IndexRoute, Route, browserHistory, applyRouterMiddleware } from 'react-router'
+import useScroll from 'react-router-scroll/lib/useScroll'
 
 import * as Analytics from '../utils/Analytics'
 import sections from '../utils/Sections'
@@ -24,7 +25,11 @@ const routes = sections.map(section => {
 export default class AppRouter extends Component {
   render() {
     return (
-      <Router history={browserHistory} onUpdate={Analytics.pageView}>
+      <Router
+        history={browserHistory}
+        onUpdate={Analytics.pageView}
+        render={applyRouterMiddleware(useScroll())}
+      >
         <Route path="/" component={App}>
           <IndexRoute component={Introduction} />
           <Route path={"intro"} component={Introduction} />

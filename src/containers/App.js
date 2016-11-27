@@ -43,16 +43,14 @@ import * as config from '../config'
     flex: '1 1 auto',
     display: 'flex',
     position: 'relative',
-    // Hack to fix flexbox scrolling in FF
-    // position: 'absolute',
-    // height: '100%',
     minWidth: 0,
     minHeight: 0,
   },
   menuButton: {
     position: 'absolute',
     top: 10,
-    left: ({responsive}, {showSidebar}) => !responsive.match('small') && showSidebar ? 290 : 10,
+    left: ({responsive}, {showSidebar}) =>
+      !responsive.match('small|mobile') && showSidebar ? 290 : 10,
     zIndex: 12000,
   },
   menu: {
@@ -113,7 +111,7 @@ export default class App extends Component {
     return (
       <HamburgerButton
         style={styles.menuButton}
-        onPress={responsive.match('small') ? this.toggleMenu : this.toggleSidebar}
+        onPress={responsive.match('small|mobile') ? this.toggleMenu : this.toggleSidebar}
       />
     )
   }
@@ -145,8 +143,8 @@ export default class App extends Component {
         />
         <div style={styles.inner}>
           {this.renderMenuButton(styles)}
-          {!responsive.match('small') && showSidebar && this.renderSidebar(styles)}
-          {responsive.match('small') && showMenu && (
+          {!responsive.match('small|mobile') && showSidebar && this.renderSidebar(styles)}
+          {responsive.match('small|mobile') && showMenu && (
             <Sidebar
               style={styles.menu}
               centered={true}

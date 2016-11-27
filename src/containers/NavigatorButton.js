@@ -1,46 +1,44 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router';
+import React, { Component } from 'react'
+import { Link } from 'react-router'
+import createStyles from 'react-styles-provider'
 
-const style = {
-  flexDirection: 'row',
-  justifyContent: 'space-between',
-  alignItems: 'center',
-  display: 'flex',
-}
-
-const itemStyle = {
-  flex: '0 0 auto',
-  padding: '10px 15px',
-  backgroundColor: 'rgb(210,210,210)',
-  color: 'white',
-  borderRadius: 3,
-}
-
-const nextItemStyle = Object.assign({}, itemStyle, {
-  backgroundColor: 'rgb(54,203,170)',
+@createStyles({
+  container: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    display: 'flex',
+  },
+  item: {
+    flex: '0 0 auto',
+    padding: '10px 15px',
+    backgroundColor: 'rgb(210,210,210)',
+    color: 'white',
+    borderRadius: 3,
+  },
+  nextItem: [
+    'item', {
+      backgroundColor: 'rgb(54,203,170)',
+    },
+  ],
 })
-
 export default class extends Component {
   render() {
-    const {nextSection, previousSection} = this.props
+    const {styles, nextSection, previousSection} = this.props
     return (
-      <div style={style}>
-        {
-          previousSection ? (
-            <Link to={previousSection.slug} style={itemStyle}>
-              Previous - {previousSection.title}
-            </Link>
-          ) : (
-            <div />
-          )
-        }
-        {
-          nextSection && (
-            <Link to={nextSection.slug} style={nextItemStyle}>
-              Next - {nextSection.title}
-            </Link>
-          )
-        }
+      <div style={styles.container}>
+        {previousSection ? (
+          <Link to={previousSection.slug} style={styles.item}>
+            Previous - {previousSection.title}
+          </Link>
+        ) : (
+          <div />
+        )}
+        {nextSection && (
+          <Link to={nextSection.slug} style={styles.nextItem}>
+            Next - {nextSection.title}
+          </Link>
+        )}
       </div>
     )
   }
