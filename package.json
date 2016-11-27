@@ -32,7 +32,8 @@
     "react-dom": "15.3.0",
     "react-ga": "^2.1.2",
     "react-helmet": "^3.2.2",
-    "react-router": "^3.0.0"
+    "react-router": "^3.0.0",
+    "react-styles-provider": "dabbott/react-styles-provider#flexible-api"
   },
   "devDependencies": {
     "babel-core": "6.13.2",

@@ -1,22 +1,10 @@
 import React, { Component } from 'react'
+import createStyles, { responsive } from 'react-styles-provider'
 
 const createUrlParams = (params) => {
   return Object.keys(params).map(key => {
     return `${key}=${encodeURIComponent(params[key])}`
   }).join('&')
-}
-
-const styles = {
-  container: {
-    display: 'flex',
-    marginBottom: 15,
-  },
-  player: {
-    flex: '1 1 auto',
-    minWidth: 0,
-    minHeight: 0,
-    marginRight: -10,
-  },
 }
 
 const WEB_PLAYER_VERSION = '1.6.1'
@@ -51,6 +39,19 @@ const playerStyles = {
   },
 }
 
+@responsive()
+@createStyles({
+  container: {
+    display: 'flex',
+    marginBottom: 15,
+  },
+  player: {
+    flex: '1 1 auto',
+    minWidth: 0,
+    minHeight: 0,
+    marginRight: -10,
+  },
+})
 export default class WebPlayer extends Component {
 
   static defaultProps = {
@@ -66,8 +67,13 @@ export default class WebPlayer extends Component {
     fullscreen: true,
   }
 
+  shouldComponentUpdate() {
+    return false
+  }
+
   render() {
     const {
+      styles,
       code,
       files,
       entry,
@@ -79,6 +85,7 @@ export default class WebPlayer extends Component {
       showTranspiler,
       transpilerTitle,
       vendorComponents,
+      responsive,
     } = this.props
 
     const params = {
@@ -106,8 +113,14 @@ export default class WebPlayer extends Component {
       params.entry = entry
     }
 
-    if (showTranspiler) {
-      params.panes = JSON.stringify(['editor', 'transpiler'])
+    if (responsive.match('mobile')) {
+      params.panes = JSON.stringify(['editor'])
+    } else {
+      if (showTranspiler) {
+        params.panes = JSON.stringify(['editor', 'transpiler'])
+      } else {
+        params.panes = JSON.stringify(['editor', 'player'])
+      }
     }
 
     if (transpilerTitle) {

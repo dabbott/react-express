@@ -29,6 +29,11 @@ module.exports = (env = {}) => {
         {test: /\.css$/, loaders: ['style-loader', 'css-loader', 'postcss-loader']},
       ],
     },
+    resolve: {
+      alias: {
+        react: resolve(__dirname, 'node_modules', 'react'),
+      },
+    },
   }
 
   const devConfig = {
