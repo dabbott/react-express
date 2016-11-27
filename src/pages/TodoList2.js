@@ -17,7 +17,7 @@ const contentStyle = {
 export default class TodoList2 extends Component {
   render() {
     return (
-      <Page footer={this.props.footer} title={'Input & Adding'}>
+      <Page title={this.props.title} footer={this.props.footer}>
         <div style={styles.well}>
           <div style={containerStyle}>
             <div style={contentStyle}>

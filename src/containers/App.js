@@ -122,9 +122,12 @@ export default class App extends Component {
     const {pathname} = location
 
     const styles = getStyles(this.state)
+    const section = getSection(pathname)
+    const title = section && section.title
 
     const cloned = React.Children.map(children, (child) => {
       return React.cloneElement(child, {
+        title,
         navigatorButton: (
           <NavigatorButton
             nextSection={getNextSection(pathname)}
@@ -133,7 +136,7 @@ export default class App extends Component {
         ),
         footer: pathname !== '/' && (
           <Disqus
-            title={getSection(pathname).title}
+            title={title}
             identifier={pathname}
             url={window.location.href}
           />

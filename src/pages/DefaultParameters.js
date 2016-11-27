@@ -1,9 +1,17 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
+import { Link } from 'react-router'
+
 import { EditorTranspiler, Author } from '../components'
 import Page from './Page'
 import styles from './styles'
 
-export default class ES7AndBeyond extends Component {
+const code = `const printAnimal = (animal = 'cat') => {
+  console.log(animal)
+}
+printAnimal() // cat
+printAnimal('dog') // dog`
+
+export default class DefaultParameters extends Component {
   render() {
     return (
       <Page title={this.props.title} footer={this.props.footer}>
@@ -15,11 +23,12 @@ export default class ES7AndBeyond extends Component {
             </Author>
           </div>
           <div style={styles.p}>
-            ES6 is the set of Javascript features as of 2015. There have already been many other features proposed for future versions of Javascript, including ES7 (2016) and ES8. With Babel, we can use many of these features today.
+            We can assign default values to function parameters within the function declaration. A default value is assigned to a parameter if it is <code>undefined</code>.
           </div>
-          <div style={styles.p}>
-            Some of these features have already become standards in modern Javascript development. Let's walk through a few of the more popular and useful features.
-          </div>
+          <EditorTranspiler
+            code={code}
+            title={'Default parameters'}
+          />
         </div>
         <div style={styles.well}>
           {this.props.navigatorButton}

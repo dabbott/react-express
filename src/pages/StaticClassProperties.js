@@ -1,9 +1,16 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
+import { Link } from 'react-router'
+
 import { EditorTranspiler, Author } from '../components'
 import Page from './Page'
 import styles from './styles'
 
-export default class ES7AndBeyond extends Component {
+const code = `class Cat {
+  static legCount = 4
+}
+console.log(Cat.legCount) // 4`
+
+export default class StaticClassProperties extends Component {
   render() {
     return (
       <Page title={this.props.title} footer={this.props.footer}>
@@ -15,11 +22,12 @@ export default class ES7AndBeyond extends Component {
             </Author>
           </div>
           <div style={styles.p}>
-            ES6 is the set of Javascript features as of 2015. There have already been many other features proposed for future versions of Javascript, including ES7 (2016) and ES8. With Babel, we can use many of these features today.
+            As we saw in our ES6 section, static functions on classes exist as a part of ES6. In ES7, we can use the <code>static</code> keyword to declare static properties as well.
           </div>
-          <div style={styles.p}>
-            Some of these features have already become standards in modern Javascript development. Let's walk through a few of the more popular and useful features.
-          </div>
+          <EditorTranspiler
+            code={code}
+            title={'Static properties'}
+          />
         </div>
         <div style={styles.well}>
           {this.props.navigatorButton}

@@ -61,8 +61,8 @@ import { chapters } from '../utils/Sections'
   },
   patchRow: [
     'row', {
-      fontSize: 14,
-      paddingLeft: centered ? 0 : 50,
+      fontSize: 13,
+      // paddingLeft: centered ? 0 : 45,
     },
   ],
 }))

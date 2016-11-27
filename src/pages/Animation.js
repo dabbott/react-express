@@ -7,7 +7,7 @@ import styles from './styles'
 export default class Animation extends Component {
   render() {
     return (
-      <Page footer={this.props.footer} title={'Animation'}>
+      <Page title={this.props.title} footer={this.props.footer}>
         <div style={styles.well}>
           <div style={styles.h3}>Animation</div>
           <div style={styles.p}>

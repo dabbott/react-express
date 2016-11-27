@@ -50,7 +50,7 @@ AppRegistry.registerComponent('App', () => App)
 export default class View extends Component {
   render() {
     return (
-      <Page footer={this.props.footer} title={'ScrollView'}>
+      <Page title={this.props.title} footer={this.props.footer}>
         <div style={styles.well}>
           <div style={styles.h3}>ScrollView</div>
           <div style={styles.p}>

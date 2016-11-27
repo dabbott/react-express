@@ -16,7 +16,7 @@ const contentStyle = {
 export default class TodoList1 extends Component {
   render() {
     return (
-      <Page footer={this.props.footer} title={'App Layout'}>
+      <Page title={this.props.title} footer={this.props.footer}>
         <div style={styles.well}>
           <div style={containerStyle}>
             <div style={contentStyle}>

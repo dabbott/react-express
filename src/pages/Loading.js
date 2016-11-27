@@ -5,7 +5,7 @@ import styles from './styles'
 export default class Loading extends Component {
   render() {
     return (
-      <Page footer={this.props.footer} title={''}>
+      <Page title={this.props.title} footer={this.props.footer}>
         <div style={styles.well}>
 
         </div>

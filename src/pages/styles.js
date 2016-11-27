@@ -5,7 +5,6 @@ const styles = {
     fontWeight: 100,
     color: 'rgb(38, 48, 83)',
   },
-
   subtitle: {
     textAlign: 'center',
     fontSize: 18,
@@ -13,7 +12,6 @@ const styles = {
     paddingTop: 10,
     color: 'rgb(38, 48, 83)',
   },
-
   banner: {
     position: 'absolute',
     top: 0,
@@ -28,7 +26,6 @@ const styles = {
     zIndex: -1,
     flexDirection: 'column',
   },
-
   container: {
     flex: '1 1 auto',
     display: 'flex',
@@ -36,7 +33,6 @@ const styles = {
     minWidth: 0,
     minHeight: 0,
   },
-
   content: {
     flex: '1 1 auto',
     paddingTop: 400,
@@ -44,38 +40,31 @@ const styles = {
     zIndex: 1,
     minWidth: 0,
     minHeight: 0,
-    // backgroundColor: 'white',
   },
-
   well: {
     padding: '20px 20px',
   },
-
   li: {
     margin: '10px 0',
   },
-
   h3: {
     fontSize: 20,
     fontWeight: 300,
     marginTop: 15,
     marginBottom: 15,
   },
-
   h4: {
     fontSize: 14,
     fontWeight: 500,
     marginTop: 35,
     marginBottom: 15,
   },
-
   p: {
     fontSize: 14,
     fontWeight: 400,
     lineHeight: '22px',
     marginBottom: 15
   },
-
   cmHeaderCode: {
     backgroundColor: 'transparent',
     fontWeight: 'bold',
