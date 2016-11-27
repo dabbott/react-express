@@ -75,7 +75,7 @@ const files = [
 export default class extends Component {
   render() {
     return (
-      <Page title={'AsyncStorage'}>
+      <Page footer={this.props.footer} title={'AsyncStorage'}>
         <div style={styles.well}>
           <div style={styles.h3}>AsyncStorage</div>
           <div style={styles.p}>

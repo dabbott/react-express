@@ -65,7 +65,7 @@ const files = [
 export default class extends Component {
   render() {
     return (
-      <Page title={'Component State'}>
+      <Page footer={this.props.footer} title={'Component State'}>
         <div style={styles.well}>
           <div style={styles.h3}>Component State</div>
           <div style={styles.p}>

@@ -42,7 +42,7 @@ const asyncAwaitExample = `const taskRunner = async () => {
 export default class ES7AndBeyond extends Component {
   render() {
     return (
-      <Page title={'ES7AndBeyond'}>
+      <Page footer={this.props.footer} title={'ES7AndBeyond'}>
         <div style={styles.well}>
           <div style={styles.h3}>ES7 and Beyond</div>
           <div style={styles.p}>

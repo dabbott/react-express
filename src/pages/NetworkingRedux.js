@@ -228,7 +228,7 @@ const vendorComponents = [
 export default class extends Component {
   render() {
     return (
-      <Page title={'Networking with Redux'}>
+      <Page footer={this.props.footer} title={'Networking with Redux'}>
         <div style={styles.well}>
           <div style={styles.p}>
             By default, Redux only handles synchronous actions. However, there are some great middlewares (plugins) for handling asynchronous actions.

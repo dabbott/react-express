@@ -29,6 +29,7 @@
   "dependencies": {
     "express": "^4.14.0",
     "react": "15.3.0",
+    "react-disqus-thread": "github:maphubs/react-disqus-thread",
     "react-dom": "15.3.0",
     "react-ga": "^2.1.2",
     "react-helmet": "^3.2.2",

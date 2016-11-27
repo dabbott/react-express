@@ -99,7 +99,7 @@ const vendorComponents = [
 export default class extends Component {
   render() {
     return (
-      <Page title={'Redux Persist'}>
+      <Page footer={this.props.footer} title={'Redux Persist'}>
         <div style={styles.well}>
           <div style={styles.h3}>Redux Persist</div>
           <div style={styles.p}>

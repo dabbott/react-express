@@ -21,7 +21,7 @@ let sections = [
   {depth: 1, title: 'ListView', slug: 'listview', componentName: 'ListView'},
 
   {depth: 0, title: 'Data Management', slug: 'data', componentName: 'Data'},
-  {depth: 1, title: 'Component State', slug: 'data_componentName_state', componentName: 'ComponentState'},
+  {depth: 1, title: 'Component State', slug: 'data_component_state', componentName: 'ComponentState'},
   {depth: 1, title: 'Redux', slug: 'redux', componentName: 'Redux'},
   {depth: 2, title: 'React Redux', slug: 'react_redux', componentName: 'ReactRedux'},
   {depth: 1, title: 'Realm', slug: 'realm', componentName: 'Realm'},
@@ -100,7 +100,7 @@ const matches = (path, section) => {
   return normalizedPath === section.slug
 }
 
-export const getSection = (path, offset) => {
+export const getSection = (path, offset = 0) => {
   const index = sections.findIndex(section => matches(path, section))
 
   if (index === -1) return null

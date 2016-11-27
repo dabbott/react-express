@@ -5,7 +5,7 @@ import styles from './styles'
 export default class extends Component {
   render() {
     return (
-      <Page title={'Persistence'}>
+      <Page footer={this.props.footer} title={'Persistence'}>
         <div style={styles.well}>
           <div style={styles.h3}>Persistence</div>
           <div style={styles.p}>

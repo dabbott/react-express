@@ -55,7 +55,7 @@ AppRegistry.registerComponent('App', () => App)
 export default class extends Component {
   render() {
     return (
-      <Page title={'Component API'}>
+      <Page footer={this.props.footer} title={'Component API'}>
         <div style={styles.well}>
           <div style={styles.h3}>Component API</div>
           <div style={styles.h4_monospace}>this.props</div>

@@ -115,7 +115,7 @@ AppRegistry.registerComponent('App', () => App)
 export default class Gestures extends Component {
   render() {
     return (
-      <Page title={'Gestures'}>
+      <Page footer={this.props.footer} title={'Gestures'}>
         <div style={styles.well}>
           <div style={styles.h3}>Gestures</div>
           <div style={styles.p}>

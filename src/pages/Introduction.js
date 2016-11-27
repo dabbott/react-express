@@ -16,7 +16,8 @@ const buttonStyle = {
 export default class extends Component {
   render() {
     return (
-      <Page
+      <Page 
+        footer={this.props.footer}
         title={'React Native Express'}
         subtitle={'Learn React Native, the cross-platform app framework'}
         logo={'logo'}

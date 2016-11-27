@@ -5,7 +5,7 @@ import styles from './styles'
 export default class Babel extends Component {
   render() {
     return (
-      <Page title={'Babel'}>
+      <Page footer={this.props.footer} title={'Babel'}>
         <div style={styles.well}>
           <div style={styles.h3}>Modern JavaScript</div>
           <div style={styles.p}>

@@ -141,7 +141,7 @@ AppRegistry.registerComponent('App', () => App)
 export default class ListViews extends Component {
   render() {
     return (
-      <Page title={'ListViews'}>
+      <Page footer={this.props.footer} title={'ListViews'}>
         <div style={styles.well}>
           <div style={styles.h3}>ListViews</div>
           <div style={styles.p}>

@@ -55,7 +55,7 @@ const commentResp = `[{
 export default class Reddit4 extends Component {
   render() {
     return (
-      <Page title={'Fetch Posts'}>
+      <Page footer={this.props.footer} title={'Fetch Posts'}>
         <div style={styles.well}>
           <div style={containerStyle}>
             <div style={contentStyle}>

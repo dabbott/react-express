@@ -5,7 +5,7 @@ import styles from './styles'
 export default class Data extends Component {
   render() {
     return (
-      <Page title={'Data'}>
+      <Page footer={this.props.footer} title={'Data'}>
         <div style={styles.well}>
           <div style={styles.h3}>Data Management</div>
           <div style={styles.p}>

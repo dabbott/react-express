@@ -16,7 +16,7 @@ const contentStyle = {
 export default class TodoList3 extends Component {
   render() {
     return (
-      <Page title={'List and Checkbox'}>
+      <Page footer={this.props.footer} title={'List and Checkbox'}>
         <div style={styles.well}>
           <div style={containerStyle}>
             <div style={contentStyle}>

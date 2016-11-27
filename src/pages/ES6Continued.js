@@ -53,7 +53,7 @@ console.log(fruits[0].name) // fofana`
 export default class ES6Continued extends Component {
   render() {
     return (
-      <Page title={'ES6 Continued'}>
+      <Page footer={this.props.footer} title={'ES6 Continued'}>
         <div style={styles.well}>
           <div style={styles.h3}>ES6 Continued</div>
           <div style={styles.p}>

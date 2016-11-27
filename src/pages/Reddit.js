@@ -17,7 +17,7 @@ const contentStyle = {
 export default class Reddit extends Component {
   render() {
     return (
-      <Page title={'Reddit Client'}>
+      <Page footer={this.props.footer} title={'Reddit Client'}>
         <div style={styles.well}>
           <div style={containerStyle}>
             <div style={contentStyle}>

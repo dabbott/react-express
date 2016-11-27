@@ -47,13 +47,6 @@ const styles = {
     // backgroundColor: 'white',
   },
 
-  scroller: {
-    // boxShadow: '0 0 100px rgba(0,0,0,0.05)',
-    borderTop: '1px solid rgba(220,220,220,0.5)',
-    backgroundColor: 'white',
-    padding: '40px 40px',
-  },
-
   well: {
     padding: '20px 20px',
   },

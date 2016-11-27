@@ -116,7 +116,7 @@ AppRegistry.registerComponent('App', () => App)
 export default class extends Component {
   render() {
     return (
-      <Page title={'Networking'}>
+      <Page footer={this.props.footer} title={'Networking'}>
         <div style={styles.well}>
           <div style={styles.h3}>Networking</div>
           <div style={styles.p}>

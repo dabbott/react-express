@@ -16,7 +16,7 @@ const contentStyle = {
 export default class Reddit5 extends Component {
   render() {
     return (
-      <Page title={'Display Posts'}>
+      <Page footer={this.props.footer} title={'Display Posts'}>
         <div style={styles.well}>
           <div style={containerStyle}>
             <div style={contentStyle}>

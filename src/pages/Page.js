@@ -1,10 +1,22 @@
 import React, { Component } from 'react'
 import Helmet from 'react-helmet'
-import { responsive } from 'react-styles-provider'
+import createStyles, { responsive } from 'react-styles-provider'
 
 import styles from './styles'
 
 @responsive()
+@createStyles({
+  scroller: {
+    borderTop: '1px solid rgba(220,220,220,0.5)',
+    backgroundColor: 'white',
+    padding: 40,
+  },
+  footer: {
+    marginTop: 20,
+    padding: ({responsive}) => responsive.match('mobile') ? 20 : 60,
+    backgroundColor: 'rgb(250,250,250)',
+  },
+})
 export default class Page extends Component {
 
   static defaultProps = {
@@ -33,12 +45,23 @@ export default class Page extends Component {
     })
   }
 
+  renderFooter() {
+    const {styles, footer} = this.props
+
+    return footer && (
+      <div style={styles.footer}>
+        {footer}
+      </div>
+    )
+  }
+
   renderMobile() {
     const {children} = this.props
 
     return (
       <div style={{paddingTop: 40}}>
         {children}
+        {this.renderFooter()}
       </div>
     )
   }
@@ -78,9 +101,10 @@ export default class Page extends Component {
           )}
         </div>
         <div ref={'scrollable'} style={contentStyle}>
-          <div style={styles.scroller}>
+          <div style={this.props.styles.scroller}>
             {children}
           </div>
+          {this.renderFooter()}
         </div>
       </div>
     )

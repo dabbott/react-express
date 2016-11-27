@@ -12,7 +12,7 @@ const containerStyle = {
 export default class Uber extends Component {
   render() {
     return (
-      <Page title={'UI Polish'}>
+      <Page footer={this.props.footer} title={'UI Polish'}>
         <div style={styles.well}>
           <div style={containerStyle}>
             <div style={{paddingRight: '30px'}}>

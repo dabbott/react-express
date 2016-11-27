@@ -61,7 +61,7 @@ AppRegistry.registerComponent('App', () => App)
 export default class View extends Component {
   render() {
     return (
-      <Page title={'Animated'}>
+      <Page footer={this.props.footer} title={'Animated'}>
         <div style={styles.well}>
           <div style={styles.h3}>Animated</div>
           <div style={styles.p}>

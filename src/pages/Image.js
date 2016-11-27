@@ -30,7 +30,7 @@ AppRegistry.registerComponent('App', () => App)
 export default class View extends Component {
   render() {
     return (
-      <Page title={'Image'}>
+      <Page footer={this.props.footer} title={'Image'}>
         <div style={styles.well}>
           <div style={styles.h3}>Image</div>
           <div style={styles.p}>

@@ -74,7 +74,7 @@ const vendorComponents = [
 export default class View extends Component {
   render() {
     return (
-      <Page title={'React Native Animatable'}>
+      <Page footer={this.props.footer} title={'React Native Animatable'}>
         <div style={styles.well}>
           <div style={styles.h3}>React Native Animatable</div>
           <div style={styles.p}>

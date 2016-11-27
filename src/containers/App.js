@@ -4,8 +4,8 @@ import createStyles, { responsive } from 'react-styles-provider'
 
 import Sidebar from './Sidebar'
 import NavigatorButton from './NavigatorButton'
-import { HamburgerButton } from '../components'
-import { getNextSection, getPreviousSection } from '../utils/Sections'
+import { HamburgerButton, Disqus } from '../components'
+import { getSection, getNextSection, getPreviousSection } from '../utils/Sections'
 import * as config from '../config'
 
 @responsive()
@@ -129,6 +129,13 @@ export default class App extends Component {
           <NavigatorButton
             nextSection={getNextSection(pathname)}
             previousSection={getPreviousSection(pathname)}
+          />
+        ),
+        footer: pathname !== '/' && (
+          <Disqus
+            title={getSection(pathname).title}
+            identifier={pathname}
+            url={window.location.href}
           />
         ),
       })

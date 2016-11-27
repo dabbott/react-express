@@ -25,7 +25,7 @@ module.exports = (env = {}) => {
     context: paths.src,
     module: {
       loaders: [
-        {test: /\.js$/, loaders: ['babel-loader'], exclude: /node_modules/},
+        {test: /\.js$/, loaders: ['babel-loader'], exclude: /node_modules(?!\/react-disqus-thread)/},
         {test: /\.css$/, loaders: ['style-loader', 'css-loader', 'postcss-loader']},
       ],
     },

@@ -16,7 +16,7 @@ const contentStyle = {
 export default class Reddit3 extends Component {
   render() {
     return (
-      <Page title={'Persisting Token'}>
+      <Page footer={this.props.footer} title={'Persisting Token'}>
         <div style={styles.well}>
           <div style={containerStyle}>
             <div style={contentStyle}>

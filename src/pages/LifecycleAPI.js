@@ -5,7 +5,7 @@ import styles from './styles'
 export default class extends Component {
   render() {
     return (
-      <Page title={'Lifecycle API'}>
+      <Page footer={this.props.footer} title={'Lifecycle API'}>
         <div style={styles.well}>
           <div style={styles.h3}>Component Lifecycle API</div>
           <div style={styles.p}>

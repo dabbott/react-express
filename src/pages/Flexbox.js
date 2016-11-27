@@ -146,7 +146,7 @@ const files = [
 export default class View extends Component {
   render() {
     return (
-      <Page title={'Flexbox'}>
+      <Page footer={this.props.footer} title={'Flexbox'}>
         <div style={styles.well}>
           <div style={styles.h3}>Flexbox</div>
           <div style={styles.p}>

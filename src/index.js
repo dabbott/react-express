@@ -29,11 +29,11 @@ const calculateResponsiveBreakpoints = ({width, height, isMobile}) => {
 
 const render = () => {
   ReactDOM.render(
-    <ResponsiveProvider set={calculateResponsiveBreakpoints}>
-      <AppContainer>
+    <AppContainer>
+      <ResponsiveProvider set={calculateResponsiveBreakpoints}>
         <Router />
-      </AppContainer>
-    </ResponsiveProvider>,
+      </ResponsiveProvider>
+    </AppContainer>,
     document.getElementById('root')
   )
 }
