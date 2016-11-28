@@ -8,7 +8,7 @@ import styles from './styles'
 const code = `const taskRunner = async () => {
   try {
     const firstValue = await asyncTask1()
-    const secondValue = await asyncTast2(firstValue)
+    const secondValue = await asyncTask2(firstValue)
   } catch(e) {
     console.error("Something went wrong! Caught exception:", e)
   }
