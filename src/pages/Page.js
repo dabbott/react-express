@@ -52,7 +52,7 @@ export default class Page extends Component {
   }
 
   render() {
-    const {children, footer, title, subtitle, bannerHeight, logo, shouldUpdatePageTitle, responsive} = this.props
+    const {children, footer, title, subtitle, bannerHeight, logo, logoWidth, logoHeight, shouldUpdatePageTitle, responsive} = this.props
 
     if (responsive.match('mobile')) {
       return this.renderMobile()
@@ -82,6 +82,8 @@ export default class Page extends Component {
               style={{paddingTop: 40}}
               src={`${logo}.png`}
               srcSet={`${logo}.png 1x, ${logo}@2x.png 2x`}
+              width={logoWidth}
+              height={logoHeight}
             />
           )}
         </div>

@@ -75,7 +75,9 @@ export default class extends Component {
         footer={this.props.footer}
         title={'React Native Express'}
         subtitle={'Learn React Native, the cross-platform app framework'}
-        logo={'logo'}
+        logo={'//cdn.rawgit.com/dabbott/react-native-express/master/static/logo'}
+        logoWidth={256}
+        logoHeight={296}
         bannerHeight={560}
         shouldUpdatePageTitle={false}
       >
