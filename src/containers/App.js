@@ -162,7 +162,6 @@ export default class App extends Component {
         <Helmet
           defaultTitle={config.title}
           titleTemplate={config.titleTemplate}
-          meta={config.meta}
         />
         <div style={styles.inner}>
           {this.renderMenuButton(styles)}
