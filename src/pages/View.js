@@ -1,7 +1,8 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
+
 import Page from './Page'
 import styles from './styles'
-import { WebPlayer } from '../components'
+import { WebPlayer, Author } from '../components'
 
 const code = `import React, { Component } from 'react'
 import { AppRegistry, View, StyleSheet } from 'react-native'
@@ -40,7 +41,12 @@ export default class View extends Component {
     return (
       <Page title={this.props.title} footer={this.props.footer}>
         <div style={styles.well}>
-          <div style={styles.h3}>View</div>
+          <div style={styles.h3}>
+            {this.props.title}
+            <Author url={'https://twitter.com/devinaabbott'}>
+              @devinaabbott
+            </Author>
+          </div>
           <div style={styles.p}>
             <code>View</code>s are the most basic building block of React Native apps, much like how <code>div</code>s are the most basic building block of websites. In terms of implementation, <code>View</code> is an abstraction layer on top of the target platform's native equivalent, whether that's <code>UIView</code>, <code>android.view</code>, <code>{'<div>'}</code>, or something else.
           </div>

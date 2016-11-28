@@ -1,4 +1,6 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
+
+import { Author } from '../components'
 import Page from './Page'
 import styles from './styles'
 
@@ -7,7 +9,12 @@ export default class Data extends Component {
     return (
       <Page title={this.props.title} footer={this.props.footer}>
         <div style={styles.well}>
-          <div style={styles.h3}>Data Management</div>
+          <div style={styles.h3}>
+            {this.props.title}
+            <Author url={'https://twitter.com/devinaabbott'}>
+              @devinaabbott
+            </Author>
+          </div>
           <div style={styles.p}>
             Most apps have some kind of dynamic data: user info, images, documents, contacts, etc. There are several ways to manage data throughout an app, and the best choice depends on the complexity of an app. When in doubt, start simple, and as your application grows in complexity, use something more advanced.
           </div>

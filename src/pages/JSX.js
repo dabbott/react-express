@@ -1,9 +1,10 @@
-import React, { Component } from 'react';
-import { EditorTranspiler } from '../components'
+import React, { Component } from 'react'
+
+import { EditorTranspiler, Author } from '../components'
 import Page from './Page'
 import styles from './styles'
 
-const jsxExample = `const a = <View />
+const code = `const a = <View />
 
 const b = (
   <View
@@ -18,7 +19,12 @@ export default class extends Component {
     return (
       <Page title={this.props.title} footer={this.props.footer}>
         <div style={styles.well}>
-          <div style={styles.h3}>JSX</div>
+          <div style={styles.h3}>
+            {this.props.title}
+            <Author url={'https://twitter.com/devinaabbott'}>
+              @devinaabbott
+            </Author>
+          </div>
           <div style={styles.p}>
             JSX is an extension to JavaScript that adds a new kind of <b>expression</b>. You can use JSX expressions anywhere you could use any other expression.
           </div>
@@ -32,7 +38,7 @@ export default class extends Component {
             Tags can be self-closing, like <code>{'<View />'}</code>, or they can include both an opening and closing tag, like <code>{'<View></View>'}</code>. To include children elements, you will need to use an opening and closing tag and put the children tags within.
           </div>
           <EditorTranspiler
-            code={jsxExample}
+            code={code}
             title={'JSX'}
           />
         </div>

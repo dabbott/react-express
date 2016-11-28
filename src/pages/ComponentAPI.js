@@ -1,7 +1,8 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
+
 import Page from './Page'
 import styles from './styles'
-import { WebPlayer } from '../components'
+import { WebPlayer, Author } from '../components'
 
 const code = `import React, { Component } from 'react'
 import { AppRegistry, View, Text, StyleSheet } from 'react-native'
@@ -57,7 +58,12 @@ export default class extends Component {
     return (
       <Page title={this.props.title} footer={this.props.footer}>
         <div style={styles.well}>
-          <div style={styles.h3}>Component API</div>
+          <div style={styles.h3}>
+            {this.props.title}
+            <Author url={'https://twitter.com/devinaabbott'}>
+              @devinaabbott
+            </Author>
+          </div>
           <div style={styles.h4_monospace}>this.props</div>
           <div style={styles.p}>
             <code>Components</code> can be configured upon instantiation by passing properties to the <code>constructor</code> - these properties are called <code>props</code>. <code>props</code> may be accessed from within the component's methods as <code>this.props</code>, in order to alter how the component is rendered and/or how it behaves. However, <code>props</code> must <b>not be altered</b> from within the component's methods.

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 
+import { Author } from '../components'
 import Page from './Page'
 import styles from './styles'
 

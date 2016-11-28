@@ -1,7 +1,8 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
+
 import Page from './Page'
 import styles from './styles'
-import { WebPlayer } from '../components'
+import { WebPlayer, Author } from '../components'
 
 const indexFile = `import { AppRegistry, View } from 'react-native'
 import { createStore, applyMiddleware } from 'redux'
@@ -230,6 +231,12 @@ export default class extends Component {
     return (
       <Page title={this.props.title} footer={this.props.footer}>
         <div style={styles.well}>
+          <div style={styles.h3}>
+            Networking With Redux
+            <Author url={'https://twitter.com/devinaabbott'}>
+              @devinaabbott
+            </Author>
+          </div>
           <div style={styles.p}>
             By default, Redux only handles synchronous actions. However, there are some great middlewares (plugins) for handling asynchronous actions.
           </div>

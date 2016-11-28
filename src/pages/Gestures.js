@@ -1,7 +1,8 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
+
 import Page from './Page'
 import styles from './styles'
-import { WebPlayer } from '../components'
+import { WebPlayer, Author } from '../components'
 
 const code = `import React, { Component } from 'react'
 import { AppRegistry, StyleSheet, View, Text, PanResponder } from 'react-native'
@@ -117,7 +118,12 @@ export default class Gestures extends Component {
     return (
       <Page title={this.props.title} footer={this.props.footer}>
         <div style={styles.well}>
-          <div style={styles.h3}>Gestures</div>
+          <div style={styles.h3}>
+            {this.props.title}
+            <Author url={'https://twitter.com/devinaabbott'}>
+              @devinaabbott
+            </Author>
+          </div>
           <div style={styles.p}>
             In React Native, gestures are created using the <code>PanResponder</code> API.
           </div>

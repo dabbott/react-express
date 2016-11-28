@@ -1,7 +1,8 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
+
 import Page from './Page'
 import styles from './styles'
-import { WebPlayer } from '../components'
+import { WebPlayer, Author } from '../components'
 
 const indexFile = `import { AppRegistry, View } from 'react-native'
 import { createStore } from 'redux'
@@ -94,7 +95,12 @@ export default class extends Component {
     return (
       <Page title={this.props.title} footer={this.props.footer}>
         <div style={styles.well}>
-          <div style={styles.h3}>React Redux</div>
+          <div style={styles.h3}>
+            {this.props.title}
+            <Author url={'https://twitter.com/devinaabbott'}>
+              @devinaabbott
+            </Author>
+          </div>
           <div style={styles.p}>
             Redux has official bindings for React in a package called <a href={"http://redux.js.org/docs/basics/UsageWithReact.html"}>React Redux</a>.
           </div>

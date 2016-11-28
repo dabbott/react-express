@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
+
 import Page from './Page'
 import styles from './styles'
-import { WebPlayer } from '../components'
+import { WebPlayer, Author } from '../components'
 
 const code = `import React, { Component } from 'react'
 import { AppRegistry, ListView, View, Text, StyleSheet } from 'react-native'
@@ -143,7 +144,12 @@ export default class ListViews extends Component {
     return (
       <Page title={this.props.title} footer={this.props.footer}>
         <div style={styles.well}>
-          <div style={styles.h3}>ListViews</div>
+          <div style={styles.h3}>
+            {this.props.title}
+            <Author url={'https://twitter.com/devinaabbott'}>
+              @devinaabbott
+            </Author>
+          </div>
           <div style={styles.p}>
             <code>ListViews</code>s are used for large quantities of scrollable content. They expose the underlying <code>ScrollView</code>, but add performance improvements: only rendering the content on screen (clipping offscreen content), and only updating rows that have changed. Like <code>ScrollView</code>s, they can scroll horizontally or vertically.
           </div>

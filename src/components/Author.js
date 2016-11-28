@@ -6,7 +6,7 @@ import createStyles from 'react-styles-provider'
     fontSize: 12,
     fontWeight: 400,
     fontStyle: 'italic',
-    paddingBottom: 4,
+    paddingBottom: 15,
   },
 })
 export default class Author extends Component {

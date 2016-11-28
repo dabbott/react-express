@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Page from './Page'
 import styles from './styles'
-import { WebPlayer } from '../components'
+import { WebPlayer, Author } from '../components'
 
 const indexFile = `import React, { Component } from 'react'
 import { AppRegistry, View, Text, AsyncStorage, StyleSheet } from 'react-native'
@@ -77,7 +77,12 @@ export default class extends Component {
     return (
       <Page title={this.props.title} footer={this.props.footer}>
         <div style={styles.well}>
-          <div style={styles.h3}>AsyncStorage</div>
+          <div style={styles.h3}>
+            {this.props.title}
+            <Author url={'https://twitter.com/devinaabbott'}>
+              @devinaabbott
+            </Author>
+          </div>
           <div style={styles.p}>
             <code>AsyncStorage</code> is a built-in React Native API for client-side data persistence. Here we'll cover basic usage of the API; as your data gets complex, you will likely want to use a library built on top of <code>AsyncStorage</code>, such as Redux Persist.
           </div>

@@ -3,6 +3,7 @@ import { Link } from 'react-router'
 
 import Page from './Page'
 import styles from './styles'
+import { Author } from '../components'
 
 const containerStyle = {
   display: 'flex',
@@ -21,7 +22,12 @@ export default class Reddit extends Component {
         <div style={styles.well}>
           <div style={containerStyle}>
             <div style={contentStyle}>
-              <div style={styles.h3}> Overview </div>
+              <div style={styles.h3}>
+                {this.props.title}
+                <Author url={'https://twitter.com/AnonSequitur'}>
+                  @AnonSequitur
+                </Author>
+              </div>
               <div style={styles.p}>
                 This exercise will be a basic Reddit client. This exercise will include some more complex elements such as <code>fetch</code>, <code>AsyncStorage</code>, and authentication.
               </div>

@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 
 import Page from './Page'
 import styles from './styles'
+import { Author } from '../components'
 
 const containerStyle = {
   display: 'flex',
@@ -59,7 +60,12 @@ export default class Reddit4 extends Component {
         <div style={styles.well}>
           <div style={containerStyle}>
             <div style={contentStyle}>
-              <div style={styles.h3}> Fetching Posts </div>
+              <div style={styles.h3}>
+                {this.props.title}
+                <Author url={'https://twitter.com/AnonSequitur'}>
+                  @AnonSequitur
+                </Author>
+              </div>
               <div style={styles.p}>
                 Now that we have the token, we can move on to fetching the posts and displaying them in a list.
                 <br/>

@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 
 import Page from './Page'
 import styles from './styles'
+import { Author } from '../components'
 
 const containerStyle = {
   display: 'flex',
@@ -20,7 +21,12 @@ export default class Reddit2 extends Component {
         <div style={styles.well}>
           <div style={containerStyle}>
             <div style={contentStyle}>
-              <div style={styles.h3}> Reddit OAuth </div>
+              <div style={styles.h3}>
+                {this.props.title}
+                <Author url={'https://twitter.com/AnonSequitur'}>
+                  @AnonSequitur
+                </Author>
+              </div>
               <div style={styles.p}>
               The authentication portion will focus on fetching the token and storing it in Redux. We've already
               setup a WebView and a client_id in the <code>Login.js</code> file for you.

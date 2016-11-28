@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router'
 
+import { Author } from '../components'
 import Page from './Page'
 import styles from './styles'
 
@@ -9,7 +10,12 @@ export default class Animation extends Component {
     return (
       <Page title={this.props.title} footer={this.props.footer}>
         <div style={styles.well}>
-          <div style={styles.h3}>Animation</div>
+          <div style={styles.h3}>
+            {this.props.title}
+            <Author url={'https://twitter.com/devinaabbott'}>
+              @devinaabbott
+            </Author>
+          </div>
           <div style={styles.p}>
             React Native provides two animation APIs out of the box: <code>Animated</code> and <code>LayoutAnimation</code>. <code>Animated</code> is used far more frequently, so we'll only cover that here. If you're curious about <code>LayoutAnimation</code>, you can read more in the <a href={'https://facebook.github.io/react-native/docs/animations.html#layoutanimation'}>docs</a>.
           </div>

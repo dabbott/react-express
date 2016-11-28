@@ -1,4 +1,6 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
+
+import { Author } from '../components'
 import Page from './Page'
 import styles from './styles'
 
@@ -7,7 +9,12 @@ export default class extends Component {
     return (
       <Page title={this.props.title} footer={this.props.footer}>
         <div style={styles.well}>
-          <div style={styles.h3}>Boilerplates</div>
+          <div style={styles.h3}>
+            {this.props.title}
+            <Author url={'https://twitter.com/devinaabbott'}>
+              @devinaabbott
+            </Author>
+          </div>
           <div style={styles.p}>
             Setting up a new React Native project can be very time-consuming. Setting up a project typically takes 2-3 days, given that most projects need <i>at minimum</i>: Redux, routing/navigation, data persistence, network calls, and tests. This doesn't include other more use-case-specific libraries like: Microsoft CodePush for updating the JavaScript bundle over the air (without submitting an update through the App Store), fastlane for automated deployment, redux sagas for complex state management, or internationalization.
           </div>

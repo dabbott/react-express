@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+
+import { Author } from '../components'
 import Page from './Page'
 import styles from './styles'
 
@@ -7,7 +9,12 @@ export default class Babel extends Component {
     return (
       <Page title={this.props.title} footer={this.props.footer}>
         <div style={styles.well}>
-          <div style={styles.h3}>Modern JavaScript</div>
+          <div style={styles.h3}>
+            Modern JavaScript
+            <Author url={'https://twitter.com/devinaabbott'}>
+              @devinaabbott
+            </Author>
+          </div>
           <div style={styles.p}>
             In the old days, you could just include a <code>{`<script>`}</code> tag in the header of your webpage, and your JavaScript would run as intended. These days, we preprocess our JavaScript in order to access experimental features and language extensions like JSX.
           </div>

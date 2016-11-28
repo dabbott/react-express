@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router'
 
-import { EditorTranspiler } from '../components'
+import { EditorTranspiler, Author } from '../components'
 import Page from './Page'
 import styles from './styles'
 
@@ -23,7 +23,12 @@ export default class FatArrowFunctions extends Component {
     return (
       <Page title={this.props.title} footer={this.props.footer}>
         <div style={styles.well}>
-          <div style={styles.h3}>{this.props.title}</div>
+          <div style={styles.h3}>
+            {this.props.title}
+            <Author url={'https://twitter.com/devinaabbott'}>
+              @devinaabbott
+            </Author>
+          </div>
           <div style={styles.p}>
             The <b>fat arrow</b> <code>{'=>'}</code> is used to define anonymous functions. There are two important differences in the behavior of these functions, compared to functions defined with <code>function</code>.
           </div>

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router'
 
-import { EditorTranspiler } from '../components'
+import { EditorTranspiler, Author } from '../components'
 import Page from './Page'
 import styles from './styles'
 
@@ -18,12 +18,17 @@ if (true) {
   const a = 3
 }`
 
-export default class BlockScopedVariables extends Component {
+export default class BlockScopedDeclarations extends Component {
   render() {
     return (
       <Page title={this.props.title} footer={this.props.footer}>
         <div style={styles.well}>
-          <div style={styles.h3}>{this.props.title}: <code>const</code> and <code>let</code></div>
+          <div style={styles.h3}>
+            {this.props.title}: <code>const</code> and <code>let</code>
+            <Author url={'https://twitter.com/devinaabbott'}>
+              @devinaabbott
+            </Author>
+          </div>
           <div style={styles.p}>
             Instead of using <code>var</code> to declare local variables, we use <code>const</code> and <code>let</code>. The main difference is that <code>var</code> is scoped to a function, while <code>const</code> and <code>let</code> are scoped to a block.
           </div>

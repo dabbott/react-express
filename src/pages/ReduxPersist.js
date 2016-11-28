@@ -1,7 +1,8 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
+
 import Page from './Page'
 import styles from './styles'
-import { WebPlayer } from '../components'
+import { WebPlayer, Author } from '../components'
 
 const indexFile = `import { AppRegistry, View } from 'react-native'
 import { createStore } from 'redux'
@@ -101,7 +102,12 @@ export default class extends Component {
     return (
       <Page title={this.props.title} footer={this.props.footer}>
         <div style={styles.well}>
-          <div style={styles.h3}>Redux Persist</div>
+          <div style={styles.h3}>
+            {this.props.title}
+            <Author url={'https://twitter.com/devinaabbott'}>
+              @devinaabbott
+            </Author>
+          </div>
           <div style={styles.p}>
             Redux Persist is an extremely simple way to persist your entire redux store to disk, and load it into memory when the app launches again. Redux Persist is an abstraction layer on top of <code>AsyncStorage</code>. You can read more about Redux Persist in the <a href={'https://github.com/rt2zz/redux-persist'}>docs</a>.
           </div>

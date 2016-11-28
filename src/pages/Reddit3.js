@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 
 import Page from './Page'
 import styles from './styles'
+import { Author } from '../components'
 
 const containerStyle = {
   display: 'flex',
@@ -20,7 +21,12 @@ export default class Reddit3 extends Component {
         <div style={styles.well}>
           <div style={containerStyle}>
             <div style={contentStyle}>
-              <div style={styles.h3}> Persisting Token </div>
+              <div style={styles.h3}>
+                {this.props.title}
+                <Author url={'https://twitter.com/AnonSequitur'}>
+                  @AnonSequitur
+                </Author>
+              </div>
               <div style={styles.p}>
                Once we have the token we're going to want to keep it around on the device's local storage. To do this, we'll use React-Native's storage module <code>AsyncStorage</code>.
               </div>

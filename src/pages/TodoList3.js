@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 
+import { Author } from '../components'
 import Page from './Page'
 import styles from './styles'
 
@@ -20,7 +21,12 @@ export default class TodoList3 extends Component {
         <div style={styles.well}>
           <div style={containerStyle}>
             <div style={contentStyle}>
-              <div style={styles.h3}> List and Checkbox </div>
+              <div style={styles.h3}>
+                {this.props.title}
+                <Author url={'http://gabegsell.com/'}>
+                  Gabe G'Sell
+                </Author>
+              </div>
               <div style={styles.p}>
                 The goal of this step is to render a list of items with working checkboxes and deletion. We'll also add redux actions to toggle item completion and remove individual items.
               </div>

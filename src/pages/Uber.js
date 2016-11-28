@@ -1,6 +1,7 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router';
+import React, { Component } from 'react'
+import { Link } from 'react-router'
 
+import { Author } from '../components'
 import Page from './Page'
 import styles from './styles'
 
@@ -17,7 +18,12 @@ export default class Uber extends Component {
         <div style={styles.well}>
           <div style={containerStyle}>
             <div style={{paddingRight: '30px'}}>
-              <div style={styles.h3}>Overview</div>
+              <div style={styles.h3}>
+                {this.props.title}
+                <Author url={'https://twitter.com/devinaabbott'}>
+                  @devinaabbott
+                </Author>
+              </div>
               <div style={styles.p}>
                 We'll now build the main UI for the Uber app. This is an <b>advanced</b> exercise, covering:
               </div>

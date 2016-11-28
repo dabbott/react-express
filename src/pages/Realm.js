@@ -1,13 +1,20 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
+
 import Page from './Page'
 import styles from './styles'
+import { Author } from '../components'
 
 export default class extends Component {
   render() {
     return (
       <Page title={this.props.title} footer={this.props.footer}>
         <div style={styles.well}>
-          <div style={styles.h3}>Realm</div>
+          <div style={styles.h3}>
+            {this.props.title}
+            <Author url={'https://twitter.com/devinaabbott'}>
+              @devinaabbott
+            </Author>
+          </div>
           <div style={styles.p}>
             Realm is a cross-platform database wrapper for iOS and Android, made available as a React Native component. You can read more about it in the <a href={'https://realm.io/docs/react-native/latest/'}>Realm docs</a>.
           </div>

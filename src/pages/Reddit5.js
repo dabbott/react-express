@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 
 import Page from './Page'
 import styles from './styles'
+import { Author } from '../components'
 
 const containerStyle = {
   display: 'flex',
@@ -20,7 +21,12 @@ export default class Reddit5 extends Component {
         <div style={styles.well}>
           <div style={containerStyle}>
             <div style={contentStyle}>
-              <div style={styles.h3}> Display Posts </div>
+              <div style={styles.h3}>
+                {this.props.title}
+                <Author url={'https://twitter.com/AnonSequitur'}>
+                  @AnonSequitur
+                </Author>
+              </div>
               <div style={styles.p}>
                 We have all the data we need, so now all that's left to do is render it!
               </div>

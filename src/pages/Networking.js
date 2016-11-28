@@ -1,7 +1,8 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
+
 import Page from './Page'
 import styles from './styles'
-import { WebPlayer } from '../components'
+import { WebPlayer, Author } from '../components'
 
 const code = `import React, { Component } from 'react'
 import { AppRegistry, View, Text, ActivityIndicator, ScrollView, StyleSheet } from 'react-native'
@@ -118,7 +119,12 @@ export default class extends Component {
     return (
       <Page title={this.props.title} footer={this.props.footer}>
         <div style={styles.well}>
-          <div style={styles.h3}>Networking</div>
+          <div style={styles.h3}>
+            {this.props.title}
+            <Author url={'https://twitter.com/devinaabbott'}>
+              @devinaabbott
+            </Author>
+          </div>
           <div style={styles.p}>
             <code>Networking</code> in React Native is built on two APIs: <code>fetch</code> and <code>XMLHttpRequest</code>. Both of these were designed to be compatible with browser APIs so that:
           </div>

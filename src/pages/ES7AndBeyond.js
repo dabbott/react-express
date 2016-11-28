@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
+
 import { EditorTranspiler, Author } from '../components'
 import Page from './Page'
 import styles from './styles'

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router'
 
+import { Author } from '../components'
 import Page from './Page'
 import styles from './styles'
 
@@ -21,7 +22,12 @@ export default class TodoList2 extends Component {
         <div style={styles.well}>
           <div style={containerStyle}>
             <div style={contentStyle}>
-              <div style={styles.h3}> Input and ADD_ITEM </div>
+              <div style={styles.h3}>
+                Input and ADD_ITEM
+                <Author url={'http://gabegsell.com/'}>
+                  Gabe G'Sell
+                </Author>
+              </div>
               <div style={styles.p}>
                 The goal of this step is to get Input working with local component state. Then, using that input, we'll build the functionality to add an item to the todo list.
               </div>

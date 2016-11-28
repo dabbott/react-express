@@ -1,4 +1,6 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
+
+import { Author } from '../components'
 import Page from './Page'
 import styles from './styles'
 
@@ -7,7 +9,12 @@ export default class extends Component {
     return (
       <Page title={this.props.title} footer={this.props.footer}>
         <div style={styles.well}>
-          <div style={styles.h3}>Components</div>
+          <div style={styles.h3}>
+            {this.props.title}
+            <Author url={'https://twitter.com/devinaabbott'}>
+              @devinaabbott
+            </Author>
+          </div>
           <div style={styles.p}>
             <code>Components</code> are the building block of any UI. React Native manages the mapping from JavaScript components to the native UI which is actually rendered.
           </div>

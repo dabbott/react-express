@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 
+import { Author } from '../components'
 import Page from './Page'
 import styles from './styles'
 
@@ -16,7 +17,12 @@ export default class Uber extends Component {
         <div style={styles.well}>
           <div style={containerStyle}>
             <div style={{paddingRight: '30px'}}>
-              <div style={styles.h3}>UI Polish</div>
+              <div style={styles.h3}>
+                {this.props.title}
+                <Author url={'https://twitter.com/devinaabbott'}>
+                  @devinaabbott
+                </Author>
+              </div>
               <div style={styles.p}>
                 Polish up the UI by adding the navigation icon at the top left, which toggles between hamburger icon and arrow-left icon.
               </div>

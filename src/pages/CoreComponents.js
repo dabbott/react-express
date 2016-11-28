@@ -1,4 +1,6 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
+
+import { Author } from '../components'
 import Page from './Page'
 import styles from './styles'
 
@@ -7,7 +9,12 @@ export default class extends Component {
     return (
       <Page title={this.props.title} footer={this.props.footer}>
         <div style={styles.well}>
-          <div style={styles.h3}>Core Components</div>
+          <div style={styles.h3}>
+            {this.props.title}
+            <Author url={'https://twitter.com/devinaabbott'}>
+              @devinaabbott
+            </Author>
+          </div>
           <div style={styles.p}>
             React Native includes a few dozen core components which can be used out-of-the-box. More complex components can be built by combining the core components in interesting ways.
           </div>

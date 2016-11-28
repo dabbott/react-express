@@ -1,13 +1,20 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
+
 import Page from './Page'
 import styles from './styles'
+import { Author } from '../components'
 
 export default class extends Component {
   render() {
     return (
       <Page title={this.props.title} footer={this.props.footer}>
         <div style={styles.well}>
-          <div style={styles.h3}>Persistence</div>
+          <div style={styles.h3}>
+            {this.props.title}
+            <Author url={'https://twitter.com/devinaabbott'}>
+              @devinaabbott
+            </Author>
+          </div>
           <div style={styles.p}>
             Client-side data persistence is often crucial to a great mobile experience: remembering a user's preferences and credentials, and showing data immediately when the app starts, instead of showing a spinner while fetching data remotely.
           </div>

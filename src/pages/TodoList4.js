@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 
+import { Author } from '../components'
 import Page from './Page'
 import styles from './styles'
 
@@ -20,7 +21,12 @@ export default class TodoList4 extends Component {
         <div style={styles.well}>
           <div style={containerStyle}>
             <div style={contentStyle}>
-              <div style={styles.h3}> Remove completed tasks and styling </div>
+              <div style={styles.h3}>
+                Remove Completed Tasks and Styling
+                <Author url={'http://gabegsell.com/'}>
+                  Gabe G'Sell
+                </Author>
+              </div>
               <div style={styles.p}>
                 The goal of this step is to make the 'Remove completed items' button functional and polish the style of our app.
               </div>

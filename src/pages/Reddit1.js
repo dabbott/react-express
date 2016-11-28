@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 
 import Page from './Page'
 import styles from './styles'
+import { Author } from '../components'
 
 const containerStyle = {
   display: 'flex',
@@ -20,12 +21,15 @@ export default class Reddit1 extends Component {
         <div style={styles.well}>
           <div style={containerStyle}>
             <div style={contentStyle}>
-              <div style={styles.h3}> Setting up the Router </div>
+              <div style={styles.h3}>
+                Setting up the Router
+                <Author url={'https://twitter.com/AnonSequitur'}>
+                  @AnonSequitur
+                </Author>
+              </div>
               <div style={styles.p}>
               Navigation is an important piece of any mobile app. As of now, there are many navigator libraries for React Native and no single library is THE standard.
               In this example, we'll be using the <a href="https://github.com/aksonov/react-native-router-flux">react-native-router-flux</a> node module.
-
-
               </div>
               <div style={styles.h4}> Tasks </div>
               <ul>

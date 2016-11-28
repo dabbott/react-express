@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 
+import { Author } from '../components'
 import Page from './Page'
 import styles from './styles'
 
@@ -16,7 +17,12 @@ export default class Uber extends Component {
         <div style={styles.well}>
           <div style={containerStyle}>
             <div style={{paddingRight: '30px'}}>
-              <div style={styles.h3}>Uber Search Header</div>
+              <div style={styles.h3}>
+                {this.props.title}
+                <Author url={'https://twitter.com/devinaabbott'}>
+                  @devinaabbott
+                </Author>
+              </div>
               <div style={styles.p}>
                 Let's start by making the searchbar/header for the app. Let's make sure we smoothly morph from the single searchbar hovering over the map into the double searchbar that sits above the search results.
               </div>

@@ -45,7 +45,7 @@ let sections = [
   {depth: 1, title: 'Redux Persist', slug: 'redux_persist', componentName: 'ReduxPersist'},
 
   {depth: 0, title: 'Networking', slug: 'networking', componentName: 'Networking'},
-  {depth: 2, title: 'With Redux', slug: 'networking_redux', componentName: 'NetworkingRedux'},
+  {depth: 1, title: 'With Redux', slug: 'networking_redux', componentName: 'NetworkingRedux'},
 
   {depth: 0, title: 'Animation', slug: 'animation', componentName: 'Animation'},
   {depth: 1, title: 'Animated', slug: 'animated', componentName: 'Animated'},

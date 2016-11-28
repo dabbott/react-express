@@ -1,7 +1,8 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
+
 import Page from './Page'
 import styles from './styles'
-import { WebPlayer } from '../components'
+import { WebPlayer, Author } from '../components'
 
 const minimalRedux = `import { AppRegistry, Text } from 'react-native'
 import { createStore } from 'redux'
@@ -140,7 +141,12 @@ export default class extends Component {
     return (
       <Page title={this.props.title} footer={this.props.footer}>
         <div style={styles.well}>
-          <div style={styles.h3}>Redux</div>
+          <div style={styles.h3}>
+            {this.props.title}
+            <Author url={'https://twitter.com/devinaabbott'}>
+              @devinaabbott
+            </Author>
+          </div>
           <div style={styles.p}>
             Most medium and large React Native apps use Redux for managing data and state throughout the application. Redux is a fairly expansive topic, so we'll just cover basic usage with React Native here, leaving more advanced usage to the <a href={"http://redux.js.org/"}>Redux docs</a>.
           </div>

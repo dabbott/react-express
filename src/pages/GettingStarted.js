@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router'
+
 import Page from './Page'
 import styles from './styles'
-import { WebPlayer } from '../components'
-import { Link } from 'react-router'
+import { WebPlayer, Author } from '../components'
 
 const code = `/**
  * Sample React Native App
@@ -63,7 +64,12 @@ export default class extends Component {
     return (
       <Page title={this.props.title} footer={this.props.footer}>
         <div style={styles.well}>
-          <div style={styles.h3}>Getting Started</div>
+          <div style={styles.h3}>
+            {this.props.title}
+            <Author url={'https://twitter.com/devinaabbott'}>
+              @devinaabbott
+            </Author>
+          </div>
           <div style={styles.p}>
             To set up React Native in your local development environment, follow the official Facebook guide <a href={'https://facebook.github.io/react-native/docs/getting-started.html'}>
               here
