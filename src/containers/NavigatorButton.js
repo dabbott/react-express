@@ -2,11 +2,11 @@ import React, { Component } from 'react'
 import { Link } from 'react-router'
 import createStyles from 'react-styles-provider'
 
-@createStyles({
+@createStyles(({vertical}) => ({
   container: {
-    flexDirection: 'row',
+    flexDirection: vertical ? 'column-reverse' : 'row',
     justifyContent: 'space-between',
-    alignItems: 'center',
+    alignItems: vertical ? 'stretch' : 'center',
     display: 'flex',
   },
   item: {
@@ -15,13 +15,15 @@ import createStyles from 'react-styles-provider'
     backgroundColor: 'rgb(210,210,210)',
     color: 'white',
     borderRadius: 3,
+    marginBottom: vertical ? 15 : 0,
+    textAlign: 'center',
   },
   nextItem: [
     'item', {
       backgroundColor: 'rgb(54,203,170)',
     },
   ],
-})
+}))
 export default class extends Component {
   render() {
     const {styles, nextSection, previousSection} = this.props

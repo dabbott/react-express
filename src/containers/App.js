@@ -68,7 +68,7 @@ import * as config from '../config'
     backgroundColor: 'rgb(250,250,250)',
   },
   navigatorButtonContainer: {
-    padding: '0 60px 40px 60px',
+    padding: ({responsive}) => responsive.match('mobile') ? '0 20px 40px 20px' : '0 60px 40px 60px',
   },
 })
 export default class App extends Component {
@@ -140,6 +140,7 @@ export default class App extends Component {
           <div>
             <div style={styles.navigatorButtonContainer}>
               <NavigatorButton
+                vertical={responsive.match('small') && responsive.match('mobile')}
                 nextSection={getNextSection(pathname)}
                 previousSection={getPreviousSection(pathname)}
               />
@@ -171,17 +172,17 @@ export default class App extends Component {
               currentSection={section}
             />
           )}
-          {responsive.match('small|mobile') && showMenu && (
-            <Sidebar
-              style={styles.menu}
-              currentSection={section}
-              centered={true}
-            />
-          )}
           <div style={styles.content}>
             {cloned}
           </div>
         </div>
+        {responsive.match('small|mobile') && showMenu && (
+          <Sidebar
+            style={styles.menu}
+            currentSection={section}
+            centered={true}
+          />
+        )}
       </div>
     )
   }
