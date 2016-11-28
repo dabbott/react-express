@@ -16,5 +16,6 @@ export const meta = [
   {property: 'og:site', content: '@devinaabbott'},
   {property: 'og:creator', content: '@devinaabbott'},
   {property: 'og:image:width', content: '256'},
-  {property: 'og:image:height', content: '256'}
+  {property: 'og:image:height', content: '256'},
+  {property: 'fb:app_id', content: '907755649360812'},
 ]
