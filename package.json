@@ -27,6 +27,7 @@
     "react-native"
   ],
   "dependencies": {
+    "compression": "^1.6.2",
     "express": "^4.14.0",
     "react": "15.3.0",
     "react-disqus-thread": "github:maphubs/react-disqus-thread",
