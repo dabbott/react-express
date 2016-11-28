@@ -81,8 +81,10 @@ let sections = [
   {depth: 2, title: 'UI Polish', slug: 'uber_4', componentName: 'Uber4'},
 ]
 
+// Add section numbers. I use semver naming, since it's easy to remember
+// how the sections should be numbered and arranged: {major}.{minor}.{patch}.
 sections = sections.reduce((acc, section) => {
-  let {major, minor, patch} = acc
+  let {major, minor, patch, sections} = acc
   const {depth} = section
 
   if (depth === 0) {
@@ -96,10 +98,28 @@ sections = sections.reduce((acc, section) => {
     patch++
   }
 
-  acc.sections.push({...section, major, minor, patch})
+  sections.push({...section, major, minor, patch})
 
   return {...acc, major, minor, patch}
 }, {sections: [], major: 0, minor: 0, patch: 0}).sections
+
+// Add {parent} to patch sections
+sections = sections.reduce((acc, section) => {
+  let {parent, sections} = acc
+  const {depth} = section
+
+  if (depth === 0) {
+    sections.push(section)
+    parent = null
+  } else if (depth === 1) {
+    sections.push(section)
+    parent = section.slug
+  } else {
+    sections.push({...section, parent})
+  }
+
+  return {...acc, parent}
+}, {sections: [], parent: null}).sections
 
 export default sections
 

@@ -34,7 +34,6 @@ import { chapters } from '../utils/Sections'
     paddingLeft: centered ? 0 : 35,
     fontSize: 16,
     fontWeight: 300,
-    lineHeight: '60px',
     color: '#263053',
     margin: 0,
   },
@@ -65,6 +64,29 @@ import { chapters } from '../utils/Sections'
       // paddingLeft: centered ? 0 : 45,
     },
   ],
+  linkText: {
+    color: '#263053',
+  },
+  expandButton: {
+    fontSize: 14,
+    fontWeight: 'bold',
+    color: 'rgba(38,48,83,0.35)',
+    padding: '1px 4px',
+    backgroundColor: '#DEDFE8',
+    textDecoration: 'none',
+    borderRadius: 10,
+    alignSelf: 'center',
+    lineHeight: '0px',
+    height: 10,
+    marginLeft: 10,
+    cursor: 'pointer',
+    opacity: 1,
+  },
+  expandButtonActive: [
+    'expandButton', {
+      opacity: 0.5,
+    },
+  ],
 }))
 export default class Sidebar extends Component {
 
@@ -72,8 +94,49 @@ export default class Sidebar extends Component {
     style: PropTypes.object,
   }
 
-  renderRow = ({title, slug, depth, major, minor, patch}) => {
+  constructor(props) {
+    super()
+
+    this.state = this.buildState(props)
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.currentSection !== this.props.currentSection) {
+      this.setState(this.buildState(nextProps))
+    }
+  }
+
+  buildState(props) {
+    const {currentSection} = props
+    const expanded = {}
+
+    if (currentSection) {
+      const {depth, slug, parent} = currentSection
+
+      if (depth === 1) {
+        expanded[slug] = true
+      } else if (depth === 2) {
+        expanded[parent] = true
+      }
+    }
+
+    return {expanded}
+  }
+
+  onToggleSection = (slug) => this.setState({
+    expanded: {
+      ...this.state.expanded,
+      [slug]: !this.state.expanded[slug],
+    },
+  })
+
+  renderRow = ({title, slug, depth, major, minor, patch, parent}, i, list) => {
     const {styles} = this.props
+    const {expanded} = this.state
+
+    if (depth === 2 && !expanded[parent]) {
+      return null
+    }
 
     let numeral = `${major}`
 
@@ -86,6 +149,7 @@ export default class Sidebar extends Component {
     }
 
     const majorOrMinor = depth === 0 || depth === 1
+    const hasChildSection = (depth === 1 && list[i + 1] && list[i + 1].depth === 2)
 
     return (
       <div style={majorOrMinor ? styles.row : styles.patchRow}>
@@ -93,10 +157,18 @@ export default class Sidebar extends Component {
           {majorOrMinor ? numeral : ''}
         </span>
         <Link to={slug} activeStyle={styles.link}>
-          <span style={{color: '#263053'}}>
+          <span style={styles.linkText}>
             {title}
           </span>
         </Link>
+        {hasChildSection && (
+          <span
+            style={expanded[slug] ? styles.expandButtonActive : styles.expandButton}
+            onClick={this.onToggleSection.bind(this, slug)}
+          >
+            ...
+          </span>
+        )}
       </div>
     )
   }
@@ -110,11 +182,8 @@ export default class Sidebar extends Component {
         </IndexLink>
         <div style={styles.rowsContainer}>
           {chapters.map(group => {
-            const [first, ...rest] = group
-
             return [
-              this.renderRow(first),
-              rest.map(this.renderRow),
+              group.map(this.renderRow),
               <div style={styles.dotContainer}>
                 <span style={styles.dot} />
               </div>,

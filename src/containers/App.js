@@ -99,12 +99,6 @@ export default class App extends Component {
     }
   }
 
-  renderSidebar(styles) {
-    return (
-      <Sidebar style={styles.sidebar} />
-    )
-  }
-
   renderMenuButton(styles) {
     const {responsive} = this.props
 
@@ -153,10 +147,16 @@ export default class App extends Component {
         />
         <div style={styles.inner}>
           {this.renderMenuButton(styles)}
-          {!responsive.match('small|mobile') && showSidebar && this.renderSidebar(styles)}
+          {!responsive.match('small|mobile') && showSidebar && (
+            <Sidebar
+              style={styles.sidebar}
+              currentSection={section}
+            />
+          )}
           {responsive.match('small|mobile') && showMenu && (
             <Sidebar
               style={styles.menu}
+              currentSection={section}
               centered={true}
             />
           )}
