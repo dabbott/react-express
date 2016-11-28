@@ -18,7 +18,7 @@ const styles = {
     left: 0,
     right: 0,
     height: 400,
-    backgroundImage: `url(background.png)`,
+    backgroundImage: `url(background-compressed.jpg)`,
     backgroundSize: 'cover',
     display: 'flex',
     alignItems: 'center',
