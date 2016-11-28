@@ -16,7 +16,7 @@ export default class extends Component {
             </Author>
           </div>
           <div style={styles.p}>
-            Realm is a cross-platform database wrapper for iOS and Android, made available as a React Native component. You can read more about it in the <a href={'https://realm.io/docs/react-native/latest/'}>Realm docs</a>.
+            Realm is a cross-platform database for iOS and Android, made available as a React Native component. You can read more about it in the <a href={'https://realm.io/docs/react-native/latest/'}>Realm docs</a>.
           </div>
           <div style={styles.p}>
             We won't go into much detail here, but Realm is generally your best option if you want to use a real database, instead of storing all data in-memory with Redux. With Realm, you can:

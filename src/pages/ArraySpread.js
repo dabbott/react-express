@@ -5,11 +5,14 @@ import { EditorTranspiler, Author } from '../components'
 import Page from './Page'
 import styles from './styles'
 
-const code = `const printAnimal = (animal = 'cat') => {
-  console.log(animal)
-}
-printAnimal() // cat
-printAnimal('dog') // dog`
+const code = `const animals = ['cat', 'dog', 'moose']
+const newAnimals = [...animals]
+const lotsOfAnimals = [...animals, 'bear', 'mouse', 'donkey']
+const fruits = [{name: 'banana', color: 'yellow'}, {name: 'apple', color: 'red'}]
+const newFruits = [...fruits]
+console.log(fruits[0] === newFruits[0]) // true
+newFruits[0].name = 'fofana'
+console.log(fruits[0].name) // fofana`
 
 export default class ArraySpread extends Component {
   render() {

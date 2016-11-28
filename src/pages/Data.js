@@ -44,7 +44,7 @@ export default class Data extends Component {
             <tbody>
               <tr>
                 <td><b>Realm</b></td>
-                <td>The <a href={'https://realm.io/docs/react-native/latest/'}>Realm</a> library uses the underlying SQLite database on iOS/Android devices for storage. It's suitable for apps with a tremendous amount of data (10,000+ records). If an app can't fit all its data in RAM, using a database makes it easy to page records in and out. Additionally, searching becomes extremely fast thanks to database indexes, and offline usage becomes trivial.</td>
+                <td>The <a href={'https://realm.io/docs/react-native/latest/'}>Realm</a> library uses a custom database, written from scratch in C to be compatible on both iOS and Android. It's suitable for apps with a tremendous amount of data (10,000+ records). If an app can't fit all its data in RAM, using a database makes it easy to page records in and out. Additionally, searching becomes extremely fast thanks to database indexes, and offline usage becomes trivial.</td>
               </tr>
             </tbody>
             <tbody>

@@ -51,7 +51,7 @@ export default class extends Component {
             <tbody>
               <tr>
                 <td><b>Realm</b></td>
-                <td>The <a href={'https://realm.io/docs/react-native/latest/'}>Realm</a> library uses the underlying SQLite database on iOS/Android devices for storage. We covered Realm separately under Data Management, but if you're using Realm for managing your data, you get persistence for free!</td>
+                <td>The <a href={'https://realm.io/docs/react-native/latest/'}>Realm</a> library uses a custom database, written from scratch in C to be compatible on both iOS and Android. We covered Realm separately under Data Management, but if you're using Realm for managing your data, you get persistence for free!</td>
               </tr>
             </tbody>
           </table>
