@@ -174,9 +174,6 @@ export default class Gestures extends Component {
             </figcaption>
           </figure>
         </div>
-        <div style={styles.well}>
-          {this.props.navigatorButton}
-        </div>
       </Page>
     )
   }

@@ -43,9 +43,6 @@ export default class TodoList1 extends Component {
             </div>
           </div>
         </div>
-        <div style={styles.well}>
-          {this.props.navigatorButton}
-        </div>
       </Page>
     )
   }

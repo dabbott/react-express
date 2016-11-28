@@ -95,9 +95,6 @@ export default class View extends Component {
             code={code}
           />
         </div>
-        <div style={styles.well}>
-          {this.props.navigatorButton}
-        </div>
       </Page>
     )
   }

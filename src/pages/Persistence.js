@@ -52,9 +52,6 @@ export default class extends Component {
             Let's look at a few examples using <code>AsyncStorage</code> and Redux Persist.
           </div>
         </div>
-        <div style={styles.well}>
-          {this.props.navigatorButton}
-        </div>
       </Page>
     )
   }

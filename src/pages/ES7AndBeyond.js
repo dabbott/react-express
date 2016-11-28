@@ -21,9 +21,6 @@ export default class ES7AndBeyond extends Component {
             Some of these features have already become standards in modern Javascript development. Let's walk through a few of the more popular and useful features.
           </div>
         </div>
-        <div style={styles.well}>
-          {this.props.navigatorButton}
-        </div>
       </Page>
     )
   }

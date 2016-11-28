@@ -24,9 +24,6 @@ export default class ES6 extends Component {
             Let's take a look at some of the new language features we'll be using, and how they get compiled through Babel. There are a lot of language features to go through, so if you get tired, you can move on to <Link to={'components'}>React Components</Link>, and finish up the language sections another time.
           </div>
         </div>
-        <div style={styles.well}>
-          {this.props.navigatorButton}
-        </div>
       </Page>
     )
   }

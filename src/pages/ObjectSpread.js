@@ -39,9 +39,6 @@ export default class ObjectSpread extends Component {
             title={'Object spread operator'}
           />
         </div>
-        <div style={styles.well}>
-          {this.props.navigatorButton}
-        </div>
       </Page>
     )
   }

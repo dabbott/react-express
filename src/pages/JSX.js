@@ -36,9 +36,6 @@ export default class extends Component {
             title={'JSX'}
           />
         </div>
-        <div style={styles.well}>
-          {this.props.navigatorButton}
-        </div>
       </Page>
     )
   }

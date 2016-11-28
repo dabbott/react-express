@@ -18,9 +18,6 @@ export default class extends Component {
             In the next sections, we'll cover the two most important aspects of using components, the <b>Component API</b> and the <b>Component Lifecycle API</b>.
           </div>
         </div>
-        <div style={styles.well}>
-          {this.props.navigatorButton}
-        </div>
       </Page>
     )
   }

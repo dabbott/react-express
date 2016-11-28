@@ -9,12 +9,7 @@ import styles from './styles'
   scroller: {
     borderTop: '1px solid rgba(220,220,220,0.5)',
     backgroundColor: 'white',
-    padding: 40,
-  },
-  footer: {
-    marginTop: 20,
-    padding: ({responsive}) => responsive.match('mobile') ? 20 : 60,
-    backgroundColor: 'rgb(250,250,250)',
+    padding: '40px 40px 0 40px',
   },
 })
 export default class Page extends Component {
@@ -45,29 +40,19 @@ export default class Page extends Component {
     })
   }
 
-  renderFooter() {
-    const {styles, footer} = this.props
+  renderMobile() {
+    const {children, footer} = this.props
 
-    return footer && (
-      <div style={styles.footer}>
+    return (
+      <div style={{paddingTop: 40}}>
+        {children}
         {footer}
       </div>
     )
   }
 
-  renderMobile() {
-    const {children} = this.props
-
-    return (
-      <div style={{paddingTop: 40}}>
-        {children}
-        {this.renderFooter()}
-      </div>
-    )
-  }
-
   render() {
-    const {children, title, subtitle, bannerHeight, logo, shouldUpdatePageTitle, responsive} = this.props
+    const {children, footer, title, subtitle, bannerHeight, logo, shouldUpdatePageTitle, responsive} = this.props
 
     if (responsive.match('mobile')) {
       return this.renderMobile()
@@ -104,7 +89,7 @@ export default class Page extends Component {
           <div style={this.props.styles.scroller}>
             {children}
           </div>
-          {this.renderFooter()}
+          {footer}
         </div>
       </div>
     )

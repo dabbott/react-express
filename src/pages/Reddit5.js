@@ -38,9 +38,6 @@ export default class Reddit5 extends Component {
             </div>
           </div>
         </div>
-        <div style={styles.well}>
-          {this.props.navigatorButton}
-        </div>
       </Page>
     )
   }

@@ -27,11 +27,8 @@ export default class ArraySpread extends Component {
           </div>
           <EditorTranspiler
             code={code}
-            title={'Array spread operator'}
+            title={'Array spread'}
           />
-        </div>
-        <div style={styles.well}>
-          {this.props.navigatorButton}
         </div>
       </Page>
     )

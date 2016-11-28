@@ -38,9 +38,6 @@ export default class BlockScopedVariables extends Component {
             You'll notice that the compiled output replaces <code>const</code> and <code>let</code> with <code>var</code>. You'll also notice that Babel transforms <code>const a = 3</code> into <code>var _a = 3</code>. This is so that your code can run on older platforms that don't support the new block-scoped variable declarations. It's the Babel compiler that enforces proper usage and block-scoping, rather than the runtime JavaScript engine.
           </div>
         </div>
-        <div style={styles.well}>
-          {this.props.navigatorButton}
-        </div>
       </Page>
     )
   }

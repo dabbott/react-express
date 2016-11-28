@@ -58,9 +58,6 @@ export default class View extends Component {
           </div>
           <WebPlayer code={code} />
         </div>
-        <div style={styles.well}>
-          {this.props.navigatorButton}
-        </div>
       </Page>
     )
   }

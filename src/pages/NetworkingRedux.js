@@ -261,9 +261,6 @@ export default class extends Component {
             vendorComponents={vendorComponents}
           />
         </div>
-        <div style={styles.well}>
-          {this.props.navigatorButton}
-        </div>
       </Page>
     )
   }

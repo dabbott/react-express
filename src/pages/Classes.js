@@ -63,9 +63,6 @@ export default class Classes extends Component {
             For full details on the <code>class</code> syntax, see the MDN reference for <a href={'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes'}>class</a>.
           </div>
         </div>
-        <div style={styles.well}>
-          {this.props.navigatorButton}
-        </div>
       </Page>
     )
   }

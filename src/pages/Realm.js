@@ -25,9 +25,6 @@ export default class extends Component {
             Realm also has an awesome desktop app for browsing the data stored on-device, which is a much better developer experience than using a SQLite database directly, so make sure to check it out.
           </div>
         </div>
-        <div style={styles.well}>
-          {this.props.navigatorButton}
-        </div>
       </Page>
     )
   }

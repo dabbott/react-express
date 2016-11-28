@@ -51,9 +51,6 @@ export default class Data extends Component {
             Let's take a more in-depth look at each of these options.
           </div>
         </div>
-        <div style={styles.well}>
-          {this.props.navigatorButton}
-        </div>
       </Page>
     )
   }

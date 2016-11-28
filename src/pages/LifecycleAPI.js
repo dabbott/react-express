@@ -34,9 +34,6 @@ export default class extends Component {
             </ul>
           </div>
         </div>
-        <div style={styles.well}>
-          {this.props.navigatorButton}
-        </div>
       </Page>
     )
   }

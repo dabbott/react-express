@@ -36,9 +36,6 @@ export default class ObjectSpread extends Component {
             title={'Async and await'}
           />
         </div>
-        <div style={styles.well}>
-          {this.props.navigatorButton}
-        </div>
       </Page>
     )
   }

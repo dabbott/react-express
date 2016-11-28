@@ -168,9 +168,6 @@ export default class extends Component {
             code={code}
           />
         </div>
-        <div style={styles.well}>
-          {this.props.navigatorButton}
-        </div>
       </Page>
     )
   }

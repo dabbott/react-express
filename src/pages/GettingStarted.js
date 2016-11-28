@@ -86,9 +86,6 @@ export default class extends Component {
             In the following sections, I'll give a brief background on each of these topics. If you're already familiar with each, skip to <Link to={'components'}>Components</Link> to learn more about React Components and the Component Lifecycle. If you're already familiar with React, skip to <Link to={'core_components'}>Core Components</Link>.
           </div>
         </div>
-        <div style={styles.well}>
-          {this.props.navigatorButton}
-        </div>
       </Page>
     )
   }

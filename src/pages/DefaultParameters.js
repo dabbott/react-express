@@ -30,9 +30,6 @@ export default class DefaultParameters extends Component {
             title={'Default parameters'}
           />
         </div>
-        <div style={styles.well}>
-          {this.props.navigatorButton}
-        </div>
       </Page>
     )
   }

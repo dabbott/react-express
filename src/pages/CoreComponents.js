@@ -18,9 +18,6 @@ export default class extends Component {
             Let's take a more in-depth look at the flexbox algorithm and some of the most common core components.
           </div>
         </div>
-        <div style={styles.well}>
-          {this.props.navigatorButton}
-        </div>
       </Page>
     )
   }

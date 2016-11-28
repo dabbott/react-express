@@ -13,9 +13,6 @@ export default class Exercises extends Component {
             Let's apply these concepts to some exercises.
           </div>
         </div>
-        <div style={styles.well}>
-          {this.props.navigatorButton}
-        </div>
       </Page>
     )
   }

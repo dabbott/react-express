@@ -47,9 +47,6 @@ export default class ImportsAndExports extends Component {
             For full details on the importing/exporting syntax, see the MDN reference for <a href={'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import'}>import</a> and <a href={'https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/export'}>export</a>.
           </div>
         </div>
-        <div style={styles.well}>
-          {this.props.navigatorButton}
-        </div>
       </Page>
     )
   }

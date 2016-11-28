@@ -70,9 +70,6 @@ export default class extends Component {
             </tr>
           </tbody>
         </table>
-        <div style={styles.well}>
-          {this.props.navigatorButton}
-        </div>
       </Page>
     )
   }

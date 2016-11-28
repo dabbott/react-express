@@ -62,6 +62,14 @@ import * as config from '../config'
     zIndex: 10000,
     backgroundColor: 'white',
   },
+  footer: {
+    marginTop: 20,
+    padding: ({responsive}) => responsive.match('mobile') ? 20 : 60,
+    backgroundColor: 'rgb(250,250,250)',
+  },
+  navigatorButtonContainer: {
+    padding: '0 60px 40px 60px',
+  },
 })
 export default class App extends Component {
 
@@ -129,11 +137,21 @@ export default class App extends Component {
           />
         ),
         footer: pathname !== '/' && (
-          <Disqus
-            title={title}
-            identifier={pathname}
-            url={window.location.href}
-          />
+          <div>
+            <div style={styles.navigatorButtonContainer}>
+              <NavigatorButton
+                nextSection={getNextSection(pathname)}
+                previousSection={getPreviousSection(pathname)}
+              />
+            </div>
+            <div style={styles.footer}>
+              <Disqus
+                title={title}
+                identifier={pathname}
+                url={window.location.href}
+              />
+            </div>
+          </div>
         ),
       })
     })

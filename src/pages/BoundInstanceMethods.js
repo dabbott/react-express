@@ -36,9 +36,6 @@ export default class BoundInstanceMethods extends Component {
             title={'Bound instance methods'}
           />
         </div>
-        <div style={styles.well}>
-          {this.props.navigatorButton}
-        </div>
       </Page>
     )
   }

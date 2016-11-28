@@ -106,9 +106,6 @@ export default class extends Component {
           </div>
           <WebPlayer files={files} />
         </div>
-        <div style={styles.well}>
-          {this.props.navigatorButton}
-        </div>
       </Page>
     )
   }

@@ -25,9 +25,6 @@ export default class Destructuring extends Component {
             title={'Destructuring'}
           />
         </div>
-        <div style={styles.well}>
-          {this.props.navigatorButton}
-        </div>
       </Page>
     )
   }

@@ -30,9 +30,6 @@ export default class DynamicObjectKeys extends Component {
             title={'Dynamic object keys'}
           />
         </div>
-        <div style={styles.well}>
-          {this.props.navigatorButton}
-        </div>
       </Page>
     )
   }

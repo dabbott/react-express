@@ -27,9 +27,6 @@ export default class Babel extends Component {
             React Native takes care of properly configuring babel for you, so you generally won't need to create a <code>{`.babelrc`}</code>. However, if you want to modify the default presets, you can use the npm package <a href={'https://github.com/facebook/react-native/tree/master/babel-preset'}>babel-preset-react-native</a> as a base configuration, and apply additional plugins/configuration on top.
           </div>
         </div>
-        <div style={styles.well}>
-          {this.props.navigatorButton}
-        </div>
       </Page>
     )
   }

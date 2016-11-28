@@ -302,9 +302,6 @@ export default class View extends Component {
             </tr>
           </tbody>
         </table>
-        <div style={styles.well}>
-          {this.props.navigatorButton}
-        </div>
       </Page>
     )
   }

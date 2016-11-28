@@ -20,9 +20,6 @@ export default class Animation extends Component {
             If you're planning on building a rich, interactive UI, you'll also need the <code>PanResponder</code> API for tracking and responding to touch events.
           </div>
         </div>
-        <div style={styles.well}>
-          {this.props.navigatorButton}
-        </div>
       </Page>
     )
   }

@@ -29,9 +29,6 @@ export default class StaticClassProperties extends Component {
             title={'Static properties'}
           />
         </div>
-        <div style={styles.well}>
-          {this.props.navigatorButton}
-        </div>
       </Page>
     )
   }

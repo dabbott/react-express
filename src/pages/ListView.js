@@ -191,9 +191,6 @@ export default class ListViews extends Component {
           </div>
           <WebPlayer code={sectionsExample} />
         </div>
-        <div style={styles.well}>
-          {this.props.navigatorButton}
-        </div>
       </Page>
     )
   }
