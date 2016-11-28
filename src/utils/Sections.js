@@ -1,8 +1,7 @@
 
 
 let sections = [
-  {depth: 0, title: 'Getting Started', slug: 'start', componentName: 'GettingStarted'},
-  {depth: 1, title: 'Babel', slug: 'babel', componentName: 'Babel'},
+  {depth: 0, title: 'Modern JavaScript', slug: 'modern_javascript', componentName: 'ModernJavascript'},
   {depth: 1, title: 'ES6', slug: 'es6', componentName: 'ES6'},
 
   {depth: 2, title: 'Block Scoped Declarations', slug: 'block_scoped_declarations', componentName: 'BlockScopedDeclarations'},
