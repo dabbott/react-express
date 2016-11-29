@@ -10,9 +10,9 @@ const code = `const cat = {
   friends: {best: 'Ellie'},
   legs: 4,
 }
-const strangeCat = {...animal, legs: 6}
+const strangeCat = {...cat, legs: 6}
 
-const sameCat = {...animal}
+const sameCat = {...cat}
 console.log(cat.friends === sameCat.friends) // true
 sameCat.friends.best = 'Buddy'
 console.log(cat.friends.best) // Buddy`
