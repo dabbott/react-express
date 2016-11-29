@@ -25,7 +25,7 @@ export default class ModernJavascript extends Component {
             Babel is the main tool used to preprocess JavaScript. Babel is a highly configurable parser that lets you use experimental features and extensions, compiling down into old-style JavaScript that can be supported on a wider range of platforms. Of course, if a native platform doesn't support an ES6 feature like <code>Map()</code>, Babel won't fully be able to help -- but it can in many cases polyfill missing APIs to provide this functionality.
           </div>
           <div style={styles.p}>
-            Babel enables debugging of the the original source code by including <b>source maps</b> with the compiled JavaScript. JavaScript interpretters will run the compiled code, but map it to the source code in the debugger so that you can debug the source code instead of the (generally quite ugly) compiled output.
+            Babel enables debugging of the the original source code by including <b>source maps</b> with the compiled JavaScript. JavaScript interpreters will run the compiled code, but map it to the source code in the debugger so that you can debug the source code instead of the (generally quite ugly) compiled output.
           </div>
         </div>
         <div style={styles.well}>
