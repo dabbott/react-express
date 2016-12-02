@@ -185,7 +185,7 @@ export default class View extends Component {
               </tr>
               <tr>
                 <td><code>alignItems</code></td>
-                <td><code>flex-start</code></td>
+                <td><code>stretch</code></td>
                 <td><code>flex-start, center, flex-end, stretch</code></td>
                 <td>How should the content be aligned along the <b>secondary axis</b> of your layout? (If the primary axis is <code>row</code>, then the secondary axis is <code>column</code>, and vice versa) Should content be aligned at the start, the center, the end, or stretched to fill?</td>
               </tr>
