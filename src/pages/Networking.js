@@ -33,7 +33,9 @@ class App extends Component {
         style={styles.post}
       >
         <View style={styles.postNumber}>
-          {i + 1}
+          <Text>
+            {i + 1}
+          </Text>
         </View>
         <View style={styles.postContent}>
           <Text>
@@ -152,7 +154,7 @@ export default class extends Component {
           <div style={styles.p}>
             Parse the body of the response asynchronously as JSON.
           </div>
-          <div style={styles.h4_monospace}>const json = await response.json()</div>
+          <div style={styles.h4_monospace}>const text = await response.text()</div>
           <div style={styles.p}>
             Get the body of the response as text.
           </div>

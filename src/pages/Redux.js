@@ -14,7 +14,7 @@ const types = {
 
 // Define a reducer
 const reducer = (state, action) => {
-  if (action.type === 'INCREMENT') {
+  if (action.type === types.INCREMENT) {
     return {count: state.count + 1}
   }
   return state
@@ -31,9 +31,9 @@ const store = createStore(reducer, initialState)
 
 
 // Now we can dispatch actions, which are understood by our store/reducer
-store.dispatch({type: 'INCREMENT'})
-store.dispatch({type: 'INCREMENT'})
-store.dispatch({type: 'INCREMENT'})
+store.dispatch({type: types.INCREMENT})
+store.dispatch({type: types.INCREMENT})
+store.dispatch({type: types.INCREMENT})
 
 // Calling \`store.getState()\` returns our state object
 const App = () => (
