@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import { Author } from '../components'
+import { Author, GithubRepositoryLink } from '../components'
 import Page from './Page'
 import styles from './styles'
 
@@ -24,9 +24,27 @@ export default class extends Component {
           <div style={styles.p}>
             At the moment, the three boilerplates worth considering are:
             <ul>
-              <li><a href={'https://github.com/infinitered/ignite'}>Ignite</a></li>
-              <li><a href={'https://github.com/futurice/pepperoni-app-kit'}>Pepperoni App Kit</a></li>
-              <li><a href={'https://github.com/bartonhammond/snowflake'}>Snowflake</a></li>
+              <li>
+                <GithubRepositoryLink
+                  user={'infinitered'}
+                  repo={'ignite'}
+                  title={'Ignite'}
+                />
+              </li>
+              <li>
+                <GithubRepositoryLink
+                  user={'futurice'}
+                  repo={'pepperoni-app-kit'}
+                  title={'Pepperoni App Kit'}
+                />
+              </li>
+              <li>
+                <GithubRepositoryLink
+                  user={'bartonhammond'}
+                  repo={'snowflake'}
+                  title={'Snowflake'}
+                />
+              </li>
             </ul>
           </div>
         </div>
