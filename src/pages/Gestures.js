@@ -66,8 +66,7 @@ export default class App extends Component {
 
   // Every time the touch/mouse moves
   handlePanResponderMove = (e, gestureState) => {
-    const {initialTop, initialLeft} = this.state
-
+    
     // Keep track of how far we've moved in total (dx and dy)
     this.setState({
       offsetTop: gestureState.dy,
