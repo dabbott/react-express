@@ -7,7 +7,9 @@ const createUrlParams = (params) => {
   }).join('&')
 }
 
-const WEB_PLAYER_VERSION = '1.6.1'
+const WEB_PLAYER_VERSION = '1.8.1'
+const WEB_PLAYER_URL = `//cdn.rawgit.com/dabbott/react-native-web-player/gh-v${WEB_PLAYER_VERSION}/index.html`
+// const WEB_PLAYER_URL = `//localhost:8080`
 
 const playerStyles = {
   tab: {
@@ -64,6 +66,7 @@ export default class WebPlayer extends Component {
     vendorComponents: [],
     showTranspiler: false,
     transpilerTitle: '',
+    panes: [],
     fullscreen: true,
   }
 
@@ -83,6 +86,7 @@ export default class WebPlayer extends Component {
       scale,
       fullscreen,
       showTranspiler,
+      panes,
       transpilerTitle,
       vendorComponents,
       responsive,
@@ -113,13 +117,17 @@ export default class WebPlayer extends Component {
       params.entry = entry
     }
 
-    if (responsive.match('mobile')) {
-      params.panes = JSON.stringify(['editor'])
+    if (panes.length > 0) {
+      params.panes = JSON.stringify(panes)
     } else {
-      if (showTranspiler) {
-        params.panes = JSON.stringify(['editor', 'transpiler'])
+      if (responsive.match('mobile')) {
+        params.panes = JSON.stringify(['editor'])
       } else {
-        params.panes = JSON.stringify(['editor', 'player'])
+        if (showTranspiler) {
+          params.panes = JSON.stringify(['editor', 'transpiler'])
+        } else {
+          params.panes = JSON.stringify(['editor', 'player'])
+        }
       }
     }
 
@@ -136,7 +144,7 @@ export default class WebPlayer extends Component {
           height={height}
           frameBorder={0}
           allowFullScreen
-          src={`//cdn.rawgit.com/dabbott/react-native-web-player/gh-v${WEB_PLAYER_VERSION}/index.html${hash}`}
+          src={`${WEB_PLAYER_URL}${hash}`}
         />
       </div>
     )
