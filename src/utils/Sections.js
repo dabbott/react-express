@@ -32,6 +32,8 @@ let sections = [
   {depth: 1, title: 'ScrollView', slug: 'scrollview', componentName: 'ScrollView'},
   {depth: 1, title: 'ListView', slug: 'listview', componentName: 'ListView'},
 
+  {depth: 0, title: 'Component Libraries', slug: 'component_libraries', componentName: 'ComponentLibraries'},
+  {depth: 1, title: 'Shoutem UI', slug: 'shoutem_ui', componentName: 'ShoutemUI'},
   {depth: 0, title: 'Data Management', slug: 'data', componentName: 'Data'},
   {depth: 1, title: 'Component State', slug: 'data_component_state', componentName: 'ComponentState'},
   {depth: 1, title: 'Redux', slug: 'redux', componentName: 'Redux'},
