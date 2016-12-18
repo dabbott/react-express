@@ -235,7 +235,7 @@ export default class View extends Component {
             We must then start the animation with <code>runTimer(progress)</code>. Timing animations represent their progress in the range of values [0, 1]. To run an animation to completion, call <code>runTimer(1)</code>. To run it halfway, <code>runTimer(0.5)</code>. You may call <code>runTimer</code> multiple times with different progresses, including going back to the start with <code>runTimer(0)</code>.
           </div>
           <div style={styles.p}>
-            The last step is to connect our driver to our <code>FadeIn</code> component as a prop: <code>{'<FadeIn driver={this.driver}>...</FadeIn>'}</code>.
+            The last step is to connect our driver to our <code>FadeIn</code> component as a prop: <code>{'<FadeIn driver={this.driver}> ... </FadeIn>'}</code>.
           </div>
           <WebPlayer
             title={'TimingDriver'}
