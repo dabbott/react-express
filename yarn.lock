@@ -1869,7 +1869,7 @@ has-ansi@^2.0.0:
 
 has-flag@^1.0.0:
   version "1.0.0"
-  resolved "https://registry.yarnpkg.com/has-flag/-/has-flag-1.0.0.tgz#9d9e793165ce017a00f00418c43f942a7b1d11fa"
+  resolved "http://registry.npmjs.org/has-flag/-/has-flag-1.0.0.tgz#9d9e793165ce017a00f00418c43f942a7b1d11fa"
 
 has-unicode@^2.0.0:
   version "2.0.1"
@@ -3162,9 +3162,9 @@ react-side-effect@1.0.2:
   dependencies:
     fbjs "0.1.0-alpha.10"
 
-react-styles-provider@^0.4.0-beta.1:
-  version "0.4.0"
-  resolved "https://registry.yarnpkg.com/react-styles-provider/-/react-styles-provider-0.4.0.tgz#3a6fdfa00e6ddb08a61af2d51c3bbd80406b93f5"
+react-styles-provider@0.4.0-beta.1:
+  version "0.4.0-beta.1"
+  resolved "https://registry.yarnpkg.com/react-styles-provider/-/react-styles-provider-0.4.0-beta.1.tgz#f7a0bac3cfbb7a3a7bcf358480cfed83b66d8237"
   dependencies:
     fast-memoize "^2.0.2"
     inline-style-prefixer "^2.0.4"
