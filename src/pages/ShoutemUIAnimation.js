@@ -159,7 +159,9 @@ const styles = StyleSheet.create({
   },
   header: {
     position: 'absolute',
-    width: Dimensions.get('window').width,
+    top: 0,
+    left: 0,
+    right: 0,
     height: 60,
     padding: 10,
     backgroundColor: 'white',
