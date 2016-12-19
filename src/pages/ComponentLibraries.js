@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router'
 
 import { Author, GithubRepositoryLink } from '../components'
 import Page from './Page'
@@ -17,6 +18,9 @@ export default class extends Component {
           </div>
           <div style={styles.p}>
             Beyond the React Native core components, there are many open source component libraries. Libraries vary in size and shape, from individual components that bridge native platform functionality (e.g. maps, video, etc) to large component collections (for web folks, think Bootstrap).
+          </div>
+          <div style={styles.p}>
+            If you feel you've learned enough about UI for now, feel free to skip ahead to <Link to={'data'}>data management</Link> and come back to these later.
           </div>
         </div>
         <div style={styles.well}>
@@ -56,9 +60,6 @@ export default class extends Component {
               </li>
             </ul>
           </div>
-          {/* <div style={styles.p}>
-            Let's take a look at what these component collections have to offer.
-          </div> */}
         </div>
       </Page>
     )

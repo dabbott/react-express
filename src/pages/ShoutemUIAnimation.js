@@ -38,7 +38,9 @@ class App extends React.Component {
           style={styles.button}
           onPress={this.runAnimation}
         >
-          <Text>Run Animation</Text>
+          <Text style={styles.text}>
+            Run Animation
+          </Text>
         </TouchableOpacity>
         <FadeIn driver={this.driver}>
           <Image
@@ -49,7 +51,9 @@ class App extends React.Component {
             style={styles.button}
             onPress={this.resetAnimation}
           >
-            <Text>Reset Animation</Text>
+            <Text style={styles.text}>
+              Reset Animation
+            </Text>
           </TouchableOpacity>
         </FadeIn>
       </View>
@@ -66,6 +70,9 @@ const styles = StyleSheet.create({
     padding: 30,
     backgroundColor: 'whitesmoke',
     alignItems: 'center',
+  },
+  text: {
+    textAlign: 'center',
   },
   image: {
     width: Dimensions.get('window').width,
@@ -187,7 +194,7 @@ const vendorComponents = [
 export default class View extends Component {
   render() {
     return (
-      <Page title={this.props.title} footer={this.props.footer}>
+      <Page title={'Shoutem Animation'} footer={this.props.footer}>
         <div style={styles.well}>
           <div style={styles.h3}>
             {this.props.title}
@@ -209,13 +216,15 @@ export default class View extends Component {
           <div style={styles.p}>
             Shoutem ships with a handful of premade animation components:
           </div>
-          <ul>
-            <li><code>FadeIn</code></li>
-            <li><code>FadeOut</code></li>
-            <li><code>ZoomIn</code></li>
-            <li><code>ZoomOut</code></li>
-            <li><code>Parallax</code></li>
-          </ul>
+          <div style={styles.p}>
+            <ul>
+              <li><code>FadeIn</code></li>
+              <li><code>FadeOut</code></li>
+              <li><code>ZoomIn</code></li>
+              <li><code>ZoomOut</code></li>
+              <li><code>Parallax</code></li>
+            </ul>
+          </div>
           <div style={styles.p}>
             These components will animate their <code>children</code>, according to the <code>Driver</code> used. To use one of these components, you must first create a driver, such as a <code>TimingDriver</code>, and then pass it to the animation component as the prop <code>driver</code>.
           </div>

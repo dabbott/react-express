@@ -100,7 +100,7 @@ const vendorComponents = [
 export default class View extends Component {
   render() {
     return (
-      <Page title={this.props.title} footer={this.props.footer}>
+      <Page title={'Shoutem Themes'} footer={this.props.footer}>
         <div style={styles.well}>
           <div style={styles.h3}>
             {this.props.title}
