@@ -1,15 +1,6 @@
 import React, { Component } from 'react'
 import createStyles, { responsive } from 'react-styles-provider'
-
-const createUrlParams = (params) => {
-  return Object.keys(params).map(key => {
-    return `${key}=${encodeURIComponent(params[key])}`
-  }).join('&')
-}
-
-const WEB_PLAYER_VERSION = '1.8.1'
-const WEB_PLAYER_URL = `//cdn.rawgit.com/dabbott/react-native-web-player/gh-v${WEB_PLAYER_VERSION}/index.html`
-// const WEB_PLAYER_URL = `//localhost:8080`
+import ReactNativeWebPlayer from 'react-native-web-player'
 
 const playerStyles = {
   tab: {
@@ -57,16 +48,10 @@ const playerStyles = {
 export default class WebPlayer extends Component {
 
   static defaultProps = {
-    title: null,
     height: 700,
     width: 260,
     scale: 0.75,
-    code: '',
-    files: [],
-    vendorComponents: [],
     showTranspiler: false,
-    transpilerTitle: '',
-    panes: [],
     fullscreen: true,
   }
 
@@ -77,6 +62,10 @@ export default class WebPlayer extends Component {
   render() {
     const {
       styles,
+      showTranspiler,
+      responsive,
+
+      // Passthrough
       code,
       files,
       entry,
@@ -85,66 +74,38 @@ export default class WebPlayer extends Component {
       width,
       scale,
       fullscreen,
-      showTranspiler,
-      panes,
       transpilerTitle,
       vendorComponents,
-      responsive,
     } = this.props
 
     const params = {
+      code,
+      files,
+      entry,
+      title,
       width,
       scale,
       fullscreen,
-      styles: JSON.stringify(playerStyles),
+      transpilerTitle,
+      vendorComponents,
+      styles: playerStyles,
     }
 
-    if (title) {
-      params.title = title
-    }
-
-    if (files.length > 0) {
-      params.files = JSON.stringify(files)
+    if (responsive.match('mobile')) {
+      params.panes = ['editor']
     } else {
-      params.code = code
-    }
-
-    if (vendorComponents.length) {
-      params.vendorComponents = JSON.stringify(vendorComponents)
-    }
-
-    if (entry) {
-      params.entry = entry
-    }
-
-    if (panes.length > 0) {
-      params.panes = JSON.stringify(panes)
-    } else {
-      if (responsive.match('mobile')) {
-        params.panes = JSON.stringify(['editor'])
+      if (showTranspiler) {
+        params.panes = ['editor', 'transpiler']
       } else {
-        if (showTranspiler) {
-          params.panes = JSON.stringify(['editor', 'transpiler'])
-        } else {
-          params.panes = JSON.stringify(['editor', 'player'])
-        }
+        params.panes = ['editor', 'player']
       }
     }
 
-    if (transpilerTitle) {
-      params.transpilerTitle = transpilerTitle
-    }
-
-    const hash = '#' + createUrlParams(params)
-
     return (
       <div style={styles.container}>
-        <iframe
-          style={styles.player}
-          height={height}
-          frameBorder={0}
-          allowFullScreen
-          src={`${WEB_PLAYER_URL}${hash}`}
+        <ReactNativeWebPlayer
+          style={{...styles.player, height}}
+          {...params}
         />
       </div>
     )
