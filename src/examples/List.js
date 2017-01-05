@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { AppRegistry, View, TouchableOpacity, Text, StyleSheet } from 'react-native'
+import { View, TouchableOpacity, Text, StyleSheet } from 'react-native'
 
 export default class List extends Component {
 

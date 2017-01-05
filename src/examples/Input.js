@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { AppRegistry, TextInput, StyleSheet } from 'react-native'
+import { TextInput, StyleSheet } from 'react-native'
 
 export default class Input extends Component {
 
@@ -20,7 +20,7 @@ export default class Input extends Component {
   }
 
   render() {
-    const {onSubmitEditing, placeholder} = this.props
+    const {placeholder} = this.props
     const {text} = this.state
 
     return (
