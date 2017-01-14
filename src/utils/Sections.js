@@ -21,7 +21,7 @@ let sections = [
   {depth: 1, title: 'JSX', slug: 'jsx', componentName: 'JSX'},
 
   {depth: 0, title: 'React Components', slug: 'components', componentName: 'Component'},
-  {depth: 1, title: 'Component API', slug: 'componentName_api', componentName: 'ComponentAPI'},
+  {depth: 1, title: 'Component API', slug: 'component_api', componentName: 'ComponentAPI'},
   {depth: 1, title: 'Lifecycle API', slug: 'lifecycle_api', componentName: 'LifecycleAPI'},
 
   {depth: 0, title: 'Core Components', slug: 'core_components', componentName: 'CoreComponents'},
