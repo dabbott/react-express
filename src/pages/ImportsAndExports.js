@@ -2,7 +2,7 @@ import React from 'react'
 import markdown from 'markdown-in-js'
 
 import { EditorTranspiler } from '../components'
-import markdownOptions from '../utils/markdownOptions'
+import markdownOptions from '../utils/MarkdownOptions'
 import DefaultPage from './DefaultPage'
 
 const importExample = `// import the default export

@@ -1,7 +1,7 @@
 import React from 'react'
 import markdown from 'markdown-in-js'
 
-import markdownOptions from '../utils/markdownOptions'
+import markdownOptions from '../utils/MarkdownOptions'
 import DefaultPage from './DefaultPage'
 
 const content = markdown(markdownOptions)`

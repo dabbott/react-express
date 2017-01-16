@@ -1,7 +1,7 @@
 import React from 'react'
 import markdown from 'markdown-in-js'
 
-import markdownOptions from '../utils/markdownOptions'
+import markdownOptions from '../utils/MarkdownOptions'
 import Page from './Page'
 import { EditorTranspiler, PageHeader } from '../components'
 

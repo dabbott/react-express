@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router'
 import markdown from 'markdown-in-js'
 
-import markdownOptions from '../utils/markdownOptions'
+import markdownOptions from '../utils/MarkdownOptions'
 import Page from './Page'
 import styles from '../styles'
 import { WebPlayer, GithubCorner, PageHeader } from '../components'
