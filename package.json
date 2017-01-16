@@ -38,6 +38,7 @@
     "copy-webpack-plugin": "^4.0.1",
     "css-loader": "0.23.1",
     "express": "^4.14.0",
+    "markdown-in-js": "dabbott/markdown-in-js#gfm-tables-dist",
     "postcss-loader": "0.9.1",
     "raw-loader": "^0.5.1",
     "react": "15.3.0",

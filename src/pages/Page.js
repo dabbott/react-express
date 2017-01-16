@@ -2,14 +2,14 @@ import React, { Component } from 'react'
 import Helmet from 'react-helmet'
 import createStyles, { responsive } from 'react-styles-provider'
 
-import styles from './styles'
+import styles from '../styles'
 
 @responsive()
 @createStyles({
   scroller: {
     borderTop: '1px solid rgba(220,220,220,0.5)',
     backgroundColor: 'white',
-    padding: '40px 40px 0 40px',
+    padding: '60px 60px 40px 60px',
   },
 })
 export default class Page extends Component {

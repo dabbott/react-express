@@ -1,20 +1,11 @@
-import React, { Component } from 'react'
+import React from 'react'
+import markdown from 'markdown-in-js'
 
-import { Author } from '../components'
-import Page from './Page'
-import styles from './styles'
+import markdownOptions from '../utils/markdownOptions'
+import DefaultPage from './DefaultPage'
 
-export default class Exercises extends Component {
-  render() {
-    return (
-      <Page title={this.props.title} footer={this.props.footer}>
-        <div style={styles.well}>
-          <div style={styles.h3}>Exercises</div>
-          <div style={styles.p}>
-            Let's apply these concepts to some exercises.
-          </div>
-        </div>
-      </Page>
-    )
-  }
-}
+const content = markdown(markdownOptions)`
+Let's apply these concepts to some exercises.
+`
+
+export default props => <DefaultPage {...props}>{content}</DefaultPage>

@@ -1,8 +1,9 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router'
-import Page from './Page'
-import styles from './styles'
-import { WebPlayer, Author, GithubRepositoryLink } from '../components'
+import React from 'react'
+import markdown from 'markdown-in-js'
+
+import markdownOptions from '../utils/markdownOptions'
+import DefaultPage from './DefaultPage'
+import { WebPlayer, GithubRepositoryLink } from '../components'
 
 const code = `import React, { Component } from 'react'
 import { AppRegistry, ScrollView } from 'react-native'
@@ -92,114 +93,48 @@ const vendorComponents = [
   ['@shoutem/ui', 'https://cdn.rawgit.com/dabbott/ui/4b7e380626c8beb0f4fb199078d40ef2da7e702a/dist/shoutem-ui.js'],
 ]
 
-export default class View extends Component {
-  render() {
-    return (
-      <Page title={this.props.title} footer={this.props.footer}>
-        <div style={styles.well}>
-          <div style={styles.h3}>
-            {this.props.title}
-            <Author url={'https://twitter.com/devinaabbott'}>
-              @devinaabbott
-            </Author>
-          </div>
-          <div style={styles.p}>
-            Shoutem UI is a themable, animatable component collection. Of the common component libraries available today, Shoutem likely prioritizes design the most. Apps built with these components tend to look beautiful and consistent without too much time spent pixel-pushing.
-          </div>
-          <div style={styles.p}>
-            The components available thus far are more presentational than navigational. Shoutem focuses on cards with text, buttons, and rich media, which can then be combined into lists and grids. Shoutem doesn't provide drawers, tab bars, modals, etc. You would still want to use a navigation library for those components.
-          </div>
-          <div style={styles.p}>
-            There are three distinct libraries:
-          </div>
-          <div style={styles.p}>
-            <ul>
-              <li>
-                <GithubRepositoryLink
-                  user={'shoutem'}
-                  repo={'ui'}
-                  title={'Shoutem Components'}
-                />
-                <br />
-                A collection of ~100 UI components, including typography, buttons, lists, grids, etc.
-                <br />
-                <br />
-              </li>
-              <li>
-                <GithubRepositoryLink
-                  user={'shoutem'}
-                  repo={'animation'}
-                  title={'Shoutem Animation'}
-                />
-                <br />
-                Declarative animations to apply to your components
-                <br />
-                <br />
-              </li>
-              <li>
-                <GithubRepositoryLink
-                  user={'shoutem'}
-                  repo={'theme'}
-                  title={'Shoutem Themes'}
-                />
-                <br />
-                CSS-like theming for components
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div style={styles.well}>
-          <div style={styles.h3}>Component Sandbox</div>
-          <div style={styles.p}>
-            Consider the following example a sandbox for testing the various <code>@shoutem/ui</code> components.
-          </div>
-          <div style={styles.p}>
-            Getting started with Shoutem can be a little slow at first, because it introduces many new components and predefined styles (which are different for each component). However, once you get the hang of it, you'll find you can put together new screens extremely quickly. You'll likely want these pages open for reference:
-          </div>
-          <div style={styles.p}>
-            <ul>
-              <li>
-                <a href={'http://shoutem.github.io/docs/ui-toolkit/components/typography'}>
-                  Shoutem UI Components
-                </a>
-                <br />
-                The list of components and how to use them.
-                <br />
-                <br />
-              </li>
-              <li>
-                <a href={'http://shoutem.github.io/docs/ui-toolkit/introduction'}>
-                  Shoutem UI Introduction
-                </a>
-                <br />
-                This page describes the common <code>styleName</code>s for manipulating dimensions and margins.
-                <br />
-                <br />
-              </li>
-              <li>
-                <a href={'https://github.com/shoutem/ui/blob/develop/theme.js'}>
-                  Default theme file
-                </a>
-                <br />
-                This is the list of default styles applied to components. You may override these defaults using the <code>style</code> prop on a component. This will make more sense after reading the <Link to={'shoutem_ui_theme'}>Shoutem Themes</Link> section.
-              </li>
-            </ul>
-          </div>
-          <div style={styles.p}>
-            Some components won't display 100% accurately in the web simulator, so when you've decided to use Shoutem, it's best to get started with a real React Native app in your local development environment.
-          </div>
-          <WebPlayer
-            title={'Shoutem UI'}
-            code={code}
-            vendorComponents={vendorComponents}
-          />
-        </div>
-        <div style={styles.well}>
-          <div style={styles.p}>
-            Let's take a look at how we can apply themes and animations to these components.
-          </div>
-        </div>
-      </Page>
-    )
-  }
+const content = markdown(markdownOptions)`
+Shoutem UI is a themable, animatable component collection. Of the common component libraries available today, Shoutem likely prioritizes design the most. Apps built with these components tend to look beautiful and consistent without too much time spent pixel-pushing.
+
+The components available thus far are more presentational than navigational. Shoutem focuses on cards with text, buttons, and rich media, which can then be combined into lists and grids. Shoutem doesn't provide drawers, tab bars, modals, etc. You would still want to use a navigation library for those components.
+
+There are three distinct libraries:
+
+- ${<GithubRepositoryLink user={'shoutem'} repo={'ui'} title={'Shoutem Components'} />}\\
+  A collection of ~100 UI components, including typography, buttons, lists, grids, etc.
+
+- ${<GithubRepositoryLink user={'shoutem'} repo={'animation'} title={'Shoutem Animation'} />}\\
+  Declarative animations to apply to your components
+
+- ${<GithubRepositoryLink user={'shoutem'} repo={'theme'} title={'Shoutem Themes'} />}\\
+  CSS-like theming for components
+
+# Component Sandbox
+
+Consider the following example a sandbox for testing the various <code>@shoutem/ui</code> components.
+
+Getting started with Shoutem can be a little slow at first, because it introduces many new components and predefined styles (which are different for each component). However, once you get the hang of it, you'll find you can put together new screens extremely quickly. You'll likely want these pages open for reference:
+
+- [Shoutem UI Components](http://shoutem.github.io/docs/ui-toolkit/components/typography)\\
+  The list of components and how to use them.
+
+- [Shoutem UI Introduction](http://shoutem.github.io/docs/ui-toolkit/introduction)\\
+  This page describes the common <code>styleName</code>s for manipulating dimensions and margins.
+
+- [Default theme file](https://github.com/shoutem/ui/blob/develop/theme.js)\\
+  This is the list of default styles applied to components. You may override these defaults using the <code>style</code> prop on a component. This will make more sense after reading the [Shoutem Themes](shoutem_ui_theme) section.
+
+Some components won't display 100% accurately in the web simulator, so when you've decided to use Shoutem, it's best to get started with a real React Native app in your local development environment.
+
+${
+  <WebPlayer
+    title={'Shoutem UI'}
+    code={code}
+    vendorComponents={vendorComponents}
+  />
 }
+
+Let's take a look at how we can apply themes and animations to these components.
+`
+
+export default props => <DefaultPage {...props}>{content}</DefaultPage>

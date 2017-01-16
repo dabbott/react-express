@@ -1,8 +1,9 @@
-import React, { Component } from 'react'
+import React from 'react'
+import markdown from 'markdown-in-js'
 
-import Page from './Page'
-import styles from './styles'
-import { WebPlayer, Author } from '../components'
+import markdownOptions from '../utils/markdownOptions'
+import DefaultPage from './DefaultPage'
+import { WebPlayer } from '../components'
 
 const code = `import React, { Component } from 'react'
 import { AppRegistry, View, Text, StyleSheet } from 'react-native'
@@ -34,23 +35,10 @@ const styles = StyleSheet.create({
 AppRegistry.registerComponent('App', () => App)
 `
 
-export default class View extends Component {
-  render() {
-    return (
-      <Page title={this.props.title} footer={this.props.footer}>
-        <div style={styles.well}>
-          <div style={styles.h3}>
-            {this.props.title}
-            <Author url={'https://twitter.com/devinaabbott'}>
-              @devinaabbott
-            </Author>
-          </div>
-          <div style={styles.p}>
-            <code>Text</code> is used to render text. Unlike on the web, text <i>must</i> be wrapped in a <code>{'<Text>'}</code> component.
-          </div>
-          <WebPlayer code={code} />
-        </div>
-      </Page>
-    )
-  }
-}
+const content = markdown(markdownOptions)`
+\`Text\` is used to render text. Unlike on the web, text <i>must</i> be wrapped in a \`${'<Text>'}\` component.
+
+${<WebPlayer code={code} />}
+`
+
+export default props => <DefaultPage {...props}>{content}</DefaultPage>

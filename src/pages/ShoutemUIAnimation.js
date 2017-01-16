@@ -1,8 +1,9 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router'
-import Page from './Page'
-import styles from './styles'
-import { WebPlayer, Author } from '../components'
+import React from 'react'
+import markdown from 'markdown-in-js'
+
+import markdownOptions from '../utils/markdownOptions'
+import DefaultPage from './DefaultPage'
+import { WebPlayer } from '../components'
 
 const timingDriverExample = `import React, { Component } from 'react'
 import {
@@ -193,85 +194,62 @@ const vendorComponents = [
   ['@shoutem/animation', 'https://cdn.rawgit.com/dabbott/animation/496810888db6cc0bc19c0d3abbcc9a4de8e8a0dc/dist/shoutem-animation.js'],
 ]
 
-export default class View extends Component {
-  render() {
-    return (
-      <Page title={'Shoutem Animation'} footer={this.props.footer}>
-        <div style={styles.well}>
-          <div style={styles.h3}>
-            {this.props.title}
-            <Author url={'https://twitter.com/devinaabbott'}>
-              @devinaabbott
-            </Author>
-          </div>
-          <div style={styles.p}>
-            Shoutem animations are built from with two parts: a <code>Driver</code> and an <code>Animation Component</code>
-          </div>
-          <div style={styles.h4}>Driver</div>
-          <div style={styles.p}>
-            A <code>Driver</code> automatically modifies a value, such as a number or color, in response to external changes: time, scroll position, touch position, etc. This value can then be connected to a component's styles, to modify position, layout, color, etc, based on the external changes.
-          </div>
-          <div style={styles.p}>
-            In terms of implementation, a <code>Driver</code> is a minimal wrapper around an <code>Animated.Value</code> (more on <code>Animated</code> in a <Link to={'animated'}>later chapter</Link>). To get a better understanding of drivers, take a look at the <code><a href={'https://github.com/shoutem/animation/blob/develop/src/drivers/TimingDriver.js'}>TimingDriver</a></code>, which is only ~20 lines of code.
-          </div>
-          <div style={styles.h4}>Animation Component</div>
-          <div style={styles.p}>
-            Shoutem ships with a handful of premade animation components:
-          </div>
-          <div style={styles.p}>
-            <ul>
-              <li><code>FadeIn</code></li>
-              <li><code>FadeOut</code></li>
-              <li><code>ZoomIn</code></li>
-              <li><code>ZoomOut</code></li>
-              <li><code>Parallax</code></li>
-            </ul>
-          </div>
-          <div style={styles.p}>
-            These components will animate their <code>children</code>, according to the <code>Driver</code> used. To use one of these components, you must first create a driver, such as a <code>TimingDriver</code>, and then pass it to the animation component as the prop <code>driver</code>.
-          </div>
-        </div>
-        <div style={styles.well}>
-          <div style={styles.h3}>TimingDriver Example</div>
-          <div style={styles.p}>
-            Let's take a look at a simple example: fading a component in based on time.
-          </div>
-          <div style={styles.p}>
-            The <code>Driver</code> API is imperative, so we must create an instance of a driver and call <code>runTimer</code> to use it.
-          </div>
-          <div style={styles.p}>
-            In this example, we'll create our driver with <code>new TimingDriver</code>, passing (optionally) a <code>duration</code>, <code>delay</code>, and <code>easing</code> function. Since the driver doesn't directly affect rendering, it's more idiomatic to make it an instance variable of the component (accessible via <code>this.driver</code>) than to put it in the component's <code>state</code>.
-          </div>
-          <div style={styles.p}>
-            We must then start the animation with <code>runTimer(progress)</code>. Timing animations represent their progress in the range of values [0, 1]. To run an animation to completion, call <code>runTimer(1)</code>. To run it halfway, <code>runTimer(0.5)</code>. You may call <code>runTimer</code> multiple times with different progresses, including going back to the start with <code>runTimer(0)</code>.
-          </div>
-          <div style={styles.p}>
-            The last step is to connect our driver to our <code>FadeIn</code> component as a prop: <code>{'<FadeIn driver={this.driver}> ... </FadeIn>'}</code>.
-          </div>
-          <WebPlayer
-            title={'TimingDriver'}
-            code={timingDriverExample}
-            vendorComponents={vendorComponents}
-          />
-        </div>
-        <div style={styles.well}>
-          <div style={styles.h3}>ScrollDriver Example</div>
-          <div style={styles.p}>
-            Let's take a look at another example: zooming and fading components in and out based on scroll position. There are a few key differences from the <code>TimingDriver</code> example.
-          </div>
-          <div style={styles.p}>
-            First, our <code>ScrollDriver</code> controls the progress of animations based on the scroll position of our <code>ScrollView</code>, so we must feed the scroll position into our <code>ScrollDriver</code>. To connect our <code>ScrollDriver</code> to our <code>ScrollView</code>, we spread <code>driver.scrollViewProps</code> into the <code>ScrollView</code>'s props.
-          </div>
-          <div style={styles.p}>
-            Second, the input to the animation is no longer within the range [0, 1]. The input is a scroll position, so we must specify the start and end range with the <code>inputRange</code> prop on our animation components. We might say <code>{'inputRange={[100, 200]}'}</code> to start our animation at scroll position 100, and end it at scroll position 200.
-          </div>
-          <WebPlayer
-            title={'ScrollDriver'}
-            code={scrollDriverExample}
-            vendorComponents={vendorComponents}
-          />
-        </div>
-      </Page>
-    )
-  }
+const content = markdown(markdownOptions)`
+Shoutem animations are built from with two parts: a \`Driver\` and an \`Animation Component\`
+
+## Driver
+
+A \`Driver\` automatically modifies a value, such as a number or color, in response to external changes: time, scroll position, touch position, etc. This value can then be connected to a component's styles, to modify position, layout, color, etc, based on the external changes.
+
+In terms of implementation, a \`Driver\` is a minimal wrapper around an \`Animated.Value\` (more on \`Animated\` in a [later chapter](animated). To get a better understanding of drivers, take a look at the [TimingDriver](https://github.com/shoutem/animation/blob/develop/src/drivers/TimingDriver.js), which is only ~20 lines of code.
+
+## Animation Component
+
+Shoutem ships with a handful of premade animation components:
+
+- **\`FadeIn\`**
+- **\`FadeOut\`**
+- **\`ZoomIn\`**
+- **\`ZoomOut\`**
+- **\`Parallax\`**
+
+These components will animate their \`children\`, according to the \`Driver\` used. To use one of these components, you must first create a driver, such as a \`TimingDriver\`, and then pass it to the animation component as the prop \`driver\`.
+
+# TimingDriver Example
+
+Let's take a look at a simple example: fading a component in based on time.
+
+The \`Driver\` API is imperative, so we must create an instance of a driver and call \`runTimer\` to use it.
+
+In this example, we'll create our driver with \`new TimingDriver\`, passing (optionally) a \`duration\`, \`delay\`, and \`easing\` function. Since the driver doesn't directly affect rendering, it's more idiomatic to make it an instance variable of the component (accessible via \`this.driver\`) than to put it in the component's \`state\`.
+
+We must then start the animation with \`runTimer(progress)\`. Timing animations represent their progress in the range of values [0, 1]. To run an animation to completion, call \`runTimer(1)\`. To run it halfway, \`runTimer(0.5)\`. You may call \`runTimer\` multiple times with different progresses, including going back to the start with \`runTimer(0)\`.
+
+The last step is to connect our driver to our \`FadeIn\` component as a prop: \`${'<FadeIn driver={this.driver}> ... </FadeIn>'}\`.
+
+${
+  <WebPlayer
+    title={'TimingDriver'}
+    code={timingDriverExample}
+    vendorComponents={vendorComponents}
+  />
 }
+
+# ScrollDriver Example
+
+Let's take a look at another example: zooming and fading components in and out based on scroll position. There are a few key differences from the \`TimingDriver\` example.
+
+First, our \`ScrollDriver\` controls the progress of animations based on the scroll position of our \`ScrollView\`, so we must feed the scroll position into our \`ScrollDriver\`. To connect our \`ScrollDriver\` to our \`ScrollView\`, we spread \`driver.scrollViewProps\` into the \`ScrollView\`'s props.
+
+Second, the input to the animation is no longer within the range [0, 1]. The input is a scroll position, so we must specify the start and end range with the \`inputRange\` prop on our animation components. We might say \`${'inputRange={[100, 200]}'}\` to start our animation at scroll position 100, and end it at scroll position 200.
+
+${
+  <WebPlayer
+    title={'ScrollDriver'}
+    code={scrollDriverExample}
+    vendorComponents={vendorComponents}
+  />
+}
+`
+
+export default props => <DefaultPage {...props}>{content}</DefaultPage>

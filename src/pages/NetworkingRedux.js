@@ -1,8 +1,9 @@
-import React, { Component } from 'react'
+import React from 'react'
+import markdown from 'markdown-in-js'
 
-import Page from './Page'
-import styles from './styles'
-import { WebPlayer, Author } from '../components'
+import markdownOptions from '../utils/markdownOptions'
+import DefaultPage from './DefaultPage'
+import { WebPlayer } from '../components'
 
 const indexFile = `import { AppRegistry, View } from 'react-native'
 import { createStore, applyMiddleware } from 'redux'
@@ -226,49 +227,36 @@ const vendorComponents = [
   ['redux-thunk', 'https://cdnjs.cloudflare.com/ajax/libs/redux-thunk/2.1.0/redux-thunk.js'],
 ]
 
-export default class extends Component {
-  render() {
-    return (
-      <Page title={this.props.title} footer={this.props.footer}>
-        <div style={styles.well}>
-          <div style={styles.h3}>
-            Networking With Redux
-            <Author url={'https://twitter.com/devinaabbott'}>
-              @devinaabbott
-            </Author>
-          </div>
-          <div style={styles.p}>
-            By default, Redux only handles synchronous actions. However, there are some great middlewares (plugins) for handling asynchronous actions.
-          </div>
-          <div style={styles.p}>
-            For small to medium apps, the <a href={'https://github.com/gaearon/redux-thunk'}>redux-thunk</a> middleware is extremely effective. It's also created by the author of redux, so it's pretty much guaranteed to be high-quality and up-to-date.
-          </div>
-          <div style={styles.p}>
-            For large apps with very complex asynchronous chains of events, you may want to consider <a href={'https://github.com/yelouafi/redux-saga'}>redux-saga</a>, which is an extremely powerful but mind-bendingly complex framework for managing flow control. You can think of sagas as background daemon processes, which you can fork and join, maintaining complete control over the asynchronous events in your app. These are also great for testability.
-          </div>
-        </div>
-        <div style={styles.well}>
-          <div style={styles.h3}>Posts Example</div>
-          <div style={styles.p}>
-            Let's look at <code>redux-thunk</code> in action. We'll automatically fetch posts when the app starts, and provide a button to refresh them.
-          </div>
-          <div style={styles.p}>
-            Thanks to Redux Thunk, we can now dispatch functions. When we dispatch a function, we must return a function that takes <code>(dispatch, getState)</code> as props. Using <code>dispatch</code>, our function can dispatch other actions. We can also view the current state of the store by calling <code>getState()</code>.
-          </div>
-          <div style={styles.h4}>Files</div>
-          <div style={styles.p}>
-            <ul>
-              <li><code>index.js</code><br />This file handles creating the redux store and passing it to our <code>Provider</code>. It also handles applying the <code>thunk</code> middleware to our store, for handling asynchronous actions.<br /><br /></li>
-              <li><code>postsRedux.js</code><br />This contains the actionCreators and reducer for fetching posts and updating the store.<br /><br /></li>
-              <li><code>App.js</code><br /><code>App</code> is connected to the store using <code>connect()</code>. It pulls the post data, along with loading and error states, out of the redux store.<br /><br /></li>
-            </ul>
-          </div>
-          <WebPlayer
-            files={files}
-            vendorComponents={vendorComponents}
-          />
-        </div>
-      </Page>
-    )
-  }
+const content = markdown(markdownOptions)`
+By default, Redux only handles synchronous actions. However, there are some great middlewares (plugins) for handling asynchronous actions.
+
+For small to medium apps, the [redux-thunk](https://github.com/gaearon/redux-thunk) middleware is extremely effective. It's also created by the author of redux, so it's pretty much guaranteed to be high-quality and up-to-date.
+
+For large apps with very complex asynchronous chains of events, you may want to consider [redux-saga](https://github.com/yelouafi/redux-saga), which is an extremely powerful but mind-bendingly complex framework for managing flow control. You can think of sagas as background daemon processes, which you can fork and join, maintaining complete control over the asynchronous events in your app. These are also great for testability.
+
+# Posts Example
+
+Let's look at \`redux-thunk\` in action. We'll automatically fetch posts when the app starts, and provide a button to refresh them.
+
+Thanks to Redux Thunk, we can now dispatch functions. When we dispatch a function, we must return a function that takes \`(dispatch, getState)\` as props. Using \`dispatch\`, our function can dispatch other actions. We can also view the current state of the store by calling \`getState()\`.
+
+## Files
+
+- \`index.js\`\\
+This file handles creating the redux store and passing it to our \`Provider\`. It also handles applying the \`thunk\` middleware to our store, for handling asynchronous actions.
+
+- \`postsRedux.js\`\\
+This contains the actionCreators and reducer for fetching posts and updating the store.
+
+- \`App.js\`\\
+\`App\` is connected to the store using \`connect()\`. It pulls the post data, along with loading and error states, out of the redux store.
+
+${
+  <WebPlayer
+    files={files}
+    vendorComponents={vendorComponents}
+  />
 }
+`
+
+export default props => <DefaultPage {...props}>{content}</DefaultPage>

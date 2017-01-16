@@ -125,7 +125,7 @@ export default class App extends Component {
 
     const styles = getStyles(this.state)
     const section = getSection(pathname)
-    const title = section && section.title
+    const title = section && (section.fullTitle || section.title)
 
     const cloned = React.Children.map(children, (child) => {
       return React.cloneElement(child, {

@@ -1,8 +1,9 @@
-import React, { Component } from 'react'
+import React from 'react'
+import markdown from 'markdown-in-js'
 
-import Page from './Page'
-import styles from './styles'
-import { WebPlayer, Author } from '../components'
+import markdownOptions from '../utils/markdownOptions'
+import DefaultPage from './DefaultPage'
+import { WebPlayer } from '../components'
 
 const indexFile = `import { AppRegistry, View } from 'react-native'
 import { createStore } from 'redux'
@@ -97,26 +98,15 @@ const vendorComponents = [
   ['redux-persist', 'redux-persist', 'https://cdnjs.cloudflare.com/ajax/libs/redux-persist/4.0.0-alpha7/redux-persist.js'],
 ]
 
-export default class extends Component {
-  render() {
-    return (
-      <Page title={this.props.title} footer={this.props.footer}>
-        <div style={styles.well}>
-          <div style={styles.h3}>
-            {this.props.title}
-            <Author url={'https://twitter.com/devinaabbott'}>
-              @devinaabbott
-            </Author>
-          </div>
-          <div style={styles.p}>
-            Redux Persist is an extremely simple way to persist your entire redux store to disk, and load it into memory when the app launches again. Redux Persist is an abstraction layer on top of <code>AsyncStorage</code>. You can read more about Redux Persist in the <a href={'https://github.com/rt2zz/redux-persist'}>docs</a>.
-          </div>
-          <WebPlayer
-            files={files}
-            vendorComponents={vendorComponents}
-          />
-        </div>
-      </Page>
-    )
-  }
+const content = markdown(markdownOptions)`
+Redux Persist is an extremely simple way to persist your entire redux store to disk, and load it into memory when the app launches again. Redux Persist is an abstraction layer on top of <code>AsyncStorage</code>. You can read more about Redux Persist in the [docs](https://github.com/rt2zz/redux-persist).
+
+${
+  <WebPlayer
+    files={files}
+    vendorComponents={vendorComponents}
+  />
 }
+`
+
+export default props => <DefaultPage {...props}>{content}</DefaultPage>

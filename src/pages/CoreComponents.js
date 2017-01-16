@@ -1,31 +1,15 @@
-import React, { Component } from 'react'
+import React from 'react'
+import markdown from 'markdown-in-js'
 
-import { Author } from '../components'
-import Page from './Page'
-import styles from './styles'
+import markdownOptions from '../utils/markdownOptions'
+import DefaultPage from './DefaultPage'
 
-export default class extends Component {
-  render() {
-    return (
-      <Page title={this.props.title} footer={this.props.footer}>
-        <div style={styles.well}>
-          <div style={styles.h3}>
-            {this.props.title}
-            <Author url={'https://twitter.com/devinaabbott'}>
-              @devinaabbott
-            </Author>
-          </div>
-          <div style={styles.p}>
-            React Native includes a few dozen core components which can be used out-of-the-box. More complex components can be built by combining the core components in interesting ways.
-          </div>
-          <div style={styles.p}>
-            Nearly all the core components extend the <code>View</code> component, and can be passed an optional <code>style</code> prop. The style can include visual properties like colors and borders, as well as layout properties. Components use the flexbox algorithm to specify the layout of their children.
-          </div>
-          <div style={styles.p}>
-            Let's take a more in-depth look at the flexbox algorithm and some of the most common core components.
-          </div>
-        </div>
-      </Page>
-    )
-  }
-}
+const content = markdown(markdownOptions)`
+React Native includes a few dozen core components which can be used out-of-the-box. More complex components can be built by combining the core components in interesting ways.
+
+Nearly all the core components extend the \`View\` component, and can be passed an optional \`style\` prop. The style can include visual properties like colors and borders, as well as layout properties. Components use the flexbox algorithm to specify the layout of their children.
+
+Let's take a more in-depth look at the flexbox algorithm and some of the most common core components.
+`
+
+export default props => <DefaultPage {...props}>{content}</DefaultPage>

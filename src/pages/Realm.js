@@ -1,38 +1,21 @@
-import React, { Component } from 'react'
+import React from 'react'
+import markdown from 'markdown-in-js'
 
-import Page from './Page'
-import styles from './styles'
-import { Author } from '../components'
+import markdownOptions from '../utils/markdownOptions'
+import DefaultPage from './DefaultPage'
 
-export default class extends Component {
-  render() {
-    return (
-      <Page title={this.props.title} footer={this.props.footer}>
-        <div style={styles.well}>
-          <div style={styles.h3}>
-            {this.props.title}
-            <Author url={'https://twitter.com/devinaabbott'}>
-              @devinaabbott
-            </Author>
-          </div>
-          <div style={styles.p}>
-            Realm is a cross-platform database for iOS and Android, made available as a React Native component. You can read more about it in the <a href={'https://realm.io/docs/react-native/latest/'}>Realm docs</a>.
-          </div>
-          <div style={styles.p}>
-            We won't go into much detail here, but Realm is generally your best option if you want to use a real database, instead of storing all data in-memory with Redux. With Realm, you can:
-          </div>
-          <ul>
-            <li>Create relational models using schemas</li>
-            <li>Create, update, and delete records using transactions</li>
-            <li>Query tables and observe the results</li>
-            <li>Migrate the database</li>
-            <li>Encrypt stored data</li>
-          </ul>
-          <div style={styles.p}>
-            Realm also has an awesome desktop app for browsing the data stored on-device, which is a much better developer experience than using a SQLite database directly, so make sure to check it out.
-          </div>
-        </div>
-      </Page>
-    )
-  }
-}
+const content = markdown(markdownOptions)`
+Realm is a cross-platform database for iOS and Android, made available as a React Native component. You can read more about it in the [Realm docs](https://realm.io/docs/react-native/latest/).
+
+We won't go into much detail here, but Realm is generally your best option if you want to use a real database, instead of storing all data in-memory with Redux. With Realm, you can:
+
+- Create relational models using schemas
+- Create, update, and delete records using transactions
+- Query tables and observe the results
+- Migrate the database
+- Encrypt stored data
+
+Realm also has an awesome desktop app for browsing the data stored on-device, which is a much better developer experience than using a SQLite database directly, so make sure to check it out.
+`
+
+export default props => <DefaultPage {...props}>{content}</DefaultPage>

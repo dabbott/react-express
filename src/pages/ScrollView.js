@@ -1,8 +1,9 @@
-import React, { Component } from 'react'
+import React from 'react'
+import markdown from 'markdown-in-js'
 
-import Page from './Page'
-import styles from './styles'
-import { WebPlayer, Author } from '../components'
+import markdownOptions from '../utils/markdownOptions'
+import DefaultPage from './DefaultPage'
+import { WebPlayer } from '../components'
 
 const code = `import React, { Component } from 'react'
 import { AppRegistry, ScrollView, View, StyleSheet } from 'react-native'
@@ -48,23 +49,10 @@ const styles = StyleSheet.create({
 AppRegistry.registerComponent('App', () => App)
 `
 
-export default class View extends Component {
-  render() {
-    return (
-      <Page title={this.props.title} footer={this.props.footer}>
-        <div style={styles.well}>
-          <div style={styles.h3}>
-            {this.props.title}
-            <Author url={'https://twitter.com/devinaabbott'}>
-              @devinaabbott
-            </Author>
-          </div>
-          <div style={styles.p}>
-            <code>ScrollView</code>s are used for scrollable content. They're well suited for scrolling small quantities of content ({'<'} 30 items). They can scroll horizontally or vertically. For large quantities of items, consider using a <code>ListView</code> for better performance.
-          </div>
-          <WebPlayer code={code} />
-        </div>
-      </Page>
-    )
-  }
-}
+const content = markdown(markdownOptions)`
+\`ScrollView\`s are used for scrollable content. They're well suited for scrolling small quantities of content (< 30 items). They can scroll horizontally or vertically. For large quantities of items, consider using a \`ListView\` for better performance.
+
+${<WebPlayer code={code} />}
+`
+
+export default props => <DefaultPage {...props}>{content}</DefaultPage>

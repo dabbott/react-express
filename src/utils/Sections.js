@@ -34,8 +34,9 @@ let sections = [
 
   {depth: 0, title: 'Component Libraries', slug: 'component_libraries', componentName: 'ComponentLibraries'},
   {depth: 1, title: 'Shoutem UI', slug: 'shoutem_ui', componentName: 'ShoutemUI'},
-  {depth: 2, title: 'Themes', slug: 'shoutem_ui_theme', componentName: 'ShoutemUITheme'},
-  {depth: 2, title: 'Animation', slug: 'shoutem_ui_animation', componentName: 'ShoutemUIAnimation'},
+  {depth: 2, title: 'Themes', slug: 'shoutem_ui_theme', componentName: 'ShoutemUITheme', fullTitle: 'Shoutem Themes'},
+  {depth: 2, title: 'Animation', slug: 'shoutem_ui_animation', componentName: 'ShoutemUIAnimation', fullTitle: 'Shoutem Animation'},
+
   {depth: 0, title: 'Data Management', slug: 'data', componentName: 'Data'},
   {depth: 1, title: 'Component State', slug: 'data_component_state', componentName: 'ComponentState'},
   {depth: 1, title: 'Redux', slug: 'redux', componentName: 'Redux'},
@@ -48,7 +49,7 @@ let sections = [
   {depth: 1, title: 'Redux Persist', slug: 'redux_persist', componentName: 'ReduxPersist'},
 
   {depth: 0, title: 'Networking', slug: 'networking', componentName: 'Networking'},
-  {depth: 1, title: 'With Redux', slug: 'networking_redux', componentName: 'NetworkingRedux'},
+  {depth: 1, title: 'With Redux', slug: 'networking_redux', componentName: 'NetworkingRedux', fullTitle: 'Networking with Redux'},
 
   {depth: 0, title: 'Animation', slug: 'animation', componentName: 'Animation'},
   {depth: 1, title: 'Animated', slug: 'animated', componentName: 'Animated'},

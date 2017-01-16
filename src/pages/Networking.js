@@ -1,8 +1,9 @@
-import React, { Component } from 'react'
+import React from 'react'
+import markdown from 'markdown-in-js'
 
-import Page from './Page'
-import styles from './styles'
-import { WebPlayer, Author } from '../components'
+import markdownOptions from '../utils/markdownOptions'
+import DefaultPage from './DefaultPage'
+import { WebPlayer } from '../components'
 
 const code = `import React, { Component } from 'react'
 import { AppRegistry, View, Text, ActivityIndicator, ScrollView, StyleSheet } from 'react-native'
@@ -116,67 +117,47 @@ const styles = StyleSheet.create({
 AppRegistry.registerComponent('App', () => App)
 `
 
-export default class extends Component {
-  render() {
-    return (
-      <Page title={this.props.title} footer={this.props.footer}>
-        <div style={styles.well}>
-          <div style={styles.h3}>
-            {this.props.title}
-            <Author url={'https://twitter.com/devinaabbott'}>
-              @devinaabbott
-            </Author>
-          </div>
-          <div style={styles.p}>
-            <code>Networking</code> in React Native is built on two APIs: <code>fetch</code> and <code>XMLHttpRequest</code>. Both of these were designed to be compatible with browser APIs so that:
-          </div>
-          <ol>
-            <li>Web developers don't have to learn a new way to make network requests</li>
-            <li>Libraries built on top of these function as expected in React Native</li>
-          </ol>
-          <div style={styles.p}>
-            It's common to use the <code>fetch</code> API directly, since it's pretty simple and high-level. It's rare to use XMLHttpRequest directly, since it's complex and low-level. If your networking needs are advanced (multi-part form requests, etc), you'll likely want to use a library which abstracts the details of these networking APIs.
-          </div>
-          <div style={styles.p}>
-            If you're looking for an abstraction layer, the common networking libraries like <code>axios</code> and <code>superagent</code> will still work in React Native.
-          </div>
-        </div>
-        <div style={styles.well}>
-          <div style={styles.h3}>Fetch API</div>
-          <div style={styles.p}>
-            Let's take a look at <code>fetch</code>, since it's easy to use and comes with React Native out of the box. The Fetch API is promise-based, meaning we can use <code>async/await</code>.
-          </div>
-          <div style={styles.h4_monospace}>const response = await fetch(uri)</div>
-          <div style={styles.p}>
-            Send a <code>GET</code> request to <code>uri</code>, returning a promise which represents a <code>Response</code> object. To access the data returned, you must either await <code>response.text()</code> or <code>response.json()</code>.
-          </div>
-          <div style={styles.h4_monospace}>const json = await response.json()</div>
-          <div style={styles.p}>
-            Parse the body of the response asynchronously as JSON.
-          </div>
-          <div style={styles.h4_monospace}>const text = await response.text()</div>
-          <div style={styles.p}>
-            Get the body of the response as text.
-          </div>
-          <div style={styles.h4}>That's it!</div>
-          <div style={styles.p}>
-            We can get started using <code>fetch</code> with just that! If you want to use fetch with custom request headers or for <code>POST</code> requests, read more about the API <a href={'https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch'}>here at MDN</a>.
-          </div>
-        </div>
-        <div style={styles.well}>
-          <div style={styles.h3}>Example</div>
-          <div style={styles.p}>
-            Here we'll fetch a list of posts and display them in a ScrollView. Since <code>fetch</code> is asynchronous, our app may not have data when it loads. We should be prepared to show an <code>ActivityIndicator</code> (spinner) while data loads. We should also be prepared to show an error message if fetching data fails.
-          </div>
-          <div style={styles.p}>
-            <i>Note: fetch only works in Chrome and Firefox at the moment, so this example won't run in Safari or IE.</i>
-          </div>
-          <WebPlayer
-            title={'Networking with Fetch'}
-            code={code}
-          />
-        </div>
-      </Page>
-    )
-  }
+const content = markdown(markdownOptions)`
+\`Networking\` in React Native is built on two APIs: \`fetch\` and \`XMLHttpRequest\`. Both of these were designed to be compatible with browser APIs so that:
+- Web developers don't have to learn a new way to make network requests
+- Libraries built on top of these function as expected in React Native
+
+It's common to use the \`fetch\` API directly, since it's pretty simple and high-level. It's rare to use XMLHttpRequest directly, since it's complex and low-level. If your networking needs are advanced (multi-part form requests, etc), you'll likely want to use a library which abstracts the details of these networking APIs.
+
+If you're looking for an abstraction layer, the common networking libraries like \`axios\` and \`superagent\` will still work in React Native.
+
+# Fetch API
+
+Let's take a look at \`fetch\`, since it's easy to use and comes with React Native out of the box. The Fetch API is promise-based, meaning we can use \`async/await\`.
+
+## **\`const response = await fetch(uri)\`**
+
+Send a \`GET\` request to \`uri\`, returning a promise which represents a \`Response\` object. To access the data returned, you must either await \`response.text()\` or \`response.json()\`.
+
+## **\`const json = await response.json()\`**
+
+Parse the body of the response asynchronously as JSON.
+
+## **\`const text = await response.text()\`**
+
+Get the body of the response as text.
+
+## That's it!
+
+We can get started using \`fetch\` with just that! If you want to use fetch with custom request headers or for \`POST\` requests, read more about the API [here at MDN](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch).
+
+# Example
+
+Here we'll fetch a list of posts and display them in a ScrollView. Since \`fetch\` is asynchronous, our app may not have data when it loads. We should be prepared to show an \`ActivityIndicator\` (spinner) while data loads. We should also be prepared to show an error message if fetching data fails.
+
+*Note: fetch only works in Chrome and Firefox at the moment, so this example won't run in Safari or IE.*
+
+${
+  <WebPlayer
+    title={'Networking with Fetch'}
+    code={code}
+  />
 }
+`
+
+export default props => <DefaultPage {...props}>{content}</DefaultPage>

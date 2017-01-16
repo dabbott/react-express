@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router'
+import markdown from 'markdown-in-js'
 
+import markdownOptions from '../utils/markdownOptions'
 import Page from './Page'
-import styles from './styles'
-import { WebPlayer, GithubCorner, Author } from '../components'
+import styles from '../styles'
+import { WebPlayer, GithubCorner, PageHeader } from '../components'
 
 const code = `/**
  * Sample React Native App
@@ -66,10 +68,31 @@ const buttonStyle = {
   backgroundColor: 'rgb(54,203,170)',
   textAlign: 'center',
   display: 'block',
+  marginTop: 40,
 }
 
 export default class extends Component {
   render() {
+    const content = markdown(markdownOptions)`
+React Native is a framework for building cross-platform apps.
+
+Building with React Native is extremely efficient and highly addictive - but getting started can be a little tricky. You should use this guide as a companion to the official Facebook documentation for [getting started](https://facebook.github.io/react-native/docs/getting-started.html). The Facebook guide assumes some existing knowledge about React development for the web. If you run into topics that aren't covered thoroughly, e.g. how Babel works, play with the examples in this guide to quickly get up to speed. This guide also covers related topics, such as Redux, which are beyond the scope of the React Native docs.
+
+I hope you enjoy learning React Native. Reach out to me, [@devinaabbott](https://twitter.com/devinaabbott), with comments or questions you have along the way. Some pages are written by other authors (listed at top of each page), so feel free to contact them too.
+
+<br />
+
+# Hello World
+
+When you create a new React Native app, it will look like this:
+
+<WebPlayer code={code} />
+
+You may notice the code doesn't look like the JavaScript you write currently. This is because it uses new language features (ES6 imports, classes, block-scoped variable declarations) and the JSX language extension.
+
+In the following sections, I'll give a brief background on each of these topics. If you're already familiar with each, skip to [Components](components) to learn more about React Components and the Component Lifecycle. If you're already familiar with React, skip to [Core Components](core_components).
+`
+
     return (
       <Page
         footer={this.props.footer}
@@ -82,43 +105,15 @@ export default class extends Component {
         shouldUpdatePageTitle={false}
       >
         <GithubCorner />
-        <div style={styles.well}>
-          <div style={styles.h3}>
-            Learning React Native
-            <Author url={'https://twitter.com/devinaabbott'}>
-              @devinaabbott
-            </Author>
-          </div>
-          <div style={styles.p}>
-            React Native is a framework for building cross-platform apps.
-          </div>
-          <div style={styles.p}>
-            Building with React Native is extremely efficient and highly addictive - but getting started can be a little tricky. You should use this guide as a companion to the official Facebook documentation for <a href={'https://facebook.github.io/react-native/docs/getting-started.html'}>
-              getting started
-            </a>. The Facebook guide assumes some existing knowledge about React development for the web. If you run into topics that aren't covered thoroughly, e.g. how Babel works, play with the examples in this guide to quickly get up to speed. This guide also covers related topics, such as Redux, which are beyond the scope of the React Native docs.
-          </div>
-          <div>
-            I hope you enjoy learning React Native. Reach out to me, <a href={'https://twitter.com/devinaabbott'}>@devinaabbott</a>, with comments or questions you have along the way. Some pages are written by other authors (listed at top of each page), so feel free to contact them too.
-          </div>
-        </div>
-        <div style={styles.well}>
-          <div style={styles.h3}>Hello World</div>
-          <div style={styles.p}>
-            When you create a new React Native app, it will look like this:
-          </div>
-          <WebPlayer code={code} />
-          <div style={styles.p}>
-            You may notice the code doesn't look like the JavaScript you write currently. This is because it uses new language features (ES6 imports, classes, block-scoped variable declarations) and the JSX language extension.
-          </div>
-          <div style={styles.p}>
-            In the following sections, I'll give a brief background on each of these topics. If you're already familiar with each, skip to <Link to={'components'}>Components</Link> to learn more about React Components and the Component Lifecycle. If you're already familiar with React, skip to <Link to={'core_components'}>Core Components</Link>.
-          </div>
-        </div>
-        <div style={styles.well}>
-          <Link to={'modern_javascript'} style={buttonStyle}>
-            Let's get started!
-          </Link>
-        </div>
+        <PageHeader
+          title={'Learning React Native'}
+          author={'@devinaabbott'}
+          authorURL={'https://twitter.com/devinaabbott'}
+        />
+        {content}
+        <Link to={'modern_javascript'} style={buttonStyle}>
+          Let's get started!
+        </Link>
       </Page>
     )
   }

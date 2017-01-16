@@ -1,8 +1,9 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router'
-import Page from './Page'
-import styles from './styles'
-import { WebPlayer, Author } from '../components'
+import React from 'react'
+import markdown from 'markdown-in-js'
+
+import markdownOptions from '../utils/markdownOptions'
+import DefaultPage from './DefaultPage'
+import { WebPlayer } from '../components'
 
 const avatarItemFile = `import React, { Component } from 'react'
 import { View, Text, Image } from 'react-native'
@@ -97,56 +98,41 @@ const vendorComponents = [
   ['@shoutem/theme', 'https://cdn.rawgit.com/dabbott/theme/f94c5c8c27fbdd673e3c0730730f8ab61d39613f/dist/shoutem-theme.js'],
 ]
 
-export default class View extends Component {
-  render() {
-    return (
-      <Page title={'Shoutem Themes'} footer={this.props.footer}>
-        <div style={styles.well}>
-          <div style={styles.h3}>
-            {this.props.title}
-            <Author url={'https://twitter.com/devinaabbott'}>
-              @devinaabbott
-            </Author>
-          </div>
-          <div style={styles.p}>
-            Shoutem themes immitate the naming schemes and hierarchical selectors of CSS. If you're coming from React for web and prefer using CSS (or postcss, sass, etc) to inline styles, you'll feel right at home with Shoutem themes.
-          </div>
-          <div style={styles.p}>
-            Shoutem UI includes a predefined theme with several variations for all components. You can read the full list of styles and supported CSS selectors <a href={'https://github.com/shoutem/ui/blob/develop/theme.js'}>here</a>. You can read more about theming in Shoutem in general <a href={'http://shoutem.github.io/docs/ui-toolkit/theme/introduction'}>here</a>.
-          </div>
-        </div>
-        <div style={styles.well}>
-          <div style={styles.h3}>Shoutem Theme API</div>
-          <div style={styles.h4}><code>StyleProvider</code></div>
-          <div style={styles.p}>
-            The Shoutem theme library exposes the <code>StyleProvider</code> component to handle passing our theme to every component that needs it. We'll generally use this to wrap the root component of our app, e.g. <code>{`<StyleProvider style={theme}> ... </StyleProvider>`}</code>.
-          </div>
-          <div style={styles.h4}><code>connectStyle(selector, styles)(Component) => Component</code></div>
-          <div style={styles.p}>
-            We use <code>connectStyle()</code> to specify a CSS-like selector for our component (e.g. <code>'com.name.Button'</code>) and to attach our styles (we don't need to use <code>StyleSheet.create()</code>) to our components so that they can be overriden by themes.
-          </div>
-        </div>
-        <div style={styles.well}>
-          <div style={styles.h3}>Example</div>
-          <div style={styles.p}>
-            In this example, we'll connect default styles within our <code>AvatarItem</code> component, and then pass a global theme to our app to let us use CSS-like <code>styleName</code>s and override the default styles.
-          </div>
-          <div style={styles.p}>
-            This example touches some more advanced concepts, so if you don't fully understand it, consider continuing on to <Link to={'data'}>data management</Link> and coming back later.
-          </div>
-          <div style={styles.h4}>Files</div>
-          <div style={styles.p}>
-            <ul>
-              <li><code>index.js</code><br />Here we define our theme and provide to all components via <code>StyleProvider</code>. Notice that we define styles to apply to our <code>AvatarItem</code> when we give it the <code>selected</code> stylename. We also specify that any <code>AvatarText</code> children should be styled.<br /><br /></li>
-              <li><code>AvatarItem.js</code><br /><code>AvatarItem</code> is connected to our theme with <code>connectStyle</code>. We can mix and match styles defined as plain objects and styles from our theme. Our themed styles are available directly on the object <code>this.props.style</code>. Our styles defined as plain objects, e.g. <code>container</code>, are available as <code>this.props.style.container</code>. Notice how we have to connect <code>AvatarText</code> in order for it to use styles defined as part of our theme.<br /><br /></li>
-            </ul>
-          </div>
-          <WebPlayer
-            files={files}
-            vendorComponents={vendorComponents}
-          />
-        </div>
-      </Page>
-    )
-  }
+const content = markdown(markdownOptions)`
+Shoutem themes immitate the naming schemes and hierarchical selectors of CSS. If you're coming from React for web and prefer using CSS (or postcss, sass, etc) to inline styles, you'll feel right at home with Shoutem themes.
+
+Shoutem UI includes a predefined theme with several variations for all components. You can read the full list of styles and supported CSS selectors [here](https://github.com/shoutem/ui/blob/develop/theme.js). You can read more about theming in Shoutem in general [here](http://shoutem.github.io/docs/ui-toolkit/theme/introduction).
+
+# Shoutem Theme API
+
+## \`StyleProvider\`
+
+The Shoutem theme library exposes the \`StyleProvider\` component to handle passing our theme to every component that needs it. We'll generally use this to wrap the root component of our app, e.g. \`${`<StyleProvider style={theme}> ... </StyleProvider>`}\`.
+
+## \`connectStyle(selector, styles)(Component) => Component\`
+
+We use \`connectStyle()\` to specify a CSS-like selector for our component (e.g. \`'com.name.Button'\`) and to attach our styles (we don't need to use \`StyleSheet.create()\`) to our components so that they can be overriden by themes.
+
+# Example
+
+In this example, we'll connect default styles within our \`AvatarItem\` component, and then pass a global theme to our app to let us use CSS-like \`styleName\`s and override the default styles.
+
+This example touches some more advanced concepts, so if you don't fully understand it, consider continuing on to [data management](data) and coming back later.
+
+## Files
+
+- \`index.js\`\\
+  Here we define our theme and provide to all components via \`StyleProvider\`. Notice that we define styles to apply to our \`AvatarItem\` when we give it the \`selected\` stylename. We also specify that any \`AvatarText\` children should be styled.
+
+- \`AvatarItem.js\`\\
+  \`AvatarItem\` is connected to our theme with \`connectStyle\`. We can mix and match styles defined as plain objects and styles from our theme. Our themed styles are available directly on the object \`this.props.style\`. Our styles defined as plain objects, e.g. \`container\`, are available as \`this.props.style.container\`. Notice how we have to connect \`AvatarText\` in order for it to use styles defined as part of our theme.
+
+${
+  <WebPlayer
+    files={files}
+    vendorComponents={vendorComponents}
+  />
 }
+`
+
+export default props => <DefaultPage {...props}>{content}</DefaultPage>

@@ -1,9 +1,9 @@
-import React, { Component } from 'react'
-import { Link } from 'react-router'
+import React from 'react'
+import markdown from 'markdown-in-js'
 
-import { EditorTranspiler, Author } from '../components'
+import markdownOptions from '../utils/markdownOptions'
 import Page from './Page'
-import styles from './styles'
+import { EditorTranspiler, PageHeader } from '../components'
 
 const code = `const chosenAnimal = 'cat'
 const animals = {
@@ -11,26 +11,21 @@ const animals = {
 }
 console.log(animals.animalcat) // true`
 
-export default class DynamicObjectKeys extends Component {
-  render() {
-    return (
-      <Page title={this.props.title} footer={this.props.footer}>
-        <div style={styles.well}>
-          <div style={styles.h3}>
-            {this.props.title}
-            <Author url={'http://gabegsell.com/'}>
-              Gabe G'Sell
-            </Author>
-          </div>
-          <div style={styles.p}>
-            In ES5, object literal keys are always interpreted as a string. ES6 allows us to use computed values as keys in object literals, using square bracket syntax: <code>[myKey]</code>
-          </div>
-          <EditorTranspiler
-            code={code}
-            title={'Dynamic object keys'}
-          />
-        </div>
-      </Page>
-    )
-  }
-}
+const content = markdown(markdownOptions)`
+In ES5, object literal keys are always interpreted as a string. ES6 allows us to use computed values as keys in object literals, using square bracket syntax: \`[myKey]\`.
+
+<EditorTranspiler
+  code=${code}
+  title=${'Dynamic object keys'}
+/>
+`
+
+export default props =>
+  <Page {...props}>
+    <PageHeader
+      title={props.title}
+      author={"Gabe G'Sell"}
+      authorURL={'http://gabegsell.com/'}
+    />
+    {content}
+  </Page>

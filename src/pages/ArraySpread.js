@@ -1,9 +1,9 @@
-import React, { Component } from 'react'
-import { Link } from 'react-router'
+import React from 'react'
+import markdown from 'markdown-in-js'
 
-import { EditorTranspiler, Author } from '../components'
+import markdownOptions from '../utils/markdownOptions'
 import Page from './Page'
-import styles from './styles'
+import { EditorTranspiler, PageHeader } from '../components'
 
 const code = `const animals = ['cat', 'dog', 'moose']
 const newAnimals = [...animals]
@@ -14,26 +14,21 @@ console.log(fruits[0] === newFruits[0]) // true
 newFruits[0].name = 'fofana'
 console.log(fruits[0].name) // fofana`
 
-export default class ArraySpread extends Component {
-  render() {
-    return (
-      <Page title={this.props.title} footer={this.props.footer}>
-        <div style={styles.well}>
-          <div style={styles.h3}>
-            {this.props.title}
-            <Author url={'http://gabegsell.com/'}>
-              Gabe G'Sell
-            </Author>
-          </div>
-          <div style={styles.p}>
-            The array spread syntax makes it easy to expand an array. This can be used to make a shallow copy of an array, optionally with other elements added to the copy.
-          </div>
-          <EditorTranspiler
-            code={code}
-            title={'Array spread'}
-          />
-        </div>
-      </Page>
-    )
-  }
-}
+const content = markdown(markdownOptions)`
+The array spread syntax makes it easy to expand an array. This can be used to make a shallow copy of an array, optionally with other elements added to the copy.
+
+<EditorTranspiler
+  code=${code}
+  title=${'Array spread'}
+/>
+`
+
+export default props =>
+  <Page {...props}>
+    <PageHeader
+      title={props.title}
+      author={"Gabe G'Sell"}
+      authorURL={'http://gabegsell.com/'}
+    />
+    {content}
+  </Page>

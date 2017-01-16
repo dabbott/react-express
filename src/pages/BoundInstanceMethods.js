@@ -1,9 +1,9 @@
-import React, { Component } from 'react'
-import { Link } from 'react-router'
+import React from 'react'
+import markdown from 'markdown-in-js'
 
-import { EditorTranspiler, Author } from '../components'
+import markdownOptions from '../utils/markdownOptions'
 import Page from './Page'
-import styles from './styles'
+import { EditorTranspiler, PageHeader } from '../components'
 
 const code = `class Cat {
   constructor(name) {
@@ -14,29 +14,23 @@ const code = `class Cat {
   }
 }`
 
-export default class BoundInstanceMethods extends Component {
-  render() {
-    return (
-      <Page title={this.props.title} footer={this.props.footer}>
-        <div style={styles.well}>
-          <div style={styles.h3}>
-            {this.props.title}
-            <Author url={'http://gabegsell.com/'}>
-              Gabe G'Sell
-            </Author>
-          </div>
-          <div style={styles.p}>
-            You've probably seen javascript functions bound to certain contexts with the <code>bind()</code> function. Binding is often used to ensure that a class's instance function is invoked with the correct context.
-          </div>
-          <div style={styles.p}>
-            ES7 gives us a shorthand syntax to bind class instance functions to the context at the time they are defined. The <code>printName</code> function below is bound to current context at the time the class instance is created.
-          </div>
-          <EditorTranspiler
-            code={code}
-            title={'Bound instance methods'}
-          />
-        </div>
-      </Page>
-    )
-  }
-}
+const content = markdown(markdownOptions)`
+You've probably seen javascript functions bound to certain contexts with the \`bind()\` function. Binding is often used to ensure that a class's instance function is invoked with the correct context.
+
+ES7 gives us a shorthand syntax to bind class instance functions to the context at the time they are defined. The \`printName\` function below is bound to current context at the time the class instance is created.
+
+<EditorTranspiler
+  code=${code}
+  title=${'Bound instance methods'}
+/>
+`
+
+export default props =>
+  <Page {...props}>
+    <PageHeader
+      title={props.title}
+      author={"Gabe G'Sell"}
+      authorURL={'http://gabegsell.com/'}
+    />
+    {content}
+  </Page>

@@ -1,9 +1,34 @@
-import React, { Component } from 'react'
-import { Link } from 'react-router'
+import React from 'react'
+import markdown from 'markdown-in-js'
 
-import { Author } from '../components'
+import markdownOptions from '../utils/markdownOptions'
 import Page from './Page'
-import styles from './styles'
+import { PageHeader } from '../components'
+
+const content = markdown(markdownOptions)`
+
+Our first exercise will be a simple Todo List. If you get stuck at any point, you can look to the examples in this guide, as there will be a lot of overlap in code.
+
+Let's build the app on the right. We'll break it down into smaller sections and build it piece-by-piece. Feel free to reference previous sections.
+
+## Project Setup
+
+1. Download the basic project template [here](https://raw.githubusercontent.com/gabergg/ReactNativeTodoList/starting-point/boilerplate/TodoList.zip)
+2. Unzip the project directory
+3. After downloading, \`npm install\` in the project directory
+4. Run \`react-native run-ios\` to build and launch the app
+
+## Completed
+
+You can view the completed project on github [here](https://github.com/gabergg/ReactNativeTodoList).
+
+## Sections
+
+- [Step 1 - App setup](todo_list_1)
+- [Step 2 - Input and ADD_ITEM](todo_list_2)
+- [Step 3 - List and Checkbox](todo_list_3)
+- [Step 4 - Remove completed items and styling](todo_list_4)
+`
 
 const containerStyle = {
   display: 'flex',
@@ -15,53 +40,23 @@ const contentStyle = {
   marginTop: '-15px',
 }
 
-export default class TodoList extends Component {
-  render() {
-    return (
-      <Page title={this.props.title} footer={this.props.footer}>
-        <div style={styles.well}>
-          <div style={containerStyle}>
-            <div style={contentStyle}>
-              <div style={styles.h3}>
-                {this.props.title}
-                <Author url={'http://gabegsell.com/'}>
-                  Gabe G'Sell
-                </Author>
-              </div>
-              <div style={styles.p}>
-                Our first exercise will be a simple Todo List. If you get stuck at any point, you can look to the examples in this guide, as there will be a lot of overlap in code.
-              </div>
-              <div style={styles.p}>
-                Let's build the app on the right. We'll break it down into smaller sections and build it piece-by-piece. Feel free to reference previous sections.
-              </div>
-              <div style={styles.h4}>Project Setup</div>
-              <ol>
-                <li>Download the basic project template <a href={'https://raw.githubusercontent.com/gabergg/ReactNativeTodoList/starting-point/boilerplate/TodoList.zip'}>here</a></li>
-                <li>Unzip the project directory</li>
-                <li>After downloading, <code>npm install</code> in the project directory</li>
-                <li>Run <code>react-native run-ios</code> to build and launch the app</li>
-              </ol>
-              <div style={styles.h4}> Completed </div>
-              <div style={styles.p}>
-                You can view the completed project on github <a href={'https://github.com/gabergg/ReactNativeTodoList'}>here</a>.
-              </div>
-              <div style={styles.h4}> Sections </div>
-              <ul>
-                <li style={styles.li}> <Link to={'todo_list_1'}> Step 1 - App setup </Link> </li>
-                <li style={styles.li}> <Link to={'todo_list_2'}> Step 2 - Input and ADD_ITEM </Link> </li>
-                <li style={styles.li}> <Link to={'todo_list_3'}> Step 3 - List and Checkbox </Link> </li>
-                <li style={styles.li}> <Link to={'todo_list_4'}> Step 4 - Remove completed items and styling </Link> </li>
-              </ul>
-            </div>
-            <div style={{border: '1px solid black'}}>
-              <img
-                width={280}
-                src={'todo-screenshot.png'}
-              />
-            </div>
-          </div>
-        </div>
-      </Page>
-    )
-  }
-}
+export default props =>
+  <Page {...props}>
+    <div style={containerStyle}>
+      <div style={contentStyle}>
+        <PageHeader
+          title={props.title}
+          author={"Gabe G'Sell"}
+          authorURL={'http://gabegsell.com/'}
+        />
+        {content}
+      </div>
+      <div>
+        <img
+          style={{border: '1px solid black'}}
+          width={280}
+          src={'todo-screenshot.png'}
+        />
+      </div>
+    </div>
+  </Page>

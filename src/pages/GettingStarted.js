@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router'
 
 import Page from './Page'
-import styles from './styles'
+import styles from '../styles'
 import { WebPlayer, Author } from '../components'
 
 const code = `/**

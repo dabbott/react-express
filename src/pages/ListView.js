@@ -1,8 +1,9 @@
-import React, { Component } from 'react'
+import React from 'react'
+import markdown from 'markdown-in-js'
 
-import Page from './Page'
-import styles from './styles'
-import { WebPlayer, Author } from '../components'
+import markdownOptions from '../utils/markdownOptions'
+import DefaultPage from './DefaultPage'
+import { WebPlayer } from '../components'
 
 const code = `import React, { Component } from 'react'
 import { AppRegistry, ListView, View, Text, StyleSheet } from 'react-native'
@@ -139,65 +140,40 @@ const styles = StyleSheet.create({
 AppRegistry.registerComponent('App', () => App)
 `
 
-export default class ListViews extends Component {
-  render() {
-    return (
-      <Page title={this.props.title} footer={this.props.footer}>
-        <div style={styles.well}>
-          <div style={styles.h3}>
-            {this.props.title}
-            <Author url={'https://twitter.com/devinaabbott'}>
-              @devinaabbott
-            </Author>
-          </div>
-          <div style={styles.p}>
-            <code>ListViews</code>s are used for large quantities of scrollable content. They expose the underlying <code>ScrollView</code>, but add performance improvements: only rendering the content on screen (clipping offscreen content), and only updating rows that have changed. Like <code>ScrollView</code>s, they can scroll horizontally or vertically.
-          </div>
-          <div style={styles.p}>
-            Instead of rendering their <code>children</code> prop, <code>ListViews</code>s render each item in their input <code>dataSource</code> using the <code>renderRow</code> prop. The <code>renderRow</code> prop is a function which takes an item from the <code>dataSource</code> and maps it to a React Element, e.g. if <code>dataSource</code> contains an array of strings, then <code>{`(rowData) => <Text>{rowData}</Text>`}</code>.
-          </div>
-        </div>
-        <div style={styles.well}>
-          <div style={styles.h3}>DataSource</div>
-          <div style={styles.p}>
-            <code>ListView</code>s render content using the <code>DataSource</code> API. In its simplest usage, <code>DataSource</code> takes an array as input. The array can contain any kind of data.
-          </div>
-          <div style={styles.p}>
-            To provide data to a <code>ListView</code>, you must create a new source with <code>new ListView.DataSource(options)</code>, where <code>options</code> must be an object with a <code>rowHasChanged</code> function defined. <code>rowHasChanged</code> compares row data so that only the rows which have actually changed will be re-rendered. Depending on what kind of data you're rendering, a suitable <code>rowHasChanged</code> function might look like:
-            <ul>
-              <li><code>(r1, r2) => r1 !== r2</code> (identity comparison)</li>
-              <li><code>(r1, r2) => r1.id !== r2.id</code> (comparing a specific field)</li>
-              <li><code>(r1, r2) => !_.isEqual(r1, r2)</code> (deep equality with lodash)</li>
-            </ul>
-          </div>
-          <div style={styles.p}>
-            After instantiation, you must call <code>DataSource.cloneWithRows(inputArray)</code> with your array of row data. We'll then pass the return value of the <code>cloneWithRows()</code> call to the <code>dataSource</code> prop of the <code>ListView</code>. Since we only want to call <code>cloneWithRows()</code> on initialization or when data changes (it's slow, so we shouldn't call it in render), we often store this value in the component's <code>state</code>, and call e.g. <code>{`this.setState({dataSource: this.state.dataSource.cloneWithRows(newData)})`}</code> when we need to update the dataSource.
-          </div>
-          <div style={styles.p}>
-            We'll look at two examples: one basic example, and then a more complex example which also renders section headers.
-          </div>
-        </div>
-        <div style={styles.well}>
-          <div style={styles.h3}>Basic Example</div>
-          <WebPlayer code={code} />
-        </div>
-        <div style={styles.well}>
-          <div style={styles.h3}>Sections Example</div>
-          <div style={styles.p}>
-            <code>ListView</code>s may also render section headers. On iOS, these headers can be sticky.
-          </div>
-          <div style={styles.p}>
-            To render section headers, you'll need to:
-            <ul>
-              <li>Format your data as an object, where keys are section names and values are row data, <code>{`{firstSection: [rowData1, rowData2, ...], ...}`}</code></li>
-              <li>Create a <code>sectionHeaderHasChanged = (s1, s2) => bool</code> function and pass it to your <code>DataSource</code> upon instantiation</li>
-              <li>Use <code>ds.cloneWithRowsAndSections(rows)</code> on your <code>DataSource</code> instance</li>
-              <li>Pass a <code>renderSectionHeader</code> prop, <code>(rows, sectionId) => Element</code>, to the <code>ListView</code></li>
-            </ul>
-          </div>
-          <WebPlayer code={sectionsExample} />
-        </div>
-      </Page>
-    )
-  }
-}
+const content = markdown(markdownOptions)`
+\`ListViews\`s are used for large quantities of scrollable content. They expose the underlying \`ScrollView\`, but add performance improvements: only rendering the content on screen (clipping offscreen content), and only updating rows that have changed. Like \`ScrollView\`s, they can scroll horizontally or vertically.
+
+Instead of rendering their \`children\` prop, \`ListViews\`s render each item in their input \`dataSource\` using the \`renderRow\` prop. The \`renderRow\` prop is a function which takes an item from the \`dataSource\` and maps it to a React Element, e.g. if \`dataSource\` contains an array of strings, then \`${`(rowData) => <Text>{rowData}</Text>`}\`.
+
+# DataSource
+
+\`ListView\`s render content using the \`DataSource\` API. In its simplest usage, \`DataSource\` takes an array as input. The array can contain any kind of data.
+
+To provide data to a \`ListView\`, you must create a new source with \`new ListView.DataSource(options)\`, where \`options\` must be an object with a \`rowHasChanged\` function defined. \`rowHasChanged\` compares row data so that only the rows which have actually changed will be re-rendered. Depending on what kind of data you're rendering, a suitable \`rowHasChanged\` function might look like:
+- \`(r1, r2) => r1 !== r2\` (identity comparison)
+- \`(r1, r2) => r1.id !== r2.id\` (comparing a specific field)
+- \`(r1, r2) => !_.isEqual(r1, r2)\` (deep equality with lodash)
+
+After instantiation, you must call \`DataSource.cloneWithRows(inputArray)\` with your array of row data. We'll then pass the return value of the \`cloneWithRows()\` call to the \`dataSource\` prop of the \`ListView\`. Since we only want to call \`cloneWithRows()\` on initialization or when data changes (it's slow, so we shouldn't call it in render), we often store this value in the component's \`state\`, and call e.g. \`${`this.setState({dataSource: this.state.dataSource.cloneWithRows(newData)})`}\` when we need to update the dataSource.
+
+We'll look at two examples: one basic example, and then a more complex example which also renders section headers.
+
+# Basic Example
+
+${<WebPlayer code={code} />}
+
+# Sections Example
+
+\`ListView\`s may also render section headers. On iOS, these headers can be sticky.
+
+To render section headers, you'll need to:
+
+- Format your data as an object, where keys are section names and values are row data, \`${`{firstSection: [rowData1, rowData2, ...], ...}`}\`
+- Create a \`sectionHeaderHasChanged = (s1, s2) => bool\` function and pass it to your \`DataSource\` upon instantiation
+- Use \`ds.cloneWithRowsAndSections(rows)\` on your \`DataSource\` instance
+- Pass a \`renderSectionHeader\` prop, \`(rows, sectionId) => Element\`, to the \`ListView\`
+
+${<WebPlayer code={sectionsExample} />}
+`
+
+export default props => <DefaultPage {...props}>{content}</DefaultPage>

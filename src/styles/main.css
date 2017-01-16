@@ -92,12 +92,19 @@ ol ol, ol ul, ul ol, ul ul {
   margin-bottom: 0;
 }
 
-ul, menu, dir {
+ol, ul, menu, dir {
   display: block;
-  list-style-type: disc;
   padding-left: 40px;
   padding-top: 5px;
   padding-bottom: 5px;
+}
+
+ul {
+  list-style-type: disc;
+}
+
+ol {
+  list-style-type: decimal;
 }
 
 a {
