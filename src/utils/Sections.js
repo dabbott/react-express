@@ -4,6 +4,7 @@ let sections = [
   {depth: 0, title: 'Environment', slug: 'environment', componentName: 'ReactEnvironment'},
   {depth: 1, title: 'Quick Start', slug: 'quick_start', componentName: 'QuickStart'},
   {depth: 1, title: 'Setup & Build Tools', slug: 'setup', componentName: 'Setup'},
+  {depth: 2, title: 'npm', slug: 'npm', componentName: 'NPM'},
   {depth: 2, title: 'Webpack', slug: 'webpack', componentName: 'Webpack'},
   {depth: 2, title: 'Babel', slug: 'babel', componentName: 'Babel'},
   // {depth: 2, title: 'ESLint', slug: 'eslint', componentName: 'ESLint'},
@@ -28,7 +29,7 @@ let sections = [
   {depth: 2, title: 'Async and Await', slug: 'async_await', componentName: 'AsyncAwait'},
   {depth: 1, title: 'JSX', slug: 'jsx', componentName: 'JSX'},
 
-  {depth: 0, title: 'React API', slug: 'react_api', componentName: 'ReactAPI'},
+  {depth: 0, title: 'React Top-Level API', slug: 'react_api', componentName: 'ReactAPI'},
   {depth: 1, title: 'React Components', slug: 'components', componentName: 'Component'},
   {depth: 1, title: 'Component API', slug: 'component_api', componentName: 'ComponentAPI'},
   {depth: 1, title: 'Lifecycle API', slug: 'lifecycle_api', componentName: 'LifecycleAPI'},
@@ -41,7 +42,8 @@ let sections = [
   {depth: 1, title: 'Event Handling', slug: 'event_handling', componentName: 'EventHandling'},
   {depth: 1, title: 'Input Handling', slug: 'input_handling', componentName: 'InputHandling'},
   {depth: 1, title: 'Conditional Rendering', slug: 'conditional_rendering', componentName: 'ConditionalRendering'},
-  {depth: 1, title: 'Lists', slug: 'lists', componentName: 'Lists'},
+  {depth: 1, title: 'Lists and Keys', slug: 'lists_and_keys', componentName: 'ListsAndKeys'},
+  {depth: 1, title: 'Animation', slug: 'animation', componentName: 'Animation'},
   {depth: 1, title: 'Using the DOM', slug: 'using_the_dom', componentName: 'UsingTheDOM'},
   {depth: 1, title: 'Using non-React Libs', slug: 'using_non_react_libs', componentName: 'UsingNonReactLibs'},
 
