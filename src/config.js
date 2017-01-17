@@ -1,3 +1,3 @@
-export const title = 'React Native Express'
+export const title = 'React Express'
 
-export const titleTemplate = 'React Native Express - %s'
+export const titleTemplate = 'React Express - %s'

@@ -178,7 +178,7 @@ export default class Sidebar extends Component {
     return (
       <div style={style}>
         <IndexLink to={'/'} style={styles.sidebarTitleLink}>
-          <h4 style={styles.sidebarTitle}>React Native Express</h4>
+          <h4 style={styles.sidebarTitle}>React Express</h4>
         </IndexLink>
         <div style={styles.rowsContainer}>
           {chapters.map(group => {

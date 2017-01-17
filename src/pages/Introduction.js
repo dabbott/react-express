@@ -7,59 +7,29 @@ import Page from './Page'
 import styles from '../styles'
 import { WebPlayer, GithubCorner, PageHeader } from '../components'
 
-const code = `/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
+const code = `import React, { Component } from 'react'
+import ReactDOM from 'react-dom'
 
-import React, { Component } from 'react';
-import {
-  AppRegistry,
-  StyleSheet,
-  Text,
-  View
-} from 'react-native';
+const styles = {
+  app: {
+    paddingTop: 40,
+    textAlign: 'center',
+  },
+}
 
-export default class Project extends Component {
+class App extends Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.ios.js
-        </Text>
-        <Text style={styles.instructions}>
-          Press Cmd+R to reload,{'\\n'}
-          Cmd+D or shake for dev menu
-        </Text>
-      </View>
-    );
+      <div style={styles.app}>
+        Welcome to React!
+      </div>
+    )
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-});
-
-AppRegistry.registerComponent('Project', () => Project);`
+const root = document.querySelector('#app')
+ReactDOM.render(<App />, root)
+`
 
 const buttonStyle = {
   padding: '10px 15px',
@@ -74,30 +44,28 @@ const buttonStyle = {
 export default class extends Component {
   render() {
     const content = markdown(markdownOptions)`
-React Native is a framework for building cross-platform apps.
+React is a framework for building performant interfaces for the web and other platforms.
 
-Building with React Native is extremely efficient and highly addictive - but getting started can be a little tricky. You should use this guide as a companion to the official Facebook documentation for [getting started](https://facebook.github.io/react-native/docs/getting-started.html). The Facebook guide assumes some existing knowledge about React development for the web. If you run into topics that aren't covered thoroughly, e.g. how Babel works, play with the examples in this guide to quickly get up to speed. This guide also covers related topics, such as Redux, which are beyond the scope of the React Native docs.
+Learning React tends to go pretty quickly - but it can take a little while to wrap your head around "declarative" rendering if you haven't used the pattern before. You should use this guide as a companion to the official Facebook documentation for [getting started](https://facebook.github.io/react/docs/hello-world.html). While the official docs are great, the React ecosystem includes *many* other important projects, which are outside the scope of the React docs.
 
-I hope you enjoy learning React Native. Reach out to me, [@devinaabbott](https://twitter.com/devinaabbott), with comments or questions you have along the way. Some pages are written by other authors (listed at top of each page), so feel free to contact them too.
-
-<br />
+I hope you enjoy learning React. Reach out to me, [@devinaabbott](https://twitter.com/devinaabbott), with comments or questions you have along the way. Some pages are written by other authors (listed at top of each page), so feel free to contact them too.
 
 # Hello World
 
-When you create a new React Native app, it will look like this:
+When you write your first React app, you might start with something like this.
 
 <WebPlayer code={code} />
 
-You may notice the code doesn't look like the JavaScript you write currently. This is because it uses new language features (ES6 imports, classes, block-scoped variable declarations) and the JSX language extension.
+You may notice the code doesn't look like the JavaScript you write currently. This is because it uses new language features (ES6 imports, classes) and the JSX language extension. While these things aren't *required* to write React, most React developers use them because they tend to be easier to use and more maintainable.
 
-In the following sections, I'll give a brief background on each of these topics. If you're already familiar with each, skip to [Components](components) to learn more about React Components and the Component Lifecycle. If you're already familiar with React, skip to [Core Components](core_components).
+In the following sections, I'll give a brief background on each of these topics. If you're already familiar with each, skip to [Components](components) to learn more about React Components and the Component Lifecycle.
 `
 
     return (
       <Page
         footer={this.props.footer}
-        title={'React Native Express'}
-        subtitle={'Learn React Native, the cross-platform app framework'}
+        title={'React Express'}
+        subtitle={'Learn React, the component-based UI framework'}
         logo={'//cdn.rawgit.com/dabbott/react-native-express/master/static/logo'}
         logoWidth={256}
         logoHeight={296}
@@ -106,7 +74,7 @@ In the following sections, I'll give a brief background on each of these topics.
       >
         <GithubCorner />
         <PageHeader
-          title={'Learning React Native'}
+          title={'Learning React'}
           author={'@devinaabbott'}
           authorURL={'https://twitter.com/devinaabbott'}
         />

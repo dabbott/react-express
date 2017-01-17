@@ -1,6 +1,14 @@
 
 
 let sections = [
+  {depth: 0, title: 'Environment', slug: 'environment', componentName: 'ReactEnvironment'},
+  {depth: 1, title: 'Quick Start', slug: 'quick_start', componentName: 'QuickStart'},
+  {depth: 1, title: 'Setup & Build Tools', slug: 'setup', componentName: 'Setup'},
+  {depth: 2, title: 'Webpack', slug: 'webpack', componentName: 'Webpack'},
+  {depth: 2, title: 'Babel', slug: 'babel', componentName: 'Babel'},
+  // {depth: 2, title: 'ESLint', slug: 'eslint', componentName: 'ESLint'},
+  {depth: 2, title: 'React DevTools', slug: 'react_dev_tools', componentName: 'ReactDevTools'},
+
   {depth: 0, title: 'Modern JavaScript', slug: 'modern_javascript', componentName: 'ModernJavascript'},
   {depth: 1, title: 'ES6', slug: 'es6', componentName: 'ES6'},
 
@@ -20,69 +28,49 @@ let sections = [
   {depth: 2, title: 'Async and Await', slug: 'async_await', componentName: 'AsyncAwait'},
   {depth: 1, title: 'JSX', slug: 'jsx', componentName: 'JSX'},
 
-  {depth: 0, title: 'React Components', slug: 'components', componentName: 'Component'},
+  {depth: 0, title: 'React API', slug: 'react_api', componentName: 'ReactAPI'},
+  {depth: 1, title: 'React Components', slug: 'components', componentName: 'Component'},
   {depth: 1, title: 'Component API', slug: 'component_api', componentName: 'ComponentAPI'},
   {depth: 1, title: 'Lifecycle API', slug: 'lifecycle_api', componentName: 'LifecycleAPI'},
 
-  {depth: 0, title: 'Core Components', slug: 'core_components', componentName: 'CoreComponents'},
-  {depth: 1, title: 'View', slug: 'view', componentName: 'View'},
+  {depth: 0, title: 'Styling', slug: 'styling', componentName: 'Styling'},
+  {depth: 1, title: 'Inline Styles', slug: 'inline_styles', componentName: 'Inline Styles'},
   {depth: 1, title: 'Flexbox', slug: 'flexbox', componentName: 'Flexbox'},
-  {depth: 1, title: 'Text', slug: 'text', componentName: 'Text'},
-  {depth: 1, title: 'Image', slug: 'image', componentName: 'Image'},
-  {depth: 1, title: 'ScrollView', slug: 'scrollview', componentName: 'ScrollView'},
-  {depth: 1, title: 'ListView', slug: 'listview', componentName: 'ListView'},
 
-  {depth: 0, title: 'Component Libraries', slug: 'component_libraries', componentName: 'ComponentLibraries'},
-  {depth: 1, title: 'Shoutem UI', slug: 'shoutem_ui', componentName: 'ShoutemUI'},
-  {depth: 2, title: 'Themes', slug: 'shoutem_ui_theme', componentName: 'ShoutemUITheme', fullTitle: 'Shoutem Themes'},
-  {depth: 2, title: 'Animation', slug: 'shoutem_ui_animation', componentName: 'ShoutemUIAnimation', fullTitle: 'Shoutem Animation'},
+  {depth: 0, title: 'Fundamentals', slug: 'fundamentals', componentName: 'Fundamentals'},
+  {depth: 1, title: 'Event Handling', slug: 'event_handling', componentName: 'EventHandling'},
+  {depth: 1, title: 'Input Handling', slug: 'input_handling', componentName: 'InputHandling'},
+  {depth: 1, title: 'Conditional Rendering', slug: 'conditional_rendering', componentName: 'ConditionalRendering'},
+  {depth: 1, title: 'Lists', slug: 'lists', componentName: 'Lists'},
+  {depth: 1, title: 'Using the DOM', slug: 'using_the_dom', componentName: 'UsingTheDOM'},
+  {depth: 1, title: 'Using non-React Libs', slug: 'using_non_react_libs', componentName: 'UsingNonReactLibs'},
+
+  {depth: 0, title: 'Common Patterns', slug: 'common_patterns', componentName: 'CommonPatterns'},
+  {depth: 1, title: 'Tabs', slug: 'tabs', componentName: 'Tabs'},
+  {depth: 1, title: 'Modals', slug: 'modals', componentName: 'Modals'},
+  {depth: 1, title: 'Loading Indicators', slug: 'loading_indicators', componentName: 'LoadingIndicators'},
+  {depth: 1, title: 'Infinite Scroll', slug: 'infinite_scroll', componentName: 'InfiniteScroll'},
+
+  {depth: 0, title: 'Routing', slug: 'routing', componentName: 'Routing'},
+  {depth: 1, title: 'React Router', slug: 'react_router', componentName: 'React Router'},
 
   {depth: 0, title: 'Data Management', slug: 'data', componentName: 'Data'},
   {depth: 1, title: 'Component State', slug: 'data_component_state', componentName: 'ComponentState'},
   {depth: 1, title: 'Redux', slug: 'redux', componentName: 'Redux'},
   {depth: 2, title: 'React Redux', slug: 'react_redux', componentName: 'ReactRedux'},
-  {depth: 1, title: 'Realm', slug: 'realm', componentName: 'Realm'},
   // {depth: 1, title: 'Firebase', slug: 'firebase_data'},
 
-  {depth: 0, title: 'Persistence', slug: 'persistence', componentName: 'Persistence'},
-  {depth: 1, title: 'AsyncStorage', slug: 'asyncstorage', componentName: 'AsyncStorage'},
-  {depth: 1, title: 'Redux Persist', slug: 'redux_persist', componentName: 'ReduxPersist'},
+  // {depth: 0, title: 'Persistence', slug: 'persistence', componentName: 'Persistence'},
+  // {depth: 1, title: 'AsyncStorage', slug: 'asyncstorage', componentName: 'AsyncStorage'},
+  // {depth: 1, title: 'Redux Persist', slug: 'redux_persist', componentName: 'ReduxPersist'},
 
   {depth: 0, title: 'Networking', slug: 'networking', componentName: 'Networking'},
   {depth: 1, title: 'With Redux', slug: 'networking_redux', componentName: 'NetworkingRedux', fullTitle: 'Networking with Redux'},
 
-  {depth: 0, title: 'Animation', slug: 'animation', componentName: 'Animation'},
-  {depth: 1, title: 'Animated', slug: 'animated', componentName: 'Animated'},
-  {depth: 1, title: 'RN Animatable', slug: 'react_native_animatable', componentName: 'ReactNativeAnimatable'},
-  {depth: 1, title: 'Gestures', slug: 'gestures', componentName: 'Gestures'},
-
-  // {depth: 0, title: 'Navigation', slug: 'navigation'},
-  // {depth: 1, title: 'React Native Router Flux', slug: 'react_native_router_flux'},
-  // {depth: 1, title: 'React Native Navigation', slug: 'react_native_navigation'},
-
-  {depth: 0, title: 'Boilerplates', slug: 'boilerplates', componentName: 'Boilerplates'},
-  // {depth: 1, title: 'Ignite', slug: 'ignite'},
-
-  {depth: 0, title: 'Exercises', slug: 'exercises', componentName: 'Exercises'},
-
-  {depth: 1, title: 'Todo List', slug: 'todo_list', componentName: 'TodoList'},
-  {depth: 2, title: 'App Layout', slug: 'todo_list_1', componentName: 'TodoList1'},
-  {depth: 2, title: 'Input & Adding', slug: 'todo_list_2', componentName: 'TodoList2'},
-  {depth: 2, title: 'List and Checkbox', slug: 'todo_list_3', componentName: 'TodoList3'},
-  {depth: 2, title: 'Removal & Styling', slug: 'todo_list_4', componentName: 'TodoList4'},
-
-  {depth: 1, title: 'Reddit', slug: 'reddit', componentName: 'Reddit'},
-  {depth: 2, title: 'Router', slug: 'reddit_1', componentName: 'Reddit1'},
-  {depth: 2, title: 'OAuth', slug: 'reddit_2', componentName: 'Reddit2'},
-  {depth: 2, title: 'Persisting Token', slug: 'reddit_3', componentName: 'Reddit3'},
-  {depth: 2, title: 'Fetch Posts', slug: 'reddit_4', componentName: 'Reddit4'},
-  {depth: 2, title: 'Display Posts', slug: 'reddit_5', componentName: 'Reddit5'},
-
-  {depth: 1, title: 'Uber', slug: 'uber', componentName: 'Uber'},
-  {depth: 2, title: 'Search Header', slug: 'uber_1', componentName: 'Uber1'},
-  {depth: 2, title: 'Results List', slug: 'uber_2', componentName: 'Uber2'},
-  {depth: 2, title: 'Map & Geolocation', slug: 'uber_3', componentName: 'Uber3'},
-  {depth: 2, title: 'UI Polish', slug: 'uber_4', componentName: 'Uber4'},
+  // {depth: 0, title: 'Animation', slug: 'animation', componentName: 'Animation'},
+  // {depth: 1, title: 'Animated', slug: 'animated', componentName: 'Animated'},
+  // {depth: 1, title: 'RN Animatable', slug: 'react_native_animatable', componentName: 'ReactNativeAnimatable'},
+  // {depth: 1, title: 'Gestures', slug: 'gestures', componentName: 'Gestures'},
 ]
 
 // Add section numbers. I use semver naming, since it's easy to remember

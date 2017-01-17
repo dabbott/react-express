@@ -30,6 +30,9 @@ const playerStyles = {
   tabTextActive: {
     color: '#000',
   },
+  playerPane: {
+    backgroundColor: 'rgba(0,0,0,0.02)',
+  },
 }
 
 @responsive()
@@ -42,7 +45,6 @@ const playerStyles = {
     flex: '1 1 auto',
     minWidth: 0,
     minHeight: 0,
-    marginRight: -10,
   },
 })
 export default class WebPlayer extends Component {
@@ -53,6 +55,7 @@ export default class WebPlayer extends Component {
     scale: 0.75,
     showTranspiler: false,
     fullscreen: true,
+    platform: 'web',
   }
 
   shouldComponentUpdate() {
@@ -75,6 +78,7 @@ export default class WebPlayer extends Component {
       scale,
       fullscreen,
       transpilerTitle,
+      platform,
       vendorComponents,
     } = this.props
 
@@ -88,6 +92,7 @@ export default class WebPlayer extends Component {
       fullscreen,
       transpilerTitle,
       vendorComponents,
+      platform,
       styles: playerStyles,
     }
 
