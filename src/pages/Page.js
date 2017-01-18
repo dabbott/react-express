@@ -11,6 +11,10 @@ import styles from '../styles'
     backgroundColor: 'white',
     padding: '60px 60px 40px 60px',
   },
+  mobile: {
+    padding: '60px 20px 20px 20px',
+    overflowY: 'scroll',
+  },
 })
 export default class Page extends Component {
 
@@ -41,10 +45,10 @@ export default class Page extends Component {
   }
 
   renderMobile() {
-    const {children, footer} = this.props
+    const {styles, children, footer} = this.props
 
     return (
-      <div style={{paddingTop: 40}}>
+      <div style={styles.mobile}>
         {children}
         {footer}
       </div>

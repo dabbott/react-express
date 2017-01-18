@@ -68,7 +68,7 @@ import * as config from '../config'
     backgroundColor: 'rgb(250,250,250)',
   },
   navigatorButtonContainer: {
-    padding: ({responsive}) => responsive.match('mobile') ? '0 20px 40px 20px' : '0 60px 40px 60px',
+    padding: ({responsive}) => responsive.match('mobile') ? '10px 0' : '0 60px 40px 60px',
   },
 })
 export default class App extends Component {
