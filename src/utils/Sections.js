@@ -1,7 +1,7 @@
 
 
 let sections = [
-  {depth: 0, title: 'Environment', slug: 'environment', componentName: 'ReactEnvironment'},
+  {depth: 0, title: 'Environment', slug: 'environment', componentName: 'Environment'},
   {depth: 1, title: 'Quick Start', slug: 'quick_start', componentName: 'QuickStart'},
   {depth: 1, title: 'Setup & Build Tools', slug: 'setup', componentName: 'Setup'},
   {depth: 2, title: 'npm', slug: 'npm', componentName: 'NPM'},

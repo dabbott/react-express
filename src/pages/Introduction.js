@@ -56,9 +56,11 @@ When you write your first React app, you might start with something like this.
 
 <WebPlayer code={code} />
 
-You may notice the code doesn't look like the JavaScript you write currently. This is because it uses new language features (ES6 imports, classes) and the JSX language extension. While these things aren't *required* to write React, most React developers use them because they tend to be easier to use and more maintainable.
+The first thing we'll cover is how to set up an environment and build a React app.
 
-In the following sections, I'll give a brief background on each of these topics. If you're already familiar with each, skip to [Components](components) to learn more about React Components and the Component Lifecycle.
+You may notice the code doesn't look like the JavaScript you write currently. This is because it uses new language features (ES6 imports, classes) and the JSX language extension. While these things aren't *required* to write React, most React developers use them because they tend to be easier to use and more maintainable. These require a few extra steps in the build process, but this is a tradeoff React developers are willing to pay.
+
+In the following sections, I'll give a brief background on build tools: npm, webpack, babel, etc. If you're already familiar with each, skip to [React API](react_api) to learn more about the top-level React API.
 `
 
     return (
@@ -79,7 +81,7 @@ In the following sections, I'll give a brief background on each of these topics.
           authorURL={'https://twitter.com/devinaabbott'}
         />
         {content}
-        <Link to={'modern_javascript'} style={buttonStyle}>
+        <Link to={'environment'} style={buttonStyle}>
           Let's get started!
         </Link>
       </Page>

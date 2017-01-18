@@ -14,16 +14,21 @@ code, kbd, pre, samp {
 }
 
 code, kbd {
-  padding: 2px 4px;
+  /*padding: 2px 4px;*/
   font-size: 90%;
 }
 
-code {
+pre, code {
+  padding: 2px 4px;
   /*color: #c7254e;*/
   /*background-color: #f9f2f4;*/
   color: #555;
   background-color: #F3F3F3;
   border-radius: 4px;
+}
+
+pre > code {
+  padding: 0;
 }
 
 .table {

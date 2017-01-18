@@ -10,4 +10,5 @@ export default {
   strong: (props) => <strong {...props} style={styles.strong} />,
   table: (props) => <table {...props} className={'table'} />,
   a: Link,
+  pre: (props) => <pre {...props} style={{marginBottom: 15}} />,
 }
