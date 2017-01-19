@@ -7,8 +7,9 @@ let sections = [
   {depth: 2, title: 'npm', slug: 'npm', componentName: 'NPM'},
   {depth: 2, title: 'Webpack', slug: 'webpack', componentName: 'Webpack'},
   {depth: 2, title: 'Babel', slug: 'babel', componentName: 'Babel'},
+  {depth: 2, title: 'React', slug: 'react_setup', componentName: 'ReactSetup'},
   // {depth: 2, title: 'ESLint', slug: 'eslint', componentName: 'ESLint'},
-  {depth: 2, title: 'React DevTools', slug: 'react_dev_tools', componentName: 'ReactDevTools'},
+  // {depth: 2, title: 'React DevTools', slug: 'react_dev_tools', componentName: 'ReactDevTools'},
 
   {depth: 0, title: 'Modern JavaScript', slug: 'modern_javascript', componentName: 'ModernJavascript'},
   {depth: 1, title: 'ES6', slug: 'es6', componentName: 'ES6'},

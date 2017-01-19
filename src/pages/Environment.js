@@ -21,7 +21,7 @@ We'll walk through this in the next section, [Quick Start](quick_start).
 
 # Webpack
 
-Webpack bundles your client-side code (JavaScript, css, etc) into a single JavaScript bundle. Webpack is the most common way to bundle a React app during development and for production. If you want more flexibility and power than \`create-react-app\`, you should learn how to use Webpack and the Babel plugin (for compiling your ES6/JSX code for browser compatibility).
+Webpack bundles your client-side code (JavaScript, css, etc) into a single JavaScript file. Webpack is the most common way to bundle a React app during development and for production. If you want more flexibility and power than \`create-react-app\`, you should learn how to use Webpack and the Babel plugin (for compiling your ES6/JSX code for browser compatibility).
 
 <br />
 

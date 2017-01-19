@@ -1177,7 +1177,7 @@ code-point-at@^1.0.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/code-point-at/-/code-point-at-1.1.0.tgz#0d070b4d043a5bea33a2f1a40e2edb3d9a4ccf77"
 
-"codemirror@github:dabbott/CodeMirror#better-jsx-es6":
+codemirror@dabbott/CodeMirror#better-jsx-es6:
   version "5.14.3"
   resolved "https://codeload.github.com/dabbott/CodeMirror/tar.gz/9c25e00edafa09bc862a465331ff8840e73404e9"
 
