@@ -16,14 +16,14 @@ You can find the Webpack docs [here](https://webpack.js.org/). The [overview](ht
 When you provide \`webpack\` with an entry file (the JavaScript file to run *first*, e.g. \`index.js\`), \`webpack\` will analyze the file and determine which other files it depends on via calls to \`require\` (the \`node.js\` API to include another file). It then cleverly concatenates all necessary files into a single file.
 
 Webpack lets us use \`npm\` packages for client-side development by
-- crawling your filesystem, reading calls to \`require\`, and bundling all necessary JavaScript files into a single file that can be served on the wibe
+- crawling your filesystem, reading calls to \`require\`, and bundling all necessary JavaScript files into a single file that can be served on the web
 - polyfilling (faking) the \`node\` APIs so that code can run in both environments
 
 # Minimal setup
 
 Let's look at a minimal \`webpack\` setup. We won't add React just yet, since it's important to understand \`webpack\` basics before adding more complexity.
 
-Feel free to follow along and treat this as a tutorial, or just read through and see how the pieces fit together. If you decide to follow along, make a new directory and run \`npm init\` inside it to get a blank \`package.json\`.
+Feel free to follow along and treat this as a tutorial, or just read through and see how the pieces fit together. If you decide to follow along, make a new directory and run \`npm init\` inside it to get a blank \`package.json\`. The finished project is available at [dabbott/webpack-tutorial](https://github.com/dabbott/webpack-tutorial) for reference.
 
 ## Installation
 
@@ -85,6 +85,8 @@ ${<pre><code>{
 <script src="./bundle.js"></script>`
 }</code></pre>}
 
+(Wondering why there's no html tag? It's convenient to omit [optional tags](https://google.github.io/styleguide/htmlcssguide.xml?showone=Optional_Tags#Optional_Tags)!)
+
 ## Running the development server
 
 Now we can run \`npm run dev\` to run the script we set up in the \`package.json\`. This will start the development server. If we navigation to \`localhost:8080\` in a browser, we should see our \`index.html\` file, which will run our \`index.js\` bundled into \`bundle.js\`, displaying \`Hello World!\` on the screen.
@@ -98,7 +100,6 @@ For reference, our directory should look like this:
 ## That's it!
 
 Those are the steps needed to set up a standard webpack build. There are lot of other plugins and configuration options worth learning. In the next few sections, we'll add the babel plugin for transpiling our code, and we'll install the React library.
-
 `
 
 export default props => <DefaultPage {...props}>{content}</DefaultPage>

@@ -5,19 +5,15 @@ import markdownOptions from '../utils/MarkdownOptions'
 import DefaultPage from './DefaultPage'
 
 const content = markdown(markdownOptions)`
-In the old days, you could just include a \`${'<script>'}\` tag in the header of your webpage, and your JavaScript would run as intended. These days, we *preprocess* our JavaScript in order to access experimental features and language extensions like JSX.
+In the old days, you could just include a \`${'<script>'}\` tag in the header of your webpage, and your JavaScript would run as intended. These days, we *preprocess* our JavaScript with Babel in order to access experimental features and language extensions like JSX.
 
-# Babel
+# ES5
 
-Babel is the main tool used to preprocess JavaScript. Babel is a highly configurable parser that lets you use experimental features and extensions, compiling down into old-style JavaScript that can be supported on a wider range of platforms. Of course, if a native platform doesn't support an ES6 feature like \`Map()\`, Babel won't fully be able to help -- but it can in many cases polyfill missing APIs to provide this functionality.
+ECMAScript is the language specification used to implement the JavaScript language. Nearly every JavaScript environment today can run at least ECMAScript 5 (ES5), the version of JavaScript introduced in 2009. However, there are many new features in the latest versions of JavaScript that we'd like to use. Thanks to Babel, we can use them today! Babel transforms newer features into ES5 for cross-platform compatibility.
 
-Babel enables debugging of the the original source code by including **source maps** with the compiled JavaScript. JavaScript interpreters will run the compiled code, but map it to the source code in the debugger so that you can debug the source code instead of the (generally quite ugly) compiled output.
+<br />
 
-# Babel Configuration
-
-You can configure Babel by including a \`.babelrc\` file in the root directory of your project. This file can specify which experimental JS features to enable and which plugins to use (JSX).
-
-React Native takes care of properly configuring babel for you, so you generally won't need to create a \`.babelrc\`. However, if you want to modify the default presets, you can use the npm package [babel-preset-react-native](https://github.com/facebook/react-native/tree/master/babel-preset) as a base configuration, and apply additional plugins/configuration on top.
+In the next few sections, we'll look through some of the most important new language features. If you're already comfortable with these, or if you would prefer to stick to the JavaScript features you're familiar with, consider skipping ahead to [JSX](jsx) (the React language extension) or [React Top-Level API](react_api).
 `
 
 export default props => <DefaultPage {...props}>{content}</DefaultPage>
