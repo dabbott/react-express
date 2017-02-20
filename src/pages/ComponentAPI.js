@@ -6,7 +6,7 @@ import DefaultPage from './DefaultPage'
 import { WebPlayer } from '../components'
 
 const code = `import React, { Component } from 'react'
-import { AppRegistry, View, Text, StyleSheet } from 'react-native'
+import { render } from 'react-dom'
 
 class Counter extends Component {
 
@@ -23,35 +23,33 @@ class Counter extends Component {
     const {color, size} = this.props
 
     return (
-      <Text style={{color, fontSize: size}}>
+      <div style={{color, fontSize: size}}>
         {count}
-      </Text>
+      </div>
     )
   }
 }
 
 class App extends Component {
   render() {
+    const style = {
+      flex: 1,
+      justifyContent: 'center',
+      alignItems: 'center',
+    }
+
     return (
-      <View style={styles.container}>
+      <div style={style}>
         <Counter color={'lightblue'} size={16} />
         <Counter color={'skyblue'} size={32} />
         <Counter color={'steelblue'} size={80} />
         <Counter color={'darkblue'} size={140} />
-      </View>
+      </div>
     )
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-})
-
-AppRegistry.registerComponent('App', () => App)
+render(<App />, document.querySelector('#app'))
 `
 
 const content = markdown(markdownOptions)`

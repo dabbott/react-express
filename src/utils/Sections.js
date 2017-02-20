@@ -30,10 +30,11 @@ let sections = [
   {depth: 2, title: 'Async and Await', slug: 'async_await', componentName: 'AsyncAwait'},
   {depth: 1, title: 'JSX', slug: 'jsx', componentName: 'JSX'},
 
-  {depth: 0, title: 'React Top-Level API', slug: 'react_api', componentName: 'ReactAPI'},
+  {depth: 0, title: 'React Top-Level API', slug: 'react_api', componentName: 'ReactTopLevelAPI'},
   {depth: 1, title: 'React Components', slug: 'components', componentName: 'Component'},
   {depth: 1, title: 'Component API', slug: 'component_api', componentName: 'ComponentAPI'},
   {depth: 1, title: 'Lifecycle API', slug: 'lifecycle_api', componentName: 'LifecycleAPI'},
+  // {depth: 1, title: 'PropTypes', slug: 'lifecycle_api', componentName: 'PropTypes'},
 
   {depth: 0, title: 'Styling', slug: 'styling', componentName: 'Styling'},
   {depth: 1, title: 'Inline Styles', slug: 'inline_styles', componentName: 'Inline Styles'},
@@ -45,7 +46,7 @@ let sections = [
   {depth: 1, title: 'Conditional Rendering', slug: 'conditional_rendering', componentName: 'ConditionalRendering'},
   {depth: 1, title: 'Lists and Keys', slug: 'lists_and_keys', componentName: 'ListsAndKeys'},
   {depth: 1, title: 'Animation', slug: 'animation', componentName: 'Animation'},
-  {depth: 1, title: 'Using the DOM', slug: 'using_the_dom', componentName: 'UsingTheDOM'},
+  {depth: 1, title: 'Refs and the DOM', slug: 'using_the_dom', componentName: 'RefsAndTheDOM'},
   {depth: 1, title: 'Using non-React Libs', slug: 'using_non_react_libs', componentName: 'UsingNonReactLibs'},
 
   {depth: 0, title: 'Common Patterns', slug: 'common_patterns', componentName: 'CommonPatterns'},
