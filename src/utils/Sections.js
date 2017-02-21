@@ -37,8 +37,8 @@ let sections = [
   // {depth: 1, title: 'PropTypes', slug: 'lifecycle_api', componentName: 'PropTypes'},
 
   {depth: 0, title: 'Styling', slug: 'styling', componentName: 'Styling'},
-  {depth: 1, title: 'Inline Styles', slug: 'inline_styles', componentName: 'Inline Styles'},
-  {depth: 1, title: 'Flexbox', slug: 'flexbox', componentName: 'Flexbox'},
+  // {depth: 1, title: 'Inline Styles', slug: 'inline_styles', componentName: 'Inline Styles'},
+  // {depth: 1, title: 'Flexbox', slug: 'flexbox', componentName: 'Flexbox'},
 
   {depth: 0, title: 'Fundamentals', slug: 'fundamentals', componentName: 'Fundamentals'},
   {depth: 1, title: 'Event Handling', slug: 'event_handling', componentName: 'EventHandling'},
