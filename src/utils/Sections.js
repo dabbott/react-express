@@ -41,6 +41,7 @@ let sections = [
   // {depth: 1, title: 'Flexbox', slug: 'flexbox', componentName: 'Flexbox'},
 
   {depth: 0, title: 'Fundamentals', slug: 'fundamentals', componentName: 'Fundamentals'},
+  {depth: 1, title: 'Performance Model', slug: 'performance_model', componentName: 'Performance Model'},
   {depth: 1, title: 'Event Handling', slug: 'event_handling', componentName: 'EventHandling'},
   {depth: 1, title: 'Input Handling', slug: 'input_handling', componentName: 'InputHandling'},
   {depth: 1, title: 'Conditional Rendering', slug: 'conditional_rendering', componentName: 'ConditionalRendering'},
