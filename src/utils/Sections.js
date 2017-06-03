@@ -41,41 +41,31 @@ let sections = [
   // {depth: 1, title: 'Flexbox', slug: 'flexbox', componentName: 'Flexbox'},
 
   {depth: 0, title: 'Fundamentals', slug: 'fundamentals', componentName: 'Fundamentals'},
-  {depth: 1, title: 'Performance Model', slug: 'performance_model', componentName: 'Performance Model'},
+  {depth: 1, title: 'Performance Model', slug: 'performance_model', componentName: 'PerformanceModel'},
   {depth: 1, title: 'Event Handling', slug: 'event_handling', componentName: 'EventHandling'},
   {depth: 1, title: 'Input Handling', slug: 'input_handling', componentName: 'InputHandling'},
   {depth: 1, title: 'Conditional Rendering', slug: 'conditional_rendering', componentName: 'ConditionalRendering'},
   {depth: 1, title: 'Lists and Keys', slug: 'lists_and_keys', componentName: 'ListsAndKeys'},
-  {depth: 1, title: 'Animation', slug: 'animation', componentName: 'Animation'},
+  // {depth: 1, title: 'Animation', slug: 'animation', componentName: 'Animation'},
   {depth: 1, title: 'Refs and the DOM', slug: 'using_the_dom', componentName: 'RefsAndTheDOM'},
-  {depth: 1, title: 'Using non-React Libs', slug: 'using_non_react_libs', componentName: 'UsingNonReactLibs'},
+  // {depth: 1, title: 'Using non-React Libs', slug: 'using_non_react_libs', componentName: 'UsingNonReactLibs'},
 
-  {depth: 0, title: 'Common Patterns', slug: 'common_patterns', componentName: 'CommonPatterns'},
-  {depth: 1, title: 'Tabs', slug: 'tabs', componentName: 'Tabs'},
-  {depth: 1, title: 'Modals', slug: 'modals', componentName: 'Modals'},
-  {depth: 1, title: 'Loading Indicators', slug: 'loading_indicators', componentName: 'LoadingIndicators'},
-  {depth: 1, title: 'Infinite Scroll', slug: 'infinite_scroll', componentName: 'InfiniteScroll'},
-
-  {depth: 0, title: 'Routing', slug: 'routing', componentName: 'Routing'},
-  {depth: 1, title: 'React Router', slug: 'react_router', componentName: 'React Router'},
+  // {depth: 0, title: 'Common Patterns', slug: 'common_patterns', componentName: 'CommonPatterns'},
+  // {depth: 1, title: 'Tabs', slug: 'tabs', componentName: 'Tabs'},
+  // {depth: 1, title: 'Modals', slug: 'modals', componentName: 'Modals'},
+  // {depth: 1, title: 'Loading Indicators', slug: 'loading_indicators', componentName: 'LoadingIndicators'},
+  // {depth: 1, title: 'Infinite Scroll', slug: 'infinite_scroll', componentName: 'InfiniteScroll'},
+  //
+  // {depth: 0, title: 'Routing', slug: 'routing', componentName: 'Routing'},
+  // {depth: 1, title: 'React Router', slug: 'react_router', componentName: 'React Router'},
 
   {depth: 0, title: 'Data Management', slug: 'data', componentName: 'Data'},
   {depth: 1, title: 'Component State', slug: 'data_component_state', componentName: 'ComponentState'},
   {depth: 1, title: 'Redux', slug: 'redux', componentName: 'Redux'},
   {depth: 2, title: 'React Redux', slug: 'react_redux', componentName: 'ReactRedux'},
-  // {depth: 1, title: 'Firebase', slug: 'firebase_data'},
 
-  // {depth: 0, title: 'Persistence', slug: 'persistence', componentName: 'Persistence'},
-  // {depth: 1, title: 'AsyncStorage', slug: 'asyncstorage', componentName: 'AsyncStorage'},
-  // {depth: 1, title: 'Redux Persist', slug: 'redux_persist', componentName: 'ReduxPersist'},
-
-  {depth: 0, title: 'Networking', slug: 'networking', componentName: 'Networking'},
-  {depth: 1, title: 'With Redux', slug: 'networking_redux', componentName: 'NetworkingRedux', fullTitle: 'Networking with Redux'},
-
-  // {depth: 0, title: 'Animation', slug: 'animation', componentName: 'Animation'},
-  // {depth: 1, title: 'Animated', slug: 'animated', componentName: 'Animated'},
-  // {depth: 1, title: 'RN Animatable', slug: 'react_native_animatable', componentName: 'ReactNativeAnimatable'},
-  // {depth: 1, title: 'Gestures', slug: 'gestures', componentName: 'Gestures'},
+  // {depth: 0, title: 'Networking', slug: 'networking', componentName: 'Networking'},
+  // {depth: 1, title: 'With Redux', slug: 'networking_redux', componentName: 'NetworkingRedux', fullTitle: 'Networking with Redux'},
 ]
 
 // Add section numbers. I use semver naming, since it's easy to remember
