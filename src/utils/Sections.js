@@ -47,7 +47,7 @@ let sections = [
   {depth: 1, title: 'Conditional Rendering', slug: 'conditional_rendering', componentName: 'ConditionalRendering'},
   {depth: 1, title: 'Lists and Keys', slug: 'lists_and_keys', componentName: 'ListsAndKeys'},
   // {depth: 1, title: 'Animation', slug: 'animation', componentName: 'Animation'},
-  {depth: 1, title: 'Refs and the DOM', slug: 'using_the_dom', componentName: 'RefsAndTheDOM'},
+  {depth: 1, title: 'Refs and the DOM', slug: 'refs_and_the_dom', componentName: 'RefsAndTheDOM'},
   // {depth: 1, title: 'Using non-React Libs', slug: 'using_non_react_libs', componentName: 'UsingNonReactLibs'},
 
   // {depth: 0, title: 'Common Patterns', slug: 'common_patterns', componentName: 'CommonPatterns'},
