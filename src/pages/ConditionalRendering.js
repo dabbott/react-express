@@ -198,7 +198,7 @@ render(<App />, document.querySelector('#app'))
 const content = markdown(markdownOptions)`
 It's common for a component to render different kinds of content based on its \`props\`. React is extremely flexible - you may return entirely different content each time the render function is called. The only requirement is that the render function returns a React node - this can be a React Element, a string, null, or an array of any of these.
 
-## Rendering with \`&&\`
+# Rendering with \`&&\`
 
 Let's look at one of the most common cases: conditionally rendering a React element based on whether a specific \`prop\` exists or not.
 
@@ -214,13 +214,13 @@ Note that an empty string \`""\` is falsy, but the expression will still evaluat
 
 You may also notice that the styles are defined below where they are used in the component \`render\` functions. This pattern is fairly common. Styles are often secondary to the component logic, so we want our logic to come first in the file. This technique works because the \`styles\` variable declaration is hoisted to the top of the file, and we assign a value to \`styles\` before the render functions are ever called.
 
-## Rendering with ternary \`?\`
+# Rendering with ternary \`?\`
 
 Let's look at another common case: rendering a different React element for when a \`prop\` exists and when doesn't. We can accomplish this easily with the ternary operator. It's common to render defaults this way.
 
 <WebPlayer code=${ternaryEvaluation} />
 
-## Complex rendering \`?\`
+# Complex rendering \`?\`
 
 For more complex cases, we can introduce variables to temporarily reference React elements, letting us combine them in different ways. We may also use class methods for rendering different content.
 
