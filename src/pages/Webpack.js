@@ -30,12 +30,10 @@ Feel free to follow along and treat this as a tutorial, or just read through and
 Assuming we're in a directory with a \`package.json\` file, we can add \`webpack\` and the development server to a project with
 
 \`\`\`
-npm install --save-dev webpack@beta webpack-dev-server@beta
+npm install --save-dev webpack webpack-dev-server
 \`\`\`
 
-This installs \`webpack\` and the development server as a dev dependency. In other words, this implies: \`webpack\` is necessary to build your project during development, but not when already built for production or when consuming the project as a library.
-
-> Note: we'll be using the newly released \`webpack\` 2. Currently, you must install this from the \`@beta\` channel of \`webpack\`.
+This installs \`webpack\` and the development server as a dev dependency. In other words, this implies: \`webpack\` is necessary to build your project during development, but not when the project is already built for production or when consuming the project as a library.
 
 ## Scripts
 
@@ -92,6 +90,8 @@ ${<pre><code>{
 Now we can run \`npm run dev\` to run the script we set up in the \`package.json\`. This will start the development server. If we navigation to \`localhost:8080\` in a browser, we should see our \`index.html\` file, which will run our \`index.js\` bundled into \`bundle.js\`, displaying \`Hello World!\` on the screen.
 
 ![Hello World](webpack-hello-world.png)
+
+The \`bundle.js\` file will be served from memory by the development server. For production builds, you'll want to use \`npm run build\` to build an optimized \`bundle.js\`, which will be saved to the filesystem.
 
 For reference, our directory should look like this:
 
