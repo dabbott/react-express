@@ -5,7 +5,8 @@ import markdownOptions from '../utils/MarkdownOptions'
 import DefaultPage from './DefaultPage'
 import { WebPlayer } from '../components'
 
-const minimalRedux = `import { AppRegistry, Text } from 'react-native'
+const minimalRedux = `import React, { Component } from 'react'
+import { render } from 'react-dom'
 import { createStore } from 'redux'
 
 // Define action types
@@ -37,16 +38,21 @@ store.dispatch({type: types.INCREMENT})
 store.dispatch({type: types.INCREMENT})
 
 // Calling \`store.getState()\` returns our state object
-const App = () => (
-  <Text style={{fontSize: 100}}>
-    {store.getState().count}
-  </Text>
-)
+class App extends Component {
+  render() {
+    return (
+      <div style={{fontSize: 100}}>
+        {store.getState().count}
+      </div>
+    )
+  }
+}
 
-AppRegistry.registerComponent('App', () => App)
+render(<App />, document.querySelector('#app'))
 `
 
-const indexFile = `import { AppRegistry, View } from 'react-native'
+const indexFile = `import React, { Component } from 'react'
+import { render } from 'react-dom'
 import { createStore } from 'redux'
 
 // Import the reducer and create a store
@@ -57,13 +63,10 @@ const store = createStore(reducer)
 import App from './App'
 
 // Pass the store into the app container
-const AppWithStore = () => <App store={store} />
-
-AppRegistry.registerComponent('App', () => AppWithStore)
+render(<App store={store} />, document.querySelector('#app'))
 `
 
 const appFile = `import React, { Component } from 'react'
-import { AppRegistry, View } from 'react-native'
 
 import { actionCreators } from './todoListRedux'
 import List from './List'
@@ -106,7 +109,7 @@ export default class App extends Component {
     const {todos} = this.state
 
     return (
-      <View>
+      <div style={styles.container}>
         <Title>
           To-Do List
         </Title>
@@ -116,10 +119,17 @@ export default class App extends Component {
         />
         <List
           list={todos}
-          onPressItem={this.onRemoveTodo}
+          onClickItem={this.onRemoveTodo}
         />
-      </View>
+      </div>
     )
+  }
+}
+
+const styles = {
+  container: {
+    display: 'flex',
+    flexDirection: 'column',
   }
 }
 `
@@ -138,7 +148,7 @@ const vendorComponents = [
 ]
 
 const content = markdown(markdownOptions)`
-Most medium and large React Native apps use Redux for managing data and state throughout the application. Redux is a fairly expansive topic, so we'll just cover basic usage with React Native here, leaving more advanced usage to the [Redux docs](http://redux.js.org/).
+Many medium and large React apps use Redux for managing data and state throughout the application. Redux is a fairly expansive topic, so we'll just cover basic usage with React here, leaving more advanced usage to the [Redux docs](http://redux.js.org/).
 
 # Redux Architecture
 

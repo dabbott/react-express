@@ -1,18 +1,17 @@
 import React, { Component } from 'react'
-import { View, TouchableOpacity, Text, StyleSheet } from 'react-native'
 
 export default class List extends Component {
 
   renderItem = (text, i) => {
-    const {onPressItem} = this.props
+    const {onClickItem} = this.props
 
     return (
-      <TouchableOpacity
+      <div
         style={styles.item}
-        onPress={() => onPressItem(i)}
+        onClick={() => onClickItem(i)}
       >
-        <Text>{text}</Text>
-      </TouchableOpacity>
+        {text}
+      </div>
     )
   }
 
@@ -20,17 +19,21 @@ export default class List extends Component {
     const {list} = this.props
 
     return (
-      <View>
+      <div style={styles.container}>
         {list.map(this.renderItem)}
-      </View>
+      </div>
     )
   }
 }
 
-const styles = StyleSheet.create({
+const styles = {
+  container: {
+    display: 'flex',
+    flexDirection: 'column',
+  },
   item: {
     backgroundColor: 'whitesmoke',
     marginBottom: 5,
     padding: 15,
   },
-})
+}

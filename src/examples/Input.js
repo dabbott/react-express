@@ -1,43 +1,48 @@
 import React, { Component } from 'react'
-import { TextInput, StyleSheet } from 'react-native'
 
 export default class Input extends Component {
 
   state = {
-    text: '',
+    value: '',
   }
 
-  onChangeText = (text) => this.setState({text})
+  handleChange = (e) => {
+    this.setState({value: e.target.value})
+  }
 
-  onSubmitEditing = () => {
+  handleKeyPress = (e) => {
+    if (e.key !== 'Enter') return
+
     const {onSubmitEditing} = this.props
-    const {text} = this.state
+    const {value} = this.state
 
-    if (!text) return // Don't submit if empty
+    if (!value) return // Don't submit if empty
 
-    onSubmitEditing(text)
-    this.setState({text: ''})
+    onSubmitEditing(value)
+    this.setState({value: ''})
   }
 
   render() {
     const {placeholder} = this.props
-    const {text} = this.state
+    const {value} = this.state
 
     return (
-      <TextInput
+      <input
         style={styles.input}
-        value={text}
+        type={'text'}
+        value={value}
         placeholder={placeholder}
-        onChangeText={this.onChangeText}
-        onSubmitEditing={this.onSubmitEditing}
+        onChange={this.handleChange}
+        onKeyPress={this.handleKeyPress}
       />
     )
   }
 }
 
-const styles = StyleSheet.create({
+const styles = {
   input: {
+    fontSize: '100%',
     padding: 15,
-    height: 50,
+    borderWidth: 0,
   },
-})
+}

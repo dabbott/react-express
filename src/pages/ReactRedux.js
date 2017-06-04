@@ -5,7 +5,8 @@ import markdownOptions from '../utils/MarkdownOptions'
 import DefaultPage from './DefaultPage'
 import { WebPlayer } from '../components'
 
-const indexFile = `import { AppRegistry, View } from 'react-native'
+const indexFile = `import React, { Component } from 'react'
+import { render } from 'react-dom'
 import { createStore } from 'redux'
 import { Provider } from 'react-redux'
 
@@ -17,17 +18,16 @@ const store = createStore(reducer)
 import App from './App'
 
 // Pass the store into the Provider
-const AppWithStore = () => (
+const AppWithStore = (
   <Provider store={store}>
     <App />
   </Provider>
 )
 
-AppRegistry.registerComponent('App', () => AppWithStore)
+render(AppWithStore, document.querySelector('#app'))
 `
 
 const appFile = `import React, { Component } from 'react'
-import { AppRegistry, View } from 'react-native'
 import { connect } from 'react-redux'
 
 import { actionCreators } from './todoListRedux'
@@ -57,7 +57,7 @@ class App extends Component {
     const {todos} = this.props
 
     return (
-      <View>
+      <div style={styles.container}>
         <Title>
           To-Do List
         </Title>
@@ -67,11 +67,18 @@ class App extends Component {
         />
         <List
           list={todos}
-          onPressItem={this.onRemoveTodo}
+          onClickItem={this.onRemoveTodo}
         />
-      </View>
+      </div>
     )
   }
+}
+
+const styles = {
+  container: {
+    display: 'flex',
+    flexDirection: 'column',
+  },
 }
 
 export default connect(mapStateToProps)(App)

@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { View, Text, StyleSheet } from 'react-native'
 
 export default class Title extends Component {
 
@@ -7,14 +6,14 @@ export default class Title extends Component {
     const {children} = this.props
 
     return (
-      <View style={styles.header}>
-        <Text style={styles.title}>{children}</Text>
-      </View>
+      <div style={styles.header}>
+        <div style={styles.title}>{children}</div>
+      </div>
     )
   }
 }
 
-const styles = StyleSheet.create({
+const styles = {
   header: {
     backgroundColor: 'skyblue',
     padding: 15,
@@ -23,4 +22,4 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: 'white',
   },
-})
+}

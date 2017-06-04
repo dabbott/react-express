@@ -1,6 +1,7 @@
-import { AppRegistry, View } from 'react-native'
+import React, { Component } from 'react'
+import { render } from 'react-dom'
 
 // Import the App container component
 import App from './App'
 
-AppRegistry.registerComponent('App', () => App)
+render(<App />, document.querySelector('#app'))

@@ -48,7 +48,7 @@ class Card extends Component {
         style={styles.card}
         ref={this.saveRef}
       >
-        <h2 style={styles.subtitle}>My measurements are:</h2>
+        <h2 style={styles.subtitle}>My dimensions are:</h2>
         {width && height && (
           <h1 style={styles.title}>{width} x {height}</h1>
         )}
