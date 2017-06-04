@@ -2,22 +2,26 @@ import React from 'react'
 import markdown from 'markdown-in-js'
 
 import markdownOptions from '../utils/MarkdownOptions'
-import Page from './Page'
-import { EditorTranspiler, PageHeader } from '../components'
+import DefaultPage from './DefaultPage'
+import { EditorTranspiler } from '../components'
 
-const code = `const taskRunner = async () => {
+const code = `const fetchData = async () => {
+  return fetch('https://randomuser.me/api/')
+}
+
+const printData = async () => {
   try {
-    const firstValue = await asyncTask1()
-    const secondValue = await asyncTask2(firstValue)
+    const json = await fetchData()
+    console.log(json)
   } catch(e) {
-    console.error("Something went wrong! Caught exception:", e)
+    console.error("Problem", e)
   }
 }`
 
 const content = markdown(markdownOptions)`
-ES7 gives us \`async\` functions that can use the \`await\` keyword to simplify asynchronous logic and readability. If a function is declared \`async\`, \`await\` will block code execution until the asynchronous operation is completed or fails.
+We can use the \`async\` keyword before a function name to wrap the return value of this function in a \`Promise\`. We can use the \`await\` keyword (in an \`async\` function) to wait for a promise to be resolved or rejected before continuing code execution in this block.
 
-This syntax also makes it easy to catch exceptions by surrounding \`await\` with a \`try\`/\`catch\` block.
+This syntax also propagates exceptions that occur in promises using a \`try\`/\`catch\` block, just as if the code were running synchronously.
 
 <EditorTranspiler
   code=${code}
@@ -25,12 +29,4 @@ This syntax also makes it easy to catch exceptions by surrounding \`await\` with
 />
 `
 
-export default props =>
-  <Page {...props}>
-    <PageHeader
-      title={props.title}
-      author={"Gabe G'Sell"}
-      authorURL={'http://gabegsell.com/'}
-    />
-    {content}
-  </Page>
+export default props => <DefaultPage {...props}>{content}</DefaultPage>

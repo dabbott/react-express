@@ -25,6 +25,7 @@ let sections = [
 
   {depth: 1, title: 'ES7 and Beyond', slug: 'es7_and_beyond', componentName: 'ES7AndBeyond'},
   {depth: 2, title: 'Static Class Properties', slug: 'static_class_properties', componentName: 'StaticClassProperties'},
+  {depth: 2, title: 'Class Instance Properties', slug: 'class_instance_properties', componentName: 'ClassInstanceProperties'},
   {depth: 2, title: 'Bound Instance Methods', slug: 'bound_instance_methods', componentName: 'BoundInstanceMethods'},
   {depth: 2, title: 'Object Spread', slug: 'object_spread', componentName: 'ObjectSpread'},
   {depth: 2, title: 'Async and Await', slug: 'async_await', componentName: 'AsyncAwait'},

@@ -15,9 +15,11 @@ const code = `class Cat {
 }`
 
 const content = markdown(markdownOptions)`
-You've probably seen javascript functions bound to certain contexts with the \`bind()\` function. Binding is often used to ensure that a class's instance function is invoked with the correct context.
+When a function is assigned to a class instance property, that function is bound to the instance.
 
-ES7 gives us a shorthand syntax to bind class instance functions to the context at the time they are defined. The \`printName\` function below is bound to current context at the time the class instance is created.
+You've probably seen functions bound to class instances in the \`constructor\`, e.g. \`this.printName = this.printName.bind(this)\`. Binding here ensures that a class's instance function is invoked with the correct context.
+
+With ES7 class instance properties, we can instead simply say \`printName = () => ...\`. The \`printName\` function below is bound to instance at the time the instance is constructed.
 
 <EditorTranspiler
   code=${code}
