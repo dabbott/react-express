@@ -1,5 +1,5 @@
 {
-  "name": "react-native-express",
+  "name": "react-express",
   "version": "1.0.0",
   "description": "Interactive examples, code samples, and tutorial projects for React Native",
   "main": "src/index.js",
@@ -19,9 +19,9 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/dabbott/react-native-express"
+    "url": "https://github.com/dabbott/react-express"
   },
-  "homepage": "https://github.com/dabbott/react-native-express",
+  "homepage": "https://github.com/dabbott/react-express",
   "keywords": [
     "react",
     "react-native"

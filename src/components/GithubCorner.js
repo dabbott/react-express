@@ -4,7 +4,7 @@ export default class GithubCorner extends Component {
   render() {
     return (
       <a
-        href={"https://github.com/dabbott/react-native-express"}
+        href={"https://github.com/dabbott/react-express"}
         className={"github-corner"}
         title={"View source on Github"}
       >
