@@ -18,7 +18,7 @@ class List extends Component {
   render() {
     return (
       <div>
-        {data.map(item => <div key={item.key}>{item.name}</div>)}
+        {data.map(item => <div key={item.id}>{item.name}</div>)}
       </div>
     )
   }
@@ -84,7 +84,7 @@ ${<pre><code>{`div: 0
   h1: 0.$title
   h2: 0.1`}</code></pre>}
 
-So, if you wanted to, you could assign a key to every element. You can even force a component to re-render by assigning a different key (this tells React that the element's identity has changed, thus triggering a re-render). But most of the time, you need to consider keys because React takes care of them automatically. It's likely the only time you'll need to use them is when rendering lists of elements.
+So, if you wanted to, you could assign a key to every element. You can even force a component to re-render by assigning a different key (this tells React that the element's identity has changed, thus triggering a re-render). But most of the time, you don't need to consider keys because React takes care of them automatically. It's likely the only time you'll need to use them is when rendering lists of elements.
 
 # Lists
 
@@ -116,11 +116,11 @@ ${<pre><code>{`(
 
 React makes the assumption that components in an array may at some point need to be rearranged due to insertions, deletions, etc. We need to provide keys to help React with this (and React will warn us if we don't).
 
-If our data as some sort of unique identity already, or we can derive something like that, that's the best thing to use. In this case, let's assume the ID field is unique. We should set up our map like this:
+If items in our data set have some sort of unique identity already, or we can derive something like that, that's the best thing to use. In this case, let's assume the \`id\` field is unique. We should set up our map like this:
 
 ${<pre><code>{`(
   <div>
-    {data.map(item => <div key={item.key}>{item.name}</div>)}
+    {data.map(item => <div key={item.id}>{item.name}</div>)}
   </div>
 )`}</code></pre>}
 
