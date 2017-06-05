@@ -54,7 +54,7 @@ The \`dev\` script will start our development server, passing the options \`${`{
 
 ## Configuration
 
-Webpack is most commonly configured using a separate config file: \`webpack.config.js\`. This file must export a configuration object, or a function which returns a configuration object, which the webpack compiler will use when run from the command line as \`webpack\`.
+Webpack is most commonly configured using a separate config file: \`webpack.config.js\`. This file must export a configuration object, or a function which returns a configuration object, which the webpack compiler will use when run from the command line as \`webpack\`. Let's add a \`webpack.config.js\` now:
 
 ${<pre><code>{
 `module.exports = options => {

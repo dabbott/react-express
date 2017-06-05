@@ -52,6 +52,8 @@ This guide is intended for people who know HTML, CSS, and JavaScript at an inter
 
 I hope you enjoy learning React. Reach out to me, [@devinaabbott](https://twitter.com/devinaabbott), with comments or questions you have along the way. Some pages are written by other authors (listed at top of each page), so feel free to contact them too.
 
+PS: I recommend viewing this guide from a desktop browser rather than mobile, since the desktop version supports interactive examples.
+
 # Hello World
 
 When you write your first React app, you might start with something like this.

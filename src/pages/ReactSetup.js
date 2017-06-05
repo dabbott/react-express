@@ -67,6 +67,8 @@ For reference, our directory should look like this:
 
 ![Hello World](react-sublime.png)
 
+The finished tutorial is available at [dabbott/react-webpack-babel-tutorial](https://github.com/dabbott/react-webpack-babel-tutorial).
+
 ## That's it!
 
 You now know how to set up a React app from scratch using Webpack and Babel. This should be a good enough starting point to build any kind of app in React. You can add more webpack and babel plugins incrementally as you start working with React.
