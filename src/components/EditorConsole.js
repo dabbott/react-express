@@ -13,7 +13,7 @@ export default class EditorConsole extends Component {
       <WebPlayer
         height={340}
         fullscreen={false}
-        playerTitle={'Console'}
+        playerTitle={'Console output'}
         showConsole={true}
         {...this.props}
       />

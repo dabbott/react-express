@@ -3,7 +3,7 @@ import markdown from 'markdown-in-js'
 
 import markdownOptions from '../utils/MarkdownOptions'
 import Page from './Page'
-import { EditorTranspiler, PageHeader } from '../components'
+import { EditorConsole, PageHeader } from '../components'
 
 const code = `class Cat {
   constructor(name) {
@@ -12,7 +12,14 @@ const code = `class Cat {
   printName = () => {
     console.log(this.name)
   }
-}`
+}
+
+const cat = new Cat('Tom')
+const printName = cat.printName
+
+// \`this\` is still bound to our Cat instance!
+printName()
+`
 
 const content = markdown(markdownOptions)`
 When a function is assigned to a class instance property, that function is bound to the instance.
@@ -21,7 +28,7 @@ You've probably seen functions bound to class instances in the \`constructor\`, 
 
 With ES7 class instance properties, we can instead simply say \`printName = () => ...\`. The \`printName\` function below is bound to instance at the time the instance is constructed.
 
-<EditorTranspiler
+<EditorConsole
   code=${code}
   title=${'Bound instance methods'}
 />
