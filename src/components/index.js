@@ -1,4 +1,5 @@
 export EditorTranspiler from './EditorTranspiler'
+export EditorConsole from './EditorConsole'
 export WebPlayer from './WebPlayer'
 export GithubCorner from './GithubCorner'
 export HamburgerButton from './HamburgerButton'
