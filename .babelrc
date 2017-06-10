@@ -1,6 +1,6 @@
 {
   "presets": [
-    "es2015",
+    "es2015-maybe-webpack",
     "stage-0",
     "react"
   ],

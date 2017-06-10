@@ -6,7 +6,9 @@
   "scripts": {
     "start": "node server/index.js",
     "postinstall": "npm run build",
-    "dev": "webpack-dev-server --env.dev",
+    "dev": "webpack --env.dev --env.client --env.server --watch",
+    "dev:client": "webpack-dev-server --env.dev --env.client",
+    "dev:server": "webpack --env.dev --env.server --watch",
     "build": "webpack",
     "clean": "rm dist/*",
     "analyze": "webpack --json | webpack-bundle-size-analyzer",
@@ -60,10 +62,12 @@
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",
+    "babel-preset-es2015-maybe-webpack": "^1.2.1",
     "eslint": "^3.19.0",
     "eslint-plugin-import": "^2.3.0",
     "eslint-plugin-react": "^7.0.1",
     "prettier": "^1.4.4",
+    "sockjs-client": "^1.1.4",
     "webpack-dev-server": "^2.4.5"
   }
 }

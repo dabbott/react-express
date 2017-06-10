@@ -6,11 +6,12 @@ const paths = {
   dist: resolve(__dirname, "dist"),
   src: resolve(__dirname, "src"),
   static: resolve(__dirname, "static"),
-  server: resolve(__dirname, "server", "build")
+  server: resolve(__dirname, "server", "build"),
+  babelConfig: resolve(__dirname, ".babelrc")
 };
 
 module.exports = (env = {}) => {
-  const { dev } = env;
+  const { dev, client, server } = env;
 
   const copyPlugin = new CopyWebpackPlugin([
     { from: paths.static, to: paths.dist }
@@ -18,7 +19,7 @@ module.exports = (env = {}) => {
 
   const node = {
     context: paths.src,
-    entry: ["./server.js"],
+    entry: "./server.js",
     output: {
       filename: "server-bundle.js",
       path: paths.server,
@@ -26,28 +27,22 @@ module.exports = (env = {}) => {
       libraryTarget: "umd"
     },
     target: "node",
-    devtool: "inline-source-map",
     plugins: [
       new webpack.DefinePlugin({
         "process.env": {
-          NODE_ENV: JSON.stringify("development")
+          NODE_ENV: JSON.stringify(dev ? "development" : "production")
         },
         isServer: 1,
         isClient: 0
       }),
-      new webpack.HotModuleReplacementPlugin(),
       new webpack.NamedModulesPlugin()
     ],
     module: {
       loaders: [
         {
           test: /\.js$/,
-          loaders: ["babel-loader"],
-          exclude: /node_modules(?!\/react-disqus-thread)/
-        },
-        {
-          test: /\.css$/,
-          loaders: ["style-loader", "css-loader", "postcss-loader"]
+          exclude: /node_modules(?!\/react-disqus-thread)/,
+          loaders: ["babel-loader"]
         }
       ]
     },
@@ -55,7 +50,8 @@ module.exports = (env = {}) => {
       alias: {
         react: resolve(__dirname, "node_modules", "react")
       }
-    }
+    },
+    externals: ["react", "react-dom", "react-router"]
   };
 
   const base = {
@@ -69,8 +65,8 @@ module.exports = (env = {}) => {
       loaders: [
         {
           test: /\.js$/,
-          loaders: ["babel-loader"],
-          exclude: /node_modules(?!\/react-disqus-thread)/
+          exclude: /node_modules(?!\/react-disqus-thread)/,
+          loaders: ["babel-loader"]
         },
         {
           test: /\.css$/,
@@ -95,7 +91,6 @@ module.exports = (env = {}) => {
     devServer: {
       hot: true,
       contentBase: paths.dist,
-      outputPath: paths.dist,
       publicPath: "/",
       historyApiFallback: true,
       port: 3210
@@ -126,8 +121,6 @@ module.exports = (env = {}) => {
         isServer: 0,
         isClient: 1
       }),
-      new webpack.optimize.DedupePlugin(),
-      // new webpack.optimize.OccurenceOrderPlugin(),
       new webpack.optimize.UglifyJsPlugin({
         compress: {
           warnings: false
@@ -136,5 +129,8 @@ module.exports = (env = {}) => {
     ]
   };
 
-  return [node, Object.assign(base, dev ? devConfig : prodConfig)];
+  return [
+    ...(client ? [Object.assign(base, dev ? devConfig : prodConfig)] : []),
+    ...(server ? [node] : [])
+  ];
 };
