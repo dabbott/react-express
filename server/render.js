@@ -27,12 +27,26 @@ const renderPage = location => {
   );
 };
 
+// Primitive mobile detection (same as used by client)
+const detectMobile = (userAgent = "") =>
+  /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+    userAgent
+  );
+
 module.exports = (req, res) => {
   const location = req.url;
+  const isMobile = detectMobile(req.headers["user-agent"]);
 
-  if (!pageCache[location]) {
-    pageCache[location] = renderPage(req.url);
+  // Don't SSR on mobile yet - since we're doing layouts in JS there might
+  // be a flash when the layout switches. Dimensions are currently grabbed
+  // from 'window' by react-styles-provider at launch, so we can't override them.
+  if (isMobile) {
+    return res.send(indexFile);
   }
 
-  res.send(pageCache[location]);
+  if (!pageCache[location]) {
+    pageCache[location] = renderPage(location);
+  }
+
+  return res.send(pageCache[location]);
 };
