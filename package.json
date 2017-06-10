@@ -52,9 +52,13 @@
     "react-router-scroll": "^0.4.1",
     "react-styles-provider": "0.4.0-beta.1",
     "style-loader": "0.13.1",
-    "webpack": "2.1.0-beta.20"
+    "webpack": "^2.1.0-beta.20"
   },
   "devDependencies": {
+    "babel-eslint": "^7.2.3",
+    "eslint": "^3.19.0",
+    "eslint-plugin-import": "^2.3.0",
+    "eslint-plugin-react": "^7.0.1",
     "webpack-dev-server": "2.1.0-beta.0"
   }
 }

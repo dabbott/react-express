@@ -18,6 +18,10 @@ export default (relativePath) => {
     constructor(props) {
       super(props)
 
+      if (isServer) {
+        ProxiedComponent = require(`./${relativePath}`).default
+      }
+
       this.state = { component: ProxiedComponent }
     }
 
