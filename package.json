@@ -21,7 +21,7 @@
     "test": "npm run --silent lint && npm run --silent checkformat"
   },
   "engines": {
-    "node": "6.3.1"
+    "node": "8.1.0"
   },
   "author": "Devin Abbott <devinabbott@gmail.com> (http://github.com/dabbott)",
   "license": "MIT",
