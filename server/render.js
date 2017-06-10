@@ -19,7 +19,7 @@ const renderPage = location => {
   );
 
   // TODO Figure out why display value is getting replaced with [object Object]
-  html.replace(/display:\[object Object\]/g, "display:flex");
+  html = html.replace(/display:\[object Object\]/g, "display:flex");
 
   return indexFile.replace(
     /<div id="root"><\/div>/,
