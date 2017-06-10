@@ -51,11 +51,16 @@ The production version of this app is running [here](http://www.reactexpress.com
 
 ## Contributing
 
-Please contribute!
+Make sure to lint and prettify your code!
+
+```bash
+npm run format
+npm run test
+```
 
 ## License
 
-MIT, Copyright (c) 2016 Devin Abbott
+MIT, Copyright (c) 2017 Devin Abbott
 
 ## Author
 

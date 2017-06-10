@@ -17,43 +17,6 @@ module.exports = (env = {}) => {
     { from: paths.static, to: paths.dist }
   ]);
 
-  const node = {
-    context: paths.src,
-    entry: "./server.js",
-    output: {
-      filename: "server-bundle.js",
-      path: paths.server,
-      library: "app",
-      libraryTarget: "umd"
-    },
-    target: "node",
-    plugins: [
-      new webpack.DefinePlugin({
-        "process.env": {
-          NODE_ENV: JSON.stringify(dev ? "development" : "production")
-        },
-        isServer: 1,
-        isClient: 0
-      }),
-      new webpack.NamedModulesPlugin()
-    ],
-    module: {
-      loaders: [
-        {
-          test: /\.js$/,
-          exclude: /node_modules(?!\/react-disqus-thread)/,
-          loaders: ["babel-loader"]
-        }
-      ]
-    },
-    resolve: {
-      alias: {
-        react: resolve(__dirname, "node_modules", "react")
-      }
-    },
-    externals: ["react", "react-dom", "react-router"]
-  };
-
   const base = {
     context: paths.src,
     output: {
@@ -80,6 +43,28 @@ module.exports = (env = {}) => {
       }
     }
   };
+
+  const node = Object.assign({}, base, {
+    entry: "./server.js",
+    output: {
+      filename: "server-bundle.js",
+      path: paths.server,
+      library: "app",
+      libraryTarget: "umd"
+    },
+    target: "node",
+    plugins: [
+      new webpack.DefinePlugin({
+        "process.env": {
+          NODE_ENV: JSON.stringify(dev ? "development" : "production")
+        },
+        isServer: 1,
+        isClient: 0
+      }),
+      new webpack.NamedModulesPlugin()
+    ],
+    externals: ["react", "react-dom", "react-router"]
+  });
 
   const devConfig = {
     entry: [
