@@ -1,9 +1,9 @@
-import React from 'react'
-import markdown from 'markdown-in-js'
+import React from "react";
+import markdown from "markdown-in-js";
 
-import markdownOptions from '../utils/MarkdownOptions'
-import DefaultPage from './DefaultPage'
-import { WebPlayer } from '../components'
+import markdownOptions from "../utils/MarkdownOptions";
+import DefaultPage from "./DefaultPage";
+import { WebPlayer } from "../components";
 
 const code = `import React, { Component } from 'react'
 import { AppRegistry, StyleSheet, View, Text, PanResponder } from 'react-native'
@@ -111,7 +111,7 @@ const styles = StyleSheet.create({
 })
 
 AppRegistry.registerComponent('App', () => App)
-`
+`;
 
 const content = markdown(markdownOptions)`
 In React Native, gestures are created using the \`PanResponder\` API.
@@ -143,29 +143,34 @@ More details are available on each of these in the [docs](https://facebook.githu
 
 # Example
 
-${
+${(
   <WebPlayer
-    title={'Gestures'}
+    title={"Gestures"}
     code={code}
     scale={1} // Fixes dragging position (almost)
   />
-}
+)}
 
 # Responder Control Flow
 
 The following diagram illustrates how a component can acquire responder status.
 
-${
+${(
   <figure>
     <img
-      style={{paddingTop: 40, width: 550}}
-      src={'pan-responder-flow.png'}
+      style={{ paddingTop: 40, width: 550 }}
+      src={"pan-responder-flow.png"}
     />
-    <figcaption style={{paddingBottom: 40}}>
-      Figure 4-3, Obtaining touch responder status, from <em><a href={'http://shop.oreilly.com/product/0636920041511.do'}>Learning React Native</a>, First Edition, p. 56</em>
+    <figcaption style={{ paddingBottom: 40 }}>
+      Figure 4-3, Obtaining touch responder status, from{" "}
+      <em>
+        <a href={"http://shop.oreilly.com/product/0636920041511.do"}>
+          Learning React Native
+        </a>, First Edition, p. 56
+      </em>
     </figcaption>
   </figure>
-}
-`
+)}
+`;
 
-export default props => <DefaultPage {...props}>{content}</DefaultPage>
+export default props => <DefaultPage {...props}>{content}</DefaultPage>;

@@ -1,8 +1,8 @@
-import React from 'react'
-import markdown from 'markdown-in-js'
+import React from "react";
+import markdown from "markdown-in-js";
 
-import markdownOptions from '../utils/MarkdownOptions'
-import DefaultPage from './DefaultPage'
+import markdownOptions from "../utils/MarkdownOptions";
+import DefaultPage from "./DefaultPage";
 
 const content = markdown(markdownOptions)`
 \`npm\` is the package manager for \`node.js\`, the server-side JavaScript execution environment. Most React apps load the React library and 3rd party libraries/extensions through \`npm\` packages.
@@ -68,6 +68,6 @@ npm install --save X
 \`\`\`
 
 Using \`--save\` adds the dependency to the \`package.json\`. Otherwise, you will only install the package, but not add it as a dependency.
-`
+`;
 
-export default props => <DefaultPage {...props}>{content}</DefaultPage>
+export default props => <DefaultPage {...props}>{content}</DefaultPage>;

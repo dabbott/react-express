@@ -1,8 +1,8 @@
-import React from 'react'
-import markdown from 'markdown-in-js'
+import React from "react";
+import markdown from "markdown-in-js";
 
-import markdownOptions from '../utils/MarkdownOptions'
-import DefaultPage from './DefaultPage'
+import markdownOptions from "../utils/MarkdownOptions";
+import DefaultPage from "./DefaultPage";
 
 const content = markdown(markdownOptions)`
 There are two common ways to set up a React development environment: [\`create-react-app\`](https://github.com/facebookincubator/create-react-app) and [webpack](https://webpack.js.org/).
@@ -26,6 +26,6 @@ Webpack bundles your client-side code (JavaScript, css, etc) into a single JavaS
 <br />
 
 The following sections will cover the tools you need to build a React app either using \`create-react-app\` or from scratch using Webpack.
-`
+`;
 
-export default props => <DefaultPage {...props}>{content}</DefaultPage>
+export default props => <DefaultPage {...props}>{content}</DefaultPage>;

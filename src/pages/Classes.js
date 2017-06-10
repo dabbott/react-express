@@ -1,9 +1,9 @@
-import React from 'react'
-import markdown from 'markdown-in-js'
+import React from "react";
+import markdown from "markdown-in-js";
 
-import markdownOptions from '../utils/MarkdownOptions'
-import Page from './Page'
-import { EditorConsole, PageHeader } from '../components'
+import markdownOptions from "../utils/MarkdownOptions";
+import Page from "./Page";
+import { EditorConsole, PageHeader } from "../components";
 
 const classExample = `class Animal {
   constructor(name) {
@@ -23,7 +23,7 @@ const animal = new Animal('Cat')
 
 animal.printName()
 
-Animal.beProud()`
+Animal.beProud()`;
 
 const classExtendsExample = `
 class Animal {
@@ -46,7 +46,7 @@ class Cat extends Animal {
 const cat = new Cat('Tom')
 
 cat.printName()
-`
+`;
 
 const content = markdown(markdownOptions)`
 In ES5, classes are just functions, with instance methods assigned to \`MyFunction.prototype\`. ES6 allows us to use the simpler \`class\` syntax.
@@ -55,27 +55,24 @@ In ES5, classes are just functions, with instance methods assigned to \`MyFuncti
 
 <EditorConsole
   code=${classExample}
-  title=${'Using class'}
+  title=${"Using class"}
 />
 
 # Inheritance
 
 The \`class\` gives us simple inheritance with the keyword \`extends\`. In classes that inherit from parents, we have access to a function \`super()\`. Within an inherited function in that child class, \`super\` will invoke the parent class's version of that function.
 
-<EditorConsole
-  code=${classExtendsExample}
-  title=${'Inheritance'}
-/>
+${<EditorConsole code={classExtendsExample} title={"Inheritance"} />}
 
 For full details on the \`class\` syntax, see the MDN reference for [class](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes').
-`
+`;
 
 export default props =>
   <Page {...props}>
     <PageHeader
       title={props.title}
       author={"Gabe G'Sell"}
-      authorURL={'http://gabegsell.com/'}
+      authorURL={"http://gabegsell.com/"}
     />
     {content}
-  </Page>
+  </Page>;

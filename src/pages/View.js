@@ -1,9 +1,9 @@
-import React from 'react'
-import markdown from 'markdown-in-js'
+import React from "react";
+import markdown from "markdown-in-js";
 
-import markdownOptions from '../utils/MarkdownOptions'
-import DefaultPage from './DefaultPage'
-import { WebPlayer } from '../components'
+import markdownOptions from "../utils/MarkdownOptions";
+import DefaultPage from "./DefaultPage";
+import { WebPlayer } from "../components";
 
 const code = `import React, { Component } from 'react'
 import { AppRegistry, View, StyleSheet } from 'react-native'
@@ -35,10 +35,10 @@ const styles = StyleSheet.create({
 })
 
 AppRegistry.registerComponent('App', () => App)
-`
+`;
 
 const content = markdown(markdownOptions)`
-\`View\`s are the most basic building block of React Native apps, much like how \`div\`s are the most basic building block of websites. In terms of implementation, \`View\` is an abstraction layer on top of the target platform's native equivalent, whether that's \`UIView\`, \`android.view\`, \`${'<div>'}\`, or something else.
+\`View\`s are the most basic building block of React Native apps, much like how \`div\`s are the most basic building block of websites. In terms of implementation, \`View\` is an abstraction layer on top of the target platform's native equivalent, whether that's \`UIView\`, \`android.view\`, \`${"<div>"}\`, or something else.
 
 \`View\`s are primarily used for styling and layout of children elements. Let's look at a few of the styles we can apply to views. The example below contains two \`View\`s: the outer view which specifies the alignment of the content contained within, and the inner view which draws a blue square.
 
@@ -68,6 +68,6 @@ Property | Type | Description
 \`borderColor\` | \`string\` | The color of the border. For more granular control, use the properties: \`borderTopColor, borderBottomColor, borderLeftColor, borderRightColor\`.
 \`borderRadius\` | \`number\` | Rounded edges
 \`opacity\` | \`number\` | How transparent should this element be? 0 means fully transparent, 1 means fully opaque.
-`
+`;
 
-export default props => <DefaultPage {...props}>{content}</DefaultPage>
+export default props => <DefaultPage {...props}>{content}</DefaultPage>;

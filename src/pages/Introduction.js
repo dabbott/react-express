@@ -1,11 +1,11 @@
-import React, { Component } from 'react'
-import { Link } from 'react-router'
-import markdown from 'markdown-in-js'
+import { Link } from "react-router";
+import React, { Component } from "react";
+import markdown from "markdown-in-js";
 
-import markdownOptions from '../utils/MarkdownOptions'
-import Page from './Page'
-import styles from '../styles'
-import { WebPlayer, GithubCorner, PageHeader } from '../components'
+import { GithubCorner, PageHeader } from "../components";
+import Page from "./Page";
+import WebPlayer from "../components/WebPlayer";
+import markdownOptions from "../utils/MarkdownOptions";
 
 const code = `import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
@@ -29,17 +29,17 @@ class App extends Component {
 
 const root = document.querySelector('#app')
 ReactDOM.render(<App />, root)
-`
+`;
 
 const buttonStyle = {
-  padding: '10px 15px',
-  color: 'white',
+  padding: "10px 15px",
+  color: "white",
   borderRadius: 3,
-  backgroundColor: 'rgb(54,203,170)',
-  textAlign: 'center',
-  display: 'block',
-  marginTop: 40,
-}
+  backgroundColor: "rgb(54,203,170)",
+  textAlign: "center",
+  display: "block",
+  marginTop: 40
+};
 
 export default class extends Component {
   render() {
@@ -58,21 +58,23 @@ PS: I recommend viewing this guide from a desktop browser rather than mobile, si
 
 When you write your first React app, you might start with something like this.
 
-<WebPlayer code={code} />
+${<WebPlayer code={code} />}
 
 The first thing we'll cover is how to set up an environment and build a React app.
 
 You may notice the code doesn't look like the JavaScript you write currently. This is because it uses new language features (ES6 imports, classes) and the JSX language extension. While these things aren't *required* to write React, most React developers use them because they tend to be easier to use and more maintainable. These require a few extra steps in the build process, but this is a tradeoff React developers are willing to pay.
 
 In the following sections, I'll give a brief background on build tools: npm, webpack, babel, etc. If you're already familiar with each, skip to [React API](react_api) to learn more about the top-level React API.
-`
+`;
 
     return (
       <Page
         footer={this.props.footer}
-        title={'React Express'}
-        subtitle={'Learn React, the component-based UI framework'}
-        logo={'//cdn.rawgit.com/dabbott/react-native-express/master/static/logo'}
+        title={"React Express"}
+        subtitle={"Learn React, the component-based UI framework"}
+        logo={
+          "//cdn.rawgit.com/dabbott/react-native-express/master/static/logo"
+        }
         logoWidth={256}
         logoHeight={296}
         bannerHeight={560}
@@ -80,15 +82,15 @@ In the following sections, I'll give a brief background on build tools: npm, web
       >
         <GithubCorner />
         <PageHeader
-          title={'Learning React'}
-          author={'@devinaabbott'}
-          authorURL={'https://twitter.com/devinaabbott'}
+          title={"Learning React"}
+          author={"@devinaabbott"}
+          authorURL={"https://twitter.com/devinaabbott"}
         />
         {content}
-        <Link to={'environment'} style={buttonStyle}>
+        <Link to={"environment"} style={buttonStyle}>
           Let's get started!
         </Link>
       </Page>
-    )
+    );
   }
 }

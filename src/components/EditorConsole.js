@@ -1,11 +1,10 @@
-import React, { Component } from 'react'
+import React, { Component } from "react";
 
-import WebPlayer from './WebPlayer'
+import WebPlayer from "./WebPlayer";
 
 export default class EditorConsole extends Component {
-
   shouldComponentUpdate() {
-    return false
+    return false;
   }
 
   render() {
@@ -13,10 +12,10 @@ export default class EditorConsole extends Component {
       <WebPlayer
         height={340}
         fullscreen={false}
-        playerTitle={'Console output'}
+        playerTitle={"Console output"}
         showConsole={true}
         {...this.props}
       />
-    )
+    );
   }
 }

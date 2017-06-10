@@ -1,9 +1,9 @@
-import React from 'react'
-import markdown from 'markdown-in-js'
+import React from "react";
+import markdown from "markdown-in-js";
 
-import markdownOptions from '../utils/MarkdownOptions'
-import DefaultPage from './DefaultPage'
-import { WebPlayer } from '../components'
+import markdownOptions from "../utils/MarkdownOptions";
+import DefaultPage from "./DefaultPage";
+import { WebPlayer } from "../components";
 
 const code = `import React, { Component } from 'react'
 import { AppRegistry, View, Text, ActivityIndicator, ScrollView, StyleSheet } from 'react-native'
@@ -115,7 +115,7 @@ const styles = StyleSheet.create({
 })
 
 AppRegistry.registerComponent('App', () => App)
-`
+`;
 
 const content = markdown(markdownOptions)`
 \`Networking\` in React Native is built on two APIs: \`fetch\` and \`XMLHttpRequest\`. Both of these were designed to be compatible with browser APIs so that:
@@ -152,12 +152,7 @@ Here we'll fetch a list of posts and display them in a ScrollView. Since \`fetch
 
 *Note: fetch only works in Chrome and Firefox at the moment, so this example won't run in Safari or IE.*
 
-${
-  <WebPlayer
-    title={'Networking with Fetch'}
-    code={code}
-  />
-}
-`
+${<WebPlayer title={"Networking with Fetch"} code={code} />}
+`;
 
-export default props => <DefaultPage {...props}>{content}</DefaultPage>
+export default props => <DefaultPage {...props}>{content}</DefaultPage>;

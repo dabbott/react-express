@@ -1,39 +1,35 @@
-import React, { Component } from 'react'
+import React, { Component } from "react";
 
 export default class List extends Component {
-
   renderItem = (text, i) => {
-    const {onClickItem} = this.props
+    const { onClickItem } = this.props;
 
     return (
-      <div
-        style={styles.item}
-        onClick={() => onClickItem(i)}
-      >
+      <div style={styles.item} onClick={() => onClickItem(i)}>
         {text}
       </div>
-    )
-  }
+    );
+  };
 
   render() {
-    const {list} = this.props
+    const { list } = this.props;
 
     return (
       <div style={styles.container}>
         {list.map(this.renderItem)}
       </div>
-    )
+    );
   }
 }
 
 const styles = {
   container: {
-    display: 'flex',
-    flexDirection: 'column',
+    display: "flex",
+    flexDirection: "column"
   },
   item: {
-    backgroundColor: 'whitesmoke',
+    backgroundColor: "whitesmoke",
     marginBottom: 5,
-    padding: 15,
-  },
-}
+    padding: 15
+  }
+};

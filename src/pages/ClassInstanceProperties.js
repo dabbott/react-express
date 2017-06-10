@@ -1,9 +1,9 @@
-import React from 'react'
-import markdown from 'markdown-in-js'
+import React from "react";
+import markdown from "markdown-in-js";
 
-import markdownOptions from '../utils/MarkdownOptions'
-import DefaultPage from './DefaultPage'
-import { EditorConsole } from '../components'
+import DefaultPage from "./DefaultPage";
+import EditorConsole from "../components/EditorConsole";
+import markdownOptions from "../utils/MarkdownOptions";
 
 const code = `class Cat {
   name = 'Tom'
@@ -17,16 +17,14 @@ const code = `class Cat {
 }
 
 new Cat()
-`
+`;
 
 const content = markdown(markdownOptions)`
 Class instance properties are a convenient way to declare properties for each instance, equivalent to assigning these properties in the constructor function.
 
-<EditorConsole
-  code=${code}
-  title=${'Class instance properties'}
-  height={400}
-/>
-`
+${(
+  <EditorConsole code={code} title={"Class instance properties"} height={400} />
+)}
+`;
 
-export default props => <DefaultPage {...props}>{content}</DefaultPage>
+export default props => <DefaultPage {...props}>{content}</DefaultPage>;

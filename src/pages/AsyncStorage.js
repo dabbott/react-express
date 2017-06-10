@@ -1,9 +1,9 @@
-import React from 'react'
-import markdown from 'markdown-in-js'
+import React from "react";
+import markdown from "markdown-in-js";
 
-import markdownOptions from '../utils/MarkdownOptions'
-import DefaultPage from './DefaultPage'
-import { WebPlayer } from '../components'
+import markdownOptions from "../utils/MarkdownOptions";
+import DefaultPage from "./DefaultPage";
+import { WebPlayer } from "../components";
 
 const indexFile = `import React, { Component } from 'react'
 import { AppRegistry, View, Text, AsyncStorage, StyleSheet } from 'react-native'
@@ -67,12 +67,12 @@ const styles = StyleSheet.create({
 })
 
 AppRegistry.registerComponent('App', () => App)
-`
+`;
 
 const files = [
-  ['index.js', indexFile],
-  ['Input.js', require('!!raw!../examples/Input')],
-]
+  ["index.js", indexFile],
+  ["Input.js", require("!!raw-loader!../examples/Input")]
+];
 
 const content = markdown(markdownOptions)`
 \`AsyncStorage\` is a built-in React Native API for client-side data persistence. Here we'll cover basic usage of the API; as your data gets complex, you will likely want to use a library built on top of \`AsyncStorage\`, such as Redux Persist.
@@ -121,6 +121,6 @@ The \`App\` component loads the value at \`STORAGE_KEY\` into \`this.state\` whe
 Presentational component
 
 ${<WebPlayer files={files} />}
-`
+`;
 
-export default props => <DefaultPage {...props}>{content}</DefaultPage>
+export default props => <DefaultPage {...props}>{content}</DefaultPage>;

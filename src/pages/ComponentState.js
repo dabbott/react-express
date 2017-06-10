@@ -1,9 +1,9 @@
-import React from 'react'
-import markdown from 'markdown-in-js'
+import React from "react";
+import markdown from "markdown-in-js";
 
-import markdownOptions from '../utils/MarkdownOptions'
-import DefaultPage from './DefaultPage'
-import { WebPlayer } from '../components'
+import markdownOptions from "../utils/MarkdownOptions";
+import DefaultPage from "./DefaultPage";
+import { WebPlayer } from "../components";
 
 const appFile = `import React, { Component } from 'react'
 
@@ -60,15 +60,15 @@ const styles = {
     flexDirection: 'column',
   }
 }
-`
+`;
 
 const files = [
-  ['index.js', require('!!raw!../examples/IndexRegisterApp')],
-  ['App.js', appFile],
-  ['List.js', require('!!raw!../examples/List')],
-  ['Input.js', require('!!raw!../examples/Input')],
-  ['Title.js', require('!!raw!../examples/Title')],
-]
+  ["index.js", require("!!raw-loader!../examples/IndexRegisterApp")],
+  ["App.js", appFile],
+  ["List.js", require("!!raw-loader!../examples/List")],
+  ["Input.js", require("!!raw-loader!../examples/Input")],
+  ["Title.js", require("!!raw-loader!../examples/Title")]
+];
 
 const content = markdown(markdownOptions)`
 Storing data in the \`state\` of your components is great for small apps, and portions of an app which are isolated from the rest of the app.
@@ -103,12 +103,14 @@ The index file is the entry point to a project. This is the entry point for the 
 This component renders a list of strings. It fires an \`onClickItem\` callback when an item is pressed.
 
 - \`Input.js\`\\
-This component renders an input field. It maintains the current input in its state, and then fires a callback, \`onSubmitEditing\` when the user presses ${<kbd>Enter</kbd>}.
+This component renders an input field. It maintains the current input in its state, and then fires a callback, \`onSubmitEditing\` when the user presses ${(
+  <kbd>Enter</kbd>
+)}.
 
 - \`Title.js\`\\
 A simple title component. Purely presentational.
 
 ${<WebPlayer files={files} />}
-`
+`;
 
-export default props => <DefaultPage {...props}>{content}</DefaultPage>
+export default props => <DefaultPage {...props}>{content}</DefaultPage>;

@@ -1,9 +1,9 @@
-import React from 'react'
-import markdown from 'markdown-in-js'
+import React from "react";
+import markdown from "markdown-in-js";
 
-import markdownOptions from '../utils/MarkdownOptions'
-import DefaultPage from './DefaultPage'
-import { WebPlayer } from '../components'
+import markdownOptions from "../utils/MarkdownOptions";
+import DefaultPage from "./DefaultPage";
+import { WebPlayer } from "../components";
 
 const avatarItemFile = `import React, { Component } from 'react'
 import { View, Text, Image } from 'react-native'
@@ -50,7 +50,7 @@ const styles = {
 }
 
 export default connectStyle('com.example.AvatarItem', styles)(AvatarItem)
-`
+`;
 
 const indexFile = `import React, { Component } from 'react'
 import { AppRegistry, View } from 'react-native'
@@ -87,16 +87,16 @@ class App extends Component {
 }
 
 AppRegistry.registerComponent('App', () => App)
-`
+`;
 
-const files = [
-  ['index.js', indexFile],
-  ['AvatarItem.js', avatarItemFile],
-]
+const files = [["index.js", indexFile], ["AvatarItem.js", avatarItemFile]];
 
 const vendorComponents = [
-  ['@shoutem/theme', 'https://cdn.rawgit.com/dabbott/theme/f94c5c8c27fbdd673e3c0730730f8ab61d39613f/dist/shoutem-theme.js'],
-]
+  [
+    "@shoutem/theme",
+    "https://cdn.rawgit.com/dabbott/theme/f94c5c8c27fbdd673e3c0730730f8ab61d39613f/dist/shoutem-theme.js"
+  ]
+];
 
 const content = markdown(markdownOptions)`
 Shoutem themes immitate the naming schemes and hierarchical selectors of CSS. If you're coming from React for web and prefer using CSS (or postcss, sass, etc) to inline styles, you'll feel right at home with Shoutem themes.
@@ -127,12 +127,7 @@ This example touches some more advanced concepts, so if you don't fully understa
 - \`AvatarItem.js\`\\
   \`AvatarItem\` is connected to our theme with \`connectStyle\`. We can mix and match styles defined as plain objects and styles from our theme. Our themed styles are available directly on the object \`this.props.style\`. Our styles defined as plain objects, e.g. \`container\`, are available as \`this.props.style.container\`. Notice how we have to connect \`AvatarText\` in order for it to use styles defined as part of our theme.
 
-${
-  <WebPlayer
-    files={files}
-    vendorComponents={vendorComponents}
-  />
-}
-`
+${<WebPlayer files={files} vendorComponents={vendorComponents} />}
+`;
 
-export default props => <DefaultPage {...props}>{content}</DefaultPage>
+export default props => <DefaultPage {...props}>{content}</DefaultPage>;

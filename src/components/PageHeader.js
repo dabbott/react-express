@@ -1,11 +1,11 @@
-import React, { Component, PropTypes } from 'react'
+import React, { Component } from "react";
 
-import styles from '../styles'
-import Author from './Author'
+import Author from "./Author";
+import styles from "../styles";
 
 export default class PageHeader extends Component {
   render() {
-    const {title, author, authorURL} = this.props
+    const { title, author, authorURL } = this.props;
 
     return (
       <div style={styles.pageHeader}>
@@ -14,6 +14,6 @@ export default class PageHeader extends Component {
           {author}
         </Author>
       </div>
-    )
+    );
   }
 }

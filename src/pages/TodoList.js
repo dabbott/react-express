@@ -1,9 +1,9 @@
-import React from 'react'
-import markdown from 'markdown-in-js'
+import React from "react";
+import markdown from "markdown-in-js";
 
-import markdownOptions from '../utils/MarkdownOptions'
-import Page from './Page'
-import { PageHeader } from '../components'
+import markdownOptions from "../utils/MarkdownOptions";
+import Page from "./Page";
+import { PageHeader } from "../components";
 
 const content = markdown(markdownOptions)`
 
@@ -28,17 +28,17 @@ You can view the completed project on github [here](https://github.com/gabergg/R
 - [Step 2 - Input and ADD_ITEM](todo_list_2)
 - [Step 3 - List and Checkbox](todo_list_3)
 - [Step 4 - Remove completed items and styling](todo_list_4)
-`
+`;
 
 const containerStyle = {
-  display: 'flex',
-  flexDirection: 'row',
-}
+  display: "flex",
+  flexDirection: "row"
+};
 
 const contentStyle = {
-  paddingRight: '30px',
-  marginTop: '-15px',
-}
+  paddingRight: "30px",
+  marginTop: "-15px"
+};
 
 export default props =>
   <Page {...props}>
@@ -47,16 +47,16 @@ export default props =>
         <PageHeader
           title={props.title}
           author={"Gabe G'Sell"}
-          authorURL={'http://gabegsell.com/'}
+          authorURL={"http://gabegsell.com/"}
         />
         {content}
       </div>
       <div>
         <img
-          style={{border: '1px solid black'}}
+          style={{ border: "1px solid black" }}
           width={280}
-          src={'todo-screenshot.png'}
+          src={"todo-screenshot.png"}
         />
       </div>
     </div>
-  </Page>
+  </Page>;

@@ -1,9 +1,9 @@
-import React from 'react'
-import markdown from 'markdown-in-js'
+import React from "react";
+import markdown from "markdown-in-js";
 
-import markdownOptions from '../utils/MarkdownOptions'
-import DefaultPage from './DefaultPage'
-import { WebPlayer } from '../components'
+import markdownOptions from "../utils/MarkdownOptions";
+import DefaultPage from "./DefaultPage";
+import { WebPlayer } from "../components";
 
 const timingDriverExample = `import React, { Component } from 'react'
 import {
@@ -82,7 +82,7 @@ const styles = StyleSheet.create({
 })
 
 AppRegistry.registerComponent('App', () => App)
-`
+`;
 
 const scrollDriverExample = `import React, { Component } from 'react'
 import {
@@ -188,11 +188,14 @@ const styles = StyleSheet.create({
 });
 
 AppRegistry.registerComponent('App', () => App);
-`
+`;
 
 const vendorComponents = [
-  ['@shoutem/animation', 'https://cdn.rawgit.com/dabbott/animation/496810888db6cc0bc19c0d3abbcc9a4de8e8a0dc/dist/shoutem-animation.js'],
-]
+  [
+    "@shoutem/animation",
+    "https://cdn.rawgit.com/dabbott/animation/496810888db6cc0bc19c0d3abbcc9a4de8e8a0dc/dist/shoutem-animation.js"
+  ]
+];
 
 const content = markdown(markdownOptions)`
 Shoutem animations are built from with two parts: a \`Driver\` and an \`Animation Component\`
@@ -225,15 +228,15 @@ In this example, we'll create our driver with \`new TimingDriver\`, passing (opt
 
 We must then start the animation with \`runTimer(progress)\`. Timing animations represent their progress in the range of values [0, 1]. To run an animation to completion, call \`runTimer(1)\`. To run it halfway, \`runTimer(0.5)\`. You may call \`runTimer\` multiple times with different progresses, including going back to the start with \`runTimer(0)\`.
 
-The last step is to connect our driver to our \`FadeIn\` component as a prop: \`${'<FadeIn driver={this.driver}> ... </FadeIn>'}\`.
+The last step is to connect our driver to our \`FadeIn\` component as a prop: \`${"<FadeIn driver={this.driver}> ... </FadeIn>"}\`.
 
-${
+${(
   <WebPlayer
-    title={'TimingDriver'}
+    title={"TimingDriver"}
     code={timingDriverExample}
     vendorComponents={vendorComponents}
   />
-}
+)}
 
 # ScrollDriver Example
 
@@ -241,15 +244,15 @@ Let's take a look at another example: zooming and fading components in and out b
 
 First, our \`ScrollDriver\` controls the progress of animations based on the scroll position of our \`ScrollView\`, so we must feed the scroll position into our \`ScrollDriver\`. To connect our \`ScrollDriver\` to our \`ScrollView\`, we spread \`driver.scrollViewProps\` into the \`ScrollView\`'s props.
 
-Second, the input to the animation is no longer within the range [0, 1]. The input is a scroll position, so we must specify the start and end range with the \`inputRange\` prop on our animation components. We might say \`${'inputRange={[100, 200]}'}\` to start our animation at scroll position 100, and end it at scroll position 200.
+Second, the input to the animation is no longer within the range [0, 1]. The input is a scroll position, so we must specify the start and end range with the \`inputRange\` prop on our animation components. We might say \`${"inputRange={[100, 200]}"}\` to start our animation at scroll position 100, and end it at scroll position 200.
 
-${
+${(
   <WebPlayer
-    title={'ScrollDriver'}
+    title={"ScrollDriver"}
     code={scrollDriverExample}
     vendorComponents={vendorComponents}
   />
-}
-`
+)}
+`;
 
-export default props => <DefaultPage {...props}>{content}</DefaultPage>
+export default props => <DefaultPage {...props}>{content}</DefaultPage>;

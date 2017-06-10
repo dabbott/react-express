@@ -6,14 +6,22 @@
   "scripts": {
     "start": "node server/index.js",
     "postinstall": "npm run build",
-    "dev": "webpack-dev-server --env.dev",
-    "build": "webpack",
+    "dev": "webpack --env.dev --env.client --env.server --watch",
+    "dev:client": "webpack-dev-server --env.dev --env.client",
+    "dev:server": "webpack --env.dev --env.server --watch",
+    "build": "webpack --env.client --env.server",
+    "build:client": "webpack --env.client",
+    "build:server": "webpack --env.server",
     "clean": "rm dist/*",
     "analyze": "webpack --json | webpack-bundle-size-analyzer",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "format": "prettier --write \"src/**/*.js\" \"server/*.js\"",
+    "formatlist": "prettier --l \"src/**/*.js\" \"server/*.js\"",
+    "checkformat": "npm run formatlist || (echo \"\nAbove files not formatted! Run prettier with 'npm run format'\n\" && exit 1)",
+    "lint": "eslint \"src/**/*.js\" \"server/*.js\"",
+    "test": "npm run --silent lint && npm run --silent checkformat"
   },
   "engines": {
-    "node": "6.3.1"
+    "node": "8.1.0"
   },
   "author": "Devin Abbott <devinabbott@gmail.com> (http://github.com/dabbott)",
   "license": "MIT",
@@ -52,9 +60,16 @@
     "react-router-scroll": "^0.4.1",
     "react-styles-provider": "0.4.0-beta.1",
     "style-loader": "0.13.1",
-    "webpack": "2.1.0-beta.20"
+    "webpack": "^2.6.1"
   },
   "devDependencies": {
-    "webpack-dev-server": "2.1.0-beta.0"
+    "babel-eslint": "^7.2.3",
+    "babel-preset-es2015-maybe-webpack": "^1.2.1",
+    "eslint": "^3.19.0",
+    "eslint-plugin-import": "^2.3.0",
+    "eslint-plugin-react": "^7.0.1",
+    "prettier": "^1.4.4",
+    "sockjs-client": "^1.1.4",
+    "webpack-dev-server": "^2.4.5"
   }
 }

@@ -1,9 +1,9 @@
-import React from 'react'
-import markdown from 'markdown-in-js'
+import React from "react";
+import markdown from "markdown-in-js";
 
-import markdownOptions from '../utils/MarkdownOptions'
-import DefaultPage from './DefaultPage'
-import { WebPlayer } from '../components'
+import markdownOptions from "../utils/MarkdownOptions";
+import DefaultPage from "./DefaultPage";
+import { WebPlayer } from "../components";
 
 const domComponents = `import React from 'react'
 import { render } from 'react-dom'
@@ -21,7 +21,7 @@ const element = (
 )
 
 render(element, node)
-`
+`;
 
 const customComponents = `import React, { Component } from 'react'
 import { render } from 'react-dom'
@@ -52,7 +52,7 @@ const element = (
 )
 
 render(element, node)
-`
+`;
 
 const content = markdown(markdownOptions)`
 \`Components\` are the building block of any React UI. React manages the mapping from components created with JSX (e.g. \`${`<div />`}\`) to the native brower DOM which is actually rendered.
@@ -86,6 +86,6 @@ Ultimately, our \`Card\` component doesn't actually insert an HTML element calle
 <br />
 
 In the next sections, we'll cover two important aspects of using components, the <b>Component API</b> and the <b>Component Lifecycle API</b>.
-`
+`;
 
-export default props => <DefaultPage {...props}>{content}</DefaultPage>
+export default props => <DefaultPage {...props}>{content}</DefaultPage>;
