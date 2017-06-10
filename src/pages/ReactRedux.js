@@ -1,9 +1,9 @@
-import React from 'react'
-import markdown from 'markdown-in-js'
+import React from "react";
+import markdown from "markdown-in-js";
 
-import markdownOptions from '../utils/MarkdownOptions'
-import DefaultPage from './DefaultPage'
-import { WebPlayer } from '../components'
+import markdownOptions from "../utils/MarkdownOptions";
+import DefaultPage from "./DefaultPage";
+import { WebPlayer } from "../components";
 
 const indexFile = `import React, { Component } from 'react'
 import { render } from 'react-dom'
@@ -25,7 +25,7 @@ const AppWithStore = (
 )
 
 render(AppWithStore, document.querySelector('#app'))
-`
+`;
 
 const appFile = `import React, { Component } from 'react'
 import { connect } from 'react-redux'
@@ -82,21 +82,29 @@ const styles = {
 }
 
 export default connect(mapStateToProps)(App)
-`
+`;
 
 const files = [
-  ['index.js', indexFile],
-  ['todoListRedux.js', require('!!raw!../examples/TodoListRedux')],
-  ['App.js', appFile],
-  ['List.js', require('!!raw!../examples/List')],
-  ['Input.js', require('!!raw!../examples/Input')],
-  ['Title.js', require('!!raw!../examples/Title')],
-]
+  ["index.js", indexFile],
+  ["todoListRedux.js", require("!!raw-loader!../examples/TodoListRedux")],
+  ["App.js", appFile],
+  ["List.js", require("!!raw-loader!../examples/List")],
+  ["Input.js", require("!!raw-loader!../examples/Input")],
+  ["Title.js", require("!!raw-loader!../examples/Title")]
+];
 
 const vendorComponents = [
-  ['redux', 'Redux', 'https://cdnjs.cloudflare.com/ajax/libs/redux/3.6.0/redux.min.js'],
-  ['react-redux', 'ReactRedux', 'https://cdnjs.cloudflare.com/ajax/libs/react-redux/4.4.5/react-redux.min.js'],
-]
+  [
+    "redux",
+    "Redux",
+    "https://cdnjs.cloudflare.com/ajax/libs/redux/3.6.0/redux.min.js"
+  ],
+  [
+    "react-redux",
+    "ReactRedux",
+    "https://cdnjs.cloudflare.com/ajax/libs/react-redux/4.4.5/react-redux.min.js"
+  ]
+];
 
 const content = markdown(markdownOptions)`
 Redux has official bindings for React in a package called [React Redux](http://redux.js.org/docs/basics/UsageWithReact.html).
@@ -143,12 +151,7 @@ The same as in the Redux example.
 - \`List.js\`, \`Input.js\`, \`Title.js\`\\
 Presentational components - these are the same as in the Component State example.
 
-${
-  <WebPlayer
-    files={files}
-    vendorComponents={vendorComponents}
-  />
-}
-`
+${<WebPlayer files={files} vendorComponents={vendorComponents} />}
+`;
 
-export default props => <DefaultPage {...props}>{content}</DefaultPage>
+export default props => <DefaultPage {...props}>{content}</DefaultPage>;

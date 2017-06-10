@@ -1,9 +1,9 @@
-import React from 'react'
-import markdown from 'markdown-in-js'
+import React from "react";
+import markdown from "markdown-in-js";
 
-import markdownOptions from '../utils/MarkdownOptions'
-import DefaultPage from './DefaultPage'
-import { WebPlayer } from '../components'
+import DefaultPage from "./DefaultPage";
+import WebPlayer from "../components/WebPlayer";
+import markdownOptions from "../utils/MarkdownOptions";
 
 const shortCircuitAnd = `import React, { Component } from 'react'
 import { render } from 'react-dom'
@@ -54,7 +54,7 @@ const styles = {
 }
 
 render(<App />, document.querySelector('#app'))
-`
+`;
 
 const ternaryEvaluation = `import React, { Component } from 'react'
 import { render } from 'react-dom'
@@ -112,7 +112,7 @@ const styles = {
 }
 
 render(<App />, document.querySelector('#app'))
-`
+`;
 
 const complexRendering = `import React, { Component } from 'react'
 import { render } from 'react-dom'
@@ -193,7 +193,7 @@ const styles = {
 }
 
 render(<App />, document.querySelector('#app'))
-`
+`;
 
 const content = markdown(markdownOptions)`
 It's common for a component to render different kinds of content based on its \`props\`. React is extremely flexible - you may return entirely different content each time the render function is called. The only requirement is that the render function returns a React node - this can be a React Element, a string, null, or an array of any of these.
@@ -204,7 +204,7 @@ Let's look at one of the most common cases: conditionally rendering a React elem
 
 In this example, we'll render a Card component that takes a \`title\` prop and optionally a \`subtitle\` prop. We only want to render a \`h2\` for the subtitle if it exists.
 
-<WebPlayer code=${shortCircuitAnd} />
+${<WebPlayer code={shortCircuitAnd} />}
 
 For simple conditional rendering, we take advantage of the short-circuit evaluation of \`&&\`. If the left-hand side of the \`&&\` is falsy, the expression evaluates to the left hand side. Otherwise, the expression evaluates to the right-hand side.
 
@@ -218,7 +218,7 @@ You may also notice that the styles are defined below where they are used in the
 
 Let's look at another common case: rendering a different React element for when a \`prop\` exists and when doesn't. We can accomplish this easily with the ternary operator. It's common to render defaults this way.
 
-<WebPlayer code=${ternaryEvaluation} />
+${<WebPlayer code={ternaryEvaluation} />}
 
 # Complex rendering \`?\`
 
@@ -226,9 +226,9 @@ For more complex cases, we can introduce variables to temporarily reference Reac
 
 Let's take a look at an example where the rendering is substantially different based on whether or not the \`loading\` and \`error\` props exists.
 
-<WebPlayer code=${complexRendering} />
+${<WebPlayer code={complexRendering} />}
 
 Rendering in React is powerful because the logic can be as simple or complex as we need it to be. However, as rendering complexity grows, the code can start to become unmanageable. Consider breaking down complex components into smaller, simpler ones for a more maintainable code base.
-`
+`;
 
-export default props => <DefaultPage {...props}>{content}</DefaultPage>
+export default props => <DefaultPage {...props}>{content}</DefaultPage>;

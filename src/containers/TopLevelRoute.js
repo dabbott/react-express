@@ -1,23 +1,17 @@
-import { IndexRoute, Route } from 'react-router';
-import React from 'react';
+import { IndexRoute, Route } from "react-router";
+import React from "react";
 
-import App from './App'
-import Introduction from '../pages/Introduction'
-import createProxyComponent from '../pages/createProxyComponent'
-import sections from '../utils/Sections'
+import App from "./App";
+import Introduction from "../pages/Introduction";
+import createProxyComponent from "../pages/createProxyComponent";
+import sections from "../utils/Sections";
 
 const routes = sections.map(section => {
-  const {slug, componentName} = section
-  const component = createProxyComponent(componentName)
+  const { slug, componentName } = section;
+  const component = createProxyComponent(componentName);
 
-  return (
-    <Route
-      key={slug}
-      path={slug}
-      component={component}
-    />
-  )
-})
+  return <Route key={slug} path={slug} component={component} />;
+});
 
 export default (
   <Route path="/" component={App}>
@@ -26,4 +20,4 @@ export default (
     {routes}
     {/* <Route path={"*"} component={NotFound} status={404} /> */}
   </Route>
-)
+);

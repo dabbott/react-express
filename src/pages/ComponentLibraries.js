@@ -1,9 +1,9 @@
-import React from 'react'
-import markdown from 'markdown-in-js'
+import React from "react";
+import markdown from "markdown-in-js";
 
-import markdownOptions from '../utils/MarkdownOptions'
-import DefaultPage from './DefaultPage'
-import { GithubRepositoryLink } from '../components'
+import markdownOptions from "../utils/MarkdownOptions";
+import DefaultPage from "./DefaultPage";
+import { GithubRepositoryLink } from "../components";
 
 const content = markdown(markdownOptions)`
 Beyond the React Native core components, there are many open source component libraries. Libraries vary in size and shape, from individual components that bridge native platform functionality (e.g. maps, video, etc) to large component collections (for web folks, think Bootstrap).
@@ -20,9 +20,21 @@ However, component collections aren't for every app: they can add a lot of code 
 
 Currently, the three largest component collections are:
 
-- ${<GithubRepositoryLink user={'shoutem'} repo={'ui'} title={'Shoutem UI'} />}
-- ${<GithubRepositoryLink user={'react-native-community'} repo={'react-native-elements'} title={'React Native Elements'} />}
-- ${<GithubRepositoryLink user={'GeekyAnts'} repo={'NativeBase'} title={'NativeBase'} />}
-`
+- ${<GithubRepositoryLink user={"shoutem"} repo={"ui"} title={"Shoutem UI"} />}
+- ${(
+  <GithubRepositoryLink
+    user={"react-native-community"}
+    repo={"react-native-elements"}
+    title={"React Native Elements"}
+  />
+)}
+- ${(
+  <GithubRepositoryLink
+    user={"GeekyAnts"}
+    repo={"NativeBase"}
+    title={"NativeBase"}
+  />
+)}
+`;
 
-export default props => <DefaultPage {...props}>{content}</DefaultPage>
+export default props => <DefaultPage {...props}>{content}</DefaultPage>;

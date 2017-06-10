@@ -1,7 +1,6 @@
-import React, { Component } from 'react'
-import { render } from 'react-dom'
+import { render } from "react-dom";
+import React from "react";
 
-// Import the App container component
-import App from './App'
+import App from "./App";
 
-render(<App />, document.querySelector('#app'))
+render(<App />, document.querySelector("#app"));

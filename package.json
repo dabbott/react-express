@@ -10,7 +10,11 @@
     "build": "webpack",
     "clean": "rm dist/*",
     "analyze": "webpack --json | webpack-bundle-size-analyzer",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "format": "prettier --write \"src/**/*.js\" \"server/*.js\"",
+    "formatlist": "prettier --l \"src/**/*.js\" \"server/*.js\"",
+    "checkformat": "npm run formatlist || (echo \"\nAbove files not formatted! Run prettier with 'npm run format'\n\" && exit 1)",
+    "lint": "eslint \"src/**/*.js\" \"server/*.js\"",
+    "test": "npm run --silent lint && npm run --silent checkformat"
   },
   "engines": {
     "node": "6.3.1"
@@ -52,13 +56,14 @@
     "react-router-scroll": "^0.4.1",
     "react-styles-provider": "0.4.0-beta.1",
     "style-loader": "0.13.1",
-    "webpack": "^2.1.0-beta.20"
+    "webpack": "^2.6.1"
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",
     "eslint": "^3.19.0",
     "eslint-plugin-import": "^2.3.0",
     "eslint-plugin-react": "^7.0.1",
-    "webpack-dev-server": "2.1.0-beta.0"
+    "prettier": "^1.4.4",
+    "webpack-dev-server": "^2.4.5"
   }
 }

@@ -1,9 +1,9 @@
-import React from 'react'
-import markdown from 'markdown-in-js'
+import React from "react";
+import markdown from "markdown-in-js";
 
-import markdownOptions from '../utils/MarkdownOptions'
-import DefaultPage from './DefaultPage'
-import { EditorTranspiler } from '../components'
+import DefaultPage from "./DefaultPage";
+import EditorTranspiler from "../components/EditorTranspiler";
+import markdownOptions from "../utils/MarkdownOptions";
 
 const code = `const foo = () => 'bar'
 
@@ -16,7 +16,7 @@ const squareSum = (...args) => {
   return squared.reduce((prev, curr) => prev + curr)
 }
 
-this.items.map(x => this.doSomethingWith(x))`
+this.items.map(x => this.doSomethingWith(x))`;
 
 const content = markdown(markdownOptions)`
 The **fat arrow** \`=>\` is used to define anonymous functions. There are two important differences in the behavior of these functions, compared to functions defined with \`function\`.
@@ -27,10 +27,7 @@ Second, fat arrow functions don't have an \`arguments\` object defined. You can 
 
 The fat arrow function syntax can vary a bit. If the function takes exactly one parameter, the parentheses can be omitted: \`x => Math.pow(x, 2)\`. Any other number of arguments will need parentheses: \`(x, y) => Math.pow(x, y)\`. If the function body is not wrapped in curly braces (as in the previous sentences), it is executed as an **expression**, and the return value of the function is the value of the expression. The function body can be wrapped in curly braces to make it a **block**, in which case you will need to explicitly \`return\` a value, if you want something returned. You will likely use the curly braces and block version more frequently, as this allows the function body to include multiple lines of code.
 
-<EditorTranspiler
-  code=${code}
-  title=${'Fat arrow functions'}
-/>
-`
+${<EditorTranspiler code={code} title={"Fat arrow functions"} />}
+`;
 
-export default props => <DefaultPage {...props}>{content}</DefaultPage>
+export default props => <DefaultPage {...props}>{content}</DefaultPage>;

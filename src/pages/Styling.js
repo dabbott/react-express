@@ -1,9 +1,9 @@
-import React from 'react'
-import markdown from 'markdown-in-js'
+import React from "react";
+import markdown from "markdown-in-js";
 
-import markdownOptions from '../utils/MarkdownOptions'
-import DefaultPage from './DefaultPage'
-import { WebPlayer, GithubRepositoryLink } from '../components'
+import markdownOptions from "../utils/MarkdownOptions";
+import DefaultPage from "./DefaultPage";
+import { WebPlayer, GithubRepositoryLink } from "../components";
 
 const inlineStyles = `import React, { Component } from 'react'
 import { render } from 'react-dom'
@@ -57,7 +57,7 @@ class App extends Component {
 }
 
 render(<App />, document.querySelector('#app'))
-`
+`;
 
 const styledComponents = `import React, { Component } from 'react'
 import { render } from 'react-dom'
@@ -101,11 +101,14 @@ class App extends Component {
 }
 
 render(<App />, document.querySelector('#app'))
-`
+`;
 
 const vendorComponents = [
-  ['styled-components', 'https://unpkg.com/styled-components/dist/styled-components.min.js'],
-]
+  [
+    "styled-components",
+    "https://unpkg.com/styled-components/dist/styled-components.min.js"
+  ]
+];
 
 const content = markdown(markdownOptions)`
 There are **many** different ways to style React components. The React community hasn't setting on one "best" way to style components, and new style libraries are created frequently. The method you choose is often based on personal preference, since the features of each method are generally pretty similar.
@@ -141,7 +144,9 @@ Another downside is that we don't get vendor prefixing out of the box. So we can
 - No vendor prefixing out of the box
 - New naming scheme / syntax to learn (camel-cased styles, with numbers or strings as values)
 
-If you don't mind external dependencies and you don't plan to support other renderers like React Native, you can get vendor prefixing and some CSS features by using a library like ${<GithubRepositoryLink user={'Khan'} repo={'aphrodite'} title={'Aphrodite'} />} (20K, 6K gzipped). There are many similar libraries for adding features on top of inline styles, each with a slightly different API.
+If you don't mind external dependencies and you don't plan to support other renderers like React Native, you can get vendor prefixing and some CSS features by using a library like ${(
+  <GithubRepositoryLink user={"Khan"} repo={"aphrodite"} title={"Aphrodite"} />
+)} (20K, 6K gzipped). There are many similar libraries for adding features on top of inline styles, each with a slightly different API.
 
 # CSS and Class Names
 
@@ -163,14 +168,15 @@ You can get dynamic styles by choosing a different \`className\` based on compon
 
 # CSS-in-JS
 
-What if we could combine the inline styles and CSS approaches to get the best of both worlds? There's a third category of libraries that let us use CSS syntax inline in our JavaScript files. This comes with its own set of complexities, but it's nonetheless a very popular approach. Let's take a look at the library \`${<GithubRepositoryLink user={'styled-components'} repo={'styled-components'} title={'styled-components'} />}\`.
-
-${
-  <WebPlayer
-    code={styledComponents}
-    vendorComponents={vendorComponents}
+What if we could combine the inline styles and CSS approaches to get the best of both worlds? There's a third category of libraries that let us use CSS syntax inline in our JavaScript files. This comes with its own set of complexities, but it's nonetheless a very popular approach. Let's take a look at the library \`${(
+  <GithubRepositoryLink
+    user={"styled-components"}
+    repo={"styled-components"}
+    title={"styled-components"}
   />
-}
+)}\`.
+
+${<WebPlayer code={styledComponents} vendorComponents={vendorComponents} />}
 
 We can wrap our components using \`styled\`, which will create a CSS StyleSheet and apply the right \`className\` behind the scenes. Using this approach, we can write styles using the familiar old CSS syntax, while getting the benefits of CSS features and dynamic styles based on component \`props\`.
 
@@ -186,6 +192,6 @@ We can wrap our components using \`styled\`, which will create a CSS StyleSheet 
 **Cons**
 - 72K, 20K gzipped
 - DOM renderer only (no React Native)
-`
+`;
 
-export default props => <DefaultPage {...props}>{content}</DefaultPage>
+export default props => <DefaultPage {...props}>{content}</DefaultPage>;

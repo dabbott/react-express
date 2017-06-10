@@ -1,26 +1,25 @@
-import React, { Component, PropTypes } from 'react'
+import React, { Component } from "react";
 
-const addCommas = (n) => {
-  if (n < 1000) return n.toString()
+const addCommas = n => {
+  if (n < 1000) return n.toString();
 
-  return Math.floor(n / 1000).toString() + ',' + n % 1000
-}
+  return Math.floor(n / 1000).toString() + "," + n % 1000;
+};
 
-const cache = {}
+const cache = {};
 
 export default class StarCount extends Component {
-
   state = {
-    count: null,
-  }
+    count: null
+  };
 
   componentWillMount() {
-    const {user, repo} = this.props
-    const cacheKey = `${user}/${repo}`
+    const { user, repo } = this.props;
+    const cacheKey = `${user}/${repo}`;
 
     if (cache[cacheKey]) {
-      this.setState({count: cache[cacheKey]})
-      return
+      this.setState({ count: cache[cacheKey] });
+      return;
     }
 
     // Fetch doesn't exist in older browsers
@@ -29,20 +28,19 @@ export default class StarCount extends Component {
         .then(response => response.json())
         .then(json => json.stargazers_count)
         .then(count => {
-          cache[cacheKey] = count
-          this.setState({count})
-        })
+          cache[cacheKey] = count;
+          this.setState({ count });
+        });
     } catch (e) {
       // Do nothing
     }
   }
 
   render() {
-    const {user, repo} = this.props
-    const {count} = this.state
+    const { count } = this.state;
 
-    if (!count) return null
+    if (!count) return null;
 
-    return <span>- {addCommas(count)} stars</span>
+    return <span>- {addCommas(count)} stars</span>;
   }
 }

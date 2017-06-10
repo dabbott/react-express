@@ -1,8 +1,8 @@
-import React from 'react'
-import markdown from 'markdown-in-js'
+import React from "react";
+import markdown from "markdown-in-js";
 
-import markdownOptions from '../utils/MarkdownOptions'
-import DefaultPage from './DefaultPage'
+import markdownOptions from "../utils/MarkdownOptions";
+import DefaultPage from "./DefaultPage";
 
 const content = markdown(markdownOptions)`
 Components have a lifecycle: they are instantiated, mounted, rendered, and eventually updated, unmounted, and destroyed. The lifecycle helps manage the complexity of browser APIs by providing a simple, consistent abstraction layer. The lifecycle also allows you to optionally execute custom code at each step for more fine-grained control of the rendering.
@@ -39,6 +39,6 @@ This method is called, assuming \`shouldComponentUpdate\` returned \`true\`. The
 
 * \`componentDidUpdate(object prevProps, object prevState)\`\\
 This method is invoked after re-rendering occurs. At this point, the native UI for this component has been updated to reflect the React Element returned from the \`render()\` method.
-`
+`;
 
-export default props => <DefaultPage {...props}>{content}</DefaultPage>
+export default props => <DefaultPage {...props}>{content}</DefaultPage>;

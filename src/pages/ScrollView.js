@@ -1,9 +1,9 @@
-import React from 'react'
-import markdown from 'markdown-in-js'
+import React from "react";
+import markdown from "markdown-in-js";
 
-import markdownOptions from '../utils/MarkdownOptions'
-import DefaultPage from './DefaultPage'
-import { WebPlayer } from '../components'
+import markdownOptions from "../utils/MarkdownOptions";
+import DefaultPage from "./DefaultPage";
+import { WebPlayer } from "../components";
 
 const code = `import React, { Component } from 'react'
 import { AppRegistry, ScrollView, View, StyleSheet } from 'react-native'
@@ -47,12 +47,12 @@ const styles = StyleSheet.create({
 })
 
 AppRegistry.registerComponent('App', () => App)
-`
+`;
 
 const content = markdown(markdownOptions)`
 \`ScrollView\`s are used for scrollable content. They're well suited for scrolling small quantities of content (< 30 items). They can scroll horizontally or vertically. For large quantities of items, consider using a \`ListView\` for better performance.
 
 ${<WebPlayer code={code} />}
-`
+`;
 
-export default props => <DefaultPage {...props}>{content}</DefaultPage>
+export default props => <DefaultPage {...props}>{content}</DefaultPage>;

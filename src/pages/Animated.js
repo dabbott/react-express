@@ -1,9 +1,9 @@
-import React from 'react'
-import markdown from 'markdown-in-js'
+import React from "react";
+import markdown from "markdown-in-js";
 
-import markdownOptions from '../utils/MarkdownOptions'
-import DefaultPage from './DefaultPage'
-import { WebPlayer } from '../components'
+import markdownOptions from "../utils/MarkdownOptions";
+import DefaultPage from "./DefaultPage";
+import { WebPlayer } from "../components";
 
 const code = `import React, { Component } from 'react'
 import { AppRegistry, StyleSheet, Text, TouchableOpacity, Animated } from 'react-native'
@@ -58,7 +58,7 @@ const styles = StyleSheet.create({
 })
 
 AppRegistry.registerComponent('App', () => App)
-`
+`;
 
 const content = markdown(markdownOptions)`
 The \`Animated\` API helps you interpolate values used in component styles. There are two APIs we need to set up an animation. We need to wrap a value that we want to interpolate, and then we need to use it in the styles of a component.
@@ -75,20 +75,15 @@ The \`Animated\` API helps you interpolate values used in component styles. Ther
 
 Once we have our wrapped values and components set up, we need to specify the target value of our animation and the easing function used during interpolation. After that, we start the animation. This will look something like \`{'Animated.spring(value, {toValue: 300, friction: 0.8}).start()'}\`. Here are a few of the common ways to interpolate values:
 
-- \`${'spring(value, {toValue, friction = 7, tension = 40})'}\` - spring to a new value
-- \`${'decay(value, {velocity, deceleration = 0.997})'}\` - decay the value to 0, provided an initial velocity
-- \`${'timing(value, {toValue, duration = 500, delay = 0, easing = Easing.inOut(Easing.ease)})'}\` - ease into a new value, given an [easing function](https://facebook.github.io/react-native/docs/easing.html)
+- \`${"spring(value, {toValue, friction = 7, tension = 40})"}\` - spring to a new value
+- \`${"decay(value, {velocity, deceleration = 0.997})"}\` - decay the value to 0, provided an initial velocity
+- \`${"timing(value, {toValue, duration = 500, delay = 0, easing = Easing.inOut(Easing.ease)})"}\` - ease into a new value, given an [easing function](https://facebook.github.io/react-native/docs/easing.html)
 
 The full list of methods on \`Animated\` is available [here](https://facebook.github.io/react-native/docs/animated.html#methods).
 
 # Example
 
-${
-  <WebPlayer
-    title={'Animated'}
-    code={code}
-  />
-}
-`
+${<WebPlayer title={"Animated"} code={code} />}
+`;
 
-export default props => <DefaultPage {...props}>{content}</DefaultPage>
+export default props => <DefaultPage {...props}>{content}</DefaultPage>;

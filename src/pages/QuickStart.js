@@ -1,8 +1,8 @@
-import React from 'react'
-import markdown from 'markdown-in-js'
+import React from "react";
+import markdown from "markdown-in-js";
 
-import markdownOptions from '../utils/MarkdownOptions'
-import DefaultPage from './DefaultPage'
+import markdownOptions from "../utils/MarkdownOptions";
+import DefaultPage from "./DefaultPage";
 
 const content = markdown(markdownOptions)`
 Let's set up a new app with the \`create-react-app\` command-line utility from Facebook.
@@ -30,6 +30,6 @@ and then navigate to \`http://localhost:3000/\` in your browser.
 ## That's it!
 
 You're all set up with a new React app. If you need it, you can find the full guide for getting started with \`create-react-app\` [here](https://github.com/facebookincubator/create-react-app#getting-started).
-`
+`;
 
-export default props => <DefaultPage {...props}>{content}</DefaultPage>
+export default props => <DefaultPage {...props}>{content}</DefaultPage>;

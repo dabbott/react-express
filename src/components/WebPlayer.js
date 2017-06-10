@@ -1,58 +1,57 @@
-import React, { Component } from 'react'
-import createStyles, { responsive } from 'react-styles-provider'
-import ReactNativeWebPlayer from 'react-native-web-player'
+import React, { Component } from "react";
+import createStyles, { responsive } from "react-styles-provider";
+import ReactNativeWebPlayer from "react-native-web-player";
 
 const playerStyles = {
   tab: {
-    backgroundColor: 'rgb(250,250,250)',
+    backgroundColor: "rgb(250,250,250)"
   },
   header: {
-    backgroundColor: 'rgb(250,250,250)',
-    boxShadow: 'rgba(0, 0, 0, 0.2) 0px 1px 1px',
-    zIndex: 1000,
+    backgroundColor: "rgb(250,250,250)",
+    boxShadow: "rgba(0, 0, 0, 0.2) 0px 1px 1px",
+    zIndex: 1000
   },
   headerText: {
-    color: '#AAA',
-    fontWeight: 'normal',
+    color: "#AAA",
+    fontWeight: "normal"
   },
   transpilerHeader: {
-    backgroundColor: 'rgb(240,240,240)',
-    boxShadow: 'rgba(0, 0, 0, 0.2) 0px 1px 1px',
-    zIndex: 1000,
+    backgroundColor: "rgb(240,240,240)",
+    boxShadow: "rgba(0, 0, 0, 0.2) 0px 1px 1px",
+    zIndex: 1000
   },
   transpilerHeaderText: {
-    color: '#888',
-    fontWeight: 'normal',
+    color: "#888",
+    fontWeight: "normal"
   },
   tabText: {
-    color: '#AAA',
+    color: "#AAA"
   },
   tabTextActive: {
-    color: '#000',
+    color: "#000"
   },
   playerPane: {
-    backgroundColor: 'rgba(0,0,0,0.02)',
-    overflow: 'hidden',
-  },
-}
+    backgroundColor: "rgba(0,0,0,0.02)",
+    overflow: "hidden"
+  }
+};
 
-playerStyles.playerHeader = playerStyles.header
-playerStyles.playerHeaderText = playerStyles.headerText
+playerStyles.playerHeader = playerStyles.header;
+playerStyles.playerHeaderText = playerStyles.headerText;
 
 @responsive()
 @createStyles({
   container: {
-    display: 'flex',
-    marginBottom: 15,
+    display: "flex",
+    marginBottom: 15
   },
   player: {
-    flex: '1 1 auto',
+    flex: "1 1 auto",
     minWidth: 0,
-    minHeight: 0,
-  },
+    minHeight: 0
+  }
 })
 export default class WebPlayer extends Component {
-
   static defaultProps = {
     height: 700,
     width: 260,
@@ -60,11 +59,11 @@ export default class WebPlayer extends Component {
     showTranspiler: false,
     showConsole: false,
     fullscreen: true,
-    platform: 'web',
-  }
+    platform: "web"
+  };
 
   shouldComponentUpdate() {
-    return false
+    return false;
   }
 
   render() {
@@ -86,8 +85,8 @@ export default class WebPlayer extends Component {
       transpilerTitle,
       playerTitle,
       platform,
-      vendorComponents,
-    } = this.props
+      vendorComponents
+    } = this.props;
 
     const params = {
       code,
@@ -101,16 +100,16 @@ export default class WebPlayer extends Component {
       playerTitle,
       vendorComponents,
       platform,
-      styles: playerStyles,
-    }
+      styles: playerStyles
+    };
 
-    if (responsive.match('mobile')) {
-      params.panes = ['editor']
+    if (responsive.match("mobile")) {
+      params.panes = ["editor"];
     } else {
       if (showTranspiler) {
-        params.panes = ['editor', 'transpiler']
+        params.panes = ["editor", "transpiler"];
       } else {
-        params.panes = ['editor', 'player']
+        params.panes = ["editor", "player"];
       }
 
       if (showConsole) {
@@ -119,25 +118,25 @@ export default class WebPlayer extends Component {
           visible: true,
           maximized: true,
           collapsible: false
-        }
+        };
         params.styles = {
           ...playerStyles,
           playerPane: {
             ...playerStyles.playerPane,
             marginLeft: 0,
-            marginRight: 0,
+            marginRight: 0
           }
-        }
+        };
       }
     }
 
     return (
       <div style={styles.container}>
         <ReactNativeWebPlayer
-          style={{...styles.player, height}}
+          style={{ ...styles.player, height }}
           {...params}
         />
       </div>
-    )
+    );
   }
 }

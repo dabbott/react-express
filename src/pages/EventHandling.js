@@ -1,9 +1,9 @@
-import React from 'react'
-import markdown from 'markdown-in-js'
+import React from "react";
+import markdown from "markdown-in-js";
 
-import markdownOptions from '../utils/MarkdownOptions'
-import DefaultPage from './DefaultPage'
-import { WebPlayer } from '../components'
+import DefaultPage from "./DefaultPage";
+import WebPlayer from "../components/WebPlayer";
+import markdownOptions from "../utils/MarkdownOptions";
 
 const inlineFunction = `import React, { Component } from 'react'
 import { render } from 'react-dom'
@@ -24,7 +24,7 @@ class Button extends Component {
 }
 
 render(<Button />, document.querySelector('#app'))
-`
+`;
 
 const boundFunction = `import React, { Component } from 'react'
 import { render } from 'react-dom'
@@ -51,7 +51,7 @@ class Button extends Component {
 }
 
 render(<Button />, document.querySelector('#app'))
-`
+`;
 
 const customComponents = `import React, { Component } from 'react'
 import { render } from 'react-dom'
@@ -93,7 +93,7 @@ class App extends Component {
 }
 
 render(<App />, document.querySelector('#app'))
-`
+`;
 
 const content = markdown(markdownOptions)`
 DOM nodes created with React, such as \`${`<div />`}\`, fire the same events they would in vanilla JavaScript, with few differences.
@@ -114,7 +114,7 @@ React normalizes event objects created by the browser. More detail on this [here
 
 Let's look at an example where we handle the \`onClick\` event of an element.
 
-<WebPlayer code=${inlineFunction} />
+${<WebPlayer code={inlineFunction} />}
 
 ## Performance & Binding
 
@@ -124,7 +124,7 @@ We call functions defined like this **inline functions**. They're convenient to 
 
 ## Better Example
 
-<WebPlayer code=${boundFunction} />
+${<WebPlayer code={boundFunction} />}
 
 Notice how we define the \`handleClick\` function once, and reference it in the \`render\`. This is more ideomatic because it performs better than our previous example with the function defined inline.
 
@@ -136,9 +136,9 @@ Only DOM components can handle DOM events like \`onClick\` - so our \`Button\` m
 
 There is nothing special about the name of the \`onClick\` prop passed to our \`Button\` - we could name it anything we want, so long \`Button\` passes that prop into a DOM component. For example, we could decide to name the event \`onPress\` and create our button \`Button\` as \`${`<Button onPress={() => ...} />`}\`. Within \`Button\`, we would then want to render \`${`<div onClick={this.props.onPress} />`}\`.
 
-<WebPlayer code=${customComponents} />
+${<WebPlayer code={customComponents} />}
 
 Here we pass our \`Button\` a prop \`onPress\`, which then gets passed into the \`onClick\` of a \`div\`.
-`
+`;
 
-export default props => <DefaultPage {...props}>{content}</DefaultPage>
+export default props => <DefaultPage {...props}>{content}</DefaultPage>;

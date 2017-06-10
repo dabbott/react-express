@@ -1,46 +1,48 @@
-import React, { Component, createElement } from 'react'
+import React, { Component, createElement } from "react";
 
-import Loading from './Loading'
+import Loading from "./Loading";
 
-export default (relativePath) => {
-  let ProxiedComponent
+export default relativePath => {
+  let ProxiedComponent;
 
   const loadComponent = callback => {
     if (!ProxiedComponent) {
       // This needs to be relative to the current module otherwise Webpack won't know where to look
-      System.import(`./${relativePath}`).then(module => callback(ProxiedComponent = module.default))
+      System.import(`./${relativePath}`).then(module =>
+        callback((ProxiedComponent = module.default))
+      );
     }
 
-    return ProxiedComponent
-  }
+    return ProxiedComponent;
+  };
 
   class ComponentProxy extends Component {
     constructor(props) {
-      super(props)
+      super(props);
 
       if (isServer) {
-        ProxiedComponent = require(`./${relativePath}`).default
+        ProxiedComponent = require(`./${relativePath}`).default;
       }
 
-      this.state = { component: ProxiedComponent }
+      this.state = { component: ProxiedComponent };
     }
 
     componentDidMount() {
       if (!this.state.component) {
-        loadComponent(component => this.setState({ component }))
+        loadComponent(component => this.setState({ component }));
       }
     }
 
     render() {
-      const { component } = this.state
+      const { component } = this.state;
 
       if (!component) {
-        return <Loading />
+        return <Loading />;
       }
 
-      return createElement(component, this.props)
+      return createElement(component, this.props);
     }
   }
 
-  return ComponentProxy
-}
+  return ComponentProxy;
+};

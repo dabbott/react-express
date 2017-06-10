@@ -1,9 +1,9 @@
-import React from 'react'
-import markdown from 'markdown-in-js'
+import React from "react";
+import markdown from "markdown-in-js";
 
-import markdownOptions from '../utils/MarkdownOptions'
-import DefaultPage from './DefaultPage'
-import { WebPlayer } from '../components'
+import markdownOptions from "../utils/MarkdownOptions";
+import DefaultPage from "./DefaultPage";
+import { WebPlayer } from "../components";
 
 const code = `import React, { Component } from 'react'
 import { AppRegistry, ListView, View, Text, StyleSheet } from 'react-native'
@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
 })
 
 AppRegistry.registerComponent('App', () => App)
-`
+`;
 
 const sectionsExample = `import React, { Component } from 'react'
 import { AppRegistry, ListView, View, Text, StyleSheet } from 'react-native'
@@ -138,7 +138,7 @@ const styles = StyleSheet.create({
 })
 
 AppRegistry.registerComponent('App', () => App)
-`
+`;
 
 const content = markdown(markdownOptions)`
 \`ListViews\`s are used for large quantities of scrollable content. They expose the underlying \`ScrollView\`, but add performance improvements: only rendering the content on screen (clipping offscreen content), and only updating rows that have changed. Like \`ScrollView\`s, they can scroll horizontally or vertically.
@@ -174,6 +174,6 @@ To render section headers, you'll need to:
 - Pass a \`renderSectionHeader\` prop, \`(rows, sectionId) => Element\`, to the \`ListView\`
 
 ${<WebPlayer code={sectionsExample} />}
-`
+`;
 
-export default props => <DefaultPage {...props}>{content}</DefaultPage>
+export default props => <DefaultPage {...props}>{content}</DefaultPage>;

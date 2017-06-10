@@ -1,9 +1,9 @@
-import React from 'react'
-import markdown from 'markdown-in-js'
+import React from "react";
+import markdown from "markdown-in-js";
 
-import markdownOptions from '../utils/MarkdownOptions'
-import DefaultPage from './DefaultPage'
-import { WebPlayer } from '../components'
+import DefaultPage from "./DefaultPage";
+import WebPlayer from "../components/WebPlayer";
+import markdownOptions from "../utils/MarkdownOptions";
 
 const code = `import React, { Component } from 'react'
 import { render } from 'react-dom'
@@ -50,7 +50,7 @@ class App extends Component {
 }
 
 render(<App />, document.querySelector('#app'))
-`
+`;
 
 const content = markdown(markdownOptions)`
 ## **\`this.props\`**
@@ -73,7 +73,7 @@ Note that you should <i>never</i> directly assign to a specific key within the \
 
 The following example includes a \`Counter\` component that maintains the elapsed time internally as \`state.count\`. The \`App\` component renders the \`Counter\` component with two \`props\`: \`size\` and \`color\`. The \`App\` can easily render several \`Counter\` components with different sizes and colors.
 
-<WebPlayer code=${code} />
-`
+${<WebPlayer code={code} />}
+`;
 
-export default props => <DefaultPage {...props}>{content}</DefaultPage>
+export default props => <DefaultPage {...props}>{content}</DefaultPage>;

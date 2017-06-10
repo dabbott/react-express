@@ -1,8 +1,8 @@
-import React from 'react'
-import markdown from 'markdown-in-js'
+import React from "react";
+import markdown from "markdown-in-js";
 
-import markdownOptions from '../utils/MarkdownOptions'
-import DefaultPage from './DefaultPage'
+import markdownOptions from "../utils/MarkdownOptions";
+import DefaultPage from "./DefaultPage";
 
 const content = markdown(markdownOptions)`
 Webpack bundles your client-side code (JavaScript, css, etc) into a single JavaScript file. Webpack is *highly* configurable with plugins, allowing you to bundle nearly any kind of asset imaginable.
@@ -39,16 +39,18 @@ This installs \`webpack\` and the development server as a dev dependency. In oth
 
 We'll add two scripts to our \`package.json\` file in the \`scripts\` section:
 
-${<pre><code>{
-`{
+${(
+  <pre>
+    <code>{`{
   ...
   "scripts": {
     "dev": "webpack-dev-server --env.dev",
     "build": "webpack"
   },
   ...
-}`
-}</code></pre>}
+}`}</code>
+  </pre>
+)}
 
 The \`dev\` script will start our development server, passing the options \`${`{env: 'dev'}`}\` to our config file. The \`build\` script will save a single \`.js\` file on the filesystem for serving from a production server. We'll use these scripts shortly to bundle and test our app.
 
@@ -56,16 +58,18 @@ The \`dev\` script will start our development server, passing the options \`${`{
 
 Webpack is most commonly configured using a separate config file: \`webpack.config.js\`. This file must export a configuration object, or a function which returns a configuration object, which the webpack compiler will use when run from the command line as \`webpack\`. Let's add a \`webpack.config.js\` now:
 
-${<pre><code>{
-`module.exports = options => {
+${(
+  <pre>
+    <code>{`module.exports = options => {
   return {
     entry: './index.js',
     output: {
       filename: 'bundle.js',
     },
   }
-}`
-}</code></pre>}
+}`}</code>
+  </pre>
+)}
 
 There are only two essential fields: the entry point file, and the output file. Later, we can use options to specify a different configuration for development/production (remember, we pass \`${`{env: 'dev'}`}\` as options in our \`dev\` script).
 
@@ -73,15 +77,19 @@ There are only two essential fields: the entry point file, and the output file. 
 
 Let's add the bare minimum files needed to see something on the screen. We'll create an \`index.js\` and an \`index.html\`:
 
-${<pre><code>{
-`// index.js
-document.write('Hello World!')`
-}</code></pre>}
+${(
+  <pre>
+    <code>{`// index.js
+document.write('Hello World!')`}</code>
+  </pre>
+)}
 
-${<pre><code>{
-`<!-- index.html -->
-<script src="./bundle.js"></script>`
-}</code></pre>}
+${(
+  <pre>
+    <code>{`<!-- index.html -->
+<script src="./bundle.js"></script>`}</code>
+  </pre>
+)}
 
 (Wondering why there's no html tag? It's convenient to omit [optional tags](https://google.github.io/styleguide/htmlcssguide.xml?showone=Optional_Tags#Optional_Tags)!)
 
@@ -100,6 +108,6 @@ For reference, our directory should look like this:
 ## That's it!
 
 Those are the steps needed to set up a standard webpack build. There are lot of other plugins and configuration options worth learning. In the next few sections, we'll add the babel plugin for transpiling our code, and we'll install the React library.
-`
+`;
 
-export default props => <DefaultPage {...props}>{content}</DefaultPage>
+export default props => <DefaultPage {...props}>{content}</DefaultPage>;

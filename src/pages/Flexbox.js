@@ -1,9 +1,9 @@
-import React from 'react'
-import markdown from 'markdown-in-js'
+import React from "react";
+import markdown from "markdown-in-js";
 
-import markdownOptions from '../utils/MarkdownOptions'
-import DefaultPage from './DefaultPage'
-import { WebPlayer } from '../components'
+import markdownOptions from "../utils/MarkdownOptions";
+import DefaultPage from "./DefaultPage";
+import { WebPlayer } from "../components";
 
 const toggleFile = `import React, { Component } from 'react'
 import { AppRegistry, View, Text, TouchableOpacity, StyleSheet } from 'react-native'
@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'skyblue',
   },
 })
-`
+`;
 
 const indexFile = `import React, { Component } from 'react'
 import { AppRegistry, View, StyleSheet } from 'react-native'
@@ -138,12 +138,9 @@ const styles = StyleSheet.create({
 })
 
 AppRegistry.registerComponent('App', () => App)
-`
+`;
 
-const files = [
-  ['index.js', indexFile],
-  ['Toggle.js', toggleFile],
-]
+const files = [["index.js", indexFile], ["Toggle.js", toggleFile]];
 
 const content = markdown(markdownOptions)`
 Components specify the layout of their children using the <b>flexbox</b> algorithm. Using flexbox lets you specify a layout that expands or shrinks to fill screens of various dimensions. You can seamlessly mix and match these automatic layouts with fixed sizes like <code>width: 100</code>.
@@ -159,6 +156,6 @@ Property | Default | Options | Description
 The following example lets you try all the possible combinations of flexbox properties and layouts.
 
 ${<WebPlayer files={files} />}
-`
+`;
 
-export default props => <DefaultPage {...props}>{content}</DefaultPage>
+export default props => <DefaultPage {...props}>{content}</DefaultPage>;

@@ -1,87 +1,87 @@
 const styles = {
   title: {
-    textAlign: 'center',
+    textAlign: "center",
     fontSize: 60,
     fontWeight: 100,
-    color: 'rgb(38, 48, 83)',
+    color: "rgb(38, 48, 83)"
   },
   subtitle: {
-    textAlign: 'center',
+    textAlign: "center",
     fontSize: 18,
     fontWeight: 300,
     paddingTop: 10,
-    color: 'rgb(38, 48, 83)',
+    color: "rgb(38, 48, 83)"
   },
   banner: {
-    position: 'absolute',
+    position: "absolute",
     top: 0,
     left: 0,
     right: 0,
     height: 400,
     backgroundImage: `url(//cdn.rawgit.com/dabbott/react-native-express/master/static/background-compressed.jpg)`,
-    backgroundSize: 'cover',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundSize: "cover",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
     zIndex: -1,
-    flexDirection: 'column',
+    flexDirection: "column"
   },
   container: {
-    flex: '1 1 auto',
-    display: 'flex',
-    flexDirection: 'column',
+    flex: "1 1 auto",
+    display: "flex",
+    flexDirection: "column",
     minWidth: 0,
-    minHeight: 0,
+    minHeight: 0
   },
   content: {
-    flex: '1 1 auto',
+    flex: "1 1 auto",
     paddingTop: 400,
-    overflowY: 'auto',
+    overflowY: "auto",
     zIndex: 1,
     minWidth: 0,
-    minHeight: 0,
+    minHeight: 0
   },
   well: {
-    padding: '20px 20px',
+    padding: "20px 20px"
   },
   li: {
-    margin: '10px 0',
+    margin: "10px 0"
   },
   pageHeader: {
     fontSize: 20,
     fontWeight: 300,
     marginTop: 15,
-    marginBottom: 15,
+    marginBottom: 15
   },
   h3: {
     fontSize: 20,
     fontWeight: 300,
     marginTop: 60,
-    marginBottom: 15,
+    marginBottom: 15
   },
   h4: {
     fontSize: 14,
     fontWeight: 500,
     marginTop: 35,
-    marginBottom: 15,
+    marginBottom: 15
   },
   p: {
     fontSize: 14,
     fontWeight: 400,
-    lineHeight: '22px',
+    lineHeight: "22px",
     marginBottom: 15
   },
   strong: {
-    fontWeight: 'bold',
-  },
-}
+    fontWeight: "bold"
+  }
+};
 
 Object.assign(styles, {
   h4_monospace: {
     ...styles.h4,
-    fontFamily: 'monospace',
-    fontWeight: 'bold',
-  },
-})
+    fontFamily: "monospace",
+    fontWeight: "bold"
+  }
+});
 
-export default styles
+export default styles;

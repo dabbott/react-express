@@ -1,9 +1,9 @@
-import React from 'react'
-import markdown from 'markdown-in-js'
+import React from "react";
+import markdown from "markdown-in-js";
 
-import markdownOptions from '../utils/MarkdownOptions'
-import DefaultPage from './DefaultPage'
-import { WebPlayer } from '../components'
+import markdownOptions from "../utils/MarkdownOptions";
+import DefaultPage from "./DefaultPage";
+import { WebPlayer } from "../components";
 
 const indexFile = `import { AppRegistry, View } from 'react-native'
 import { createStore, applyMiddleware } from 'redux'
@@ -27,7 +27,7 @@ const AppWithStore = () => (
 )
 
 AppRegistry.registerComponent('App', () => AppWithStore)
-`
+`;
 
 const reduxFile = `export const types = {
   FETCH_POSTS_REQUEST: 'FETCH_POSTS_REQUEST',
@@ -83,7 +83,7 @@ export const reducer = (state = initialState, action) => {
 
   return state
 }
-`
+`;
 
 const appFile = `import React, { Component } from 'react'
 import { View, Text, ActivityIndicator, ScrollView, TouchableOpacity, StyleSheet } from 'react-native'
@@ -213,19 +213,30 @@ const styles = StyleSheet.create({
 })
 
 export default connect(mapStateToProps)(App)
-`
+`;
 
 const files = [
-  ['index.js', indexFile],
-  ['postsRedux.js', reduxFile],
-  ['App.js', appFile],
-]
+  ["index.js", indexFile],
+  ["postsRedux.js", reduxFile],
+  ["App.js", appFile]
+];
 
 const vendorComponents = [
-  ['redux', 'Redux', 'https://cdnjs.cloudflare.com/ajax/libs/redux/3.6.0/redux.js'],
-  ['react-redux', 'ReactRedux', 'https://cdnjs.cloudflare.com/ajax/libs/react-redux/4.4.5/react-redux.js'],
-  ['redux-thunk', 'https://cdnjs.cloudflare.com/ajax/libs/redux-thunk/2.1.0/redux-thunk.js'],
-]
+  [
+    "redux",
+    "Redux",
+    "https://cdnjs.cloudflare.com/ajax/libs/redux/3.6.0/redux.js"
+  ],
+  [
+    "react-redux",
+    "ReactRedux",
+    "https://cdnjs.cloudflare.com/ajax/libs/react-redux/4.4.5/react-redux.js"
+  ],
+  [
+    "redux-thunk",
+    "https://cdnjs.cloudflare.com/ajax/libs/redux-thunk/2.1.0/redux-thunk.js"
+  ]
+];
 
 const content = markdown(markdownOptions)`
 By default, Redux only handles synchronous actions. However, there are some great middlewares (plugins) for handling asynchronous actions.
@@ -251,12 +262,7 @@ This contains the actionCreators and reducer for fetching posts and updating the
 - \`App.js\`\\
 \`App\` is connected to the store using \`connect()\`. It pulls the post data, along with loading and error states, out of the redux store.
 
-${
-  <WebPlayer
-    files={files}
-    vendorComponents={vendorComponents}
-  />
-}
-`
+${<WebPlayer files={files} vendorComponents={vendorComponents} />}
+`;
 
-export default props => <DefaultPage {...props}>{content}</DefaultPage>
+export default props => <DefaultPage {...props}>{content}</DefaultPage>;

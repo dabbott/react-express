@@ -15,6 +15,15 @@ module.exports = {
   plugins: ["react", "import"],
   rules: {
     "react/prop-types": 0,
-    "react/no-deprecated": 0
+    "react/no-deprecated": 0,
+    "react/display-name": 0,
+    "react/no-unescaped-entities": 0,
+    "react/no-string-refs": 0,
+    "no-console": 0
+  },
+  globals: {
+    System: true,
+    isClient: true,
+    isServer: true
   }
 };

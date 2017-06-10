@@ -1,9 +1,9 @@
-import React from 'react'
-import markdown from 'markdown-in-js'
+import React from "react";
+import markdown from "markdown-in-js";
 
-import markdownOptions from '../utils/MarkdownOptions'
-import DefaultPage from './DefaultPage'
-import { WebPlayer } from '../components'
+import markdownOptions from "../utils/MarkdownOptions";
+import DefaultPage from "./DefaultPage";
+import { WebPlayer } from "../components";
 
 const code = `import React, { Component } from 'react'
 import { AppRegistry, StyleSheet, Text, View, TouchableOpacity, Animated } from 'react-native'
@@ -67,11 +67,14 @@ const styles = StyleSheet.create({
 })
 
 AppRegistry.registerComponent('App', () => App)
-`
+`;
 
 const vendorComponents = [
-  ['react-native-animatable', 'https://cdn.rawgit.com/dabbott/8335f232c8c90ef056ac5912e6cd4b38/raw/88841a962dc104b02b9e9919c5ad7a46c6c382d9/react-native-animatable.js'],
-]
+  [
+    "react-native-animatable",
+    "https://cdn.rawgit.com/dabbott/8335f232c8c90ef056ac5912e6cd4b38/raw/88841a962dc104b02b9e9919c5ad7a46c6c382d9/react-native-animatable.js"
+  ]
+];
 
 const content = markdown(markdownOptions)`
 React Native Animatable is a library for declarative animations. See the Github repo [here](https://github.com/oblador/react-native-animatable).
@@ -80,13 +83,13 @@ Creating animations is much easier than with \`Animated\`. Like with \`Animated\
 
 # Example
 
-${
+${(
   <WebPlayer
-    title={'React Native Animatable'}
+    title={"React Native Animatable"}
     code={code}
     vendorComponents={vendorComponents}
   />
-}
-`
+)}
+`;
 
-export default props => <DefaultPage {...props}>{content}</DefaultPage>
+export default props => <DefaultPage {...props}>{content}</DefaultPage>;

@@ -8,7 +8,9 @@ module.exports = {
     innerWidth: 1024,
     innerHeight: 768,
     location: {
-      hostname: `www.${prod ? "reactexpress" : "react-express-staging.herokuapp"}.com`
+      hostname: `www.${prod
+        ? "reactexpress"
+        : "react-express-staging.herokuapp"}.com`
     }
   }
 };

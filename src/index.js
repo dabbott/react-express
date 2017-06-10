@@ -1,18 +1,15 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
+import React from "react";
+import ReactDOM from "react-dom";
 
-import Root from './root';
+import Root from "./root";
 
 const render = () => {
-  ReactDOM.render(
-    <Root />,
-    document.getElementById('root')
-  )
-}
+  ReactDOM.render(<Root />, document.getElementById("root"));
+};
 
-render()
+render();
 
 // Hot Module Replacement API
 if (module.hot) {
-  module.hot.accept('./containers/Router', render)
+  module.hot.accept("./containers/Router", render);
 }

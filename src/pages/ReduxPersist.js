@@ -1,9 +1,9 @@
-import React from 'react'
-import markdown from 'markdown-in-js'
+import React from "react";
+import markdown from "markdown-in-js";
 
-import markdownOptions from '../utils/MarkdownOptions'
-import DefaultPage from './DefaultPage'
-import { WebPlayer } from '../components'
+import markdownOptions from "../utils/MarkdownOptions";
+import DefaultPage from "./DefaultPage";
+import { WebPlayer } from "../components";
 
 const indexFile = `import { AppRegistry, View } from 'react-native'
 import { createStore } from 'redux'
@@ -30,7 +30,7 @@ const AppWithStore = () => (
 )
 
 AppRegistry.registerComponent('App', () => AppWithStore)
-`
+`;
 
 const appFile = `import React, { Component } from 'react'
 import { AppRegistry, View } from 'react-native'
@@ -81,32 +81,39 @@ class App extends Component {
 }
 
 export default connect(mapStateToProps)(App)
-`
+`;
 
 const files = [
-  ['index.js', indexFile],
-  ['todoListRedux.js', require('!!raw!../examples/TodoListRedux')],
-  ['App.js', appFile],
-  ['List.js', require('!!raw!../examples/List')],
-  ['Input.js', require('!!raw!../examples/Input')],
-  ['Title.js', require('!!raw!../examples/Title')],
-]
+  ["index.js", indexFile],
+  ["todoListRedux.js", require("!!raw-loader!../examples/TodoListRedux")],
+  ["App.js", appFile],
+  ["List.js", require("!!raw-loader!../examples/List")],
+  ["Input.js", require("!!raw-loader!../examples/Input")],
+  ["Title.js", require("!!raw-loader!../examples/Title")]
+];
 
 const vendorComponents = [
-  ['redux', 'Redux', 'https://cdnjs.cloudflare.com/ajax/libs/redux/3.6.0/redux.min.js'],
-  ['react-redux', 'ReactRedux', 'https://cdnjs.cloudflare.com/ajax/libs/react-redux/4.4.5/react-redux.min.js'],
-  ['redux-persist', 'redux-persist', 'https://cdnjs.cloudflare.com/ajax/libs/redux-persist/4.0.0-alpha7/redux-persist.js'],
-]
+  [
+    "redux",
+    "Redux",
+    "https://cdnjs.cloudflare.com/ajax/libs/redux/3.6.0/redux.min.js"
+  ],
+  [
+    "react-redux",
+    "ReactRedux",
+    "https://cdnjs.cloudflare.com/ajax/libs/react-redux/4.4.5/react-redux.min.js"
+  ],
+  [
+    "redux-persist",
+    "redux-persist",
+    "https://cdnjs.cloudflare.com/ajax/libs/redux-persist/4.0.0-alpha7/redux-persist.js"
+  ]
+];
 
 const content = markdown(markdownOptions)`
 Redux Persist is an extremely simple way to persist your entire redux store to disk, and load it into memory when the app launches again. Redux Persist is an abstraction layer on top of <code>AsyncStorage</code>. You can read more about Redux Persist in the [docs](https://github.com/rt2zz/redux-persist).
 
-${
-  <WebPlayer
-    files={files}
-    vendorComponents={vendorComponents}
-  />
-}
-`
+${<WebPlayer files={files} vendorComponents={vendorComponents} />}
+`;
 
-export default props => <DefaultPage {...props}>{content}</DefaultPage>
+export default props => <DefaultPage {...props}>{content}</DefaultPage>;

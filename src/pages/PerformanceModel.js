@@ -1,8 +1,8 @@
-import React from 'react'
-import markdown from 'markdown-in-js'
+import React from "react";
+import markdown from "markdown-in-js";
 
-import markdownOptions from '../utils/MarkdownOptions'
-import DefaultPage from './DefaultPage'
+import markdownOptions from "../utils/MarkdownOptions";
+import DefaultPage from "./DefaultPage";
 
 const content = markdown(markdownOptions)`
 React is built for performance; React is used to build massively complex interfaces with thousands of elements, each one potentially responding to user interaction. Because performance is so core to React, let's take a look at the high level performance model.
@@ -16,6 +16,6 @@ Component render | Fast | Components can re-render very frequently without a not
 It's best practice to write your components in a way that limits the number of \`render\` calls, even when performance isn't an issue. It tends to be easier to reason about and debug components that only update when necessary, and it's easier to optimize components written this way. It's generally no more or less code, but rather a different way of writing the same component.
 
 The examples in the following sections are too small and simple for performance to be a problem, so we won't need to use \`shouldComponentUpdate\`. React is fast by default, only slowing down in extreme cases, so you can safely skip the \`shouldComponentUpdate\` until you notice sluggish app behavior.
-`
+`;
 
-export default props => <DefaultPage {...props}>{content}</DefaultPage>
+export default props => <DefaultPage {...props}>{content}</DefaultPage>;
