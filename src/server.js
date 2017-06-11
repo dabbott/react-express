@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet";
 import React, { Component, PropTypes } from "react";
 
 import Root from "./Root";
@@ -17,3 +18,5 @@ export default class App extends Component {
     return <Root />;
   }
 }
+
+export const AppHelmet = Helmet;
