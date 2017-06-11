@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Helmet from "react-helmet";
+import { Helmet } from "react-helmet";
 import createStyles, { responsive } from "react-styles-provider";
 
 import styles from "../styles";

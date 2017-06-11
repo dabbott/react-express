@@ -115,7 +115,9 @@ module.exports = (env = {}) => {
   };
 
   return [
-    ...(client ? [Object.assign(base, dev ? devConfig : prodConfig)] : []),
+    ...(client
+      ? [Object.assign(base, dev && !server ? devConfig : prodConfig)]
+      : []),
     ...(server ? [node] : [])
   ];
 };
