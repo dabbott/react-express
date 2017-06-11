@@ -130,6 +130,8 @@ export default class WebPlayer extends Component {
       }
     }
 
+    if (isServer) return null;
+
     return (
       <div style={styles.container}>
         <ReactNativeWebPlayer

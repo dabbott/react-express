@@ -12,6 +12,8 @@ export default class Disqus extends Component {
   render() {
     const { identifier, title, url } = this.props;
 
+    if (isServer) return false;
+
     return (
       <DisqusThread
         shortname={shortname}
