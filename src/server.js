@@ -2,7 +2,6 @@ import { Helmet } from "react-helmet";
 import React, { Component, PropTypes } from "react";
 
 import Root from "./Root";
-export * as Sections from "./utils/Sections";
 
 export default class App extends Component {
   static childContextTypes = {

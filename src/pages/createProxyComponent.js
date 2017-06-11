@@ -24,7 +24,17 @@ export default relativePath => {
         ProxiedComponent = require(`./${relativePath}`).default;
       }
 
-      this.state = { component: ProxiedComponent };
+      if (
+        isClient &&
+        window.LOADED_MODULES &&
+        window.LOADED_MODULES[relativePath]
+      ) {
+        ProxiedComponent = window.LOADED_MODULES[relativePath];
+      }
+
+      this.state = {
+        component: ProxiedComponent
+      };
     }
 
     componentDidMount() {

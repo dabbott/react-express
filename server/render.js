@@ -4,11 +4,7 @@ const ReactDOMServer = require("react-dom/server");
 const fs = require("fs");
 const path = require("path");
 
-const {
-  default: Root,
-  AppHelmet: Helmet,
-  Sections
-} = require("./build/server-bundle");
+const { default: Root, AppHelmet: Helmet } = require("./build/server-bundle");
 
 const pageCache = {};
 
@@ -17,7 +13,7 @@ const indexFile = fs.readFileSync(
   "utf8"
 );
 
-const createDocument = (helmet, content) => `<!doctype html>
+const createDocument = (location, helmet, content) => `<!doctype html>
 <html>
   <head>
     <meta charset="utf-8">
@@ -41,6 +37,9 @@ const createDocument = (helmet, content) => `<!doctype html>
     ${helmet.link.toString()}
     <link rel="stylesheet" type="text/css" href="reset.css">
     <link rel="stylesheet" type="text/css" href="main.css">
+    <script>
+      window.INITIAL_STATE = {location: ${JSON.stringify(location)}}
+    </script>
   </head>
   <body>
     <div id="root">${content}</div>
@@ -59,7 +58,7 @@ const renderPage = location => {
   // TODO Figure out why display value is getting replaced with [object Object]
   content = content.replace(/display:\[object Object\]/g, "display:flex");
 
-  return createDocument(helmet, content);
+  return createDocument(location, helmet, content);
 };
 
 // Primitive mobile detection (same as used by client)
