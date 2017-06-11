@@ -2,7 +2,15 @@
 
 A guide and reference to help people get started with React.
 
+If you'd like to contribute, follow along below to get the repo set up.
+
 ## Installation
+
+```bash
+yarn
+```
+
+OR
 
 ```bash
 npm install
