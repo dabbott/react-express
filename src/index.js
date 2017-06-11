@@ -8,7 +8,7 @@ const render = () => {
   ReactDOM.render(<Root />, document.getElementById("root"));
 };
 
-if (window.INITIAL_STATE) {
+if (window.INITIAL_STATE && window.INITIAL_STATE.location) {
   const { location } = window.INITIAL_STATE;
   const { componentName } = getSection(location);
 

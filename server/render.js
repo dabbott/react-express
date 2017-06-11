@@ -1,17 +1,9 @@
 const React = require("react");
 const ReactDOMServer = require("react-dom/server");
 
-const fs = require("fs");
-const path = require("path");
-
 const { default: Root, AppHelmet: Helmet } = require("./build/server-bundle");
 
 const pageCache = {};
-
-const indexFile = fs.readFileSync(
-  path.resolve(__dirname, "..", "dist", "index.html"),
-  "utf8"
-);
 
 const createDocument = (location, helmet, content) => `<!doctype html>
 <html>
@@ -48,7 +40,7 @@ const createDocument = (location, helmet, content) => `<!doctype html>
 </html>
 `;
 
-const renderPage = location => {
+const renderPage = (location, isMobile) => {
   let content = ReactDOMServer.renderToString(
     React.createElement(Root, { location })
   );
@@ -58,7 +50,14 @@ const renderPage = location => {
   // TODO Figure out why display value is getting replaced with [object Object]
   content = content.replace(/display:\[object Object\]/g, "display:flex");
 
-  return createDocument(location, helmet, content);
+  // Don't SSR on mobile yet - since we're doing layouts in JS there might
+  // be a flash when the layout switches. Dimensions are currently grabbed
+  // from 'window' by react-styles-provider at launch, so we can't override them.
+  return createDocument(
+    isMobile ? "" : location,
+    helmet,
+    isMobile ? "" : content
+  );
 };
 
 // Primitive mobile detection (same as used by client)
@@ -67,20 +66,16 @@ const detectMobile = (userAgent = "") =>
     userAgent
   );
 
+const getCacheKey = (location, isMobile) => `${location}:${isMobile}`;
+
 module.exports = (req, res) => {
   const location = req.url;
   const isMobile = detectMobile(req.headers["user-agent"]);
+  const cacheKey = getCacheKey(location, isMobile);
 
-  // Don't SSR on mobile yet - since we're doing layouts in JS there might
-  // be a flash when the layout switches. Dimensions are currently grabbed
-  // from 'window' by react-styles-provider at launch, so we can't override them.
-  if (isMobile) {
-    return res.send(indexFile);
+  if (!pageCache[cacheKey]) {
+    pageCache[cacheKey] = renderPage(location, isMobile);
   }
 
-  if (!pageCache[location]) {
-    pageCache[location] = renderPage(location);
-  }
-
-  return res.send(pageCache[location]);
+  return res.send(pageCache[cacheKey]);
 };
