@@ -5,19 +5,19 @@ import DefaultPage from "./DefaultPage";
 import markdownOptions from "../utils/MarkdownOptions";
 
 const content = markdown(markdownOptions)`
-Babel is a highly configurable parser that lets you use experimental JavaScript features and extensions, compiling down into old-style JavaScript that can be supported on a wider range of platforms. Of course, if a native platform doesn't support an ES6 feature like \`Map()\`, Babel won't fully be able to help -- but it can in many cases polyfill missing APIs to provide this functionality.
+Babel is a highly configurable parser that lets you use experimental JavaScript features and extensions, compiling down into old-style JavaScript that can be supported on a wider range of platforms. Of course, if a native platform doesn't support an ES2015 feature like \`Map()\`, Babel won't fully be able to help -- but it can in many cases polyfill missing APIs to provide this functionality.
 
 Babel enables debugging of the the original source code by including **source maps** with the compiled JavaScript. JavaScript interpreters will run the compiled code, but map it to the source code in the debugger so that you can debug the source code instead of the (generally quite ugly) compiled output.
 
 # Plugins, presets, and stages
 
-Babel comes in two parts: the core, and plugins. Each individual language feature that Babel can compile, such as ES6 classes, has a separate plugin. Collections of plugins are grouped into **presets**, so that you don't have to install hundreds of individual dependencies.
+Babel comes in two parts: the core, and plugins. Each individual language feature that Babel can compile, such as ES2015 classes, has a separate plugin. Collections of plugins are grouped into **presets**, so that you don't have to install hundreds of individual dependencies.
 
 Babel groups experimental language features into presets called **stages**, with \`stage-0\` being the most experimental (i.e. these may not make it into the official language spec) and \`stage-3\` (these features aren't going anywhere).
 
 # Which presets should I use?
 
-You'll need the \`react\` preset to use the React JSX language extension. You'll almost certainly want the \`es2015\` preset, which includes plugins for compiling ES6 features. And then you'll likely want to choose a \`stage\` preset - I recommend \`stage-1\` as a good balance between practical and safe to use.
+You'll need the \`react\` preset to use the React JSX language extension. You'll almost certainly want the \`es2015\` preset, which includes plugins for compiling ES2015 features. And then you'll likely want to choose a \`stage\` preset - I recommend \`stage-1\` as a good balance between practical and safe to use.
 
 If you want to use the new \`async\` and \`await\` keywords, you'll also need to include Babel's runtime library. If you don't know what these keywords are, we'll cover them [later](async_await), but I generally recommend installing the runtime and using them.
 

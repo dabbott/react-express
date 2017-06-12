@@ -22,7 +22,7 @@ const style = {
 console.log(style)`;
 
 const content = markdown(markdownOptions)`
-Similar to the array spread operator in ES6, ES7 offers a spread operator \`...\` for objects. This tries to use ES6's \`Object.assign\`, as you'll see when you view the babel output of the spread operator. This can be very useful in copying or extending objects.
+Similar to the array spread operator in ES2015, ES2016 offers a spread operator \`...\` for objects. This tries to use ES2015's \`Object.assign\`, as you'll see when you view the babel output of the spread operator. This can be very useful in copying or extending objects.
 
 We can copy an object simply with \`${"{...originalObj}"}\`. Note that this is a shallow copy. We can also extend an object with \`${"{...originalObj, key1: 'newValue'}"}\`. Similarly to \`assign\`, when duplicate keys appear in a spread, the last assignment of that key takes priority.
 
