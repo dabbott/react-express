@@ -18,7 +18,7 @@ const exportExample = `export default React
 export {View, Text, Image}`;
 
 const content = markdown(markdownOptions)`
-ES6 provides a more advanced module importing/exporting pattern than the widely used CommonJS pattern. By contrast to the old \`${"module.exports = {...}"}\`, we can now export multiple named values. Similarly, we can import multiple named values.
+ES2015 provides a more advanced module importing/exporting pattern than the widely used CommonJS pattern. By contrast to the old \`${"module.exports = {...}"}\`, we can now export multiple named values. Similarly, we can import multiple named values.
 
 There is one default export per file, and this exported value can be imported without refering to it by name. Every other import and export must be named.
 

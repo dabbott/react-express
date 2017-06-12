@@ -12,7 +12,7 @@ const code = `class Foo {
 console.log(Foo.bar)`;
 
 const content = markdown(markdownOptions)`
-As we saw in our ES6 section, static functions on classes exist as a part of ES6. In ES7, we can use the \`static\` keyword to declare static properties as well. Static properties exist directly on the class.
+As we saw in our ES2015 section, static functions on classes exist as a part of ES2015. In ES2016, we can use the \`static\` keyword to declare static properties as well. Static properties exist directly on the class.
 
 ${<EditorConsole code={code} title={"Static properties"} />}
 `;

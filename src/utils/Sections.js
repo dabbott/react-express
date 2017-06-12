@@ -35,7 +35,7 @@ let sections = [
     slug: "modern_javascript",
     componentName: "ModernJavascript"
   },
-  { depth: 1, title: "ES6", slug: "es6", componentName: "ES6" },
+  { depth: 1, title: "ES2015", slug: "es2015", componentName: "ES6" },
 
   {
     depth: 2,
@@ -83,8 +83,8 @@ let sections = [
 
   {
     depth: 1,
-    title: "ES7 and Beyond",
-    slug: "es7_and_beyond",
+    title: "ES2016 and More",
+    slug: "es2016",
     componentName: "ES7AndBeyond"
   },
   {

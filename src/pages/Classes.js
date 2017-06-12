@@ -47,7 +47,7 @@ console.log(cuber.calculate())
 `;
 
 const content = markdown(markdownOptions)`
-In ES5, classes are written as functions, with instance methods assigned to \`MyFunction.prototype\`. ES6 allows us to use the simpler \`class\` syntax.
+In ES5, classes are written as functions, with instance methods assigned to \`MyFunction.prototype\`. ES2015 allows us to use the simpler \`class\` syntax.
 
 \`class\` gives us built in instance functions, static functions, and inheritance. \`constructor\` is a special function that is called automatically every time a class instance is created. We can use the \`static\` keyword to declare static class functions. Static method calls are made directly on the class and cannot be called on instances of the class.
 
