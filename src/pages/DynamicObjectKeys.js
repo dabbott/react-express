@@ -6,12 +6,12 @@ import EditorConsole from "../components/EditorConsole";
 import Page from "./Page";
 import markdownOptions from "../utils/MarkdownOptions";
 
-const code = `const chosenAnimal = 'cat'
-const animals = {
-  [\`animal\${chosenAnimal}\`]: true,
+const code = `const attribute = 'color'
+const style = {
+  [attribute]: 'white'
 }
 
-console.log(animals.animalcat)`;
+console.log(style.color)`;
 
 const content = markdown(markdownOptions)`
 In ES5, object literal keys are always interpreted as a string. ES6 allows us to use computed values as keys in object literals, using square bracket syntax: \`[myKey]\`.

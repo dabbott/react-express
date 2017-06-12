@@ -18,16 +18,18 @@ const code = `class Cat {
 const cat = new Cat('Tom')
 const printName = cat.printName
 
-// \`this\` is still bound to our Cat instance!
+// 'this' is still bound to our Cat instance, so even
+// though our calling context changed, the function
+// executes in its original context.
 printName()
 `;
 
 const content = markdown(markdownOptions)`
 When a function is assigned to a class instance property, that function is bound to the instance.
 
-You've probably seen functions bound to class instances in the \`constructor\`, e.g. \`this.printName = this.printName.bind(this)\`. Binding here ensures that a class's instance function is invoked with the correct context.
+Before ES7, you might bind functions to class instances in the \`constructor\`, e.g. \`this.func = this.func.bind(this)\`. Binding here ensures that a class's instance function is invoked with the correct context.
 
-With ES7 class instance properties, we can instead simply say \`printName = () => ...\`. The \`printName\` function below is bound to instance at the time the instance is constructed.
+With ES7 class instance properties, we can instead write \`func = () =>\`. \`func\` is then bound to the class instance at construction.
 
 ${<EditorConsole code={code} title={"Bound instance methods"} />}
 `;

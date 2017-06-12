@@ -5,53 +5,51 @@ import markdownOptions from "../utils/MarkdownOptions";
 import Page from "./Page";
 import { EditorConsole, PageHeader } from "../components";
 
-const classExample = `class Animal {
-  constructor(name) {
-    this.name = name
+const classExample = `class Calculator {
+  constructor(value1, value2) {
+    this.value1 = value1
+    this.value2 = value2
   }
 
-  static beProud() {
-    console.log('I AM AN ANIMAL')
+  static multiply(value1, value2) {
+    return value1 * value2
   }
 
-  printName() {
-    console.log(this.name)
+  sum() {
+    return this.value1 + this.value2
   }
 }
 
-const animal = new Animal('Cat')
+const calc = new Calculator(2, 3)
 
-animal.printName()
-
-Animal.beProud()`;
+console.log(calc.sum())
+console.log(Calculator.multiply(2, 3))`;
 
 const classExtendsExample = `
-class Animal {
-  constructor(name) {
-    this.name = name
+class SquareCalculator {
+  constructor(value) {
+    this.value = value
   }
 
-  printName() {
-    console.log(this.name)
-  }
-}
-
-class Cat extends Animal {
-  printName() {
-    super.printName()
-    console.log(\`My name is \${this.name}\`)
+  calculate() {
+    return this.value * this.value
   }
 }
 
-const cat = new Cat('Tom')
+class CubeCalculator extends SquareCalculator {
+  calculate() {
+    return this.value * super.calculate()
+  }
+}
 
-cat.printName()
+const cuber = new CubeCalculator(3)
+console.log(cuber.calculate())
 `;
 
 const content = markdown(markdownOptions)`
-In ES5, classes are just functions, with instance methods assigned to \`MyFunction.prototype\`. ES6 allows us to use the simpler \`class\` syntax.
+In ES5, classes are written as functions, with instance methods assigned to \`MyFunction.prototype\`. ES6 allows us to use the simpler \`class\` syntax.
 
-\`class\` gives us built in instance functions, static functions, and inheritance. \`constructor\` is a special function that is called automatically every time a class instance is created. We can use the \`static\` keyword to declare static class functions.
+\`class\` gives us built in instance functions, static functions, and inheritance. \`constructor\` is a special function that is called automatically every time a class instance is created. We can use the \`static\` keyword to declare static class functions. Static method calls are made directly on the class and cannot be called on instances of the class.
 
 <EditorConsole
   code=${classExample}
@@ -60,11 +58,11 @@ In ES5, classes are just functions, with instance methods assigned to \`MyFuncti
 
 # Inheritance
 
-The \`class\` gives us simple inheritance with the keyword \`extends\`. In classes that inherit from parents, we have access to a function \`super()\`. Within an inherited function in that child class, \`super\` will invoke the parent class's version of that function.
+\`class\` gives us simple inheritance with the keyword \`extends\`. Classes that inherit from a parent have access to respective parent functions via \`super\`.
 
 ${<EditorConsole code={classExtendsExample} title={"Inheritance"} />}
 
-For full details on the \`class\` syntax, see the MDN reference for [class](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes').
+For full details on the \`class\` syntax, see the [MDN reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes').
 `;
 
 export default props =>
