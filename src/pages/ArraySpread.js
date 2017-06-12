@@ -13,7 +13,7 @@ console.log([...foo, ...bar])
 `;
 
 const content = markdown(markdownOptions)`
-The array spread syntax \`...\` makes it easy to expand an array. This can be use to make a shallow copy of an array. It also provides a succinct way to concatenate and unshift arrays.
+The array spread syntax \`...\` makes it easy to expand an array. This can be used to make a shallow copy of an array. It also provides a succinct way to concatenate and unshift arrays.
 
 ${<EditorConsole code={code} title={"Array spread"} />}
 `;
