@@ -1,16 +1,16 @@
-// import ReactGA from 'react-ga'
+import ReactGA from "react-ga";
 
-// const dev = process.env.NODE_ENV === 'development'
-// //
-// // if (typeof window !== 'undefined' && !dev) {
-// //   ReactGA.initialize('UA-77053427-1')
-// // }
+const shouldTrack = isClient && window.location.hostname.match("react.express");
 
-// export const pageView = () => {
-//   // if (dev) return
-//   //
-//   // const page = window.location.pathname
-//   //
-//   // ReactGA.set({page})
-//   // ReactGA.pageview(page)
-// }
+if (shouldTrack) {
+  ReactGA.initialize("UA-77053427-2");
+}
+
+export const pageView = () => {
+  if (!shouldTrack) return;
+
+  const page = window.location.pathname;
+
+  ReactGA.set({ page });
+  ReactGA.pageview(page);
+};
