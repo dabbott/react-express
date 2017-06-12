@@ -12,7 +12,7 @@ const createDocument = (location, helmet, content) => `<!doctype html>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="Learn React with interactive examples." />
     <meta property="og:type" content="article" />
-    <meta property="og:url" content="http://www.reactexpress.com/" />
+    <meta property="og:url" content="http://www.react.express/" />
     <meta property="og:site_name" content="React Express" />
     <meta property="og:title" content="React Express" />
     <meta property="og:description" content="Learn React with interactive examples." />

@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import DisqusThread from "react-disqus-thread";
 
-const prod = window.location.hostname.match("reactnativeexpress.com");
-const shortname = prod ? "reactnativeexpress" : "reactnativeexpress-staging";
+const prod = window.location.hostname.match("react.express");
+const shortname = prod ? "reactexpress" : "reactnativeexpress-staging";
 
 export default class Disqus extends Component {
   shouldComponentUpdate() {

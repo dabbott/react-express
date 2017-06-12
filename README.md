@@ -55,7 +55,7 @@ npm run start
 
 ## Demo
 
-The production version of this app is running [here](http://www.reactexpress.com).
+The production version of this app is running [here](http://www.react.express).
 
 ## Contributing
 
