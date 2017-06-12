@@ -6,11 +6,12 @@ import EditorConsole from "../components/EditorConsole";
 import Page from "./Page";
 import markdownOptions from "../utils/MarkdownOptions";
 
-const code = `const printAnimal = (animal = 'cat') => {
-  console.log(animal)
+const code = `const printInput = (input = 'hello world') => {
+  console.log(input)
 }
-printAnimal() // cat
-printAnimal('dog') // dog`;
+
+printInput()
+printInput('hello universe')`;
 
 const content = markdown(markdownOptions)`
 We can assign default values to function parameters within the function declaration. A default value is assigned to a parameter if it is \`undefined\`.
