@@ -133,6 +133,7 @@ export default class App extends Component {
 
     const styles = getStyles(this.state);
     const section = getSection(pathname);
+    const url = `http://www.react.express/${section ? section.slug : ""}`;
     const title = section && (section.fullTitle || section.title);
 
     const cloned = React.Children.map(children, child => {
@@ -174,6 +175,7 @@ export default class App extends Component {
             {getTitle(title)}
           </title>
           <meta property="og:title" content={getTitle(title)} />
+          <meta property="og:url" content={url} />
         </Helmet>
         <div style={styles.inner}>
           {this.renderMenuButton(styles)}
