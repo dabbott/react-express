@@ -10,7 +10,7 @@ import {
   getNextSection,
   getPreviousSection
 } from "../utils/Sections";
-import * as config from "../config";
+import { getTitle } from "../config";
 
 @responsive()
 @createStyles({
@@ -169,10 +169,12 @@ export default class App extends Component {
 
     return (
       <div style={styles.container}>
-        <Helmet
-          defaultTitle={config.title}
-          titleTemplate={config.titleTemplate}
-        />
+        <Helmet>
+          <title>
+            {getTitle(title)}
+          </title>
+          <meta property="og:title" content={getTitle(title)} />
+        </Helmet>
         <div style={styles.inner}>
           {this.renderMenuButton(styles)}
           {!responsive.match("small|mobile") &&

@@ -1,3 +1,5 @@
-export const title = "React Express";
+export const defaultTitle = "React Express";
 
-export const titleTemplate = "React Express - %s";
+export const getTitle = title => {
+  return title ? `${title} - React Express` : defaultTitle;
+};

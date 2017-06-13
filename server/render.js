@@ -5,27 +5,29 @@ const { default: Root, AppHelmet: Helmet } = require("./build/server-bundle");
 
 const pageCache = {};
 
+const fbAppId = "105028866738480";
+const author = "@devinaabbott";
+
 const createDocument = (location, helmet, content) => `<!doctype html>
 <html>
   <head>
+    ${helmet.title.toString()}
+    ${helmet.meta.toString()}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="Learn React with interactive examples." />
     <meta property="og:type" content="article" />
     <meta property="og:url" content="http://www.react.express/" />
     <meta property="og:site_name" content="React Express" />
-    <meta property="og:title" content="React Express" />
     <meta property="og:description" content="Learn React with interactive examples." />
     <meta property="og:image" content="http://www.reactnativeexpress.com/logo@2x.png" />
     <meta property="og:image:width" content="256" />
     <meta property="og:image:height" content="256" />
     <meta property="og:locale" content="en_US" />
     <meta property="og:card" content="summary" />
-    <meta property="og:site" content="@devinaabbott" />
-    <meta property="og:creator" content="@devinaabbott" />
-    <meta property="fb:app_id" content="907755649360812" />
-    ${helmet.title.toString()}
-    ${helmet.meta.toString()}
+    <meta property="og:site" content="${author}" />
+    <meta property="og:creator" content="${author}" />
+    <meta property="fb:app_id" content="${fbAppId}" />
     ${helmet.link.toString()}
     <link rel="stylesheet" type="text/css" href="reset.css">
     <link rel="stylesheet" type="text/css" href="main.css">

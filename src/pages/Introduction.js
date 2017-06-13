@@ -78,7 +78,6 @@ In the following sections, I'll give a brief background on build tools: npm, web
         logoWidth={256}
         logoHeight={296}
         bannerHeight={560}
-        shouldUpdatePageTitle={false}
       >
         <GithubCorner />
         <PageHeader

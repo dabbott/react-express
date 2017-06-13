@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Helmet } from "react-helmet";
 import createStyles, { responsive } from "react-styles-provider";
 
 import styles from "../styles";
@@ -17,10 +16,6 @@ import styles from "../styles";
   }
 })
 export default class Page extends Component {
-  static defaultProps = {
-    shouldUpdatePageTitle: true
-  };
-
   state = {
     scrollTop: 0
   };
@@ -64,7 +59,6 @@ export default class Page extends Component {
       logo,
       logoWidth,
       logoHeight,
-      shouldUpdatePageTitle,
       responsive
     } = this.props;
 
@@ -85,7 +79,6 @@ export default class Page extends Component {
 
     return (
       <div style={styles.container}>
-        {shouldUpdatePageTitle && <Helmet title={title} />}
         <div style={moveBannerStyle}>
           <div style={styles.title}>{title}</div>
           {subtitle && <div style={styles.subtitle}>{subtitle}</div>}
