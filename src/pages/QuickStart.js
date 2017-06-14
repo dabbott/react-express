@@ -5,7 +5,8 @@ import markdownOptions from "../utils/MarkdownOptions";
 import DefaultPage from "./DefaultPage";
 
 const content = markdown(markdownOptions)`
-Let's set up a new app with the \`create-react-app\` command-line utility from Facebook.
+Let's set up a new app with the \`create-react-app\` command-line utility from Facebook. This assumes you have \`npm\` installed already; if you don't, skip to the [next section](npm) and come back!
+
 
 ## Installation
 

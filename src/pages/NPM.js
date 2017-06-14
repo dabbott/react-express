@@ -13,11 +13,11 @@ There are two common ways to install \`npm\`: you can install \`node.js\` (which
 
 # Installation
 
-## Installation from the node.js site
+## Option 1. Installation from the node.js site
 
 You can install the \`node.js\`/\`npm\` binary [here](https://nodejs.org/en/). This is the easiest way to get up and running.
 
-## Installation via \`nvm\`
+## Option 2. Installation via \`nvm\`
 
 You can find the instructions for installing \`nvm\` [here](https://github.com/creationix/nvm). It looks a bit intimidating, but it's worth it if you'll be doing a lot of React development. Double check in the instructions that your platform and shell are supported (e.g. Windows isn't officially supported).
 
@@ -35,7 +35,7 @@ nvm use node
 
 These and many more instructions exist in the docs linked above.
 
-## Installation via package manager (Homebrew, etc)
+## Option 3. Installation via package manager (Homebrew, etc)
 
 You can generally install either \`node\` or \`nvm\` through your package manager without much difficulty. If you're already using a package manager, you should give this a shot first. If all else fails, try the \`node.js\` binary from the node.js site - that is almost gauranteed to give you a working install.
 
@@ -59,7 +59,7 @@ npm install
 
 \`npm\` automatically downloads all dependencies into a folder called \`node_modules\`. This folder will live alongside your \`package.json\`.
 
-Make sure you check \`package.json\` in to git so that others will use the same packages (and versions) as you when working on the project. It's uncommon to check in \`node_modules\`, since these tend to be large and can be downloaded based on the dependencies listed in the \`package.json\`.
+Make sure you commit the \`package.json\` to git so that others will use the same packages (and versions) as you when working on the project. It's uncommon to check in \`node_modules\`, since these tend to be large and can be downloaded based on the dependencies listed in the \`package.json\`.
 
 To add a new dependency \`X\` to your \`package.json\`, run:
 
@@ -67,7 +67,7 @@ To add a new dependency \`X\` to your \`package.json\`, run:
 npm install --save X
 \`\`\`
 
-Using \`--save\` adds the dependency to the \`package.json\`. Otherwise, you will only install the package, but not add it as a dependency.
+Note: If you're on npm version 5, you can leave off the \`--save\`. Prior to v5, \`--save\` was necessary to add the dependency to the \`package.json\`. Otherwise, the package would get installed, but not added as a dependency. In v5, \`--save\` is the default behavior.
 `;
 
 export default props => <DefaultPage {...props}>{content}</DefaultPage>;
