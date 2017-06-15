@@ -96,7 +96,7 @@ render(<App />, document.querySelector('#app'))
 `;
 
 const content = markdown(markdownOptions)`
-DOM nodes created with React, such as \`${`<div />`}\`, fire the same events they would in vanilla JavaScript, with few differences.
+DOM nodes created with React, such as \`${`<div />`}\`, fire the same events they would in vanilla JavaScript, with a few differences.
 
 To attach a callback to an event, pass a function as an attribute to a React element, e.g. \`${`<div onClick={(e) => console.log(e)} />`}\`
 
@@ -108,7 +108,7 @@ You can find the full list of events supported by React [here](https://facebook.
 
 ## Event normalization
 
-React normalizes event objects created by the browser. More detail on this [here](https://facebook.github.io/react/docs/events.html#overview) in the React docs, but this gist is: React events have the same interface as native events, so you can still call \`e.stopPropagation()\` or \`e.preventDefault()\`, and you can still access properties like \`e.which()\`.
+In addition to normalizing event names, React normalizes event objects created by the browser. More detail on this [here](https://facebook.github.io/react/docs/events.html#overview) in the React docs, but this gist is: React events have the same interface as native events, so you can still call \`e.stopPropagation()\` or \`e.preventDefault()\`, and you can still access properties like \`e.which()\`.
 
 ## Example
 
@@ -134,7 +134,7 @@ Let's say we want to make a custom \`Button\` component with an \`onClick\` even
 
 Only DOM components can handle DOM events like \`onClick\` - so our \`Button\` must render a DOM component and pass the \`onClick\` prop into it. Our \`Button\` is essentially a pass-through for the click event.
 
-There is nothing special about the name of the \`onClick\` prop passed to our \`Button\` - we could name it anything we want, so long \`Button\` passes that prop into a DOM component. For example, we could decide to name the event \`onPress\` and create our button \`Button\` as \`${`<Button onPress={() => ...} />`}\`. Within \`Button\`, we would then want to render \`${`<div onClick={this.props.onPress} />`}\`.
+There is nothing special about the name of the \`onClick\` prop passed to our \`Button\` - we could name it anything we want, so long as \`Button\` passes that prop into a DOM component. For example, we could decide to name the event \`onPress\` and create our button \`Button\` as \`${`<Button onPress={() => ...} />`}\`. Within \`Button\`, we would then want to render \`${`<div onClick={this.props.onPress} />`}\`.
 
 ${<WebPlayer code={customComponents} />}
 

@@ -216,7 +216,7 @@ You may also notice that the styles are defined below where they are used in the
 
 # Rendering with ternary \`?\`
 
-Let's look at another common case: rendering a different React element for when a \`prop\` exists and when doesn't. We can accomplish this easily with the ternary operator. It's common to render defaults this way.
+Let's look at another common case: rendering a different React element for when a \`prop\` exists and when it doesn't. We can accomplish this easily with the ternary operator. It's common to render defaults this way.
 
 ${<WebPlayer code={ternaryEvaluation} />}
 

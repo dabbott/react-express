@@ -6,16 +6,16 @@ import EditorTranspiler from "../components/EditorTranspiler";
 import markdownOptions from "../utils/MarkdownOptions";
 
 const importExample = `// import the default export
-import React from 'react-native'
+import React from 'react'
 
 // import other named exports
-import {View, Text, Image} from 'react-native'
+import { Component, Children } from 'react'
 
 // import default and others simultaneously
-// import React, {View, Text, Image} from 'react-native'`;
+// import React, { Component, Children } from 'react'`;
 
 const exportExample = `export default React
-export {View, Text, Image}`;
+export { Component, Children }`;
 
 const content = markdown(markdownOptions)`
 ES2015 provides a more advanced module importing/exporting pattern than the widely used CommonJS pattern. By contrast to the old \`${"module.exports = {...}"}\`, we can now export multiple named values. Similarly, we can import multiple named values.
@@ -26,7 +26,7 @@ If you attempt to import an older CommonJS module using the new import syntax, B
 
 ${<EditorTranspiler code={importExample} title={"Importing"} />}
 
-The imports in the previous example would be available if exported from the module \`react-native\` as in the next example.
+The imports in the previous example would be available if exported from the module \`react\` as in the next example.
 
 ${<EditorTranspiler code={exportExample} title={"Exporting"} />}
 

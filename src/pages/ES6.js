@@ -9,7 +9,7 @@ ES2015, or ECMAScript 2015, is the first significant update to the language sinc
 
 # ES2015 Highlights
 
-Let's take a look at some of the new language features we'll be using, and how they get compiled through Babel. There are a lot of language features to go through, so if you get tired, you can move on to [React Components](components), and finish up the language sections another time.
+Let's take a look at some of the new language features we'll be using, and how they get compiled through Babel. There are a lot of language features to go through, so if you get tired, you can move on to the [React API](react_api), and finish up the language sections another time.
 `;
 
 export default props => <DefaultPage {...props}>{content}</DefaultPage>;

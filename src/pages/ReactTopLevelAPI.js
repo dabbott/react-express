@@ -18,7 +18,7 @@ const content = markdown(markdownOptions)`
 
 The React top-level API lets us create React components and render them into the DOM. Let's take a look at how this works.
 
-There are two libraries will use:
+There are two libraries we'll use:
 - \`react\` contains the APIs for creating components
 - \`react-dom\` contains the APIs for rendering to the browser DOM
 
@@ -34,7 +34,7 @@ Then we must pick or create a DOM node in our app to render into. We should pick
 
 ${<pre><code>{`const node = document.querySelector('#app')`}</code></pre>}
 
-Lastly we'll use \`render\`. The method signature of is \`render(element, node)\`, where the first argument is a React element (more on this soon) and the second is the DOM node we picked to render into. For now, we'll use a \`div\` as our React element.
+Lastly we'll use \`render\`. The method signature is \`render(element, node)\`, where the first argument is a React element (more on this soon) and the second is the DOM node we picked to render into. For now, we'll use a \`div\` as our React element.
 
 Putting this all together, we get
 

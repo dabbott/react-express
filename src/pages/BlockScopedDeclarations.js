@@ -25,7 +25,7 @@ Additionally, variables declared with \`const\` can only be assigned a value onc
 
 ${<EditorTranspiler code={code} title={"Using const and let"} />}
 
-You'll notice that the compiled output replaces \`const\` and \`let\` with \`var\`. You'll also notice that Babel transforms \`const a = 3\` into \`var _a = 3\`. This is so that your code can run on older platforms that don't support the new block-scoped variable declarations. It's the Babel compiler that enforces proper usage and block-scoping, rather than the runtime JavaScript engine.
+You'll notice that the compiled output replaces \`const\` and \`let\` with \`var\`. You'll also notice that Babel transforms \`const a = 3\` into \`var _a = 3\`. This is so that your code can run on older platforms that don't support the new block-scoped variable declarations. When using Babel, it's actually the Babel compiler that enforces proper usage and block-scoping, rather than the runtime JavaScript engine.
 `;
 
 export default props => <DefaultPage {...props}>{content}</DefaultPage>;
