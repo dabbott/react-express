@@ -19,9 +19,9 @@ const createDocument = (location, helmet, content) => `<!doctype html>
     <meta property="og:type" content="article" />
     <meta property="og:site_name" content="React Express" />
     <meta property="og:description" content="Learn React with interactive examples." />
-    <meta property="og:image" content="http://www.reactnativeexpress.com/logo@2x.png" />
-    <meta property="og:image:width" content="256" />
-    <meta property="og:image:height" content="256" />
+    <meta property="og:image" content="http://www.react.express/preview.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
     <meta property="og:locale" content="en_US" />
     <meta property="fb:app_id" content="${fbAppId}" />
     <meta property="article:author" content="${author}" />
