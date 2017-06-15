@@ -1,6 +1,7 @@
 import React from "react";
 import markdown from "markdown-in-js";
 
+import CodeBlock from "../components/CodeBlock";
 import DefaultPage from "./DefaultPage";
 import markdownOptions from "../utils/MarkdownOptions";
 
@@ -13,18 +14,16 @@ React comes in two parts, React and ReactDOM. React includes the core component 
 
 Let's install both
 
-${<pre><code>{`npm install --save react react-dom`}</code></pre>}
+${<CodeBlock>{`npm install --save react react-dom`}</CodeBlock>}
 
 # Usage
 
 Assuming a webpack + babel build setup like in the previous pages, we'll first want to modify our \`index.html\` to include a DOM node for us to render our React app into:
 
 ${(
-  <pre>
-    <code>{`<!-- index.html -->
+  <CodeBlock filename={"index.html"}>{`<!-- index.html -->
 <div id="app"></div>
-<script src="./bundle.js"></script>`}</code>
-  </pre>
+<script src="./bundle.js"></script>`}</CodeBlock>
 )}
 
 Note: order matters! It's often best to load your \`bundle.js\` at the end of the html body, so that your DOM content (in this case, the \`div\`) has rendered prior to executing the bundle, since we need to access the DOM during rendering.
@@ -32,8 +31,7 @@ Note: order matters! It's often best to load your \`bundle.js\` at the end of th
 We can then change our \`index.js\` to look like this:
 
 ${(
-  <pre>
-    <code>{`// index.js
+  <CodeBlock filename={"index.js"}>{`// index.js
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
 
@@ -55,8 +53,7 @@ class App extends Component {
 }
 
 const root = document.querySelector('#app')
-ReactDOM.render(<App />, root)`}</code>
-  </pre>
+ReactDOM.render(<App />, root)`}</CodeBlock>
 )}
 
 ## Running the development server

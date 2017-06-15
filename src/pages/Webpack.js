@@ -1,8 +1,9 @@
 import React from "react";
 import markdown from "markdown-in-js";
 
-import markdownOptions from "../utils/MarkdownOptions";
+import CodeBlock from "../components/CodeBlock";
 import DefaultPage from "./DefaultPage";
+import markdownOptions from "../utils/MarkdownOptions";
 
 const content = markdown(markdownOptions)`
 Webpack bundles your client-side code (JavaScript, css, etc) into a single JavaScript file. Webpack is *highly* configurable with plugins, allowing you to bundle nearly any kind of asset imaginable.
@@ -29,9 +30,7 @@ Feel free to follow along and treat this as a tutorial, or just read through and
 
 Assuming we're in a directory with a \`package.json\` file, we can add \`webpack\` and the development server to a project with
 
-\`\`\`
-npm install --save-dev webpack webpack-dev-server
-\`\`\`
+${<CodeBlock>{`npm install --save-dev webpack webpack-dev-server`}</CodeBlock>}
 
 This installs \`webpack\` and the development server as a dev dependency. In other words, this implies: \`webpack\` is necessary to build your project during development, but not when the project is already built for production or when consuming the project as a library.
 
@@ -40,16 +39,14 @@ This installs \`webpack\` and the development server as a dev dependency. In oth
 We'll add two scripts to our \`package.json\` file in the \`scripts\` section:
 
 ${(
-  <pre>
-    <code>{`{
+  <CodeBlock filename={"package.json"}>{`{
   ...
   "scripts": {
     "dev": "webpack-dev-server --env.dev",
     "build": "webpack"
   },
   ...
-}`}</code>
-  </pre>
+}`}</CodeBlock>
 )}
 
 The \`dev\` script will start our development server, passing the options \`${`{env: 'dev'}`}\` to our config file. The \`build\` script will save a single \`.js\` file on the filesystem for serving from a production server. We'll use these scripts shortly to bundle and test our app.
@@ -59,16 +56,14 @@ The \`dev\` script will start our development server, passing the options \`${`{
 Webpack is most commonly configured using a separate config file: \`webpack.config.js\`. This file must export a configuration object, or a function which returns a configuration object, which the webpack compiler will use when run from the command line as \`webpack\`. Let's add a \`webpack.config.js\` now:
 
 ${(
-  <pre>
-    <code>{`module.exports = options => {
+  <CodeBlock filename={"webpack.config.js"}>{`module.exports = options => {
   return {
     entry: './index.js',
     output: {
       filename: 'bundle.js',
     },
   }
-}`}</code>
-  </pre>
+}`}</CodeBlock>
 )}
 
 There are only two essential fields: the entry point file, and the output file. Later, we can use options to specify a different configuration for development/production (remember, we pass \`${`{env: 'dev'}`}\` as options in our \`dev\` script).
@@ -78,24 +73,20 @@ There are only two essential fields: the entry point file, and the output file. 
 Let's add the bare minimum files needed to see something on the screen. We'll create an \`index.js\` and an \`index.html\`:
 
 ${(
-  <pre>
-    <code>{`// index.js
-document.write('Hello World!')`}</code>
-  </pre>
+  <CodeBlock filename={"index.js"}>{`// index.js
+document.write('Hello World!')`}</CodeBlock>
 )}
 
 ${(
-  <pre>
-    <code>{`<!-- index.html -->
-<script src="./bundle.js"></script>`}</code>
-  </pre>
+  <CodeBlock filename={"index.html"}>{`<!-- index.html -->
+<script src="./bundle.js"></script>`}</CodeBlock>
 )}
 
 (Wondering why there's no html tag? It's convenient to omit [optional tags](https://google.github.io/styleguide/htmlcssguide.xml?showone=Optional_Tags#Optional_Tags)!)
 
 ## Running the development server
 
-Now we can run \`npm run dev\` to run the script we set up in the \`package.json\`. This will start the development server. If we navigation to \`localhost:8080\` in a browser, we should see our \`index.html\` file, which will run our \`index.js\` bundled into \`bundle.js\`, displaying \`Hello World!\` on the screen.
+Now we can run \`npm run dev\` to run the script we set up in the \`package.json\`. This will start the development server. If we navigate to \`localhost:8080\` in a browser, we should see our \`index.html\` file, which will run our \`index.js\` bundled into \`bundle.js\`, displaying \`Hello World!\` on the screen.
 
 ![Hello World](webpack-hello-world.png)
 

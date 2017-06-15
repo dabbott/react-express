@@ -10,3 +10,4 @@ export StarCount from "./StarCount";
 export GithubRepositoryLink from "./GithubRepositoryLink";
 export Link from "./Link";
 export SectionHeader from "./SectionHeader";
+export CodeBlock from "./CodeBlock";

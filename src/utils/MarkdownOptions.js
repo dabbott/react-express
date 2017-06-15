@@ -10,5 +10,6 @@ export default {
   strong: props => <strong {...props} style={styles.strong} />,
   table: props => <table {...props} className={"table"} />,
   a: Link,
+  img: props => <img {...props} style={{ maxWidth: "100%" }} />,
   pre: props => <pre {...props} style={{ marginBottom: 15 }} />
 };

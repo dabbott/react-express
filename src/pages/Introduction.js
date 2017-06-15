@@ -50,7 +50,7 @@ Learning React tends to go pretty quickly - but it can take a little while to wr
 
 This guide is intended for people who know HTML, CSS, and JavaScript at an intermediate level already. We'll cover everything beyond that: newer language features, build tools, and React in-depth.
 
-I hope you enjoy learning React. Reach out to me, [@devinaabbott](https://twitter.com/devinaabbott), with comments or questions you have along the way. Some pages are written by other authors (listed at top of each page), so feel free to contact them too.
+I hope you enjoy learning React. Reach out to me, [@devinaabbott](https://twitter.com/devinaabbott), with comments or questions you have along the way. Some pages are written by other authors (listed at top of each page), so feel free to contact them too. Huge thanks to [Gabe G'Sell](http://gabegsell.com/) for writing content with me and proofreading.
 
 PS: I recommend viewing this guide from a desktop browser rather than mobile, since the desktop version supports interactive examples.
 

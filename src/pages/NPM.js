@@ -1,8 +1,9 @@
 import React from "react";
 import markdown from "markdown-in-js";
 
-import markdownOptions from "../utils/MarkdownOptions";
+import CodeBlock from "../components/CodeBlock";
 import DefaultPage from "./DefaultPage";
+import markdownOptions from "../utils/MarkdownOptions";
 
 const content = markdown(markdownOptions)`
 \`npm\` is the package manager for \`node.js\`, the server-side JavaScript execution environment. Most React apps load the React library and 3rd party libraries/extensions through \`npm\` packages.
@@ -45,27 +46,21 @@ You can generally install either \`node\` or \`nvm\` through your package manage
 
 To add a \`package.json\` to a project, run
 
-\`\`\`
-npm init
-\`\`\`
+${<CodeBlock>{`npm init`}</CodeBlock>}
 
 This will walk you through a command line prompt to add some basic details about your app. The details are optional, so feel free to just hit enter repeatedly until the prompt finishes.
 
 When you type
 
-\`\`\`
-npm install
-\`\`\`
+${<CodeBlock>{`npm install`}</CodeBlock>}
 
 \`npm\` automatically downloads all dependencies into a folder called \`node_modules\`. This folder will live alongside your \`package.json\`.
 
 Make sure you commit the \`package.json\` to git so that others will use the same packages (and versions) as you when working on the project. It's uncommon to check in \`node_modules\`, since these tend to be large and can be downloaded based on the dependencies listed in the \`package.json\`.
 
-To add a new dependency \`X\` to your \`package.json\`, run:
+To add a new dependency \`foo-bar\` to your \`package.json\`, run:
 
-\`\`\`
-npm install --save X
-\`\`\`
+${<CodeBlock>{`npm install --save foo-bar`}</CodeBlock>}
 
 Note: If you're on npm version 5, you can leave off the \`--save\`. Prior to v5, \`--save\` was necessary to add the dependency to the \`package.json\`. Otherwise, the package would get installed, but not added as a dependency. In v5, \`--save\` is the default behavior.
 `;
