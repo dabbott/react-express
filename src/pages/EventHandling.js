@@ -108,7 +108,7 @@ You can find the full list of events supported by React [here](https://facebook.
 
 ## Event normalization
 
-In addition to normalizing event names, React normalizes event objects created by the browser. More detail on this [here](https://facebook.github.io/react/docs/events.html#overview) in the React docs, but this gist is: React events have the same interface as native events, so you can still call \`e.stopPropagation()\` or \`e.preventDefault()\`, and you can still access properties like \`e.which()\`.
+In addition to normalizing event names, React normalizes event objects created by the browser. React events have the same interface as native events, so you can still call \`e.stopPropagation()\` or \`e.preventDefault()\`, and you can still access properties like \`e.which()\`. More detail on this [here](https://facebook.github.io/react/docs/events.html#overview) in the React docs.
 
 ## Example
 
@@ -118,9 +118,13 @@ ${<WebPlayer code={inlineFunction} />}
 
 ## Performance & Binding
 
-It's generally bad practice to define functions within the props of your React elements like we did in the previous example. This is because a new function will be created each time \`render\` is called - it's common for components to compare props using \`===\`, which in this case will indicate that the \`onClick\` prop of the \`div\` has changed, and may cause unnecessary re-renders. Using \`.bind\` has a similar effect.
+It's generally bad practice to define functions within the props of your React elements like we did in the previous example. This is because a new function will be created each time \`render\` is called - it's common for components to compare props using \`===\`, which in this case will indicate that the \`onClick\` prop of the \`div\` has changed, and may cause unnecessary re-renders. Using \`.bind\` within component props has a similar effect.
 
-We call functions defined like this **inline functions**. They're convenient to use as you're developing a component, but should generally be changed to class properties (bound to the instance).
+We call functions defined like this **inline functions**. They're convenient to use as you're developing a component, but should generally be extracted and bound to the instance of the class.
+
+There are two ways to bind a method to the instance. The first is to write \`this.handleClick = this.handleClick.bind(this)\` in the \`constructor\`. However, if you are using babel with at least stage 2 preset, you can bind the function by declaring it as a class property with a fat arrow. This is convenient, and you'll see an example below (and throughout the other examples).
+
+It's also important to note that if \`handleClick\` isn't bound to the class instance, it won't be able to access \`this.setState\` because \`this\` will be \`undefined\`. This is another important reason to bind event handling functions.
 
 ## Better Example
 

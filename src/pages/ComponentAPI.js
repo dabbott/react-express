@@ -59,9 +59,9 @@ const content = markdown(markdownOptions)`
 
 A parent element may alter a child element's \`props\` at any time. The child element will generally re-render itself to reflect its new configuration parameters. A child component may decide not to re-render itself even though its configuration has changed, as determined by \`shouldComponentUpdate()\` (more on this in the Component Lifecycle API section).
 
-You may set defaults for \`props\` by assigning an object to the static class property \`defaultProps\`, where the keys are the prop names and the values are the default prop values.
+You may set default values for \`props\` by assigning an object to the static class property \`defaultProps\`, where the keys are the prop names and the values are the default prop values.
 
-You may define the types of \`props\` by assigning an object to the static class property \`propTypes\`, where the keys are the prop names and the values are types from the \`prop-types\` \`npm\` module (formerly \`React.PropTypes\`). We won't be using \`PropTypes\` in our examples, but they're very useful once you start working with larger and more complex codebases.
+You may also define the types of \`props\` that a component expects by assigning an object to the static class property \`propTypes\`, where the keys are the prop names and the values are prop types, from the \`prop-types\` \`npm\` module (formerly \`React.PropTypes\`). We won't be using \`PropTypes\` in our examples, but they're very useful once you start working with larger and more complex codebases.
 
 ## **\`this.state\`**
 
