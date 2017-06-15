@@ -46,6 +46,8 @@ Traditionally in web development, user input is stored in the DOM, and the data 
 Let's look at a simple input field:
 
 ${<WebPlayer code={inputField} />}
+
+Every time we \`render\` the \`input\`, we pass the current value from our component's \`state\`. Every time the user types in the input field, we update \`state\` to include the new value, which triggers a re-render. This essentially keeps the DOM synced up to our component \`state\` automatically. We can control the value of the input field however we'd like, while React handles the DOM operations for us behind the scenes.
 `;
 
 export default props => <DefaultPage {...props}>{content}</DefaultPage>;
