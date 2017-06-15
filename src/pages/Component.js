@@ -55,7 +55,7 @@ render(element, node)
 `;
 
 const content = markdown(markdownOptions)`
-\`Components\` are the building block of any React UI. React manages the mapping from components created with JSX (e.g. \`${`<div />`}\`) to the native brower DOM which is actually rendered.
+\`Components\` are the building blocks of any React UI. React manages the mapping from components created with JSX (e.g. \`${`<div />`}\`) to the native brower DOM which is actually rendered.
 
 The entire UI of the application is specified by declaring which components to render, and in what order. Components are nested inside other components, forming a tree data structure. The top level component, or the root of the tree, is known as the root component. Nested components are called children components.
 
@@ -65,7 +65,7 @@ ReactDOM provides us built-in DOM-node components that look just like their corr
 
 A few key differences to keep in mind:
 - Since \`class\` is a reserved word in JavaScript, we use \`className\` instead.
-- Styling elements with \`style\` is quite common in ideomatic React code, unlike in plain HTML. The \`style\` attribute takes an object which uses the JavaScript names of CSS rules. For example, we would write \`${`style={{paddingTop: 20}}`}\` in React, to achieve the same thing as \`style="padding-top: 20px;"\` in plain HTML. We'll cover styling in greater depth later.
+- Styling elements with \`style\` is quite common in idiomatic React code, unlike in plain HTML. The \`style\` attribute takes an object which uses the JavaScript names of CSS rules. For example, we would write \`${`style={{paddingTop: 20}}`}\` in React, to achieve the same thing as \`style="padding-top: 20px;"\` in plain HTML. We'll cover styling in greater depth later.
 
 Here are a few examples of DOM components rendered using React.
 

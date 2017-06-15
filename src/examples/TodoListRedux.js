@@ -16,7 +16,7 @@ export const actionCreators = {
 
 // Initial state of the store
 const initialState = {
-  todos: ["Click to remove", "Learn React Native", "Write Code", "Ship App"]
+  todos: ["Click to remove", "Learn React", "Write Code", "Ship App"]
 };
 
 // Function to handle actions and update the state of the store.
