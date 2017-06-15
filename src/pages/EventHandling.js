@@ -126,7 +126,7 @@ We call functions defined like this **inline functions**. They're convenient to 
 
 ${<WebPlayer code={boundFunction} />}
 
-Notice how we define the \`handleClick\` function once, and reference it in the \`render\`. This is more ideomatic because it performs better than our previous example with the function defined inline.
+Notice how we define the \`handleClick\` function once, and reference it in the \`render\`. This is more idiomatic because it performs better than our previous example with the function defined inline.
 
 # Custom Components and Events
 

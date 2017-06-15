@@ -46,7 +46,7 @@ Note that we generally must \`import React from 'react'\` even though we don't e
 
 ## **\`React.Component\`**
 
-React components are the building block of a React app. Components are classes; we instantiate them using JSX syntax, e.g. \`${`<MyComponent />`}\`, as elements.
+React components are the building blocks of a React app. Components are classes that we instantiate using JSX syntax, e.g. \`${`<MyComponent />`}\`.
 
 ReactDOM provides us built-in DOM-node components that look just like their corresponding HTML tags, e.g. \`${`<div />`}\`, \`${`<input />`}\`. We don't need to require these to use them - that's handled automatically during the JSX language transformation.
 

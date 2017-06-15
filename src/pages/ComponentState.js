@@ -14,7 +14,7 @@ import Title from './Title'
 export default class App extends Component {
 
   state = {
-    todos: ['Click to remove', 'Learn React Native', 'Write Code', 'Ship App'],
+    todos: ['Click to remove', 'Learn React', 'Write Code', 'Ship App'],
   }
 
   onAddTodo = (text) => {
