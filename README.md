@@ -1,6 +1,14 @@
-## About
+# React Express
 
-A guide and reference to help people get started with React.
+## Why?
+
+React has a problem. While the proliferation of JavaScript libraries, frameworks, and tools (JavaScript fatigue) is fantastic for the web development ecosystem, it can be extremely intimidating for beginners to get started.
+
+I've created this all-in-one guide for beginners to get an opinionated walkthrough from start to finish: `create-react-app`, `npm`, `webpack`, `babel`, ES2015, ES2016, JSX, React, Redux, CSS-in-JS, and more.
+
+Proudly presenting, [React Express!](http://www.react.express)
+
+## Contributing
 
 If you'd like to contribute, follow along below to get the repo set up.
 
@@ -52,10 +60,6 @@ npm run dev
 npm run build
 npm run start
 ```
-
-## Demo
-
-The production version of this app is running [here](http://www.react.express).
 
 ## Contributing
 
