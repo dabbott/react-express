@@ -46,9 +46,9 @@ export default class extends Component {
     const content = markdown(markdownOptions)`
 React is a framework for building performant interfaces for the web and other platforms.
 
-Learning React tends to go pretty quickly - but it can take a little while to wrap your head around "declarative" rendering if you haven't used the pattern before. You should use this guide as a companion to the official Facebook documentation for [getting started](https://facebook.github.io/react/docs/hello-world.html). While the official docs are great, the React ecosystem includes *many* other important projects which are outside the scope of the React docs.
+You should use this guide as a companion to the official Facebook documentation for [getting started](https://facebook.github.io/react/docs/hello-world.html). While the official docs are great, the React ecosystem includes *many* other important projects which are outside the scope of the React docs.
 
-This guide is intended for people who know HTML, CSS, and JavaScript at an intermediate level already. We'll cover everything beyond that: newer language features, build tools, and React in-depth.
+This guide is intended for people who know HTML, CSS, and JavaScript at a beginner-to-intermediate level already. We'll cover everything beyond that: newer language features, build tools, and React in-depth.
 
 I hope you enjoy learning React. Reach out to me, [@devinaabbott](https://twitter.com/devinaabbott), with comments or questions you have along the way. Some pages are written by other authors (listed at top of each page), so feel free to contact them too. Huge thanks to [Gabe G'Sell](http://gabegsell.com/) for writing content with me and proofreading.
 
@@ -71,7 +71,9 @@ In the following sections, I'll give a brief background on build tools: npm, web
       <Page
         footer={this.props.footer}
         title={"React Express"}
-        subtitle={"Learn React, the component-based UI framework"}
+        subtitle={
+          "The all-in-one guide to modern React application development"
+        }
         logo={
           "//cdn.rawgit.com/dabbott/react-native-express/master/static/logo"
         }
