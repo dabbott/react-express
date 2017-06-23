@@ -56,7 +56,7 @@ There are two other ways of creating components: **PureComponent** and **Statele
 
 ## **\`React.PureComponent\`**
 
-We can extend \`React.PureComponent\`, e.g. \`class MyComponent extends React.PureComponent\`, to inherit an optimized \`shouldComponentUpdate\` method, which will improve the performance of our components. This will become more clear after you read the next section, but what this means is: a \`PureComponent\` will only re-render when the *identity* of it's \`props\` change (i.e. each \`prop\` is compared with \`===\`).
+We can extend \`React.PureComponent\`, e.g. \`class MyComponent extends React.PureComponent\`, to inherit an optimized \`shouldComponentUpdate\` method, which will improve the performance of our components. This will become more clear after you read the next section, but what this means is: a \`PureComponent\` will only re-render when the *identity* of its \`props\` change (i.e. each \`prop\` is compared with \`===\`).
 
 ## **Stateless Functional Components (SFCs)**
 
