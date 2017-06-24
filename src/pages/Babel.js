@@ -6,7 +6,7 @@ import DefaultPage from "./DefaultPage";
 import markdownOptions from "../utils/MarkdownOptions";
 
 const content = markdown(markdownOptions)`
-Babel is a highly configurable parser that lets you use experimental JavaScript features and extensions, compiling down into old-style JavaScript that can be supported on a wider range of platforms. Of course, if a native platform doesn't support an ES2015 feature like \`Promise()\`, Babel won't fully be able to help -- but it can in many cases polyfill missing APIs to provide this functionality.
+Babel is a highly configurable parser that lets you use experimental JavaScript features and extensions, compiling down into old-style JavaScript that can be supported on a wider range of platforms. Of course, if a native platform doesn't support an ES2015 feature like \`Promise()\`, Babel won't fully be able to help -- but it can in many cases "polyfill" missing APIs to provide this functionality.
 
 Babel enables debugging of the the original source code by including **source maps** with the compiled JavaScript. JavaScript interpreters will run the compiled code, but map it to the source code in the debugger so that you can debug the source code instead of the (generally quite ugly) compiled output.
 
@@ -18,7 +18,7 @@ Babel groups experimental language features into presets called **stages**, with
 
 # Which presets should I use?
 
-You'll need the \`react\` preset to use the React JSX language extension. You'll almost certainly want the \`es2015\` preset, which includes plugins for compiling ES2015 features. And then you'll likely want to choose a \`stage\` preset - I recommend \`stage-1\` as a good balance between practical and safe to use.
+You'll need the \`react\` preset to use the React JSX language extension. You'll almost certainly want the \`env\` preset, which includes plugins for compiling ES2015, ES2016, and ES2017 features. And then you'll likely want to choose a \`stage\` preset - I recommend \`stage-1\` as a good balance between practical and safe to use.
 
 If you want to use the new \`async\` and \`await\` keywords, you'll also need to include Babel's runtime library. If you don't know what these keywords are, we'll cover them [later](async_await), but I generally recommend installing the runtime and using them.
 
@@ -28,7 +28,7 @@ To use Babel in a project bundled with Webpack, you should use [babel-loader](ht
 
 ${(
   <CodeBlock
-  >{`npm install --save-dev babel-loader babel-core babel-preset-react babel-preset-es2015 babel-preset-stage-1 babel-plugin-transform-runtime
+  >{`npm install --save-dev babel-loader babel-core babel-preset-react babel-preset-env babel-preset-stage-1 babel-plugin-transform-runtime
 
 npm install --save babel-runtime
 `}</CodeBlock>
@@ -76,7 +76,7 @@ Given the presets we downloaded above, our \`.babelrc\` file should look like
 ${(
   <CodeBlock filename={".babelrc"}>{`{
   "presets": [
-    ["es2015", {"modules": false}],
+    ["env", {"modules": false}],
     "stage-1",
     "react"
   ],
@@ -86,7 +86,9 @@ ${(
 }`}</CodeBlock>
 )}
 
-Note that we want to use the \`es2015\` preset with the \`modules\` option set to \`false\`, since Webpack can better optimize our code this way. This is a new feature as of Webpack 2.
+Note that we want to use the \`env\` preset with the \`modules\` option set to \`false\`, since Webpack can better optimize our code this way. This is a new feature as of Webpack 2.
+
+Also note that the \`transform-runtime\` plugin is likely only needed if you want to use the new \`async\` and \`await\` keywords.
 `;
 
 export default props => <DefaultPage {...props}>{content}</DefaultPage>;
