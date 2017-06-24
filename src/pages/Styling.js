@@ -200,7 +200,7 @@ We can wrap our components using \`styled\`, which will create a CSS StyleSheet 
 )} ${(
   <img
     src={
-      "http://img.badgesize.io/https://unpkg.com/styled-components/dist/styled-components.min.js?compression=gzip&label=zip%20size"
+      "http://img.badgesize.io/https://unpkg.com/styled-components/dist/styled-components.min.js?compression=gzip&label=gzip%20size"
     }
   />
 )}
