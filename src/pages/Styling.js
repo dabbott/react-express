@@ -188,10 +188,22 @@ We can wrap our components using \`styled\`, which will create a CSS StyleSheet 
 - Vendor prefixing
 - Familiar CSS syntax
 - Component styles live in the same file as code and behaviors
+- Works on every React renderer (web, native, etc)
 
 **Cons**
-- 72K, 20K gzipped
-- DOM renderer only (no React Native)
+- Increases code size (slower to load)${<br />}${(
+  <img
+    src={
+      "http://img.badgesize.io/https://unpkg.com/styled-components/dist/styled-components.min.js?label=size"
+    }
+  />
+)} ${(
+  <img
+    src={
+      "http://img.badgesize.io/https://unpkg.com/styled-components/dist/styled-components.min.js?compression=gzip&label=zip%20size"
+    }
+  />
+)}
 `;
 
 export default props => <DefaultPage {...props}>{content}</DefaultPage>;
