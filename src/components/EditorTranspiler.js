@@ -1,12 +1,8 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 
 import WebPlayer from "./WebPlayer";
 
-export default class EditorTranspiler extends Component {
-  shouldComponentUpdate() {
-    return false;
-  }
-
+export default class EditorTranspiler extends PureComponent {
   render() {
     return (
       <WebPlayer

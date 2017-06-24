@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 import createStyles, { responsive } from "react-styles-provider";
 import ReactNativeWebPlayer from "react-native-web-player";
 
@@ -51,7 +51,7 @@ playerStyles.playerHeaderText = playerStyles.headerText;
     minHeight: 0
   }
 })
-export default class WebPlayer extends Component {
+export default class WebPlayer extends PureComponent {
   static defaultProps = {
     height: 700,
     width: 260,
@@ -61,10 +61,6 @@ export default class WebPlayer extends Component {
     fullscreen: true,
     platform: "web"
   };
-
-  shouldComponentUpdate() {
-    return false;
-  }
 
   render() {
     const {

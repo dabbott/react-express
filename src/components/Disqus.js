@@ -1,14 +1,10 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 import DisqusThread from "react-disqus-thread";
 
 const prod = window.location.hostname.match("react.express");
 const shortname = prod ? "reactexpress" : "reactnativeexpress-staging";
 
-export default class Disqus extends Component {
-  shouldComponentUpdate() {
-    return false;
-  }
-
+export default class Disqus extends PureComponent {
   render() {
     const { identifier, title, url } = this.props;
 

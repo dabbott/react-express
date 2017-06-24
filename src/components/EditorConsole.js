@@ -1,12 +1,8 @@
-import React, { Component } from "react";
+import React, { PureComponent } from "react";
 
 import WebPlayer from "./WebPlayer";
 
-export default class EditorConsole extends Component {
-  shouldComponentUpdate() {
-    return false;
-  }
-
+export default class EditorConsole extends PureComponent {
   render() {
     return (
       <WebPlayer
