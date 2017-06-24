@@ -77,7 +77,7 @@ ${(
   </pre>
 )}
 
-By default, the id of an element is the id of it's parent, concatenated with the index of the element within its parent. However, if we give one of these elements a key, that key will be used to determine the element's id. So for example:
+By default, the id of an element is the id of its parent, concatenated with the index of the element within its parent. However, if we give one of these elements a key, that key will be used to determine the element's id. So for example:
 
 ${(
   <pre>
