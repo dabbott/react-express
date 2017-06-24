@@ -44,7 +44,7 @@ const buttonStyle = {
 export default class extends Component {
   render() {
     const content = markdown(markdownOptions)`
-React is a framework for building performant interfaces for the web and other platforms.
+React is a library for building performant interfaces for the web and other platforms.
 
 You should use this guide as a companion to the official Facebook documentation for [getting started](https://facebook.github.io/react/docs/hello-world.html). While the official docs are great, the React ecosystem includes *many* other important projects which are outside the scope of the React docs.
 

@@ -8,7 +8,7 @@ import markdownOptions from "../utils/MarkdownOptions";
 const content = markdown(markdownOptions)`
 \`npm\` is the package manager for \`node.js\`, the server-side JavaScript execution environment. Most React apps load the React library and 3rd party libraries/extensions through \`npm\` packages.
 
-If you're new to JavaScript development, or if you've been using older frameworks (e.g. jQuery, Backbone), you may not have used \`npm\` for client-side app development. While \`npm\` was originally intended for usage exclusively in \`node.js\` server-side code, it's now commonly used for client-side code too. Webpack makes this possible, but more on that later.
+If you're new to JavaScript development, or if you've been using older libraries (e.g. jQuery, Backbone), you may not have used \`npm\` for client-side app development. While \`npm\` was originally intended for usage exclusively in \`node.js\` server-side code, it's now commonly used for client-side code too. Webpack makes this possible, but more on that later.
 
 There are two common ways to install \`npm\`: you can install \`node.js\` (which includes \`npm\`), or you can install \`nvm\` (which helps manage multiple versions of \`node\` and \`npm\`). If you're just dabbling in React, it's easiest to install \`node.js\` directly from the official website. If you plan on using React for serious/large projects, it's best to use \`nvm\`, since at some point you'll want to upgrade versions.
 
