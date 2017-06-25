@@ -220,7 +220,7 @@ Let's look at another common case: rendering a different React element for when 
 
 ${<WebPlayer code={ternaryEvaluation} />}
 
-# Complex rendering \`?\`
+# Rendering with \`if/else\`
 
 For more complex cases, we can introduce variables to temporarily reference React elements, letting us combine them in different ways. We may also use class methods for rendering different content.
 
