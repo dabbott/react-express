@@ -111,7 +111,7 @@ const vendorComponents = [
 ];
 
 const content = markdown(markdownOptions)`
-There are **many** different ways to style React components. The React community hasn't setting on one "best" way to style components, and new style libraries are created frequently. The method you choose is often based on personal preference, since the features of each method are generally pretty similar.
+There are **many** different ways to style React components. The React community hasn't settled on one "best" way to style components, and new style libraries are created frequently. The method you choose is often based on personal preference, since the features of each method are generally pretty similar.
 
 We'll look at three broad approaches: inline styles, CSS, and CSS-in-JS. When in doubt, I recommend starting with inline styles and choosing something else when you have a better sense of your requirements.
 
