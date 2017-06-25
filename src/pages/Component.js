@@ -55,7 +55,7 @@ render(element, node)
 `;
 
 const content = markdown(markdownOptions)`
-\`Components\` are the building blocks of any React UI. React manages the mapping from components created with JSX (e.g. \`${`<div />`}\`) to the native brower DOM which is actually rendered.
+\`Components\` are the building blocks of any React UI. React manages the mapping from components created with JSX (e.g. \`${`<div />`}\`) to the native browser DOM which is actually rendered.
 
 The entire UI of the application is specified by declaring which components to render, and in what order. Components are nested inside other components, forming a tree data structure. The top level component, or the root of the tree, is known as the root component. Nested components are called children components.
 
