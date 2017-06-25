@@ -21,7 +21,11 @@ class Input extends Component {
 
     return (
       <div>
+        <label htmlFor={'id'}>
+          Label
+        </label>
         <input
+          id={'id'}
           type={'text'}
           value={value}
           placeholder={'Placeholder'}
