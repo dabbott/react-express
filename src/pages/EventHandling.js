@@ -16,9 +16,9 @@ class Button extends Component {
     const {count} = this.state
 
     return (
-      <div onClick={() => this.setState({count: count + 1})}>
+      <button type='button' onClick={() => this.setState({count: count + 1})}>
         Click HERE to increment: {count}
-      </div>
+      </button>
     )
   }
 }
@@ -43,9 +43,9 @@ class Button extends Component {
     const {count} = this.state
 
     return (
-      <div onClick={this.handleClick}>
+      <button type='button' onClick={this.handleClick}>
         Click HERE to increment: {count}
-      </div>
+      </button>
     )
   }
 }
@@ -61,9 +61,9 @@ class Button extends Component {
     const {onPress, children} = this.props
 
     return (
-      <div onClick={onPress}>
+      <button type='button' onClick={onPress}>
         {children}
-      </div>
+      </button>
     )
   }
 }
@@ -96,9 +96,9 @@ render(<App />, document.querySelector('#app'))
 `;
 
 const content = markdown(markdownOptions)`
-DOM nodes created with React, such as \`${`<div />`}\`, fire the same events they would in vanilla JavaScript, with a few differences.
+DOM nodes created with React, such as \`${`<button />`}\`, fire the same events they would in vanilla JavaScript, with a few differences.
 
-To attach a callback to an event, pass a function as an attribute to a React element, e.g. \`${`<div onClick={(e) => console.log(e)} />`}\`
+To attach a callback to an event, pass a function as an attribute to a React element, e.g. \`${`<button onClick={(e) => console.log(e)} />`}\`
 
 ## Naming scheme
 
@@ -118,7 +118,7 @@ ${<WebPlayer code={inlineFunction} />}
 
 ## Performance & Binding
 
-It's generally bad practice to define functions within the props of your React elements like we did in the previous example. This is because a new function will be created each time \`render\` is called - it's common for components to compare props using \`===\`, which in this case will indicate that the \`onClick\` prop of the \`div\` has changed, and may cause unnecessary re-renders. Using \`.bind\` within component props has a similar effect.
+It's generally bad practice to define functions within the props of your React elements like we did in the previous example. This is because a new function will be created each time \`render\` is called - it's common for components to compare props using \`===\`, which in this case will indicate that the \`onClick\` prop of the \`button\` has changed, and may cause unnecessary re-renders. Using \`.bind\` within component props has a similar effect.
 
 We call functions defined like this **inline functions**. They're convenient to use as you're developing a component, but should generally be extracted and bound to the instance of the class.
 
@@ -142,7 +142,7 @@ There is nothing special about the name of the \`onClick\` prop passed to our \`
 
 ${<WebPlayer code={customComponents} />}
 
-Here we pass our \`Button\` a prop \`onPress\`, which then gets passed into the \`onClick\` of a \`div\`.
+Here we pass our \`Button\` a prop \`onPress\`, which then gets passed into the \`onClick\` of a \`button\`.
 `;
 
 export default props => <DefaultPage {...props}>{content}</DefaultPage>;
