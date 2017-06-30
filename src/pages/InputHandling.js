@@ -21,7 +21,11 @@ class Input extends Component {
 
     return (
       <div>
+        <label htmlFor={'id'}>
+          Enter value
+        </label>
         <input
+          id={'id'}
           type={'text'}
           value={value}
           placeholder={'Placeholder'}
@@ -48,6 +52,8 @@ Let's look at a simple input field:
 ${<WebPlayer code={inputField} />}
 
 Every time we \`render\` the \`input\`, we pass the current value from our component's \`state\`. Every time the user types in the input field, we update \`state\` to include the new value, which triggers a re-render. This essentially keeps the DOM synced up to our component \`state\` automatically. We can control the value of the input field however we'd like, while React handles the DOM operations for us behind the scenes.
+
+For accessibility, it's best to include labels for input elements. Read more about accessibility in React [here](https://facebook.github.io/react/docs/accessibility.html).
 `;
 
 export default props => <DefaultPage {...props}>{content}</DefaultPage>;
