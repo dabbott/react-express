@@ -21,7 +21,7 @@ this.items.map(x => this.doSomethingWith(x))`;
 const content = markdown(markdownOptions)`
 The **fat arrow** \`=>\` is used to define anonymous functions. There are two important differences in the behavior of these functions, compared to functions defined with \`function\`.
 
-First, the binding for the keyword \`this\` is the same outside and inside the fat arrow function. This is different than functions declared with \`function\`, which can bind \`this\` to another other object upon invocation. Maintaining the \`this\` binding is very convenient for operations like mapping: \`this.items.map(x => this.doSomethingWith(x))\`.
+First, the binding for the keyword \`this\` is the same outside and inside the fat arrow function. This is different than functions declared with \`function\`, which can bind \`this\` to another object upon invocation. Maintaining the \`this\` binding is very convenient for operations like mapping: \`this.items.map(x => this.doSomethingWith(x))\`.
 
 Second, fat arrow functions don't have an \`arguments\` object defined. You can achieve the same thing using the **spread syntax**: \`(...args) => doSomething(args[0], args[1])\`.
 
