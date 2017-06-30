@@ -8,7 +8,7 @@ import markdownOptions from "../utils/MarkdownOptions";
 const inlineFunction = `import React, { Component } from 'react'
 import { render } from 'react-dom'
 
-class Button extends Component {
+class CounterButton extends Component {
 
   state = {count: 0}
 
@@ -16,20 +16,20 @@ class Button extends Component {
     const {count} = this.state
 
     return (
-      <div onClick={() => this.setState({count: count + 1})}>
+      <button type='button' onClick={() => this.setState({count: count + 1})}>
         Click HERE to increment: {count}
-      </div>
+      </button>
     )
   }
 }
 
-render(<Button />, document.querySelector('#app'))
+render(<CounterButton />, document.querySelector('#app'))
 `;
 
 const boundFunction = `import React, { Component } from 'react'
 import { render } from 'react-dom'
 
-class Button extends Component {
+class CounterButton extends Component {
 
   state = {count: 0}
 
@@ -43,27 +43,27 @@ class Button extends Component {
     const {count} = this.state
 
     return (
-      <div onClick={this.handleClick}>
+      <button type='button' onClick={this.handleClick}>
         Click HERE to increment: {count}
-      </div>
+      </button>
     )
   }
 }
 
-render(<Button />, document.querySelector('#app'))
+render(<CounterButton />, document.querySelector('#app'))
 `;
 
 const customComponents = `import React, { Component } from 'react'
 import { render } from 'react-dom'
 
-class Button extends Component {
+class CounterButton extends Component {
   render() {
     const {onPress, children} = this.props
 
     return (
-      <div onClick={onPress}>
+      <button type='button' onClick={onPress}>
         {children}
-      </div>
+      </button>
     )
   }
 }
@@ -82,12 +82,12 @@ class App extends Component {
     const {count} = this.state
 
     return (
-      <Button
+      <CounterButton
         count={count}
         onPress={this.handlePress}
       >
         Click HERE to increment: {count}
-      </Button>
+      </CounterButton>
     )
   }
 }
@@ -96,9 +96,9 @@ render(<App />, document.querySelector('#app'))
 `;
 
 const content = markdown(markdownOptions)`
-DOM nodes created with React, such as \`${`<div />`}\`, fire the same events they would in vanilla JavaScript, with a few differences.
+DOM nodes created with React, such as \`${`<button />`}\`, fire the same events they would in vanilla JavaScript, with a few differences.
 
-To attach a callback to an event, pass a function as an attribute to a React element, e.g. \`${`<div onClick={(e) => console.log(e)} />`}\`
+To attach a callback to an event, pass a function as an attribute to a React element, e.g. \`${`<button onClick={(e) => console.log(e)} />`}\`
 
 ## Naming scheme
 
@@ -118,7 +118,7 @@ ${<WebPlayer code={inlineFunction} />}
 
 ## Performance & Binding
 
-It's generally bad practice to define functions within the props of your React elements like we did in the previous example. This is because a new function will be created each time \`render\` is called - it's common for components to compare props using \`===\`, which in this case will indicate that the \`onClick\` prop of the \`div\` has changed, and may cause unnecessary re-renders. Using \`.bind\` within component props has a similar effect.
+It's generally bad practice to define functions within the props of your React elements like we did in the previous example. This is because a new function will be created each time \`render\` is called - it's common for components to compare props using \`===\`, which in this case will indicate that the \`onClick\` prop of the \`button\` has changed, and may cause unnecessary re-renders. Using \`.bind\` within component props has a similar effect.
 
 We call functions defined like this **inline functions**. They're convenient to use as you're developing a component, but should generally be extracted and bound to the instance of the class.
 
@@ -134,15 +134,15 @@ Notice how we define the \`handleClick\` function once, and reference it in the 
 
 # Custom Components and Events
 
-Let's say we want to make a custom \`Button\` component with an \`onClick\` event. Creating a button with \`${`<Button onClick={() => ...} />`}\` will tell React to instantiate our \`Button\` class with the function prop \`onClick\`. However, this alone won't make our \`Button\` respond to clicks.
+Let's say we want to make a custom \`CounterButton\` component with an \`onClick\` event. Creating a button with \`${`<CounterButton onClick={() => ...} />`}\` will tell React to instantiate our \`CounterButton\` class with the function prop \`onClick\`. However, this alone won't make our \`CounterButton\` respond to clicks.
 
-Only DOM components can handle DOM events like \`onClick\` - so our \`Button\` must render a DOM component and pass the \`onClick\` prop into it. Our \`Button\` is essentially a pass-through for the click event.
+Only DOM components can handle DOM events like \`onClick\` - so our \`CounterButton\` must render a DOM component and pass the \`onClick\` prop into it. Our \`CounterButton\` is essentially a pass-through for the click event.
 
-There is nothing special about the name of the \`onClick\` prop passed to our \`Button\` - we could name it anything we want, so long as \`Button\` passes that prop into a DOM component. For example, we could decide to name the event \`onPress\` and create our button \`Button\` as \`${`<Button onPress={() => ...} />`}\`. Within \`Button\`, we would then want to render \`${`<div onClick={this.props.onPress} />`}\`.
+There is nothing special about the name of the \`onClick\` prop passed to our \`CounterButton\` - we could name it anything we want, so long as \`CounterButton\` passes that prop into a DOM component. For example, we could decide to name the event \`onPress\` and create our button \`CounterButton\` as \`${`<CounterButton onPress={() => ...} />`}\`. Within \`CounterButton\`, we would then want to render \`${`<button onClick={this.props.onPress} />`}\`.
 
 ${<WebPlayer code={customComponents} />}
 
-Here we pass our \`Button\` a prop \`onPress\`, which then gets passed into the \`onClick\` of a \`div\`.
+Here we pass our \`CounterButton\` a prop \`onPress\`, which then gets passed into the \`onClick\` of a \`button\`.
 `;
 
 export default props => <DefaultPage {...props}>{content}</DefaultPage>;
