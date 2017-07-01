@@ -12,6 +12,8 @@ Webpack is a huge topic, and the official documentation is a work-in-progress. Y
 
 You can find the Webpack docs [here](https://webpack.js.org/). The [overview](https://webpack.js.org/concepts/) of Webpack is very good.
 
+> Note: if you're looking for a simple React setup, you don't need to install Webpack. You should instead use \`create-react-app\`, described in the [Quick Start](quick_start) section. Manually installing and configuring \`webpack\` gives you more control over your stack, but isn't necessary to get started with React.
+
 # How it works
 
 When you provide \`webpack\` with an entry file (the JavaScript file to run *first*, e.g. \`index.js\`), \`webpack\` will analyze the file and determine which other files it depends on via calls to \`require\` (the \`node.js\` API to include another file). It then cleverly concatenates all necessary files into a single file.

@@ -73,6 +73,16 @@ const styles = {
   },
   strong: {
     fontWeight: "bold"
+  },
+  blockquote: {
+    borderLeft: "4px solid #DEDFE8",
+    paddingLeft: 10
+  },
+  img: {
+    maxWidth: "100%"
+  },
+  pre: {
+    marginBottom: 15
   }
 };
 
