@@ -84,7 +84,7 @@ ${(
 <script src="./bundle.js"></script>`}</CodeBlock>
 )}
 
-(Wondering why there's no html tag? It's convenient to omit [optional tags](https://google.github.io/styleguide/htmlcssguide.xml?showone=Optional_Tags#Optional_Tags)!)
+(Wondering why there's no html tag? It's convenient to omit [optional tags](https://google.github.io/styleguide/htmlcssguide.html#Optional_Tags)!)
 
 ## Running the development server
 
