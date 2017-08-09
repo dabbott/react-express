@@ -38,7 +38,7 @@ These and many more instructions exist in the docs linked above.
 
 ## Option 3. Installation via package manager (Homebrew, etc)
 
-You can generally install either \`node\` or \`nvm\` through your package manager without much difficulty. If you're already using a package manager, you should give this a shot first. If all else fails, try the \`node.js\` binary from the node.js site - that is almost gauranteed to give you a working install.
+You can generally install either \`node\` or \`nvm\` through your package manager without much difficulty. If you're already using a package manager, you should give this a shot first. If all else fails, try the \`node.js\` binary from the node.js site - that is almost guaranteed to give you a working install.
 
 # Basics
 
