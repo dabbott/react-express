@@ -216,7 +216,11 @@ let sections = [
     title: "React Redux",
     slug: "react_redux",
     componentName: "ReactRedux"
-  }
+  },
+  {depth: 1, title: 'GraphQL', slug: 'graphql', componentName: 'GraphQL'},
+  {depth: 2, title: 'Communicating with a GraphQL API', slug: 'graphql_api', componentName: 'CommunicatingWithGraphQLAPI'},
+  {depth: 2, title: 'The GraphQL Schema', slug: 'graphql_schema', componentName: 'GraphQLSchema'},
+  {depth: 2, title: 'Getting Started with GraphQL', slug: 'graphql_getting_started', componentName: 'GettingStartedWithGraphQL'},
 
   // {depth: 0, title: 'Networking', slug: 'networking', componentName: 'Networking'},
   // {depth: 1, title: 'With Redux', slug: 'networking_redux', componentName: 'NetworkingRedux', fullTitle: 'Networking with Redux'},

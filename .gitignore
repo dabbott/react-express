@@ -3,3 +3,4 @@ npm-debug.log
 dist
 !dist/index.html
 server/build
+.idea
