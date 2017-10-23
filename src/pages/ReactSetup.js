@@ -58,7 +58,7 @@ ReactDOM.render(<App />, root)`}</CodeBlock>
 
 ## Running the development server
 
-Now we can run \`npm run dev\` to run the script we set up in the \`package.json\`. This will start the development server. If we navigate to \`localhost:8080\` in a browser, we should see our \`index.html\` file, which will run our \`index.js\` bundled into \`bundle.js\`, displaying \`Hello World!\` on the screen.
+Now we can run \`npm run dev\` to run the script we set up in the \`package.json\`. This will start the development server. If we navigate to \`localhost:8080\` in a browser, we should see our \`index.html\` file, which will run our \`index.js\` bundled into \`bundle.js\`, displaying \`Welcome to React!\` on the screen.
 
 ![Hello World](react-hello-world.png)
 
