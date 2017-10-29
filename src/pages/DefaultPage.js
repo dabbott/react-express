@@ -11,8 +11,8 @@ export default class DefaultPage extends Component {
       <Page title={title} footer={footer}>
         <PageHeader
           title={title}
-          author={"@devinaabbott"}
-          authorURL={"https://twitter.com/devinaabbott"}
+          author={"@dvnabbott"}
+          authorURL={"https://twitter.com/dvnabbott"}
         />
         {children}
       </Page>

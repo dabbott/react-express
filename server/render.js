@@ -6,7 +6,7 @@ const { default: Root, AppHelmet: Helmet } = require("./build/server-bundle");
 const pageCache = {};
 
 const fbAppId = "105028866738480";
-const author = "https://twitter.com/devinaabbott";
+const author = "https://twitter.com/dvnabbott";
 
 const createDocument = (location, helmet, content) => `<!doctype html>
 <html>

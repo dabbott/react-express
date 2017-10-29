@@ -19,8 +19,8 @@ export default class Uber extends Component {
           <div style={{ paddingRight: "30px" }}>
             <PageHeader
               title={this.props.title}
-              author={"@devinaabbott"}
-              authorURL={"https://twitter.com/devinaabbott"}
+              author={"@dvnabbott"}
+              authorURL={"https://twitter.com/dvnabbott"}
             />
             <div style={styles.p}>
               We'll now build the main UI for the Uber app. This is an{" "}

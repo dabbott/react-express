@@ -50,7 +50,7 @@ You should use this guide as a companion to the official Facebook documentation 
 
 This guide is intended for people who know HTML, CSS, and JavaScript at a beginner-to-intermediate level already. We'll cover everything beyond that: newer language features, build tools, and React in-depth.
 
-I hope you enjoy learning React. Reach out to me, [@devinaabbott](https://twitter.com/devinaabbott), with comments or questions you have along the way. Some pages are written by other authors (listed at top of each page), so feel free to contact them too. Huge thanks to [Gabe G'Sell](http://gabegsell.com/) for writing content with me and proofreading.
+I hope you enjoy learning React. Reach out to me, [@dvnabbott](https://twitter.com/dvnabbott), with comments or questions you have along the way. Some pages are written by other authors (listed at top of each page), so feel free to contact them too. Huge thanks to [Gabe G'Sell](http://gabegsell.com/) for writing content with me and proofreading.
 
 PS: I recommend viewing this guide from a desktop browser rather than mobile, since the desktop version supports interactive examples.
 
@@ -84,8 +84,8 @@ In the following sections, I'll give a brief background on build tools: npm, web
         <GithubCorner />
         <PageHeader
           title={"Learning React"}
-          author={"@devinaabbott"}
-          authorURL={"https://twitter.com/devinaabbott"}
+          author={"@dvnabbott"}
+          authorURL={"https://twitter.com/dvnabbott"}
         />
         {content}
         <Link to={"environment"} style={buttonStyle}>
