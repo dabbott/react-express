@@ -25,7 +25,7 @@ Apollo and Relay both implement further features like caching, realtime support 
 
 ## Creating your own GraphQL Server
 
-The fastest way to get started with GraphQL is by using the [Graphcool CLI](https://github.com/graphcool/graphcool-cli). You can simply install it via npm:
+The fastest way to get started with GraphQL is by using the [Graphcool CLI](https://www.graph.cool/docs/reference/cli/overview-kie1quohli/). You can simply install it via npm:
 
 ${<pre><code>{
 `npm install -g graphcool`
