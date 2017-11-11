@@ -31,12 +31,11 @@ ${<pre><code>{
 `npm install -g graphcool`
 }</code></pre>}
 
-Once you have the CLI installed, you can use the \`graphcool init\` command to create and setup your GraphQL server. Pass the \`--schema\` option to specify what the data model for your API should look like:
-
+Once you have the CLI installed, you can use the \`graphcool init\` and \`graphcool deploy\` commands to bootstrap and deploy your GraphQL server. 
 
 ## Running a practical example with React, Apollo & GraphQL
 
-If you want to get your hands dirty and learn how to get started with a practical example, you can follow these steps to run the [sample Instagram](https://github.com/graphcool-examples/react-graphql/tree/master/quickstart-with-apollo) application with React, Apollo Client and GraphQL. Watch this [5-minute tutorial video](https://www.youtube.com/watch?v=OoPQl8hcIug) for further info.
+If you want to get your hands dirty and learn how to get started with a practical example, you can follow these steps to run the [sample Instagram](https://github.com/graphcool-examples/react-graphql/tree/master/quickstart-with-apollo) application with React, Apollo Client and GraphQL. Watch this [5-minute tutorial video](https://www.youtube.com/watch?v=xmri5pNR9-Y) for further info.
 
 
 Step 1: Clone example repository
@@ -53,30 +52,68 @@ ${<pre><code>{
 `# Install Graphcool CLI
 npm install -g graphcool
 
-# Create a new project based on the Instagram schema
-graphcool init --schema https://graphqlbin.com/instagram.graphql`
+# Create a new service inside a directory called `server`
+graphcool init server
 }</code></pre>}
 
-This creates a GraphQL API for the following schema:
+This created the following file structure in the current directory:
 
 ${<pre><code>{
-`type Post {
+`.
+└── server
+    ├── graphcool.yml
+    ├── types.graphql
+    ├── package.json
+    └── src
+        ├── hello.graphql
+        └── hello.js`
+}</code></pre>}
+
+Step 3: Define data model
+
+Next, you need to define your data model inside the newly created \`types.graphql\`-file.
+
+Replace the current contents in \`types.graphql\` with the following type definition (you can delete the predefined \`User\` type):
+
+${<pre><code>{
+`type Post @model {
+  # Required system field
+  id: ID! @isUnique # read-only (managed by Graphcool)
+
+  # Optional system fields (remove if not needed)
+  createdAt: DateTime! # read-only (managed by Graphcool)
+  updatedAt: DateTime! # read-only (managed by Graphcool)
+
   description: String!
-    imageUrl: String!
+  imageUrl: String!
 }`
 }</code></pre>}
 
+Step 4: Deploy the GraphQL server
 
-Step 3: Connect the app with your GraphQL API
+You're now ready to put your Graphcool service into production! Navigate into the \`server\` directory and [deploy](https://docs-next.graph.cool/reference/graphcool-cli/commands-aiteerae6l#graphcool-deploy) the service:
 
-Copy the \`Simple API\` endpoint to \`./src/index.js\` as the \`uri\` argument in the \`createNetworkInterface\` call:
+${<pre><code>{
+`cd server
+graphcool deploy`
+}</code></pre>}
+
+When prompted which cluster you want to deploy to, choose any of the **Shared Clusters** options (\`shared-eu-west-1\`, \`shared-ap-northeast-1\` or \`shared-us-west-2\`).
+
+Save the HTTP endpoint for the Simple API from the output, you'll need it in the next step.
+
+> **Note:** You can now test your GraphQL API inside a GraphQL playground. Simply type the \`graphcool playground\` command and start sending queries and mutations.
+
+Step 5: Connect React app with your GraphQL API
+
+Paste the **Simple API** endpoint from the previous step to \`./src/index.js\` as the \`uri\` argument in the \`HttpLink\` constructor call:
 
 ${<pre><code>{
 `// replace \`__SIMPLE_API_ENDPOINT__\` with the endpoint from the previous step
 const networkInterface = createNetworkInterface({ uri: '__SIMPLE_API_ENDPOINT__' })`
 }</code></pre>}
 
-Step 4: Install dependencies & run locally
+Step 6: Install dependencies & run locally
 
 ${<pre><code>{
 `yarn install
@@ -87,10 +124,10 @@ yarn start # open http://localhost:3000 in your browser`
 
 If you want to learn how you can implement more advanced features with GraphQL, take a look at the following articles:
 
+* [Documentation](https://www.graph.cool/docs)
 * [Advanced GraphQL features](https://www.graph.cool/docs/tutorials/advanced-features-eath7duf7d/)
 * [Authentication & Permissions](https://www.graph.cool/docs/reference/authorization/overview-iegoo0heez/)
 * [Implementing business logic with serverless functions](https://www.graph.cool/docs/reference/functions/overview-boo6uteemo/)
-
 `
 
 export default props =>

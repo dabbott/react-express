@@ -46,7 +46,6 @@ type Mutation {
 
 You can read more about the core GraphQL constructs [here](https://www.howtographql.com/basics/2-core-concepts/).
 
-
 `
 
 export default props =>
