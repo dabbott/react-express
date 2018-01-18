@@ -51,7 +51,7 @@ ${(
 }`}</CodeBlock>
 )}
 
-The \`dev\` script will start our development server, passing the options \`${`{env: 'dev'}`}\` to our config file. The \`build\` script will save a single \`.js\` file on the filesystem for serving from a production server. We'll use these scripts shortly to bundle and test our app.
+The \`dev\` script will start our development server, passing the options \`${`{dev: true'}`}\` to our config file. The \`build\` script will save a single \`.js\` file on the filesystem for serving from a production server. We'll use these scripts shortly to bundle and test our app.
 
 ## Configuration
 
@@ -68,7 +68,7 @@ ${(
 }`}</CodeBlock>
 )}
 
-There are only two essential fields: the entry point file, and the output file. Later, we can use options to specify a different configuration for development/production (remember, we pass \`${`{env: 'dev'}`}\` as options in our \`dev\` script).
+There are only two essential fields: the entry point file, and the output file. Later, we can use options to specify a different configuration for development/production (remember, we pass \`${`{dev: true}`}\` as options in our \`dev\` script).
 
 ## Essential files
 
