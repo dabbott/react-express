@@ -51,7 +51,7 @@ ${(
 }`}</CodeBlock>
 )}
 
-The \`dev\` script will start our development server, passing the options \`${`{dev: true'}`}\` to our config file. The \`build\` script will save a single \`.js\` file on the filesystem for serving from a production server. We'll use these scripts shortly to bundle and test our app.
+The \`dev\` script will start our development server, passing the options \`${`{dev: true}`}\` to our config file. The \`build\` script will save a single \`.js\` file on the filesystem for serving from a production server. We'll use these scripts shortly to bundle and test our app.
 
 ## Configuration
 
