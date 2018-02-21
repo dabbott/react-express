@@ -62,7 +62,7 @@ In ES5, classes are written as functions, with instance methods assigned to \`My
 
 ${<EditorConsole code={classExtendsExample} title={"Inheritance"} />}
 
-For full details on the \`class\` syntax, see the [MDN reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes').
+For full details on the \`class\` syntax, see the [MDN reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes).
 `;
 
 export default props =>
