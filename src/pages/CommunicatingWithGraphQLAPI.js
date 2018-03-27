@@ -10,15 +10,6 @@ const content = markdown(markdownOptions)`
 
 In this section, we’ll explain the core concepts you need to know when working with a GraphQL API. 
 
-<!--
-TODO: Update
-While you’re learning about the different kinds of requests you can send to a GraphQL server, you can try these out directly in your own GraphQL sandbox environment using [graphql-up](https://www.graph.cool/graphql-up). Simply click the pink button and follow the instructions to experiment with GraphQL in a [Playground](https://www.graph.cool/docs/faq/tips-and-tricks-graphql-playground-ook6luephu/):
-
-[![graphql-up](http://static.graph.cool/images/graphql-up.svg)](https://www.graph.cool/graphql-up/new?source=https://graphqlbin.com/instagram.graphql)
-
-![](http://imgur.com/Iojeztn.gif)
--->
-
 ## Fetching Data with GraphQL Queries
 
 When an application needs to retrieve data from a GraphQL API, it has to send a _query_ to the server in which it specifies the data requirements. Most GraphQL servers accept only HTTP POST requests where the query is put into the *body* of the request. Note however that GraphQL itself is actually *transport layer agnostic*, meaning that the client-server communication could also happen using other networking protocols than HTTP.
