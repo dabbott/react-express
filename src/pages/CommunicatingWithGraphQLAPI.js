@@ -10,21 +10,15 @@ const content = markdown(markdownOptions)`
 
 In this section, we’ll explain the core concepts you need to know when working with a GraphQL API. 
 
-While you’re learning about the different kinds of requests you can send to a GraphQL server, you can try these out directly in your own GraphQL sandbox environment using [graphql-up](https://www.graph.cool/graphql-up). Simply click the pink button and follow the instructions to experiment with GraphQL in a [Playground](https://www.graph.cool/docs/faq/tips-and-tricks-graphql-playground-ook6luephu/):
-
-[![graphql-up](http://static.graph.cool/images/graphql-up.svg)](https://www.graph.cool/graphql-up/new?source=https://graphqlbin.com/instagram.graphql)
-
-![](http://imgur.com/Iojeztn.gif)
-
 ## Fetching Data with GraphQL Queries
 
 When an application needs to retrieve data from a GraphQL API, it has to send a _query_ to the server in which it specifies the data requirements. Most GraphQL servers accept only HTTP POST requests where the query is put into the *body* of the request. Note however that GraphQL itself is actually *transport layer agnostic*, meaning that the client-server communication could also happen using other networking protocols than HTTP.
 
-Here’s an example query that a client might send in an Instagram application:
+Here’s an example query that a client might send in an Instagram-like application:
 
 ${<pre><code>{
 `query {
-  allPosts {
+  feed {
     id
     imageUrl
     description
@@ -32,14 +26,14 @@ ${<pre><code>{
 }`
 }</code></pre>}
 
-The keyword \`query\` in the beginning expresses the *operation type*. Besides \`query\`, there are two more operation types called \`mutation\` and \`subscription\`. Note that the default operation type of a request is in fact \`query\`, so you might as well remove it from the above request. \`allPosts\` is the *root field* of the query and everything that follows is called the *payload* of the query. 
+The keyword \`query\` in the beginning expresses the *operation type*. Besides \`query\`, there are two more operation types called \`mutation\` and \`subscription\`. Note that the default operation type of a request is in fact \`query\`, so you might as well remove it from the above request. \`feed\` is the *root field* of the query and everything that follows is called the *selection set* of the query. 
 
-When a server receives the above query, it will *resolve* it, i.e. collect the required data, and package up the response in the same format of the query. Here’s what a potential response could look like:
+When a server receives the above query, it will [resolve](https://blog.graph.cool/graphql-server-basics-the-schema-ac5e2950214e#1880) it, i.e. collect the required data, and package up the response in the same format of the query. Here’s what a potential response could look like:
 
 ${<pre><code>{
 `{
   "data": {
-    "allPosts": [
+    "feed": [
       {
         "id": "1",
         "description": "Nice Sunset",
@@ -55,7 +49,7 @@ ${<pre><code>{
 }`
 }</code></pre>}
 
-The root of the returned JSON object is a field called \`data\` as defined in the official [GraphQL specification](http://facebook.github.io/graphql/#sec-Data). The rest of the JSON object then contains exactly the information that the client asked for in the query. If the client for example hadn’t included the \`imageUrl\` in the query’s payload, the server wouldn’t have included it in its response either. 
+The root of the returned JSON object is a field called \`data\` as defined in the official [GraphQL specification](http://facebook.github.io/graphql/#sec-Data). The rest of the JSON object then contains exactly the information that the client asked for in the query. If the client for example hadn’t included the \`imageUrl\` in the query’s selection set, the server wouldn’t have included it in its response either. 
 
 In case the GraphQL request fails for some reason, e.g. because the query was malformed, the server will not return the \`data\` field but instead return an array called \`errors\` with information about the failure. Notice that it can happen that the server returns both, \`data\` *and* \`errors\` . This can occur when the server can only partially resolve a query, e.g. because the user requesting the data only had the access rights for specific parts of the query's payload.
 
