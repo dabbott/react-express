@@ -18,7 +18,7 @@ const styles = {
     left: 0,
     right: 0,
     height: 400,
-    backgroundImage: `url(//cdn.rawgit.com/dabbott/react-native-express/master/static/background-compressed.jpg)`,
+    backgroundImage: `url(//cdn.rawgit.com/dabbott/react-native-express/master/images/background-compressed.jpg)`,
     backgroundSize: "cover",
     display: "flex",
     alignItems: "center",
