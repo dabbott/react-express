@@ -75,7 +75,7 @@ In the following sections, I'll give a brief background on build tools: npm, web
           "The all-in-one guide to modern React application development"
         }
         logo={
-          "//cdn.rawgit.com/dabbott/react-native-express/master/static/logo"
+          "//cdn.rawgit.com/dabbott/react-native-express/master/images/logo"
         }
         logoWidth={256}
         logoHeight={296}
