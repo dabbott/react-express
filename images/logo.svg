@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="512px" height="512px" viewBox="0 0 512 512" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>logo</title>
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#000000" stop-opacity="0.0719241696" offset="0%"></stop>
+            <stop stop-color="#000000" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-2">
+            <stop stop-color="#000000" offset="0%"></stop>
+            <stop stop-color="#000000" stop-opacity="0" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-3">
+            <stop stop-color="#89C0F8" offset="0%"></stop>
+            <stop stop-color="#518BEF" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-4">
+            <stop stop-color="#898BF8" offset="0%"></stop>
+            <stop stop-color="#51EFDF" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="24.9448313%" y1="73.8415786%" x2="100%" y2="36.1883659%" id="linearGradient-5">
+            <stop stop-color="#51B6EF" offset="0%"></stop>
+            <stop stop-color="#593BD4" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="42.0074938%" y1="81.067933%" x2="66.6666667%" y2="31.5844879%" id="linearGradient-6">
+            <stop stop-color="#51D3EF" offset="0%"></stop>
+            <stop stop-color="#3B6CD4" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="logo" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-3" transform="translate(-82.000000, -82.000000)">
+            <g id="Group">
+                <polygon id="Polygon" fill="#2D2F37" transform="translate(336.500000, 336.500000) rotate(-300.000000) translate(-336.500000, -336.500000) " points="336.5 90.5 549.542249 213.5 549.542249 459.5 336.5 582.5 123.457751 459.5 123.457751 213.5"></polygon>
+                <polygon id="Polygon-Copy-2" fill="url(#linearGradient-1)" opacity="0.575846354" transform="translate(389.760562, 428.750000) rotate(-300.000000) translate(-389.760562, -428.750000) " points="283.239438 182.75 496.281687 305.75 496.281687 551.75 283.239438 674.75"></polygon>
+                <polygon id="Polygon-Copy-3" fill="url(#linearGradient-2)" opacity="0.234002976" transform="translate(389.760562, 305.750000) rotate(-300.000000) translate(-389.760562, -305.750000) " points="389.760562 121.25 602.802812 244.25 176.718313 490.25 176.718313 244.25"></polygon>
+            </g>
+            <g id="Group-2" transform="translate(177.000000, 177.000000)">
+                <polygon id="Polygon-Copy" fill="#517CEF" transform="translate(160.156215, 159.875000) rotate(-240.000000) translate(-160.156215, -159.875000) " points="160.156215 42.875 261.481188 101.375 261.481188 218.375 160.156215 276.875 58.8312431 218.375 58.8312431 101.375"></polygon>
+                <polygon id="Polygon-Copy-5" fill="url(#linearGradient-3)" opacity="0.68452381" transform="translate(134.824972, 145.250000) rotate(-240.000000) translate(-134.824972, -145.250000) " points="236.149944 174.5 134.824972 233 33.5 174.5 33.5 57.5"></polygon>
+                <polygon id="Polygon-Copy-4" fill="url(#linearGradient-4)" opacity="0.279157366" transform="translate(185.487458, 116.000000) rotate(-240.000000) translate(-185.487458, -116.000000) " points="236.149944 -1 236.149944 233 134.824972 174.5 134.824972 57.5"></polygon>
+                <polygon id="Polygon-Copy-6" fill="url(#linearGradient-5)" opacity="0.100074405" transform="translate(134.824972, 145.250000) rotate(-240.000000) translate(-134.824972, -145.250000) " points="236.149944 57.5 236.149944 174.5 134.824972 233 33.5 174.5"></polygon>
+                <path d="M58.8312431,101.375 L160.155243,159.875 L160.156215,276.875 L58.8312431,218.375 L58.8312431,101.375 Z" id="Polygon-Copy-9" fill="url(#linearGradient-6)" opacity="0.273716518"></path>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,30 @@
+---
+title: React Express
+subtitle: Learn React through interactive examples
+---
+
+import intro from '../examples/files/intro.js'
+
+# React
+
+React is a library for building user interfaces for the web and other platforms.
+
+You should use this guide as a companion to the official Facebook documentation for [getting started](https://facebook.github.io/react/docs/hello-world.html). While the official docs are great, the React ecosystem includes _many_ other important projects which are outside the scope of the React docs.
+
+This guide is intended for people who know JavaScript. If you're new to JavaScript, or could use a refresher, consider first going through [JavaScript Express](https://javascript.express). We'll assume a little knowledge of HTML and CSS, but even if you're not familiar with this, you should still be able to follow this guide.
+
+I hope you enjoy learning React. This guide was written by me, [@dvnabbott](https://twitter.com/dvnabbott). Huge thanks to [Gabe G'Sell](http://gabegsell.com/) for writing content with me and proofreading.
+
+PS: I recommend viewing this guide from a desktop browser rather than mobile, since the desktop version supports interactive examples.
+
+## Hello world
+
+When you write your first React app, you might start with something like this.
+
+<Example title={'Hello World'} code={intro} />
+
+The first thing we'll cover is how to set up an environment and build a React app.
+
+You may notice the code doesn't look like the JavaScript you write currently. This is because it uses new language features (ES2015 imports, classes) and the JSX language extension. While these things aren't _required_ to write React, most React developers use them because they tend to be easier to use and more maintainable. These require a few extra steps in the build process, but this is a tradeoff React developers are willing to pay.
+
+In the following sections, I'll give a brief background on build tools: npm, webpack, babel, etc. If you're already familiar with each, skip to [React API](react_api) to learn more about the top-level React API.
