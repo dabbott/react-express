@@ -29,9 +29,7 @@ npm install --save-dev @babel/core @babel/preset-env @babel/preset-react babel-l
 
 We can then add the `babel-loader` into our `webpack.config.js`.
 
-<pre>
-  <code>{webpackConfig}</code>
-</pre>
+<Example panes={['editor']} title={'webpack.config.js'} code={webpackConfig} />
 
 We add a `module` section if we don't have one already, specifying a new rule for loading `.js` (and potentially `.jsx`) files. We configure webpack to load all `.js` files with the `babel-loader`, so that files are transformed into browser-safe JavaScript. We exclude files in `node_modules`, since the libraries we install here should already be compiled by the library authors, and because Babel can get slow when watching too many files at once. We specify the `cacheDirectory` option to improve performance by caching compiled files.
 
@@ -41,8 +39,6 @@ You can configure Babel by including a `.babelrc` file in the root directory of 
 
 Given the presets we downloaded above, create a `.babelrc` file and add the following:
 
-<pre>
-  <code>{babelRc}</code>
-</pre>
+<Example panes={['editor']} title={'.babelrc'} code={babelRc} />
 
 Note that we want to use the `env` preset with the `modules` option set to `false`, since Webpack can better optimize our code this way.

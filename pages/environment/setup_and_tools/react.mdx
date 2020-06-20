@@ -24,17 +24,13 @@ npm install --save react react-dom
 
 Assuming a Webpack & Babel build setup from the previous pages, we'll first want to modify our `index.html` to include a DOM node for us to render our React app into:
 
-<pre>
-  <code>{indexHtml}</code>
-</pre>
+<Example panes={['editor']} title={'index.html'} code={indexHtml} />
 
 > Order matters! It's often best to load your `bundle.js` at the end of the html body, so that your DOM content (in this case, the `div`) has rendered prior to executing the bundle, since we need to access the DOM during rendering.
 
 We can then change our `index.js` to look like this:
 
-<pre>
-  <code>{indexJs}</code>
-</pre>
+<Example panes={['editor']} title={'index.js'} code={indexJs} />
 
 ## Running the development server
 

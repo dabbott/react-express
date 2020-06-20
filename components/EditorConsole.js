@@ -71,7 +71,6 @@ export default class EditorConsole extends Component {
         workspaceCSS={variant === 'slides' ? slidesCSS : undefined}
         panes={panes}
         {...rest}
-        title={undefined}
       />
     )
   }

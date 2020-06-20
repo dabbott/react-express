@@ -61,23 +61,19 @@ The `dev` script will start our development server, passing the options `{ env: 
 
 Webpack is most commonly configured using a separate config file: `webpack.config.js`. This file must export a configuration object, or a function which returns a configuration object, which the webpack compiler will use when run from the command line as `webpack`. Let's add a `webpack.config.js` now:
 
-<pre>
-  <code>{webpackConfig}</code>
-</pre>
+<Example panes={['editor']} title={'webpack.config.js'} code={webpackConfig} />
 
 There are only two essential fields: the entry point file, and the output file. Later, we can use options to specify a different configuration for development/production (remember, we pass `{ env: 'dev' }` as options in our `dev` script).
 
 ### Essential files
 
-Let's add the bare minimum files needed to see something on the screen. We'll create an `index.js` and an `index.html`:
+Let's add the bare minimum files needed to see something on the screen. First, we'll create an `index.js`:
 
-<pre>
-  <code>{indexJs}</code>
-</pre>
+<Example panes={['editor']} title={'index.js'} code={indexJs} />
 
-<pre>
-  <code>{indexHtml}</code>
-</pre>
+Then we'll make an `index.html` and load our webpack-generated `bundle.js` within it:
+
+<Example panes={['editor']} title={'index.html'} code={indexHtml} />
 
 > Wondering why there's no html tag? It's convenient to omit [optional tags](https://google.github.io/styleguide/htmlcssguide.html#Optional_Tags)!
 

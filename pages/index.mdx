@@ -9,11 +9,9 @@ import intro from '../examples/files/intro.js'
 
 React is a library for building user interfaces for the web and other platforms.
 
-You should use this guide as a companion to the official Facebook documentation for [getting started](https://facebook.github.io/react/docs/hello-world.html). While the official docs are great, the React ecosystem includes _many_ other important projects which are outside the scope of the React docs.
+This guide covers the fundamental aspects of React needed to build great web apps. You should use this guide as a companion to the official Facebook documentation for [getting started](https://facebook.github.io/react/docs/hello-world.html). While the official docs are great, the React ecosystem includes _many_ other important tools and projects which are outside the scope of the React docs.
 
-This guide is intended for people who know JavaScript. If you're new to JavaScript, or could use a refresher, consider first going through [JavaScript Express](https://javascript.express). We'll assume a little knowledge of HTML and CSS, but even if you're not familiar with this, you should still be able to follow this guide.
-
-I hope you enjoy learning React. This guide was written by me, [@dvnabbott](https://twitter.com/dvnabbott). Huge thanks to [Gabe G'Sell](http://gabegsell.com/) for writing content with me and proofreading.
+This guide is intended for people who know JavaScript. If you're new to JavaScript, or could use a refresher, consider first going through [JavaScript Express](https://javascript.express). We'll assume a little knowledge of HTML and CSS, but even if you're not familiar with those, you should still be able to follow this guide.
 
 PS: I recommend viewing this guide from a desktop browser rather than mobile, since the desktop version supports interactive examples.
 
@@ -23,8 +21,10 @@ When you write your first React app, you might start with something like this.
 
 <Example title={'Hello World'} code={intro} />
 
-The first thing we'll cover is how to set up an environment and build a React app.
+The first thing we'll cover is how to set up a new React app on your computer.
 
-You may notice the code doesn't look like the JavaScript you write currently. This is because it uses new language features (ES2015 imports, classes) and the JSX language extension. While these things aren't _required_ to write React, most React developers use them because they tend to be easier to use and more maintainable. These require a few extra steps in the build process, but this is a tradeoff React developers are willing to pay.
+You may notice the JavaScript code has what looks like XML mixed in, e.g. `<App />`. This is because it uses the JSX language extension created by Facebook in order to simplify writing React code. While this isn't _required_, most React developers use it because it makes their code easier to understand and maintain. This does mean we need a build step where we transform the JSX into browser-compatible JavaScript, but most React developers are willing to set that up (and most complex web apps already have a build step anyway).
 
-In the following sections, I'll give a brief background on build tools: npm, webpack, babel, etc. If you're already familiar with each, skip to [React API](react_api) to learn more about the top-level React API.
+## Up next
+
+In the following sections, I'll give a brief background on the tools `npm`, Webpack, and Babel, as we set up a blank app. If you're already familiar with these, or if you don't want to set up an app on your computer, skip to the [React](/react) section to learn more about the React API.

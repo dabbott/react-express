@@ -1,4 +1,3 @@
-// webpack.config.js
 module.exports = (options) => {
   return {
     entry: './index.js',
