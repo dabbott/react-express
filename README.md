@@ -1,10 +1,10 @@
 # React Express
 
-A guide and reference for learning JavaScript & TypeScript.
+A guide and reference for learning React.
 
-The production deployment of this app is running here: http://www.javascript.express.
+The production deployment of this app is running here: https://www.react.express.
 
-Written by Devin Abbott ([@dvnabbott](http://twitter.com/dvnabbott)).
+Written by Devin Abbott ([@dvnabbott](https://twitter.com/dvnabbott)).
 
 ## Development
 
