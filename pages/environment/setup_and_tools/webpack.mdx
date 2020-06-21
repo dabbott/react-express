@@ -5,7 +5,7 @@ import webpackConfig from '../../../examples/files/environment/setup_and_tools/w
 
 # Webpack
 
-Webpack concatenates all of your JavaScript code into a single JavaScript file or a handful of files (sometimes called a **bundle**), which makes it easier to include in an HTML page. Webpack is _highly_ configurable with plugins, allowing you to transform and bundle much more than just JavaScript — but we won't be needing this functionality.
+Webpack concatenates all of our JavaScript code into a single JavaScript file or a handful of files (sometimes called a **bundle**), which makes it easier to include in an HTML page. Webpack is _highly_ configurable with plugins, allowing us to transform and bundle much more than just JavaScript — but we won't be needing this functionality.
 
 Webpack is a huge topic, and the official documentation is a work-in-progress. You'll likely run into issues and have to search for relevant stack overflow answers and git issues. For now, this is pretty normal, so expect to do some troubleshooting and don't get too discouraged!
 
@@ -15,11 +15,11 @@ You can find the Webpack docs [here](https://webpack.js.org/). The [overview](ht
 
 ## How it works
 
-When you provide `webpack` with an entry file (the JavaScript file to run _first_, e.g. `index.js`), `webpack` will analyze the file and determine which other files it depends on via calls to `require` (the `node.js` API to include another file). It then cleverly concatenates all necessary files into a single file.
+When we provide `webpack` with an entry file (the JavaScript file to run _first_, e.g. `index.js`), `webpack` will analyze the file and determine which other files it depends on via calls to `require` (the `node.js` API to include another file). It then cleverly concatenates all necessary files into a single file.
 
 Webpack lets us use `npm` packages for client-side development by
 
-- crawling your filesystem, reading calls to `require`, and bundling all necessary JavaScript files into a single file that can be served on the web
+- crawling the filesystem, reading calls to `require`, and bundling all necessary JavaScript files into a single file that can be served on the web
 - polyfilling (faking) the `node` APIs so that code can run in both environments
 
 ## Minimal setup
@@ -46,16 +46,16 @@ We'll add two commands to our `package.json` file in the `scripts` section:
 {
   ...
   "scripts": {
-    "dev": "webpack-dev-server --env.dev",
-    "build": "webpack"
+    "start": "webpack-dev-server --env development",
+    "build": "webpack --env production"
   },
   ...
 }
 ```
 
-We can run any commands listed in this section by running `npm run` followed be the name of the command, e.g. `npm run dev`.
+We can run any commands listed in this section by running `npm run` followed be the name of the command, e.g. `npm run start`.
 
-The `dev` script will start our development server, passing the options `{ env: 'dev' }` to our config file. The `build` script will save a single `.js` file on the filesystem for serving from a production server. We'll use these scripts shortly to bundle and test our app.
+The `start` script will start our development server, passing the string `"development"` to our config file. The `build` script will save a single `.js` file on the filesystem for serving from a production server. We'll use these scripts shortly to bundle and test our app.
 
 ### Configuration
 
@@ -63,7 +63,9 @@ Webpack is most commonly configured using a separate config file: `webpack.confi
 
 <Example panes={['editor']} title={'webpack.config.js'} code={webpackConfig} />
 
-There are only two essential fields: the entry point file, and the output file. Later, we can use options to specify a different configuration for development/production (remember, we pass `{ env: 'dev' }` as options in our `dev` script).
+There are only three essential fields: the mode, the entry point file, and the output file. We can use the `env` flag to specify a different configuration for development/production (remember, we pass `"development"` as options in our `start` script). In this case, we're relying on the `mode` being set to `"development"` or `"production"` to configure a variety of webpack settings [automatically](https://webpack.js.org/configuration/mode/).
+
+> It's also possible to use separate config files for development and production. I personally prefer using a single config file with an `env` flag, since I find that they tend to be more similar than different, but separate config files are more explicit and can avoid developers forgetting mistakenly adding something that shouldn't be used in development/production.
 
 ### Essential files
 
@@ -83,7 +85,7 @@ Now we can run `npm run dev` to run the script we set up in the `package.json`. 
 
 ![Hello World](/static/webpack-hello-world.png)
 
-The `bundle.js` file will be served from memory by the development server. For production builds, you'll want to use `npm run build` to build an optimized `bundle.js`, which will be saved to the filesystem.
+The `bundle.js` file will be served from memory by the development server. For production builds, we'll want to use `npm run build` to build an optimized `bundle.js`, which will be saved to the filesystem.
 
 For reference, our directory should contain the following files:
 
