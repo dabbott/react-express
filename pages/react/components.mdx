@@ -10,7 +10,7 @@ There are 2 ways we can define a React component:
 - **Function components** - A function that takes parameters (called `props`) as input, and returns a React element
 - **Class components** - A `class` that extends `React.Component` and implements a `render` method
 
-Either way, after defining a component, e.g. `MyComponent`, we can then instantiate it as an **element** using JSX as `<MyComponent />`, which is equivalent to `React.createElement(MyComponent)`.
+We instantiate a component, e.g. `MyComponent`, as an **element** using JSX as `<MyComponent />` or by calling `React.createElement(MyComponent)`.
 
 Lets take a look at each way we can define a React component.
 
@@ -30,6 +30,6 @@ Then, we call `render` to render this UI hierarchy to the browser DOM.
 
 We can also create components by subclassing `React.Component`, e.g. `class MyComponent extends React.Component`, and overriding the `render()` method to return a React element. This was the _original_ component API, before function components were added to React.
 
-This API can become significantly more complex, without providing major benefits, so it's best to use function components if you're not maintaining legacy code.
+> This API can become significantly more complex, without providing major benefits, so it's best to use function components if you're not maintaining legacy code.
 
 <Example code={classComponent} />

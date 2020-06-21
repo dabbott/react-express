@@ -1,0 +1,44 @@
+import nativeEvent from '../../examples/files/react/nativeEvent.js'
+import customEvent from '../../examples/files/react/customEvent.js'
+
+# Events
+
+DOM nodes created with React, such as a button, fire the same DOM events they would in vanilla JavaScript.
+
+To add an event handler, pass a function as a prop to a React element:
+
+```js
+<button
+  onClick={(e) => {
+    console.log(e)
+  }}
+/>
+```
+
+## Naming scheme
+
+Event names are camel-cased, so we need to use `onClick` instead of the native equivalent, `onclick`. React normalizes these names across browsers, so we don't need to consider browser inconsistencies.
+
+We can find the full list of events supported by React [here](https://reactjs.org/docs/events.html#supported-events).
+
+## Event normalization
+
+In addition to normalizing event names, React normalizes event objects created by the browser. React events have the same interface as native events, so we can still call `e.stopPropagation()` or `e.preventDefault()`, and we can still access properties like `e.which()`. More detail on this [here](https://reactjs.org/docs/events.html#overview) in the React docs.
+
+## Example
+
+Let's look at an example where we handle the `onClick` event of an element.
+
+<Example code={nativeEvent} />
+
+## Custom Components and Events
+
+Let's say we want to make a custom `CounterButton` component with an `onClick` event. Creating a button with `<CounterButton onClick={() => ...} />` will tell React to instantiate our `CounterButton` class with the prop `onClick` set to a function. However, this alone won't make our `CounterButton` respond to clicks.
+
+Only DOM components can handle DOM events like `onClick` - so our `CounterButton` must render a DOM component and pass the `onClick` prop into it. Our `CounterButton` is essentially a pass-through for the click event.
+
+The name of the `onClick` prop passed to our `CounterButton` is arbitrary — we could name it anything we want, so long as somewhere within `CounterButton` we pass the prop into a DOM component's `onClick`. For example, we could decide to name the prop `onPress` and create our button `CounterButton` as `<CounterButton onPress={() => ...} />`. Within `CounterButton`, we would then want to render `<button onClick={props.onPress} />`.
+
+<Example code={customEvent} />
+
+Here we pass our `CounterButton` a prop `onPress`, which then gets passed into the `onClick` of a `button`.
