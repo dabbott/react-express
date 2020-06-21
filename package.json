@@ -1,6 +1,6 @@
 {
-  "name": "javascript-express",
-  "description": "Interactive examples, code samples, and tutorial projects for React Native",
+  "name": "react-express",
+  "description": "Learn React through interactive examples",
   "version": "1.0.0",
   "author": "Devin Abbott <devinabbott@gmail.com> (http://github.com/dabbott)",
   "dependencies": {
