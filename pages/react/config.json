@@ -1,0 +1,13 @@
+{
+  "order": [
+    "elements",
+    "rendering",
+    "components",
+    "styling",
+    "events",
+    "user_input",
+    "conditional_rendering",
+    "lists_and_keys",
+    "performance"
+  ]
+}

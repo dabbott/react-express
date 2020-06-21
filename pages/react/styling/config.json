@@ -1,0 +1,3 @@
+{
+  "order": ["inline_styles", "css_and_class_names", "css_in_js"]
+}
