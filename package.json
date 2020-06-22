@@ -36,7 +36,7 @@
   "devDependencies": {
     "@mdx-js/loader": "^1.0.20",
     "babel-loader": "^8.1.0",
-    "generate-guidebook": "^1.0.2",
+    "generate-guidebook": "^1.0.4",
     "loader-utils": "^1.2.3",
     "next-mdx-frontmatter": "^0.0.3",
     "prettier": "^1.13.7",
