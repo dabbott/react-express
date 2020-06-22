@@ -3212,10 +3212,10 @@ function-bind@^1.1.1:
   resolved "https://registry.yarnpkg.com/function-bind/-/function-bind-1.1.1.tgz#a56899d3ea3c9bab874bb9773b7c5ede92f4895d"
   integrity sha512-yIovAzMX49sF8Yl58fSCWJ5svSLuaibPxXQJFLmBObTuCr0Mf1KiPopGM9NiFjiYBCbfaa2Fh6breQ6ANVTI0A==
 
-generate-guidebook@^1.0.4:
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/generate-guidebook/-/generate-guidebook-1.0.4.tgz#8ad43148010994463f52625adbdf787e2eebe983"
-  integrity sha512-RcVb9Q0XY4rgI1+4Wr/8T76/+wafLxJbVPNKTks88v0QlivRUB7M2we2yl6ywVSA3oN8qeGRyLEa7+r5vWaHxA==
+generate-guidebook@^1.0.5:
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/generate-guidebook/-/generate-guidebook-1.0.5.tgz#c8c120c1928c2e2d424db8f3b635b76409b01848"
+  integrity sha512-ybiP7mliBgOW9MeE/oO+UKgz1XChIomkK181rxfKjH8xOX0YhO3oBuJ8sFgSV4C0kGWjTUWHEU126d7HLpsaHA==
   dependencies:
     eval-webpack-plugin "^1.0.0"
     gray-matter "^4.0.2"
