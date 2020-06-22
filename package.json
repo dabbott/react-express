@@ -17,7 +17,7 @@
     "react": "^16.8.0",
     "react-dom": "^16.8.6",
     "react-ga": "^2.6.0",
-    "react-guidebook": "^0.0.4",
+    "react-guidebook": "^0.0.5",
     "react-helmet": "^5.2.1",
     "react-native-web-player": "^2.0.0-alpha.18",
     "reset-css": "^5.0.1",
