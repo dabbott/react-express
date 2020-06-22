@@ -63,12 +63,15 @@ export default class EditorConsole extends Component {
           playerPane: {
             overflow: 'hidden',
             background: 'rgba(0,0,0,0.02)',
+            marginLeft: '0',
+            marginRight: '0',
+            borderLeft: '4px solid rgba(238,238,238,1)',
           },
         }}
         playground={{ enabled: true }}
         typescript={{ enabled: true }}
         playerCSS={playerCSS}
-        workspaceCSS={variant === 'slides' ? slidesCSS : undefined}
+        workspaceCSS={variant === 'slides' ? slidesCSS : workspaceCSS}
         panes={panes}
         {...rest}
       />
@@ -79,6 +82,14 @@ export default class EditorConsole extends Component {
 const playerCSS = `
 #app {
   display: initial !important;
+}
+`
+
+const workspaceCSS = `
+@media (max-width: 600px) {
+  #react-root > div > div {
+    flex-direction: column;
+  }
 }
 `
 
