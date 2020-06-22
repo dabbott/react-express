@@ -1,7 +1,7 @@
 import React from 'react'
 import { render } from 'react-dom'
 
-const Card = ({ loading, error }) => {
+const Card = ({ loading, error, title, subtitle }) => {
   let content
 
   if (error) {
@@ -28,7 +28,7 @@ const App = () => (
   <div>
     <Card error={true} />
     <Card loading={true} />
-    <Card loading={true} title={'Title'} subtitle={'Subtitle'} />
+    <Card loading={false} title={'Title'} subtitle={'Subtitle'} />
   </div>
 )
 
