@@ -1,0 +1,56 @@
+import packageJson from '../../../examples/files/environment/setup_and_tools/babel/package.json.txt'
+import indexJs from '../../../examples/files/environment/setup_and_tools/babel/index.js'
+import indexHtml from '../../../examples/files/environment/setup_and_tools/babel/index.html'
+import webpackConfig from '../../../examples/files/environment/setup_and_tools/babel/webpack.config.js'
+import babelRc from '../../../examples/files/environment/setup_and_tools/babel/.babelrc.txt'
+
+# React
+
+It's time to install React!
+
+React comes in two parts, React and ReactDOM. React includes the core component APIs and rendering logic. ReactDOM contains the necessary APIs to render to the browser DOM (i.e. a website).
+
+## Installation
+
+Let's install both:
+
+```
+npm install --save react react-dom
+```
+
+> Since we want these dependencies to be included in our JavaScript bundle, we use `--save` and not `--save-dev`.
+
+## Usage
+
+Assuming a Webpack & Babel build setup from the previous pages, we'll first want to modify our `index.html` to include a DOM node for us to render our React app into:
+
+<Example panes={['editor']} title={'index.html'} code={indexHtml} />
+
+> Order matters! It's often best to load your `bundle.js` at the end of the html body, so that your DOM content (in this case, the `div`) has rendered prior to executing the bundle, since we need to access the DOM during rendering.
+
+We can then change our `index.js` to look like this:
+
+<Example panes={['editor']} title={'index.js'} code={indexJs} />
+
+## Running the development server
+
+Now we can run `npm run dev` to run the script we set up in the `package.json`. This will start the development server. If we navigate to `localhost:8080` in a browser, we should see our `index.html` file, which will run our `index.js` bundled into `bundle.js`, displaying `Welcome to React!` on the screen.
+
+![Hello World](/static/react-hello-world.png)
+
+For reference, our directory should have these files:
+
+<Example
+  panes={['editor']}
+  files={[
+    ['index.js', indexJs],
+    ['index.html', indexHtml],
+    ['webpack.config.js', webpackConfig],
+    ['.babelrc', babelRc],
+    ['package.json', packageJson],
+  ]}
+/>
+
+## That's it!
+
+You now know how to set up a React app from scratch using Webpack and Babel. This should be a good enough starting point to build any kind of app in React. You can add more webpack and babel plugins incrementally as you start working with React.

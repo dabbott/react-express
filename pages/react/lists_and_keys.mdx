@@ -1,0 +1,108 @@
+import unkeyedList from '../../examples/files/react/unkeyedList.js'
+import keyedList from '../../examples/files/react/keyedList.js'
+
+# Lists and Keys
+
+Every React component can be passed a special prop called the `key`. React uses this `key` to determine the rendered element's identity. Understanding element identity is critical for performance and minimizing DOM manipulation: for example, if the first element in a list of thousands should no longer be rendered, React needs some way to detect this. Instead of re-rendering thousands of elements, React can remove a single DOM node for the first element, which is much more efficient.
+
+## Id assignment
+
+When rendering individual components (as opposed to lists of components) React automatically assigns keys to the elements based on their render order. Let's take a look at how this works. Let's suppose we return this snippet from a function component:
+
+```js
+<div>
+  <h1>Title</h1>
+  <h2>Subtitle</h2>
+</div>
+```
+
+Internally, React needs to assign unique ids to each element in order to match them up between calls to `render`. The ids will look _something_ like this:
+
+```
+div: 0
+  h1: 0.0
+  h2: 0.1
+```
+
+By default, the id of an element is the id of its parent, concatenated with the index of the element within its parent. However, if we give one of these elements a key, that key will be used to determine the element's id. So for example:
+
+```js
+<div>
+  <h1 key="title">Title</h1>
+  <h2>Subtitle</h2>
+</div>
+```
+
+will result in something like:
+
+```
+div: 0
+  h1: 0.$title
+  h2: 0.1
+```
+
+So, if we wanted to, we could assign a key to every element. We can even force a component to re-render by assigning a different key (this tells React that the element's identity has changed, thus triggering a re-render). But most of the time, we don't need to consider keys because React takes care of them automatically. The main time we'll need to use keys is when rendering lists of elements.
+
+# Lists
+
+Let's consider the case of rendering a list of components by mapping an array of data.
+
+<Example code={unkeyedList} />
+
+The `data.map` expression will evaluate to:
+
+```js
+<div>
+  <div>{'Devin'}</div>
+  <div>{'Gabe'}</div>
+  <div>{'Kim'}</div>
+</div>
+```
+
+React makes the assumption that components in an array may at some point need to be rearranged due to insertions, deletions, etc. We need to provide keys to help React with this (and React will warn us if we don't).
+If items in our data set have some sort of unique identifier already, or we can derive something like that, that's the best thing to use. In this case, let's assume the `id` field is unique. We should set up our map like this:
+
+```js
+<div>
+  {data.map((item) => (
+    <div key={item.id}>{item.name}</div>
+  ))}
+</div>
+```
+
+This will evaluate to:
+
+```js
+<div>
+  <div key={'a'}>{'Devin'}</div>
+  <div key={'b'}>{'Gabe'}</div>
+  <div key={'c'}>{'Kim'}</div>
+</div>
+```
+
+Here's what it looks like in action:
+
+<Example code={keyedList} />
+
+# Using map index as `key`
+
+If items in our data have no unique identifier of any kind, then we will generally resort to using the index of the item as its key. This silences the warning from React about forgetting to include keys, but remember that doing this will cause React to identify elements incorrectly if the data is modified: for example, if a new item is inserted at the front of the list, it will get key `'0'`, which previously belonged to another item. So you may be better off assigning identifiers or indexes to your data set if you can.
+Here's what this index approach looks like:
+
+```js
+<div>
+  {data.map((item, index) => (
+    <div key={index.toString()}>{item.name}</div>
+  ))}
+</div>
+```
+
+This will evaluate to:
+
+```js
+<div>
+  <div key={'0'}>{'Devin'}</div>
+  <div key={'1'}>{'Gabe'}</div>
+  <div key={'2'}>{'Kim'}</div>
+</div>
+```

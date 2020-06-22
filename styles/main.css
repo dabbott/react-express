@@ -1,0 +1,24 @@
+*,
+:after,
+:before {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#__next {
+  width: 100vw;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  overflow: hidden;
+}
+
+body {
+  font-family: 'Helvetica Neue', Helvetica, sans-serif;
+}
+
+.github-fork-ribbon:before {
+  background-color: #333;
+}

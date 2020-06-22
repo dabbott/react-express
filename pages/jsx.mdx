@@ -1,0 +1,60 @@
+---
+title: JSX
+---
+
+import jsx from '../examples/files/jsx.js'
+import jsxChildren from '../examples/files/jsxChildren.js'
+
+# JSX
+
+JSX is an extension to the JavaScript language that adds a new kind of _expression_, the **JSX expression**, used to create React elements (which we'll cover soon).
+
+JSX expressions are a concise syntax for calling the API, `React.createElement(type, props, ...children)`.
+
+We can use JSX expressions anywhere we could use any other expression, e.g. in a `return` statement or variable assignment.
+
+## Type
+
+Like XML, each JSX expression has a tag, e.g. `<div />`, which is then transformed into a call to `React.createElement("div")`. In this case, `"div"` is the **type** of the element.
+
+<Example
+  panes={['editor', 'transpiler']}
+  code={`const element = <div />`}
+/>
+
+> On the right in the example above, we can see how our JSX expressions are compiled by babel.
+
+## Props
+
+Any JSX _attributes_ become **props** (parameters) of the React element. The value of an attribute can be a string, like `foo="hello"`, or it can be any JavaScript expression when wrapped in curly braces, as in `bar={baz}` (which would set the value of the `bar` prop to `baz`).
+
+<Example
+  panes={['editor', 'transpiler']}
+  code={`const element = <div foo="hello" bar={baz} />`}
+/>
+
+## Children
+
+Any children elements should go between the opening tag, `<div>`, and closing tag `</div>`. Elements without children can using a self-closing tag, like `<div />`, as a shorthand.
+
+<Example
+  panes={['editor', 'transpiler']}
+  code={jsx}
+/>
+
+> When a JSX element wraps to multiple lines, we often write it when parentheses around it, since it looks nicer.
+
+## Interpolation
+
+Children are generally other elements, but can also be plain text or any other kind of expression if wrapped in curly braces, `{ ... }`.
+
+<Example
+  title={'JSX Example'}
+  transpilerTitle={'Babel-compiled output'}
+  panes={['editor', 'transpiler']}
+  code={jsxChildren}
+/>
+
+## Why JSX?
+
+The XML-like syntax is typically more concise, easier to read, and visually looks a little like the generated UI (both are tree-like). We don't _have to_ use JSX, but there are few disadvantages, so we probably should use it.

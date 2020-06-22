@@ -1,0 +1,17 @@
+import userInput from '../../examples/files/react/userInput.js'
+
+# User Input
+
+Traditionally in web development, user input is stored in the DOM, and the data (e.g. what the user typed in the input field) is extracted from the DOM to use in the application logic. React dramatically simplifies input handling by treating input components as stateless; an input element has a `value` prop and an `onChange` prop, and together these things give us complete control over the input without ever having to touch the DOM.
+
+## Input field
+
+Let's look at a text input field:
+
+<Example code={userInput} />
+
+Every time we render the `input` component, we pass the current value from our component's `state`. Every time the user types in the input field, we update `state` to store the new value and re-render our `TextInput` component.
+
+This keeps the DOM in sync with our `state` variable automatically. Using this approach we can manipulate the value of the input field as a regular variable, while React handles the DOM operations for us behind the scenes.
+
+> For accessibility, it's best to include labels for input elements. Read more about accessibility in React [here](https://reactjs.org/docs/accessibility.html).

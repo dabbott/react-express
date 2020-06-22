@@ -1,0 +1,33 @@
+import reactDom from '../../examples/files/react/reactDom.js'
+
+# Rendering
+
+In order to see our React elements on the screen, we need to render them with a platform-specific rendering library.
+
+We use the React DOM library for rendering React elements in the browser. The main API we'll use is the `render` function it exports.
+
+> The package name is `react-dom` on npm, but we often write it as `ReactDOM` in our JavaScript code and "React DOM" outside of code. These different capitalizations all refer to the same thing.
+
+## React DOM
+
+To use React DOM, we first need to install `react-dom` from `npm`. After that, we can import it in our code:
+
+```js
+import { render } from 'react-dom'
+```
+
+Then we must choose a DOM node in our app to render our React elements into. We should choose a node without any existing children, or assume that any existing children will be replaced. React can't render into the `body` node, but we can choose any node within the `body`. If we have a node with `id="app"`, for example, we can get a reference to it with `document.querySelector('#app')`.
+
+Lastly we'll call `render`. The function signature is `render(element, node)`, where the first argument is a React element (more on this soon) and the second is the DOM node we chose to render into. For now, we'll use an instance of the built-in `button` component as our React element.
+
+Putting this all together, we get:
+
+<Example code={reactDom} />
+
+> We generally need to `import React from 'react'` even though we don't explicitly reference `React` in our code — this is because our JSX `<button />` is transformed behind the scenes to `React.createElement('button')`, which _does_ reference `React`.
+
+## Up next
+
+We now know how to create elements and render them to the DOM. That's the core of React.
+
+However, we generally want to create our own abstractions for UI elements beyond build-in DOM elements. We can do this through React _components_.

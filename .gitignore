@@ -1,6 +1,12 @@
+.DS_Store
+
+# Project dependencies
 node_modules
-npm-debug.log
-dist
-!dist/index.html
-server/build
-.idea
+yarn-error.log
+.next
+
+# Build directory
+/out
+
+# Editors
+.vscode

@@ -1,0 +1,23 @@
+---
+title: CSS & Class Names
+---
+
+# CSS and Class Names
+
+Perhaps the most straightforward way to style components is with CSS. We can write CSS, optionally using any pre-processor or post-processor we'd like, and use the `className` attribute of our components to apply styles.
+
+We can acheive dynamic styles by choosing a different `className` based on component `props`, e.g. `className={props.selected ? 'selected-class' : 'normal-class'}`. We can also mix-and-match with inline styles, although combining the two approaches should be kept to a minimum or the code quickly becomes hard to follow.
+
+## In summary:
+
+### Pros
+
+- All the power of CSS (feature-packed)
+- Straightforward (nothing new to learn, if you already know CSS)
+- Integrates well with non-React libraries that use class names for styling
+
+### Cons
+
+- All the problems of CSS (generally large and unmaintainable codebase)
+- Components are not self-contained in a single JavaScript file
+- DOM renderer only (no React Native)

@@ -1,0 +1,14 @@
+# Performance Model
+
+React is built for performance; React is used to build massively complex interfaces with thousands of elements, each one potentially responding to user interaction.
+
+Because performance is so fundamental to React, it can be helpful to understand the performance model of various operations at a high level.
+
+<!-- prettier-ignore -->
+Operation | Cost | Description
+--- | --- | ---
+DOM manipulation | Slow | Modifying the DOM is slow. React attempts to modify the DOM as _little_ as possible. React builds an in-memory representation of the components we render (the element tree), and then syncs this representation to the DOM. As we update components, React will update the in-memory representation, and then make the least amount of changes to the DOM possible. This is what keeps our application fast. React does this automatically most of the time — however, we can give hints about when and how to update the DOM to improve performance. This is especially relevant when dealing with hundreds or thousands of components, in the case of large lists.
+Component render | Fast | Components can re-render very frequently without a noticeable performance impact. It's common for `render` to be called many times as the `props` of a component change. This is part of the magic of React, but can also be confusing at first. In other JavaScript libraries, you may have tried to reduce calls to `render` in order to limit DOM updates and improve performance. In React, reducing re-renders is something we only need to think about for particularly complex components. Note: when we say "render", this generally refers to evaluating our component functions.
+[`memo`](https://reactjs.org/docs/react-api.html#reactmemo) | Very fast | In cases where a component is rendering too frequently and causing performance issues, we can use `memo` to reducing the frequency of component rendering. This function compares a component's previous props to its new props before running the component function — the component function is only run if the props have changed (each prop is compared with `===`, roughly).
+
+The examples in this guide are too small and simple for performance to be a problem, so we won't need to use `memo`. React is fast by default, only slowing down in extreme cases, so we generally skip using `memo` until we notice sluggish behavior in our app.

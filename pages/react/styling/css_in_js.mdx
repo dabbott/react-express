@@ -1,0 +1,40 @@
+---
+title: CSS-in-JS
+---
+
+import styledComponents from '../../../examples/files/react/styledComponents.js'
+import GithubRepositoryLink from '../../../components/GithubRepositoryLink'
+
+# CSS-in-JS
+
+What if we could combine the inline styles and CSS approaches to get the best of both worlds? There's a third category of libraries that let us use CSS syntax inline in our JavaScript files. We call this approach **CSS-in-JS**.
+
+This seems to be the most popular approach for styling in React, although it comes with its own set of complexities. Let's take a look at the CSS-in-JS library <GithubRepositoryLink user={'styled-components'} repo={'styled-components'} title={'styled-components'} stars />.
+
+<Example
+  code={styledComponents}
+  vendorComponents={[
+    [
+      'styled-components',
+      'https://unpkg.com/styled-components@4.4.1/dist/styled-components.min.js',
+    ],
+  ]}
+/>
+
+We can wrap our components using `styled`, which will create a CSS StyleSheet and apply the right `className` behind the scenes. Using this approach, we can write styles using familiar CSS syntax, while still getting the benefits of dynamic styles based on component `props`.
+
+### In summary:
+
+**Pros**
+
+- Dynamic (based on component props)
+- CSS features (psuedoclasses, media queries, keyframe animations)
+- Vendor prefixing
+- Familiar CSS syntax
+- Component styles live in the same file as code and behaviors
+- Works on every React renderer (web, native, etc)
+
+**Cons**
+
+- Very opinionated coding style (creating a component per style)
+- Increases code size (slower to load):<br /><img src={'https://img.badgesize.io/https://unpkg.com/styled-components/dist/styled-components.min.js?compression=gzip&label=gzip%20size'} />

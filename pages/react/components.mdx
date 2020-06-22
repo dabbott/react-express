@@ -1,0 +1,35 @@
+import functionComponent from '../../examples/files/react/functionComponent.js'
+import classComponent from '../../examples/files/react/classComponent.js'
+
+# Components
+
+React **components** are the reusable building blocks we use to create the user interface of our app. We can think of a React component as a _template_ that takes parameters as input, and outputs a React **element** tree.
+
+There are 2 ways we can define a React component:
+
+- **Function components** - A function that takes parameters (called `props`) as input, and returns a React element
+- **Class components** - A `class` that extends `React.Component` and implements a `render` method
+
+We instantiate a component, e.g. `MyComponent`, as an **element** using JSX as `<MyComponent />` or by calling `React.createElement(MyComponent)`.
+
+Lets take a look at each way we can define a React component.
+
+## **Function Components**
+
+The most common kind of component is a function that returns a React element.
+
+<Example code={functionComponent} />
+
+In this example, we instantiate the component `MyComponent` with a single prop, `text`, equal to `"Hello, world!"`.
+
+The function instantiates a `div` component as a React element. The `div` React element contains a single child, a `button` element. The `button` in turn contains a single child, although in this case the child is the string we passed in as the `text` prop.
+
+Then, we call `render` to render this UI hierarchy to the browser DOM.
+
+## **`React.Component`**
+
+We can also create components by subclassing `React.Component`, e.g. `class MyComponent extends React.Component`, and overriding the `render()` method to return a React element. This was the _original_ component API, before function components were added to React.
+
+> This API can become significantly more complex, without providing major benefits, so it's best to use function components if you're not maintaining legacy code.
+
+<Example code={classComponent} />
