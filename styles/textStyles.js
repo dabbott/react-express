@@ -32,17 +32,24 @@ export default {
       fontSize: '18px',
     },
   },
-  header: {
+  heading1: {
     fontFamily: fonts.normal,
     fontSize: '24px',
     fontWeight: '300',
     color: colors.text,
     lineHeight: '1.5',
   },
-  subheader: {
+  heading2: {
     fontFamily: fonts.normal,
     fontSize: '16px',
     fontWeight: '500',
+    color: colors.text,
+    lineHeight: '1.5',
+  },
+  heading3: {
+    fontFamily: fonts.normal,
+    fontSize: '14px',
+    fontWeight: 'bold',
     color: colors.text,
     lineHeight: '1.5',
   },

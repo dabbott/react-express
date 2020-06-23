@@ -23,19 +23,6 @@ const theme = {
 
 const Components = {
   ...PageComponents,
-  h3: props => (
-    <h3
-      style={{
-        ...textStyles.subheader,
-        fontSize: '14px',
-        fontWeight: 'bold',
-        textDecoration: 'underline',
-        marginTop: '25px',
-        marginBottom: '15px',
-      }}
-      {...props}
-    ></h3>
-  ),
   Example: EditorConsole,
 }
 
