@@ -2,6 +2,30 @@
 title: useState
 ---
 
+import useStateArray from '../../examples/files/react/useStateArray.js'
+
 # useState
 
-Coming soon!
+`const [value, setValue] = useState(initialValue);`
+
+useState takes in an initial state as an argument and returns an array containing two elements.  
+- `value` is the current value of the state. 
+- `setValue` is a function to update `value` in state. 
+
+As seen in our example, 
+`const [count, setCount] = useState(0)`  
+Here, the initial state passed into useState was `0`, so the returned state value stored in `count` will begin at `0`.  
+Any subsequent updates to state using `setCount` will later change the value of `count`. 
+
+The initial value passed into useState can be set to anything: an int, a string, a boolean, an array, an object, null, and even expensive function calls.  
+We've previously seen how useState works with an [incrementing int value](/react/events) and a [changing string](/react/user_input), let's see how useState works when we have an array.
+
+<Example code={useStateArray} />
+
+Awesome! We can see an unordered list of our dice rolls [1, 2, 3], when roll dice is clicked, we see new values appended to the list. 
+
+But notice, in the code when we call `setDiceRoll`, we are not pushing the `newDiceRoll` into the `diceRolls` array. Instead, we are using [concat()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/concat), a JavaScript function that returns a newly concatenated array.
+The reason we do this is because **state is considered immutable in React and should not be directly changed.** If we were to directly manipulate the state (either by pushing new data to the old state or changing the state array inplace), it may break our code with errors or result in a loss of data.  
+
+Thanks to immutability, React knows exactly when to re-render the webpage since it knows when state has been changed or updated. This prevents needless renders and allows for the code to be more performant in the long run. 
+We won't explore this topic of immutability any further in this course, but we highly recommend [this article](https://jlongster.com/Using-Immutable-Data-Structures-in-JavaScript#Immutable.js) as an introduction as to why immutability is so important in React and Javascript.

@@ -1,0 +1,19 @@
+import nativeEvent from '../examples/files/react/nativeEvent.js'
+
+# Hooks
+
+We've already had a brief introduction to Hooks in Chapter 3.5 with Events, but now let's examine it more carefully. 
+
+Hooks refer to a set of library functions provided by React that allows the developer to handle UI state in a cleaner and more functional way. 
+
+We can define state as set of data in the application that is mutable over time (or by user interaction) and is kept within the confines of a React component. 
+
+For example, recall the CounterButton example. 
+
+<Example code={nativeEvent} />
+
+The CounterButton component returns a JSX object with an HTML button that has a JavaScript onClick callback function that calls a function setCount with the argument count + 1. count and setCount are declared and initialized by line 5 using the useState hook in React. 
+
+When a user clicks the Button on the site, nothing is changed in the code. Instead, the data on the application is changed by useState.
+
+Let's dive deeper into how useState works. 
