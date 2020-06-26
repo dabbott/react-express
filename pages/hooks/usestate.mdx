@@ -2,15 +2,15 @@
 title: useState
 ---
 
-import useStateArray from '../../examples/files/react/useStateArray.js'
+import useStateArray from '../../examples/files/hooks/useStateArray.js'
 
 # useState
 
-`const [value, setValue] = useState(initialValue);`
-
 useState takes in an initial state as an argument and returns an array containing two elements.  
-- `value` is the current value of the state. 
+- `value` is the current value of the state, otherwise known as a stateful value.
 - `setValue` is a function to update `value` in state. 
+
+`const [value, setValue] = useState(initialValue);`
 
 As seen in our example, 
 `const [count, setCount] = useState(0)`  
@@ -24,8 +24,6 @@ We've previously seen how useState works with an [incrementing int value](/react
 
 Awesome! We can see an unordered list of our dice rolls [1, 2, 3], when roll dice is clicked, we see new values appended to the list. 
 
-But notice, in the code when we call `setDiceRoll`, we are not pushing the `newDiceRoll` into the `diceRolls` array. Instead, we are using [concat()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/concat), a JavaScript function that returns a newly concatenated array.
-The reason we do this is because **state is considered immutable in React and should not be directly changed.** If we were to directly manipulate the state (either by pushing new data to the old state or changing the state array inplace), it may break our code with errors or result in a loss of data.  
+But notice, in the code when we call `setDiceRoll`, we are not pushing the integer returned from `randomDiceRoll()` into the `diceRolls` array. Instead, we are returning a new array that contains the destructured `diceRolls` array and the newly randomized dice roll. Why?
 
-Thanks to immutability, React knows exactly when to re-render the webpage since it knows when state has been changed or updated. This prevents needless renders and allows for the code to be more performant in the long run. 
-We won't explore this topic of immutability any further in this course, but we highly recommend [this article](https://jlongster.com/Using-Immutable-Data-Structures-in-JavaScript#Immutable.js) as an introduction as to why immutability is so important in React and Javascript.
+One of the important things Hooks allow us to do is tell React to re-run our component function and update the UI. useState tells React to re-run our component function whenever we call the update function with a different value. useState compares the initial state with the value we pass to update using === to check if they're different. If we're using a mutable value like an array, and change its contents, useState won't detect that change and won't tell React to re-run our component function.
