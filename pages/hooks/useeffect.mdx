@@ -2,6 +2,31 @@
 title: useEffect
 ---
 
+import useEffect from '../../examples/files/hooks/useEffect.js'
+import useEffectWithDeps from '../../examples/files/hooks/useEffectWithDeps.js'
+
 # useEffect
 
-Coming soon!
+**useEffect** takes in a callback function as its first argument.  
+When the function component renders (or re-renders), the callback function that is passed to **useEffect** will run.  
+
+For example, the function inside this **useEffect** will run each time the state is changed.  
+Every time a button is clicked (or the component is re-rendered), a new random number is displayed on the console!
+
+<Example code={useEffect}/>
+
+## Dependency
+
+However, there will be times when you only want to run the function inside **useEffect** when *something specific* has changed and not every time the component renders. This will be helpful especially if you are doing time-consuming or expensive function / API calls. 
+
+**useEffect** can take in an optional second argument: an array. The values in this array act as an list of dependencies.  
+
+`useEffect(callbackFunction, optionalDependencyArray)` *useEffect returns nothing!*
+
+If the dependency array is provided, **useEffect** will activate **only** when a value in this list has changed.  
+If no dependency array is provided, **useEffect** will activate anytime the component is rendered or re-rendered (as in our above example).  
+If the dependency array is empty `[]`, useEffect will activate only once when the component first renders.
+
+In the example below, watch the state change and the counts increment respectively as we click the Buttons for `Current number of steps` and `Number of water bottles drank`, but notice that the first **useEffect** is not called when `Current number of steps` is clicked. This is because it has listed the stateful value `waterDrank` in its array of dependencies.
+
+<Example code={useEffectWithDeps}/>

@@ -1,31 +1,29 @@
 import React, { useState, useEffect } from 'react'
 
 const App = () => {
-  const [name, setName] = useState('Devin')
-
-  const greet = name => {
-    console.log(`Hello! ${name}`)
-  }
+  const [count, setCount] = useState(0)
+  const [increment, setIncrement] = useState(1)
 
   useEffect(() => {
-    greet(name)
+    console.log(Math.random() * 50)
   })
 
   return (
     <div>
-      <label htmlFor={'my-input'}>Enter text: </label>
-      <input
-        id={'my-input'}
-        type={'text'}
-        value={name}
-        placeholder={'Type here'}
-        onChange={event => {
-          setName(event.target.value)
+      <button
+        onClick={() => {
+          setCount(count + increment)
         }}
-      />
-      <br />
-      <br />
-      You entered: {name}
+      >
+        Current count: {count}
+      </button>
+      <button
+        onClick={() => {
+          setIncrement(increment + 1)
+        }}
+      >
+        Current increment: {increment}
+      </button>
     </div>
   )
 }
