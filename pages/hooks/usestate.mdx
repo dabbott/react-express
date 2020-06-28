@@ -2,6 +2,28 @@
 title: useState
 ---
 
+import useStateArray from '../../examples/files/hooks/useStateArray.js'
+
 # useState
 
-Coming soon!
+useState takes in an initial state as an argument and returns an array containing two elements.  
+- `value` is the current value of the state, otherwise known as a stateful value.
+- `setValue` is a function to update `value` in state. 
+
+`const [value, setValue] = useState(initialValue);`
+
+As seen in our example, 
+`const [count, setCount] = useState(0)`  
+Here, the initial state passed into useState was `0`, so the returned state value stored in `count` will begin at `0`.  
+Any subsequent updates to state using `setCount` will later change the value of `count`. 
+
+The initial value passed into useState can be set to anything: an int, a string, a boolean, an array, an object, null, and even expensive function calls.  
+We've previously seen how useState works with an [incrementing int value](/react/events) and a [changing string](/react/user_input), let's see how useState works when we have an array.
+
+<Example code={useStateArray} />
+
+Awesome! We can see an unordered list of our dice rolls [1, 2, 3], when roll dice is clicked, we see new values appended to the list. 
+
+But notice, in the code when we call `setDiceRoll`, we are not pushing the integer returned from `randomDiceRoll()` into the `diceRolls` array. Instead, we are returning a new array that contains the destructured `diceRolls` array and the newly randomized dice roll. Why?
+
+One of the important things Hooks allow us to do is tell React to re-run our component function and update the UI. useState tells React to re-run our component function whenever we call the update function with a different value. useState compares the initial state with the value we pass to update using === to check if they're different. If we're using a mutable value like an array, and change its contents, useState won't detect that change and won't tell React to re-run our component function.

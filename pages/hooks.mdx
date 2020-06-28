@@ -1,0 +1,32 @@
+import nativeEvent from '../examples/files/react/nativeEvent.js'
+
+# Hooks
+
+We've already had a brief introduction to Hooks in Events chapter, but now let's examine it more carefully. 
+
+Hooks refer to a set of library functions provided by React that allow the developer to use state, side effects, and other React features inside function components.
+
+We can define state as set of data in the application that is mutable over time (or by user interaction). 
+
+## Built-in hooks
+
+In this section, we'll look at the following hooks in more detail:
+
+- **`useState`** - Persist state within a component function
+- **`useReducer`** - Similar to useState, but can be used for complex state logic that involves multiple sub-values
+- **`useEffect`** - Performs a function call when the component renders
+- **`useRef`** - Create and store a mutable variable for the full lifetime of the component
+- **`useContext`** - Accepts a context object and returns its values - useful for Theme UI, authentication
+- **`Custom Hooks`** - Build our own!
+
+## Quick look
+
+For example, recall the CounterButton example. 
+
+<Example code={nativeEvent} />
+
+The CounterButton component has an onClick function that calls setCount with the argument count + 1. count and setCount are declared and initialized by line 5 using the useState hook in React. 
+
+When a user clicks the Button on the site, the data in this component is changed by useState.
+
+Let's dive deeper into how useState works. 
