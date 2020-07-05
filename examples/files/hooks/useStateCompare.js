@@ -1,24 +1,8 @@
-import React, { useReducer } from "react";
-
-const PET = "pet";
-const COLOR = "color";
-
-const petReducer = (state, action) => {
-  switch (action.type) {
-    case PET:
-      return { ...state, pet: action.value };
-    case COLOR:
-      return { ...state, color: action.value };
-    default:
-      throw new Error("Unexpected Action");
-  }
-};
+import React, { useState } from "react";
 
 const App = () => {
-  const [{ color, pet }, dispatch] = useReducer(petReducer, {
-    color: "black",
-    pet: "cat",
-  });
+  const [color, setColor] = useState("black");
+  const [pet, setPet] = useState("cat");
 
   return (
     <div>
@@ -27,7 +11,7 @@ const App = () => {
       <select
         value={color}
         onChange={(event) => {
-          dispatch({ type: COLOR, value: event.target.value });
+          setColor(event.target.value);
         }}
       >
         <option value={"black"}>Black</option>
@@ -37,7 +21,7 @@ const App = () => {
       <select
         value={pet}
         onChange={(event) => {
-          dispatch({ type: PET, value: event.target.value });
+          setPet(event.target.value);
         }}
       >
         <option value={"cat"}>Cat</option>
