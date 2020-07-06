@@ -2,28 +2,37 @@ import React, { useState, useEffect } from 'react'
 
 const App = () => {
   const [count, setCount] = useState(0)
-  const [increment, setIncrement] = useState(1)
+  const [text, setText] = useState('')
 
   useEffect(() => {
-    console.log(Math.random() * 50)
+    if (count > 0 && count % 5 == 0) {
+      alert(`${count} is divisible by 5!`)
+    }
+    console.log(`I change every time something changes: ${count} ${text}`)
+    console.log(Math.random())
   })
 
   return (
     <div>
       <button
         onClick={() => {
-          setCount(count + increment)
+          setCount(count + 1)
         }}
       >
-        Current count: {count}
+        Click HERE to increment: {count}
       </button>
-      <button
-        onClick={() => {
-          setIncrement(increment + 1)
+      <br />
+      <label htmlFor={'my-input'}>Enter text: </label>
+      <input
+        id={'my-input'}
+        type={'text'}
+        value={text}
+        onChange={(event) => {
+          setText(event.target.value)
         }}
-      >
-        Current increment: {increment}
-      </button>
+      />
+      <br />
+      You entered: {text}
     </div>
   )
 }

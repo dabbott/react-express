@@ -7,8 +7,8 @@ const App = () => {
     if (count > 0 && count % 5 == 0) {
       alert(`${count} is divisible by 5!`)
     }
-    console.log(`I run every time count changes: ${count}`)
-  }, [count])
+    console.log(`I run only once: ${count}`)
+  }, [])
 
   return (
     <div>
