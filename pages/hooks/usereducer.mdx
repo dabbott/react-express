@@ -17,13 +17,13 @@ We typically use `useReducer` when our state has multiple sub-values, e.g. an ob
 
 ## API
 
-The `useReducer` hook takes two arguments:
+The `useReducer` hook requires 2 arguments, and has an optional 3rd argument:
 
 - `reducer` - a pure function that takes a state and an action, and returns a new state value based on the action
-- `initial state` - any initial state value, just like `useState`
+- `initialState` - any initial state value, just like `useState`
 - `initializer` (optional) - this is uncommon, but we'll briefly introduce it later.
 
-The `useReducer` hook returns the current state, and a `dispatch` function to update the state.
+The `useReducer` hook returns the current state, and a `dispatch` function to update the state
 
 ## Dispatch
 
@@ -43,15 +43,15 @@ Consider the example above. If we were to use `useState` in this scenario, what 
 
 <Example panes={['editor']} code={useStateSubValues} />
 
-This option works well when our state variables are independent: e.g. changing the pet will never change the color. However, when we have state variables that depend on one another, it becomes challenging to keep everything in sync.
+This option works well when our state variables are independent: e.g. changing the pet will never _also_ change the color, or vice versa. However, when we have multiple state variables that depend on one another, it can become challenging to keep everything in sync.
 
 Another option would be a single object that we update manually:
 
 <Example panes={['editor']} code={useStateObject} />
 
-This option lets us update all state variables at once, making it easier to keep things in sync. This option works well when our state object is small, but as soon as it becomes larger, our code for updating the state will start taking up a lot of space, making it harder to follow the logic of our component.
+This option lets us update all state variables at once, making it easier to keep things in sync. This option works well when our state object is small, but as soon as it becomes larger, our code for updating the state will start taking up a lot of lines, making it harder to follow the logic of our component.
 
-The `useReducer` hook essentially takes this second approach (a single state object), and provides a more structured API. We can then move our state-handling code outside of our component, so our component logic is clearer and our state logic is easier to test. Additionally, if we want to allow children components to update the state, we can pass the `dispatch` function down into children as a prop, rather than creating a separate callback prop for every possible change a child might want to make.
+The `useReducer` hook essentially takes this second approach (a single state object), and provides a more structured API. We can then move our state-handling code outside of our component, so our component logic is clearer and our state logic can be tested independently. Additionally, if we want to allow children components to update the state, we can pass the `dispatch` function down into children as a prop, rather than creating a separate callback prop for every possible change a child might want to make.
 
 In summary:
 
