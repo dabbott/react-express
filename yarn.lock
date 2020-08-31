@@ -1688,10 +1688,20 @@ babel-plugin-extract-import-names@^1.6.6:
   dependencies:
     "@babel/helper-plugin-utils" "7.8.3"
 
-"babel-plugin-styled-components@>= 1", babel-plugin-styled-components@^1.10.1:
+"babel-plugin-styled-components@>= 1":
   version "1.10.7"
   resolved "https://registry.yarnpkg.com/babel-plugin-styled-components/-/babel-plugin-styled-components-1.10.7.tgz#3494e77914e9989b33cc2d7b3b29527a949d635c"
   integrity sha512-MBMHGcIA22996n9hZRf/UJLVVgkEOITuR2SvjHLb5dSTUyR4ZRGn+ngITapes36FI3WLxZHfRhkA1ffHxihOrg==
+  dependencies:
+    "@babel/helper-annotate-as-pure" "^7.0.0"
+    "@babel/helper-module-imports" "^7.0.0"
+    babel-plugin-syntax-jsx "^6.18.0"
+    lodash "^4.17.11"
+
+babel-plugin-styled-components@^1.11.1:
+  version "1.11.1"
+  resolved "https://registry.yarnpkg.com/babel-plugin-styled-components/-/babel-plugin-styled-components-1.11.1.tgz#5296a9e557d736c3186be079fff27c6665d63d76"
+  integrity sha512-YwrInHyKUk1PU3avIRdiLyCpM++18Rs1NgyMXEAQC33rIXs/vro0A+stf4sT0Gf22Got+xRWB8Cm0tw+qkRzBA==
   dependencies:
     "@babel/helper-annotate-as-pure" "^7.0.0"
     "@babel/helper-module-imports" "^7.0.0"
@@ -5499,12 +5509,12 @@ react-ga@^2.6.0:
   resolved "https://registry.yarnpkg.com/react-ga/-/react-ga-2.7.0.tgz#24328f157f31e8cffbf4de74a3396536679d8d7c"
   integrity sha512-AjC7UOZMvygrWTc2hKxTDvlMXEtbmA0IgJjmkhgmQQ3RkXrWR11xEagLGFGaNyaPnmg24oaIiaNPnEoftUhfXA==
 
-react-guidebook@^0.0.6:
-  version "0.0.6"
-  resolved "https://registry.yarnpkg.com/react-guidebook/-/react-guidebook-0.0.6.tgz#80731521b16010dd6f533d270460bf05a30c50db"
-  integrity sha512-bTzHjxFup0b1iRmG2WrXB0b8Xel7mHazOfjG3QZ0I9TwFGB5S7C3RX9N7TsRY7zH+ZsinE2H6My5IGdhYGcmbw==
+react-guidebook@^0.1.3:
+  version "0.1.3"
+  resolved "https://registry.yarnpkg.com/react-guidebook/-/react-guidebook-0.1.3.tgz#234ac12cd8b85c8a2bc21e75fcbf290f643d101f"
+  integrity sha512-S207vKQrHK2p3H/llsv2Y/zAS+wknZkrqlj10U5+/SLLWrNLFTUpicd9g0eYdvewURTUYa37O2fyB5qq1M12zg==
   dependencies:
-    react-native-web-player "^2.0.0-alpha.18"
+    react-native-web-player "^2.0.0-alpha.26"
 
 react-helmet@^5.2.1:
   version "5.2.1"
@@ -5525,6 +5535,11 @@ react-native-web-player@^2.0.0-alpha.18:
   version "2.0.0-alpha.18"
   resolved "https://registry.yarnpkg.com/react-native-web-player/-/react-native-web-player-2.0.0-alpha.18.tgz#399b56e6250fd4d57e7a515c192ba10aeb1a37bc"
   integrity sha512-07ZkRFbC3LxgPS2dWYfBIXVCg9mwpypXUMf1n/k3ses6xH1DIHwNEV+eE3l7qv2bupO+Rar8W3eg8RS/bfnwiw==
+
+react-native-web-player@^2.0.0-alpha.26:
+  version "2.0.0-alpha.26"
+  resolved "https://registry.yarnpkg.com/react-native-web-player/-/react-native-web-player-2.0.0-alpha.26.tgz#95374259fd71c34efbc7ca142d2bdd30c60854f2"
+  integrity sha512-0GR2BrORnBKj1kBenPD7u2Wb3QVtJWWZ+uLRxlUO8cVccH1CK8Z+teh093wjRqZuln1z4ycG7C091I1dJbyubg==
 
 react-refresh@0.8.3:
   version "0.8.3"

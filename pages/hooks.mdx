@@ -2,31 +2,20 @@ import nativeEvent from '../examples/files/react/nativeEvent.js'
 
 # Hooks
 
-We've already had a brief introduction to Hooks in Events chapter, but now let's examine it more carefully. 
+Hooks are specially-implemented functions that let us add functionality to React components beyond just creating and returning React elements.
 
-Hooks refer to a set of library functions provided by React that allow the developer to use state, side effects, and other React features inside function components.
-
-We can define state as set of data in the application that is mutable over time (or by user interaction). 
-
-## Built-in hooks
-
-In this section, we'll look at the following hooks in more detail:
+We'll look at the following built-in hooks in more detail:
 
 - **`useState`** - Persist state within a component function
-- **`useReducer`** - Similar to useState, but can be used for complex state logic that involves multiple sub-values
-- **`useEffect`** - Performs a function call when the component renders
-- **`useRef`** - Create and store a mutable variable for the full lifetime of the component
-- **`useContext`** - Accepts a context object and returns its values - useful for Theme UI, authentication
-- **`Custom Hooks`** - Build our own!
+- **`useReducer`** - Similar to useState, but for state that involves multiple sub-values
+- **`useEffect`** - Perform side effects within our component functions
 
-## Quick look
+We can also compose built-in hooks to build our own.
 
-For example, recall the CounterButton example. 
+---
 
-<Example code={nativeEvent} />
+## Rules and Linting
 
-The CounterButton component has an onClick function that calls setCount with the argument count + 1. count and setCount are declared and initialized by line 5 using the useState hook in React. 
+Hooks aren't regular functions; they have to be written in a certain way. To dive deeper into this topic, check out [Rules of Hooks](https://reactjs.org/docs/hooks-rules.html).
 
-When a user clicks the Button on the site, the data in this component is changed by useState.
-
-Let's dive deeper into how useState works. 
+When using hooks, we typically want to use [`eslint`](https://eslint.org/) and the `react-hooks` plugin. Hooks are powerful, but can be unintuitive at first, and this tool catches _a lot_ of mistakes before we ever run our code. The Rules of Hooks link has more detail on how to install this.

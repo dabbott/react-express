@@ -2,41 +2,46 @@
 title: useEffect
 ---
 
-import useEffect from '../../examples/files/hooks/useEffect.js'
+import useEffectWithNoDeps from '../../examples/files/hooks/useEffectWithNoDeps.js'
 import useEffectWithDeps from '../../examples/files/hooks/useEffectWithDeps.js'
 import useEffectWithEmptyDeps from '../../examples/files/hooks/useEffectWithEmptyDeps.js'
 
 # useEffect
 
-We use the `useEffect` for calling functions with side effects within our components. 
+<Author name="@msyleung" url="https://twitter.com/msyleung" />
 
-`useEffect(callbackFunction, optionalDependencyArray)` *useEffect returns nothing!*
+We use the `useEffect` hook for calling functions with side effects within our components.
 
-`useEffect` takes in a callback function as its first argument.  
-When the function component renders (or re-renders), the callback function that is passed to `useEffect` will run.  
-`useEffect` can also take in an optional second argument: an array. The values in this array act as a list of dependencies. 
+## API
 
-Let's take a look at an example use case. Here, we are using `useEffect` to trigger an alert (pop-up window) if `count` is divisible by 5.  
-`useEffect` is activated every time the `count` state changes because `count` is listed as a dependency.
+The `useEffect` hook takes 2 arguments:
 
-<Example code={useEffectWithDeps}/>
+- `callback` - a function with side effects
+- `dependencies` - an optional array containing dependency values
 
-## Undefined or Empty Dependency Array
+When our component function runs, the `callback` will be called if any `dependencies` have changed since the last time the component function ran.
 
-If a dependency array is not given (undefined) or is an empty array, `useEffect` will have a different behavior. 
+## Example
 
-`useEffect` will trigger... 
+Here, we use `useEffect` to trigger an alert when the `count` is divisible by 5. The `callback` is called every time the `count` state changes because `count` is listed as a dependency.
 
-- if a value changes in the given dependency array
-- only once when the component first renders if there is an empty dependency array `[]`
-- on any and every state change or render of the component if there is no dependency array (it is undefined)
+<Example code={useEffectWithDeps} />
 
-Here is an example of the second bullet point, where the dependency array is an empty array. 
-`useEffect` will activate only once. 
+## Undefined or empty dependency array
 
-<Example code={useEffectWithEmptyDeps}/>
+If the dependency array is empty or `undefined`, `useEffect` will have a different behavior.
 
-Here is an example of the third bullet point, where the dependency array is undefined. 
-`useEffect` will trigger every time any state is changed in the component.
+- `[]` - the `callback` is called only once, right after the component renders for the first time
+- `undefined` - the `callback` is called on _every_ component render (every time the component function runs)
 
-<Example code={useEffect}/>
+### `undefined` dependencies
+
+Here the dependency array is `undefined`, so our `callback` will run every time our component function runs, e.g. any time we click the button and `useState` tells our component to re-run.
+
+<Example code={useEffectWithNoDeps} />
+
+### Empty dependencies
+
+Here the dependency array is empty, so our `callback` will only run once (and permanently set a page background color).
+
+<Example code={useEffectWithEmptyDeps} />

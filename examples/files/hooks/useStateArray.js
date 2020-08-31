@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
+import { render } from 'react-dom'
 
 const randomDiceRoll = () => {
   return Math.floor(Math.random() * 6) + 1
 }
 
-const App = () => {
+export default function App() {
   const [diceRolls, setDiceRolls] = useState([1, 2, 3])
 
   return (
@@ -25,4 +26,4 @@ const App = () => {
   )
 }
 
-export default App
+render(<App />, document.querySelector('#app'))

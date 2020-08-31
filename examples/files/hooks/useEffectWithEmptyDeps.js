@@ -1,26 +1,28 @@
 import React, { useState, useEffect } from 'react'
+import { render } from 'react-dom'
 
-const App = () => {
+function randomColor() {
+  return `#${Math.random()
+    .toString(16)
+    .substr(-6)}`
+}
+
+function App() {
   const [count, setCount] = useState(0)
 
   useEffect(() => {
-    if (count > 0 && count % 5 == 0) {
-      alert(`${count} is divisible by 5!`)
-    }
-    console.log(`I run only once: ${count}`)
+    document.body.style.backgroundColor = randomColor()
   }, [])
 
   return (
-    <div>
-      <button
-        onClick={() => {
-          setCount(count + 1)
-        }}
-      >
-        Click HERE to increment: {count}
-      </button>
-    </div>
+    <button
+      onClick={() => {
+        setCount(count + 1)
+      }}
+    >
+      Click HERE to increment: {count}
+    </button>
   )
 }
 
-export default App
+render(<App />, document.querySelector('#app'))

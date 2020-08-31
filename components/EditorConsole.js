@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 
 import { WebPlayer } from 'react-guidebook'
+import { colors } from '../styles/theme'
 
 function countPlaygroundWidgets(code) {
   return (code.match(/console\.log/g) || []).length
@@ -90,6 +91,26 @@ const workspaceCSS = `
   #react-root > div > div {
     flex-direction: column;
   }
+}
+
+.cm-s-react {
+  color: #777;
+}
+
+.cm-s-react span.cm-def, .cm-s-react span.cm-attribute {
+  color: #333;
+}
+
+.cm-s-react span.cm-keyword {
+  color: ${colors.primary};
+}
+
+.cm-s-react span.cm-string, .cm-s-react span.cm-string-2, .cm-s-react span.cm-tag {
+  color: #2e9f74;
+}
+
+.cm-s-react span.cm-bracket {
+  color: #555;
 }
 `
 

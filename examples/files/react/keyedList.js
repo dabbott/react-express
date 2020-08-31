@@ -6,7 +6,7 @@ const data = [
 
 export default () => (
   <div>
-    {data.map((item) => (
+    {data.map(item => (
       <div key={item.id}>{item.name}</div>
     ))}
   </div>

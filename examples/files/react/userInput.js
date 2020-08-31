@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { render } from 'react-dom'
 
-const TextInput = () => {
+function TextInput() {
   const [state, setState] = useState('')
 
   return (
@@ -12,7 +12,7 @@ const TextInput = () => {
         type={'text'}
         value={state}
         placeholder={'Type here'}
-        onChange={(event) => {
+        onChange={event => {
           setState(event.target.value)
         }}
       />

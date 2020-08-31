@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 import { render } from 'react-dom'
 
-const CounterButton = ({ title, onPress }) => {
+function CounterButton({ title, onPress }) {
   return <button onClick={onPress}>{title}</button>
 }
 
-const App = () => {
+function App() {
   const [count, setCount] = useState(0)
 
   return (

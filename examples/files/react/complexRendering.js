@@ -1,7 +1,7 @@
 import React from 'react'
 import { render } from 'react-dom'
 
-const Card = ({ loading, error, title, subtitle }) => {
+function Card({ loading, error, title, subtitle }) {
   let content
 
   if (error) {
@@ -24,13 +24,15 @@ const Card = ({ loading, error, title, subtitle }) => {
   return <div style={styles.card}>{content}</div>
 }
 
-const App = () => (
-  <div>
-    <Card error={true} />
-    <Card loading={true} />
-    <Card loading={false} title={'Title'} subtitle={'Subtitle'} />
-  </div>
-)
+function App() {
+  return (
+    <div>
+      <Card error={true} />
+      <Card loading={true} />
+      <Card loading={false} title={'Title'} subtitle={'Subtitle'} />
+    </div>
+  )
+}
 
 const styles = {
   card: {

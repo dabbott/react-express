@@ -1,23 +1,27 @@
 import React from 'react'
 import { render } from 'react-dom'
 
-const Card = ({ title, subtitle }) => (
-  <div style={styles.card}>
-    <h1 style={styles.title}>{title}</h1>
-    {subtitle ? (
-      <h2 style={styles.subtitle}>{subtitle}</h2>
-    ) : (
-      <h3 style={styles.empty}>No subtitle</h3>
-    )}
-  </div>
-)
+function Card({ title, subtitle }) {
+  return (
+    <div style={styles.card}>
+      <h1 style={styles.title}>{title}</h1>
+      {subtitle ? (
+        <h2 style={styles.subtitle}>{subtitle}</h2>
+      ) : (
+        <h3 style={styles.empty}>No subtitle</h3>
+      )}
+    </div>
+  )
+}
 
-const App = () => (
-  <div>
-    <Card title={'Title'} />
-    <Card title={'Title'} subtitle={'Subtitle'} />
-  </div>
-)
+function App() {
+  return (
+    <div>
+      <Card title={'Title'} />
+      <Card title={'Title'} subtitle={'Subtitle'} />
+    </div>
+  )
+}
 
 const styles = {
   card: {

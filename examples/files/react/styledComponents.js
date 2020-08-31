@@ -2,20 +2,24 @@ import React, { useState } from 'react'
 import { render } from 'react-dom'
 import styled from 'styled-components'
 
-const randomColor = () => '#' + Math.random().toString(16).substr(-6)
+function randomColor() {
+  return `#${Math.random()
+    .toString(16)
+    .substr(-6)}`
+}
 
 const Card = styled.div`
   padding: 20px;
   text-align: center;
   color: white;
-  background-color: ${(props) => props.color};
+  background-color: ${props => props.color};
 `
 
 const Container = styled.div`
   padding: 20px;
 `
 
-const App = () => {
+function App() {
   const [color, setColor] = useState('skyblue')
 
   return (

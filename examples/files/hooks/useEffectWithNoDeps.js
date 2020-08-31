@@ -1,13 +1,18 @@
 import React, { useState, useEffect } from 'react'
+import { render } from 'react-dom'
 
-export default function App() {
+function randomColor() {
+  return `#${Math.random()
+    .toString(16)
+    .substr(-6)}`
+}
+
+function App() {
   const [count, setCount] = useState(0)
 
   useEffect(() => {
-    if (count > 0 && count % 5 == 0) {
-      alert(`${count} is divisible by 5!`)
-    }
-  }, [count])
+    document.body.style.backgroundColor = randomColor()
+  })
 
   return (
     <button
@@ -19,3 +24,5 @@ export default function App() {
     </button>
   )
 }
+
+render(<App />, document.querySelector('#app'))

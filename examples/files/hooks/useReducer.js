@@ -1,54 +1,57 @@
-import React, { useReducer } from "react";
+import React, { useReducer } from 'react'
+import { render } from 'react-dom'
 
-const PET = "pet";
-const COLOR = "color";
+const types = {
+  PET: 'PET',
+  COLOR: 'COLOR',
+}
 
-const petReducer = (state, action) => {
+const reducer = (state, action) => {
   switch (action.type) {
-    case PET:
-      return { ...state, pet: action.value };
-    case COLOR:
-      return { ...state, color: action.value };
-    default:
-      throw new Error("Unexpected Action");
+    case types.PET:
+      return { ...state, pet: action.value }
+    case types.COLOR:
+      return { ...state, color: action.value }
   }
-};
+}
 
-const App = () => {
-  const [{ color, pet }, dispatch] = useReducer(petReducer, {
-    color: "black",
-    pet: "cat",
-  });
+const initialState = {
+  color: 'black',
+  pet: 'cat',
+}
+
+export default function App() {
+  const [state, dispatch] = useReducer(reducer, initialState)
 
   return (
     <div>
       <label>Choose a color and a pet: </label>
       <br />
       <select
-        value={color}
-        onChange={(event) => {
-          dispatch({ type: COLOR, value: event.target.value });
+        value={state.color}
+        onChange={event => {
+          dispatch({ type: types.COLOR, value: event.target.value })
         }}
       >
-        <option value={"black"}>Black</option>
-        <option value={"pink"}>Pink</option>
-        <option value={"blue"}>Blue</option>
+        <option value={'black'}>Black</option>
+        <option value={'pink'}>Pink</option>
+        <option value={'blue'}>Blue</option>
       </select>
       <select
-        value={pet}
-        onChange={(event) => {
-          dispatch({ type: PET, value: event.target.value });
+        value={state.pet}
+        onChange={event => {
+          dispatch({ type: types.PET, value: event.target.value })
         }}
       >
-        <option value={"cat"}>Cat</option>
-        <option value={"dog"}>Dog</option>
-        <option value={"mouse"}>Mouse</option>
+        <option value={'cat'}>Cat</option>
+        <option value={'dog'}>Dog</option>
+        <option value={'mouse'}>Mouse</option>
       </select>
       <br />
       <br />
-      You chose a {color} {pet}
+      You chose a {state.color} {state.pet}
     </div>
-  );
-};
+  )
+}
 
-export default App;
+render(<App />, document.querySelector('#app'))

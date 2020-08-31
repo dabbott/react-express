@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { render } from 'react-dom'
 
-const CounterButton = () => {
+function CounterButton() {
   const [count, setCount] = useState(0)
 
   return (

@@ -3,105 +3,63 @@ title: useReducer
 ---
 
 import useReducer from '../../examples/files/hooks/useReducer.js'
-import useStateCompare from '../../examples/files/hooks/useStateCompare.js'
+import useStateSubValues from '../../examples/files/hooks/useStateSubValues.js'
+import useStateObject from '../../examples/files/hooks/useStateObject.js'
+import useStateInitializer from '../../examples/files/hooks/useStateInitializer.js'
 
 # useReducer
 
-`useReducer` is similar to `useState` since it allows us to control state inside a function component.  
-The difference between the two is that `useReducer` allows us to handle multiple states and control complex state changes. 
+<Author name="@msyleung" url="https://twitter.com/msyleung" />
 
-The `useReducer` hook takes two mandatory arguments: a reducer function and an initial argument. It can also take in an optional third argument called the initializer, which we will briefly introduce later. `useReducer` returns the current state and a dispatch function.  
+The `useReducer` hook is similar to `useState`, but gives us a more structured approach for updating complex values.
 
-`const [state, dispatch] = useReducer(reducer, initialState)`
+We typically use `useReducer` when our state has multiple sub-values, e.g. an object containing keys that we want to update independently.
 
-## Reducer
+## API
 
-The reducer function is a pure function that takes in the previous state and an action. An action is an arbitrary value we choose that can be any type.  
-The reducer returns a new state. 
+The `useReducer` hook takes two arguments:
 
-```
-const reducer = (prevState, action) => {
-  // do action
-  return newState
-}
-const [state, dispatch] = useReducer(reducer, initialState)
-```
+- `reducer` - a pure function that takes a state and an action, and returns a new state value based on the action
+- `initial state` - any initial state value, just like `useState`
+- `initializer` (optional) - this is uncommon, but we'll briefly introduce it later.
+
+The `useReducer` hook returns the current state, and a `dispatch` function to update the state.
 
 ## Dispatch
 
-The dispatch function, when called, passes the action to the reducer.
+The dispatch function takes an `action`, and calls the reducer to update the state.
 
-In the Example code below, the initial state is `{color: 'black', pet: 'cat'}`. When we select `dog` from the dropdown, dispatch is called with `{type: 'pet', value: 'dog'}` as its argument. This argument gets passed to the reducer as `action`. Then the reducer follows the switch case logic `case 'pet'` and returns the new state: the current color in state and the newly assigned pet, `{color: 'black', pet: 'dog'}`
+In the example below, the initial state is `{color: 'black', pet: 'cat'}`. When we select `dog` from the dropdown, dispatch is called with `{type: 'pet', value: 'dog'}` as its argument. This argument gets passed to the reducer as `action`. Then the reducer follows the switch case logic `case 'pet'` and returns the new state: the current color in state and the newly assigned pet, `{color: 'black', pet: 'dog'}`
 
-*Note: We use a constant to identify the type for the switch case (either PET or COLOR). This is for future maintainability.  
-If we were to ever change the type from 'color', we only have to change the string once as opposed to everywhere that COLOR is called.*
+> We typically use constants to identify the `type` for the switch case (e.g. `PET` or `COLOR`) to avoid typos and to make it easier to change in the future if needed.
 
-<Example code={useReducer}/>
+<Example code={useReducer} />
 
-## useState and useReducer
+## useState vs. useReducer
 
-There are situations when one hook is more preferable over the other. 
+These hooks are conceptually similar: they both store state variables. So, when should we use one or the other?
 
-Examine the code above. If we were to use `useState` in this scenario, what would it look like?
+Consider the example above. If we were to use `useState` in this scenario, what would it look like? One option would be two state variables:
 
-<Example code={useStateCompare}/>
+<Example panes={['editor']} code={useStateSubValues} />
 
-Here, the `useState` version is shorter and simpler, but eventually there will be a trade-off. If we were to continuously add states (for example, adding 'age', 'eye color', 'breed', etc) or even have states that are dependent on the other ('weight', 'weightMeasurement', 'BMI'), the `useState` application would become harder to maintain.
+This option works well when our state variables are independent: e.g. changing the pet will never change the color. However, when we have state variables that depend on one another, it becomes challenging to keep everything in sync.
 
-```
-  const [color, setColor] = useState("black");
-  const [pet, setPet] = useState("cat");
-  const [age, setAge] = useState(9);
-  const [eyeColor, setEyeColor] = useState('brown')
-  const [breed, setBreed] = useState('Maine Coon')
-  const [weight, setWeight] = useState(18)
-  const [weightMeasurement, setWeightMeasurement] = useState('pounds')
-```
+Another option would be a single object that we update manually:
 
-versus
+<Example panes={['editor']} code={useStateObject} />
 
-```
-  const [{color, pet, age, eyeColor, breed, weight, weightMeasurement}, dispatch] = useReducer(reducer, {
-    color: 'black', 
-    pet: 'cat', 
-    age: 9, 
-    eyeColor: 'brown', 
-    breed: 'Maine Coon', 
-    weight: 18, 
-    weightMeasurement: 'pounds'
-  })
-```
+This option lets us update all state variables at once, making it easier to keep things in sync. This option works well when our state object is small, but as soon as it becomes larger, our code for updating the state will start taking up a lot of space, making it harder to follow the logic of our component.
 
-Of course, at that time, it may also be a good idea to separate your states into smaller components instead.
+The `useReducer` hook essentially takes this second approach (a single state object), and provides a more structured API. We can then move our state-handling code outside of our component, so our component logic is clearer and our state logic is easier to test. Additionally, if we want to allow children components to update the state, we can pass the `dispatch` function down into children as a prop, rather than creating a separate callback prop for every possible change a child might want to make.
 
-Use `useState` for simpler state transition that use JavaScript primitives.
+In summary:
 
-Use `useReducer` when there are different properties that are dependent on one another, JavaScript objects or arrays as state, or complex state business logic.   
-The component state will be managed in one place and it would be easier to test and debug.
+- Use `useState` for "simple" state, like JavaScript primitive values
+- Use `useReducer` when there are different sub-values that depend on one another
 
 ## The third argument: Initializer
 
-`useReducer` allows us to initialize state in two different ways.  
+We mentioned this uncommon option briefly above: `useReducer` allows us to initialize state lazily with an `initializer` function. This is useful when creating the initial state is computationally expensive.
 
-The first method is setting it in the second argument:
-
-```
-const [state, dispatch] = useReducer(reducer, {count: 0})
-```
-
-The other method is using the optional third argument. This argument allows us to create the initial state lazily. 
-Instead of setting the initial state as the second argument, initial state is now be set to `init(initialArgument)`.  
-
-```
-const init = (initialArgument) => {
-  {count: initialArgument}
-}
-
-let initialArgument = 0
-const [state, dispatch] = useReducer(reducer, initialArgument, init)
-
-// state = init(0) = { count: 0 }
-```
-
-With this third argument, we can calculate the initial state outside of the `useReducer` function. It is especially useful for resetting the state and handling computationally expensive state initiation.
-For more information and examples using this third argument, we recommend checking out the [official React docs](https://reactjs.org/docs/hooks-reference.html#lazy-initialization).
+<Example panes={['editor']} code={useStateInitializer} />

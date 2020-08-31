@@ -1,9 +1,13 @@
 import React, { useState } from 'react'
 import { render } from 'react-dom'
 
-const randomColor = () => '#' + Math.random().toString(16).substr(-6)
+function randomColor() {
+  return `#${Math.random()
+    .toString(16)
+    .substr(-6)}`
+}
 
-const Card = ({ color, children }) => {
+function Card({ color, children }) {
   return (
     <div
       style={{
@@ -18,7 +22,7 @@ const Card = ({ color, children }) => {
   )
 }
 
-const App = () => {
+function App() {
   const [color, setColor] = useState('skyblue')
 
   return (
