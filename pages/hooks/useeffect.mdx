@@ -2,6 +2,41 @@
 title: useEffect
 ---
 
+import useEffect from '../../examples/files/hooks/useEffect.js'
+import useEffectWithDeps from '../../examples/files/hooks/useEffectWithDeps.js'
+import useEffectWithEmptyDeps from '../../examples/files/hooks/useEffectWithEmptyDeps.js'
+
 # useEffect
 
-Coming soon!
+We use the `useEffect` for calling functions with side effects within our components. 
+
+`useEffect(callbackFunction, optionalDependencyArray)` *useEffect returns nothing!*
+
+`useEffect` takes in a callback function as its first argument.  
+When the function component renders (or re-renders), the callback function that is passed to `useEffect` will run.  
+`useEffect` can also take in an optional second argument: an array. The values in this array act as a list of dependencies. 
+
+Let's take a look at an example use case. Here, we are using `useEffect` to trigger an alert (pop-up window) if `count` is divisible by 5.  
+`useEffect` is activated every time the `count` state changes because `count` is listed as a dependency.
+
+<Example code={useEffectWithDeps}/>
+
+## Undefined or Empty Dependency Array
+
+If a dependency array is not given (undefined) or is an empty array, `useEffect` will have a different behavior. 
+
+`useEffect` will trigger... 
+
+- if a value changes in the given dependency array
+- only once when the component first renders if there is an empty dependency array `[]`
+- on any and every state change or render of the component if there is no dependency array (it is undefined)
+
+Here is an example of the second bullet point, where the dependency array is an empty array. 
+`useEffect` will activate only once. 
+
+<Example code={useEffectWithEmptyDeps}/>
+
+Here is an example of the third bullet point, where the dependency array is undefined. 
+`useEffect` will trigger every time any state is changed in the component.
+
+<Example code={useEffect}/>
