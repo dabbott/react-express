@@ -33,9 +33,9 @@ export default function App() {
           dispatch({ type: types.COLOR, value: event.target.value })
         }}
       >
-        <option value={'black'}>Black</option>
-        <option value={'pink'}>Pink</option>
-        <option value={'blue'}>Blue</option>
+        <option value="black">Black</option>
+        <option value="pink">Pink</option>
+        <option value="blue">Blue</option>
       </select>
       <select
         value={state.pet}
@@ -43,9 +43,9 @@ export default function App() {
           dispatch({ type: types.PET, value: event.target.value })
         }}
       >
-        <option value={'cat'}>Cat</option>
-        <option value={'dog'}>Dog</option>
-        <option value={'mouse'}>Mouse</option>
+        <option value="cat">Cat</option>
+        <option value="dog">Dog</option>
+        <option value="mouse">Mouse</option>
       </select>
       <br />
       <br />

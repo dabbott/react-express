@@ -29,7 +29,7 @@ The `useReducer` hook returns the current state, and a `dispatch` function to up
 
 The dispatch function takes an `action`, and calls the reducer to update the state.
 
-In the example below, the initial state is `{color: 'black', pet: 'cat'}`. When we select `dog` from the dropdown, dispatch is called with `{type: 'pet', value: 'dog'}` as its argument. This argument gets passed to the reducer as `action`. Then the reducer follows the switch case logic `case 'pet'` and returns the new state: the current color in state and the newly assigned pet, `{color: 'black', pet: 'dog'}`
+In the example below, the initial state is `{color: 'black', pet: 'cat'}`. When we select `dog` from the dropdown, dispatch is called with `{type: types.PET, value: 'dog'}` as its argument. This argument gets passed to the reducer as `action`. Then the reducer follows the switch case logic `case types.PET` and returns the new state: the current color and the pet contained in the action, `{color: 'black', pet: 'dog'}`
 
 > We typically use constants to identify the `type` for the switch case (e.g. `PET` or `COLOR`) to avoid typos and to make it easier to change in the future if needed.
 
