@@ -72,7 +72,11 @@ export default class MyApp extends App {
             <meta property="og:title" content={node.title} />
           </Helmet>
           <MDXProvider components={Components}>
-            <Page rootNode={guidebook} logo={logo}>
+            <Page
+              rootNode={guidebook}
+              logo={logo}
+              githubUrl={'https://github.com/dabbott/react-express'}
+            >
               <Component {...pageProps} />
             </Page>
           </MDXProvider>
