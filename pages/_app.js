@@ -1,5 +1,4 @@
 import 'reset-css'
-import 'github-fork-ribbon-css/gh-fork-ribbon.css'
 import '../styles/main.css'
 
 import ReactGA from 'react-ga'
