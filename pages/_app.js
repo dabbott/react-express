@@ -14,7 +14,7 @@ import {
   Author,
   PageComponents,
   NotFound,
-  findNode,
+  findNodeBySlug,
   trackPageView,
   initializeAnalytics,
   slidesTheme,
@@ -23,12 +23,18 @@ import theme from '../styles/theme'
 import EditorConsole from '../components/EditorConsole'
 import logo from '../images/logo.svg'
 import guidebook from '../guidebook'
+import { searchPages, searchTextMatch } from '../utils/search'
 
 const Components = {
   ...PageComponents,
   Example: EditorConsole,
   Author,
   Details: ({ children }) => children,
+}
+
+const github = {
+  user: 'dabbott',
+  repo: 'react-express',
 }
 
 export default class MyApp extends App {
@@ -53,7 +59,7 @@ export default class MyApp extends App {
       )
     }
 
-    const node = findNode(guidebook, slug)
+    const node = findNodeBySlug(guidebook, slug)
 
     if (!node) {
       return (
@@ -75,7 +81,9 @@ export default class MyApp extends App {
             <Page
               rootNode={guidebook}
               logo={logo}
-              githubUrl={'https://github.com/dabbott/react-express'}
+              github={github}
+              searchPages={searchPages}
+              searchTextMatch={searchTextMatch}
             >
               <Component {...pageProps} />
             </Page>
