@@ -102,7 +102,7 @@ const workspaceCSS = `
 }
 
 .cm-s-react span.cm-keyword {
-  color: ${colors.primary};
+  color: rgb(59, 108, 212);
 }
 
 .cm-s-react span.cm-string, .cm-s-react span.cm-string-2, .cm-s-react span.cm-tag {
