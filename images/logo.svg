@@ -14,9 +14,9 @@
             <stop stop-color="#6ED5FF" offset="0%"></stop>
             <stop stop-color="#00C0FF" offset="100%"></stop>
         </linearGradient>
-        <linearGradient x1="50%" y1="69.4984703%" x2="50%" y2="0%" id="linearGradient-4">
+        <linearGradient x1="50%" y1="69.4984703%" x2="50%" y2="0.0778364642%" id="linearGradient-4">
             <stop stop-color="#51EFDF" offset="0%"></stop>
-            <stop stop-color="#898BF8" offset="100%"></stop>
+            <stop stop-color="#4245CB" offset="100%"></stop>
         </linearGradient>
         <linearGradient x1="24.9448313%" y1="73.8415786%" x2="100%" y2="36.1883659%" id="linearGradient-5">
             <stop stop-color="#51B6EF" offset="0%"></stop>
