@@ -28,6 +28,13 @@ function codeHeight(code) {
   )
 }
 
+const paneNames = {
+  editor: 'Code',
+  player: 'Live Preview',
+  transpiler: 'Babel Output',
+  workspaces: 'Walkthrough',
+}
+
 export default class EditorConsole extends Component {
   shouldComponentUpdate() {
     return false
@@ -74,6 +81,36 @@ export default class EditorConsole extends Component {
         playerCSS={playerCSS}
         workspaceCSS={variant === 'slides' ? slidesCSS : workspaceCSS}
         panes={panes}
+        responsivePaneSets={
+          panes.length > 1 && rest.width !== 0
+            ? [
+                {
+                  maxWidth: 920,
+                  panes: [
+                    {
+                      type: 'stack',
+                      children: panes.map(pane => ({
+                        type: pane,
+                        title: paneNames[pane] || pane,
+                        ...(pane === 'workspaces' && {
+                          style: {
+                            width: 'inherit',
+                          },
+                        }),
+                        ...(pane === 'player' && {
+                          style: {
+                            height: '100%',
+                            paddingLeft: '0px',
+                            paddingRight: '0px',
+                          },
+                        }),
+                      })),
+                    },
+                  ],
+                },
+              ]
+            : []
+        }
         {...rest}
       />
     )
@@ -87,12 +124,6 @@ const playerCSS = `
 `
 
 const workspaceCSS = `
-@media (max-width: 600px) {
-  #react-root > div > div {
-    flex-direction: column;
-  }
-}
-
 .cm-s-react {
   color: #777;
 }
