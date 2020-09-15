@@ -1,0 +1,30 @@
+---
+title: useRef
+---
+
+import useRef from '../../examples/files/hooks/useRef.js'
+import useRefDOM from '../../examples/files/hooks/useRefDOM.js'
+
+# useRef
+
+With `useRef` we can create a mutable value that exists for the lifetime of the component instance.
+
+We start by wrapping a value, e.g. `42`, with: `const myRef = useRef(42)`. Then, we use `myRef.current` to access or update the mutable value.
+
+All React components can be passed a ref using the `ref` prop, in which case React will automatically assign the instance of the component, or the underlying DOM node, to `myRef.current`. We often do this to access imperative DOM node APIs, such as calling `focus` on an input element, or measuring an element with `getBoundingClientRect()`.
+
+---
+
+## Mutable value example
+
+In this example, we store the return value of `setInterval`, which is an interval id, so that we can later call `clearInterval`.
+
+<Example code={useRef} />
+
+## DOM example
+
+In this example, we pass our ref to a `canvas` component. React will then assign the canvas's underlying DOM node to our ref's `current` property. This lets us call the imperative APIs of `canvas` to draw within it.
+
+> Since we call `useEffect` with an empty dependencies array here, we'll only draw to the canvas once after the initial render.
+
+<Example code={useRefDOM} />
