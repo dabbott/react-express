@@ -2,13 +2,11 @@ import React, { useState, useEffect } from 'react'
 
 export default function App() {
   const [count, setCount] = useState(0)
-  const isMultipleOf3 = Math.floor(count / 3)
+  const color = count % 5 === 0 ? 'red' : 'blue'
 
   useEffect(() => {
-    if (count > 0) {
-      alert(`${count} is divisible by 3!`)
-    }
-  }, [isMultipleOf3])
+    document.body.style.backgroundColor = color
+  }, [color])
 
   return (
     <button

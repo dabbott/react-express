@@ -1,0 +1,26 @@
+---
+title: useCallback
+---
+
+import useCallback from '../../examples/files/hooks/useCallback.js'
+
+# useCallback
+
+The `useCallback` hook lets us [memoize](https://en.wikipedia.org/wiki/Memoization) functions. The return value will be the same function (comparable with `===`) for the lifecycle of the component, unless the dependencies array changes. If the dependencies change, then a new function is returned.
+
+This can be useful for 2 reasons:
+
+- As a performance optimization, by preventing unnecessary re-renders when used with [`memo`](https://reactjs.org/docs/react-api.html#reactmemo)
+- Using a function as a dependency for another hook, since elements in the dependency array are compared with `===`
+
+In this example, we count the number of times our `Logger` component runs. Since `Logger` is wrapped with `memo`, it'll only run when its props change. In the `normalFunction` case, the function changes every time we press the button. In the `memoizedFunction` case, we reuse the same function for 5 button presses, since our `count5` variable returns the same value 5 times in a row.
+
+<Example
+  title="useCallback"
+  code={useCallback}
+  console={{
+    enabled: true,
+    visible: true,
+  }}
+  playground={{ enabled: false }}
+/>

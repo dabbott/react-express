@@ -23,7 +23,7 @@ When our component function runs, the `callback` will be called if any `dependen
 
 ## Example
 
-Here, we use `useEffect` to run an alert when the `count` is a multiple of 3. The `callback` is called every time the `isMultipleOf3` changes, since `isMultipleOf3` is listed as a dependency.
+Here, we use `useEffect` to change the background color to blue when `count` is a multiple of 5. The `callback` is called every time the `color` changes, since `color` is listed as a dependency.
 
 <Example code={useEffectWithDeps} />
 

@@ -3,8 +3,10 @@
     "usestate",
     "usereducer",
     "useeffect",
+    "usememo",
+    "usecallback",
+    "custom_hooks",
     "useref",
-    "usecontext",
-    "custom_hooks"
+    "usecontext"
   ]
 }
