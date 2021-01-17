@@ -1,5 +1,7 @@
 import * as Guidebook from 'react-guidebook'
-import guidebook from '../guidebook'
+
+/* TODO: Only import for a specific locale */
+import guidebook from '../guidebook-en'
 
 let searchDocuments = []
 let searchIndexPromise = undefined

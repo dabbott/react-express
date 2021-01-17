@@ -9,14 +9,13 @@
     "@mdx-js/react": "^1.0.0",
     "@mdx-js/tag": "^0.20.3",
     "@next/mdx": "^8.1.0",
-    "next": "^9.4.4",
+    "next": "^10.0.5",
     "next-images": "^1.1.2",
     "react": "^16.8.0",
     "react-dom": "^16.8.6",
     "react-ga": "^2.6.0",
-    "react-guidebook": "^0.3.2",
+    "react-guidebook": "^0.10.4",
     "react-helmet": "^5.2.1",
-    "react-native-web-player": "^2.0.0-alpha.18",
     "reset-css": "^5.0.1",
     "spectacle": "^6.1.0",
     "styled-components": "^5.2.0"
@@ -32,14 +31,20 @@
   },
   "devDependencies": {
     "@mdx-js/loader": "^1.0.20",
+    "@types/mdx-js__react": "^1.5.3",
+    "@types/node": "^14.14.21",
+    "@types/react": "^17.0.0",
+    "@types/styled-components": "^5.1.7",
     "babel-loader": "^8.1.0",
     "babel-plugin-styled-components": "^1.11.1",
-    "generate-guidebook": "^1.1.0",
+    "generate-guidebook": "^1.3.4",
     "loader-utils": "^1.2.3",
     "next-mdx-frontmatter": "^0.0.3",
-    "prettier": "^1.13.7",
+    "prettier": "^2.2.1",
     "raw-loader": "^3.0.0",
-    "spectacle-mdx-loader": "^0.1.1"
+    "rehype-slug": "^4.0.1",
+    "spectacle-mdx-loader": "^0.1.1",
+    "typescript": "^4.1.3"
   },
   "repository": {
     "type": "git",
@@ -49,5 +54,48 @@
     "semi": false,
     "singleQuote": true,
     "trailingComma": "es5"
+  },
+  "guidebook": {
+    "title": "React Express",
+    "description": "Learn React through interactive examples",
+    "location": {
+      "host": "www.react.express"
+    },
+    "author": {
+      "twitter": "dvnabbott"
+    },
+    "favicons": [
+      {
+        "type": "image/x-icon",
+        "path": "/static/favicon.ico"
+      },
+      {
+        "type": "image/png",
+        "path": "/static/favicon.png"
+      }
+    ],
+    "previewImage": {
+      "type": "image/png",
+      "width": "1200",
+      "height": "630",
+      "alt": "Website preview",
+      "path": "/static/preview.png"
+    },
+    "github": {
+      "user": "dabbott",
+      "repo": "react-express"
+    },
+    "googleAnalytics": {
+      "trackingId": "UA-77053427-2"
+    },
+    "facebook": {
+      "appId": "105028866738480"
+    },
+    "i18n": {
+      "locales": [
+        "en"
+      ],
+      "defaultLocale": "en"
+    }
   }
 }

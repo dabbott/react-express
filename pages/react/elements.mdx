@@ -1,7 +1,5 @@
 import reactElements from '../../examples/files/react/reactElements.js'
 
-# Elements
-
 We instantiate React elements using the `React.createElement` API. Typically, we call this API using JSX elements, but it's also possible to call it directly.
 
 The function signature is: `createElement(type, props, children)`.
@@ -16,19 +14,10 @@ In this example, we instantiate a few React components using JSX and then print 
 
 <Example
   code={reactElements}
-  console={{
-    enabled: true,
-    visible: true,
-    maximized: true,
-    collapsible: false,
-  }}
+  sharedEnvironment={true}
+  panes={['editor', 'console', 'player']}
+  width={0}
   playground={{ enabled: false }}
-  styles={{
-    playerPane: {
-      width: '50%',
-      marginLeft: '0',
-    },
-  }}
   responsivePaneSets={[
     {
       maxWidth: 920,
@@ -37,13 +26,10 @@ In this example, we instantiate a few React components using JSX and then print 
           type: 'stack',
           children: [
             { type: 'editor', title: 'Code' },
-            {
-              type: 'player',
-              title: 'Console Output',
-              style: { width: '100%', height: '100%' },
-            },
+            { type: 'console', title: 'Console Output' },
           ],
         },
+        'player',
       ],
     },
   ]}

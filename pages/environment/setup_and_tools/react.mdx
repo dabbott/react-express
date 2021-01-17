@@ -4,8 +4,6 @@ import indexHtml from '../../../examples/files/environment/setup_and_tools/babel
 import webpackConfig from '../../../examples/files/environment/setup_and_tools/babel/webpack.config.js'
 import babelRc from '../../../examples/files/environment/setup_and_tools/babel/.babelrc.txt'
 
-# React
-
 It's time to install React!
 
 React comes in two parts, React and ReactDOM. React includes the core component APIs and rendering logic. ReactDOM contains the necessary APIs to render to the browser DOM (i.e. a website).
@@ -42,13 +40,13 @@ For reference, our directory should have these files:
 
 <Example
   panes={['editor']}
-  files={[
-    ['index.js', indexJs],
-    ['index.html', indexHtml],
-    ['webpack.config.js', webpackConfig],
-    ['.babelrc', babelRc],
-    ['package.json', packageJson],
-  ]}
+  files={{
+    'index.js': indexJs,
+    'index.html': indexHtml,
+    'webpack.config.js': webpackConfig,
+    '.babelrc': babelRc,
+    'package.json': packageJson,
+  }}
 />
 
 ## That's it!

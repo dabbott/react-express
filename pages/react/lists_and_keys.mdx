@@ -1,8 +1,6 @@
 import unkeyedList from '../../examples/files/react/unkeyedList.js'
 import keyedList from '../../examples/files/react/keyedList.js'
 
-# Lists and Keys
-
 Every React component can be passed a special prop called the `key`. React uses this `key` to determine the rendered element's identity. Understanding element identity is critical for performance and minimizing DOM manipulation: for example, if the first element in a list of thousands should no longer be rendered, React needs some way to detect this. Instead of re-rendering thousands of elements, React can remove a single DOM node for the first element, which is much more efficient.
 
 ## Id assignment
@@ -43,7 +41,7 @@ div: 0
 
 So, if we wanted to, we could assign a key to every element. We can even force a component to re-render by assigning a different key (this tells React that the element's identity has changed, thus triggering a re-render). But most of the time, we don't need to consider keys because React takes care of them automatically. The main time we'll need to use keys is when rendering lists of elements.
 
-# Lists
+## Lists
 
 Let's consider the case of rendering a list of components by mapping an array of data.
 
@@ -64,7 +62,7 @@ If items in our data set have some sort of unique identifier already, or we can 
 
 ```js
 <div>
-  {data.map((item) => (
+  {data.map(item => (
     <div key={item.id}>{item.name}</div>
   ))}
 </div>
@@ -84,7 +82,7 @@ Here's what it looks like in action:
 
 <Example code={keyedList} />
 
-# Using map index as `key`
+## Using map index as `key`
 
 If items in our data have no unique identifier of any kind, then we will generally resort to using the index of the item as its key. This silences the warning from React about forgetting to include keys, but remember that doing this will cause React to identify elements incorrectly if the data is modified: for example, if a new item is inserted at the front of the list, it will get key `'0'`, which previously belonged to another item. So you may be better off assigning identifiers or indexes to your data set if you can.
 Here's what this index approach looks like:

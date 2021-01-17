@@ -3,8 +3,6 @@ import indexJs from '../../../examples/files/environment/setup_and_tools/webpack
 import indexHtml from '../../../examples/files/environment/setup_and_tools/webpack/index.html'
 import webpackConfig from '../../../examples/files/environment/setup_and_tools/webpack/webpack.config.js'
 
-# Webpack
-
 Webpack concatenates all of our JavaScript code into a single JavaScript file or a handful of files (sometimes called a **bundle**), which makes it easier to include in an HTML page. Webpack is _highly_ configurable with plugins, allowing us to transform and bundle much more than just JavaScript.
 
 Webpack is a fairly complex tool. While there are a variety of simpler [alternatives](https://bestofjs.org/projects?tags=module), such as [rollup](https://rollupjs.org/guide/en/) or [parcel](https://parceljs.org/), Webpack is still generally the standard for bundling JavaScript apps. I personally recommend learning at least the basics (e.g. what I cover here), before consider other options.
@@ -91,12 +89,12 @@ For reference, our directory should contain the following files:
 
 <Example
   panes={['editor']}
-  files={[
-    ['index.js', indexJs],
-    ['index.html', indexHtml],
-    ['webpack.config.js', webpackConfig],
-    ['package.json', packageJson],
-  ]}
+  files={{
+    'index.js': indexJs,
+    'index.html': indexHtml,
+    'webpack.config.js': webpackConfig,
+    'package.json': packageJson,
+  }}
 />
 
 > It's fine if the versions of dependencies in your `package.json` are different.
