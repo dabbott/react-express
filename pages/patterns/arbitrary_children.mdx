@@ -4,20 +4,20 @@ import buttonChildren from '../../examples/files/patterns/buttonChildren.tsx'
 
 ## Creating a reusable button
 
-One approach would be to pass a `title` string:
+Suppose we wanted to create a reusable `Button` component, where we can pass the content within it as a prop. One approach would be to have a `title` prop of type `string`:
 
 <Example code={buttonTitle} />
 
-But this limits us to what we can pass.
+However, this limits what we can put within the button. We couldn't put an `<svg>` icon, for example.
 
 ## ReactNode
 
-Using the type `ReactNode`, we can now pass arbitrary react elements.
+Using the type `ReactNode` as the type of the `title` prop, we can now pass arbitrary React elements.
 
 <Example code={buttonTitleNode} />
 
 ## The `children` prop
 
-Typically if the component has a "main" or "primary" content prop, we'll use the prop `children`. This lets us preserve the tree-like hierarchy of our JSX code. If a component has multiple props that can take arbitrary content, e.g. a `left` and `right`, then we probably wouldn't make either of these the `children`, since neither is more "main" or "primary" than the other.
+Typically if the component has what seems like a "main" or "primary" content area, we'll use the prop `children` for that content. This lets us preserve the tree-like hierarchy of our JSX code. If a component has multiple props that can take arbitrary content, e.g. a `left` and `right`, then we probably wouldn't make either of these the `children`, since neither is more "main" or "primary" than the other.
 
 <Example code={buttonChildren} />

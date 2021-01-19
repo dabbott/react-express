@@ -101,7 +101,12 @@ export default memo(
             modules,
             reloadable: true,
             ...playerOptions,
-            css: [basePlayerCSS, playerOptions.css || ''].join('\n'),
+            css: [
+              rest.code?.includes('export default')
+                ? defaultExportBasePlayerCSS
+                : basePlayerCSS,
+              playerOptions.css || '',
+            ].join('\n'),
             ...(embeddedConsole && { console: embeddedConsole }),
             style: {
               overflow: 'hidden',
@@ -228,11 +233,11 @@ const basePlayerCSS = `
 }
 `
 
-// const basePlayerCSS = `
-// #app, #app > div, #app > div > div {
-//   display: initial !important;
-// }
-// `
+const defaultExportBasePlayerCSS = `
+#app, #app > div, #app > div > div {
+  display: initial !important;
+}
+`
 
 const workspaceCSS = `
 .cm-s-react {

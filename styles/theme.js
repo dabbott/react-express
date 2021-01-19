@@ -8,6 +8,7 @@ defaultTheme.colors.title.right = 'rgb(126, 253, 253)'
 defaultTheme.textStyles.heading1.fontWeight = 'bold'
 defaultTheme.textStyles.heading2.fontWeight = 'bold'
 defaultTheme.textStyles.heading3.fontWeight = 'bold'
+defaultTheme.textStyles.code.lineHeight = '1.75'
 
 export default defaultTheme
 export const colors = defaultTheme.colors

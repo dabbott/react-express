@@ -67,6 +67,30 @@ export default function GuidebookApp({
   const Components = useMemo(
     () => ({
       ...PageComponents,
+      code: (props: any) => (
+        <PageComponents.code
+          {...props}
+          style={{
+            ...props.style,
+            color: defaultTheme.colors.textDecorativeLight,
+          }}
+        />
+      ),
+      pre: (props: any) => (
+        <PageComponents.pre
+          {...props}
+          style={{
+            ...props.style,
+            backgroundColor: defaultTheme.colors.text,
+            padding: '8px 10px',
+            color: 'white',
+            borderRadius: '0',
+            borderLeft: '4px solid #435080',
+            overflowX: 'auto',
+            marginTop: '15px',
+          }}
+        />
+      ),
       inlineCode: (props: any) => (
         <PageComponents.inlineCode
           {...props}
