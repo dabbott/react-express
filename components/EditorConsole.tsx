@@ -223,10 +223,16 @@ export default memo(
 )
 
 const basePlayerCSS = `
-#app, #app > div, #app > div > div {
+#app {
   display: initial !important;
 }
 `
+
+// const basePlayerCSS = `
+// #app, #app > div, #app > div > div {
+//   display: initial !important;
+// }
+// `
 
 const workspaceCSS = `
 .cm-s-react {
