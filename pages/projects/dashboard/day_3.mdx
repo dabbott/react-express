@@ -1,0 +1,99 @@
+import InfoResourceApp from '../../../examples/files/dashboard/InfoResourceApp.tsx'
+import ArticlesResoureApp from '../../../examples/files/dashboard/ArticlesResourceApp.tsx'
+import TabsApp from '../../../examples/files/dashboard/TabsApp.tsx'
+import Day3App from '../../../examples/files/dashboard/Day3App.tsx'
+
+import Article from '../../../examples/files/dashboard/components/Article.tsx'
+import List from '../../../examples/files/dashboard/components/List.tsx'
+import StarButton from '../../../examples/files/dashboard/components/StarButton2.tsx'
+import Star from '../../../examples/files/dashboard/components/Star.tsx'
+import Button from '../../../examples/files/dashboard/components/Button.tsx'
+import Info from '../../../examples/files/dashboard/components/Info.tsx'
+import Block from '../../../examples/files/dashboard/components/Block.tsx'
+import Spacer from '../../../examples/files/dashboard/components/Spacer.tsx'
+import Tabs from '../../../examples/files/dashboard/components/Tabs.tsx'
+import useFetch from '../../../examples/files/dashboard/hooks/useFetch.tsx'
+import resources from '../../../examples/files/dashboard/resources.ts'
+import api from '../../../examples/files/dashboard/api.ts'
+import main from '!!raw-loader!../../../examples/files/dashboard/main.css'
+
+Today we'll be focusing on fetching and displaying remote data.
+
+## API
+
+We'll be using a REST API that returns static data: https://my-json-server.typicode.com/dabbott/dashboard-json-server
+
+Endpoints:
+
+- [`/articles`](https://my-json-server.typicode.com/dabbott/dashboard-json-server/articles)
+- [`/info`](https://my-json-server.typicode.com/dabbott/dashboard-json-server/info)
+
+We can access an individual article or info object by its id, e.g. [`/info/1`](https://my-json-server.typicode.com/dabbott/dashboard-json-server/info).
+
+## Fetching `/info/1`
+
+Start by fetching and displaying the first info resource. You should use `useFetch.ts` and `api.ts`.
+
+> Tip: Since `useFetch` is generic, you may want to _specialize_ it at the callsite for better type checking, e.g. `useFetch<InfoResource>(...)`
+
+When the resource is loading, display a loading state (e.g. the string `"Loading..."`). You may also want to show an error message in the case where it fails to load.
+
+<Example
+  height={340}
+  panes={['player']}
+  playerOptions={{ css: main, title: 'Info Resource', reloadable: true }}
+  files={{
+    'App.tsx': InfoResourceApp,
+    'components/Block.tsx': Block,
+    'components/Info.tsx': Info,
+    'components/Spacer.tsx': Spacer,
+    'hooks/useFetch.tsx': useFetch,
+    'resources.ts': resources,
+    'api.tsx': api,
+  }}
+/>
+
+## Fetching `/articles`
+
+Next, fetch all articles using `useFetch`.
+
+<Example
+  height={690}
+  panes={['player']}
+  playerOptions={{ css: main, title: 'Articles Resource', reloadable: true }}
+  files={{
+    'App.tsx': ArticlesResoureApp,
+    'components/Article.tsx': Article,
+    'components/Block.tsx': Block,
+    'components/List.tsx': List,
+    'components/Spacer.tsx': Spacer,
+    'hooks/useFetch.tsx': useFetch,
+    'resources.ts': resources,
+    'api.tsx': api,
+  }}
+/>
+
+## App
+
+Putting it all together, we should be able to fetch data for our entire initial screen.
+
+<Example
+  height={1000}
+  panes={['player']}
+  playerOptions={{ css: main, title: 'App with data', reloadable: true }}
+  files={{
+    'App.tsx': Day3App,
+    'hooks/useFetch.ts': useFetch,
+    'components/Article.tsx': Article,
+    'components/Block.tsx': Block,
+    'components/Button.tsx': Button,
+    'components/Info.tsx': Info,
+    'components/List.tsx': List,
+    'components/Spacer.tsx': Spacer,
+    'components/Star.tsx': Star,
+    'components/StarButton.tsx': StarButton,
+    'components/Tabs.tsx': Tabs,
+    'resources.ts': resources,
+    'api.tsx': api,
+  }}
+/>

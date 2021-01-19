@@ -1,0 +1,78 @@
+import StarButtonApp from '../../../examples/files/dashboard/StarButtonApp.tsx'
+import TabsApp from '../../../examples/files/dashboard/TabsApp.tsx'
+import Day2App from '../../../examples/files/dashboard/Day2App.tsx'
+
+import Article from '../../../examples/files/dashboard/components/Article.tsx'
+import List from '../../../examples/files/dashboard/components/List.tsx'
+import StarButton from '../../../examples/files/dashboard/components/StarButton2.tsx'
+import Star from '../../../examples/files/dashboard/components/Star.tsx'
+import Button from '../../../examples/files/dashboard/components/Button.tsx'
+import Info from '../../../examples/files/dashboard/components/Info.tsx'
+import Block from '../../../examples/files/dashboard/components/Block.tsx'
+import Spacer from '../../../examples/files/dashboard/components/Spacer.tsx'
+import Tabs from '../../../examples/files/dashboard/components/Tabs.tsx'
+import resources from '../../../examples/files/dashboard/resources.ts'
+import main from '!!raw-loader!../../../examples/files/dashboard/main.css'
+
+Today we'll be finishing the `StarButton` and adding the `Tabs` components.
+
+## StarButton
+
+Use `useState` to add toggle functionality to the `StarButton`.
+
+<Example
+  height={100}
+  panes={['player']}
+  playerOptions={{ css: main }}
+  files={{
+    'App.tsx': StarButtonApp,
+    'components/StarButton.tsx': StarButton,
+    'components/Button.tsx': Button,
+    'components/Star.tsx': Star,
+    'components/Spacer.tsx': Spacer,
+    'resources.ts': resources,
+  }}
+/>
+
+> For help with `useState`, see: [useState](/hooks/usestate)
+
+## Tabs
+
+Implement a component that can switch between multiple tabs of arbitrary content.
+
+This component should be implemented as a **controlled component**, i.e. its parent will control which tab is currently selected.
+
+<Example
+  height={150}
+  panes={['player']}
+  playerOptions={{ css: main }}
+  files={{
+    'App.tsx': TabsApp,
+    'components/Tabs.tsx': Tabs,
+    'components/Spacer.tsx': Spacer,
+    'resources.ts': resources,
+  }}
+/>
+
+## App
+
+Finally, we can assemble these into our top-level `App` component. We'll only be building the first tab, so the other tabs can contain anything you'd like.
+
+<Example
+  height={1000}
+  panes={['player']}
+  playerOptions={{ css: main }}
+  files={{
+    'App.tsx': Day2App,
+    'components/Article.tsx': Article,
+    'components/Block.tsx': Block,
+    'components/Button.tsx': Button,
+    'components/Info.tsx': Info,
+    'components/List.tsx': List,
+    'components/Spacer.tsx': Spacer,
+    'components/Star.tsx': Star,
+    'components/StarButton.tsx': StarButton,
+    'components/Tabs.tsx': Tabs,
+    'resources.ts': resources,
+  }}
+/>

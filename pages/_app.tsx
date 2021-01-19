@@ -67,6 +67,18 @@ export default function GuidebookApp({
   const Components = useMemo(
     () => ({
       ...PageComponents,
+      inlineCode: (props: any) => (
+        <PageComponents.inlineCode
+          {...props}
+          style={{
+            ...props.style,
+            // color: '#009688',
+            color: '#2e9f74',
+            backgroundColor: '#0096881a',
+            padding: '4px 6px',
+          }}
+        />
+      ),
       Example: EditorConsole,
       Author,
       Details: ({ children }: { children: React.ReactNode }) => children,

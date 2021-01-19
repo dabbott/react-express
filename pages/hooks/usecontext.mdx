@@ -5,14 +5,22 @@ title: useContext
 import useContext from '../../examples/files/hooks/useContext.js'
 import deeplyNestedProps from '../../examples/files/hooks/deeplyNestedProps.js'
 
-We use the `useContext` hook for passing values to deeply nested components.
+We use the `useContext` hook for passing values to deeply nested components. This is essentially dependency injection.
+
+We frequently use contexts for values which will be used throughout our app, such as theme constants or localized strings.
 
 ## Example
 
-### With contexts
-
-<Example code={useContext} />
+Suppose we want to use a theme throughout our app.
 
 ### Without contexts
 
+Without a context, we have to pass the theme as a prop into every component - even those that don't use it! That's both a hassle and may cause unnecessary rerendering.
+
 <Example code={deeplyNestedProps} />
+
+### With contexts
+
+With a context, the component that actually wants to use the theme can access it directly from the context.
+
+<Example code={useContext} />

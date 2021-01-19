@@ -48,7 +48,10 @@ interface Props {
   modules?: WebPlayerProps['modules']
   panes?: WebPlayerProps['panes']
   workspaces?: WebPlayerProps['workspaces']
-  preset?: string,
+  preset?: string
+  playerOptions?: {
+    css?: string
+  }
   embeddedConsole: any
 }
 
@@ -61,6 +64,7 @@ export default memo(
     panes = ['editor', 'player'],
     height,
     embeddedConsole,
+    playerOptions = {},
     ...rest
   }: Props) {
     const theme = useTheme()
@@ -96,8 +100,9 @@ export default memo(
             prelude,
             modules,
             reloadable: true,
-            css: playerCSS,
-            ...embeddedConsole && {console: embeddedConsole},
+            ...playerOptions,
+            css: [basePlayerCSS, playerOptions.css || ''].join('\n'),
+            ...(embeddedConsole && { console: embeddedConsole }),
             style: {
               overflow: 'hidden',
               background: 'rgba(0,0,0,0.02)',
@@ -107,7 +112,7 @@ export default memo(
               borderLeft: '4px solid rgba(238,238,238,1)',
               // backgroundColor: 'white',
               ...(panes.length === 1 && { flex: '1 1 auto' }),
-            }
+            },
           }
         : pane
     )
@@ -177,8 +182,8 @@ export default memo(
       <WebPlayer
         preset="react-native"
         containerStyle={{
-          // marginTop: `${theme.sizes.spacing.medium}px`,
-          // marginBottom: `${theme.sizes.spacing.medium}px`,
+          marginTop: `${theme.sizes.spacing.medium}px`,
+          marginBottom: `${theme.sizes.spacing.medium}px`,
           flex: '1',
           // border: `1px solid ${theme.colors.divider}`,
         }}
@@ -217,8 +222,8 @@ export default memo(
   () => true
 )
 
-const playerCSS = `
-#app {
+const basePlayerCSS = `
+#app, #app > div, #app > div > div {
   display: initial !important;
 }
 `

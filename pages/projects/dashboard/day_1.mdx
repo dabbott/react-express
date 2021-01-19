@@ -1,0 +1,103 @@
+import InfoApp from '../../../examples/files/dashboard/InfoApp.tsx'
+import ArticleApp from '../../../examples/files/dashboard/ArticleApp.tsx'
+import ArticleListApp from '../../../examples/files/dashboard/ArticleListApp.tsx'
+import StarButtonApp from '../../../examples/files/dashboard/StarButtonApp.tsx'
+import Day1App from '../../../examples/files/dashboard/Day1App.tsx'
+
+import Article from '../../../examples/files/dashboard/components/Article.tsx'
+import List from '../../../examples/files/dashboard/components/List.tsx'
+import StarButton from '../../../examples/files/dashboard/components/StarButton1.tsx'
+import Star from '../../../examples/files/dashboard/components/Star.tsx'
+import Button from '../../../examples/files/dashboard/components/Button.tsx'
+import Info from '../../../examples/files/dashboard/components/Info.tsx'
+import Block from '../../../examples/files/dashboard/components/Block.tsx'
+import Spacer from '../../../examples/files/dashboard/components/Spacer.tsx'
+import resources from '../../../examples/files/dashboard/resources.ts'
+import main from '!!raw-loader!../../../examples/files/dashboard/main.css'
+
+Today we'll be creating the `Info`, `ArticleList`, and `StarButton` components.
+
+## Info
+
+This component should display an `InfoResource` (defined in `resources.ts`).
+
+I recommend creating a component `Block` that contains just the border and padding, so that we can reuse that part for other components.
+
+<Example
+  height={280}
+  panes={['player']}
+  playerOptions={{ css: main }}
+  files={{
+    'App.tsx': InfoApp,
+    'components/Block.tsx': Block,
+    'components/Info.tsx': Info,
+    'components/Spacer.tsx': Spacer,
+    'resources.ts': resources,
+  }}
+/>
+
+> For help creating a `Block`, see: [Arbitrary Children](/patterns/arbitrary_children)
+
+## ArticleList
+
+This component should display a list of `ArticleResource` (defined in `resources.ts`).
+
+Consider breaking down this component further into, for example:
+
+- an `Article` component, displaying the content of a single article
+- an `ArticleList`, mapping an array of `ArticleResource` into `Article` components
+- a `Block` component (if we made one earlier) for the border and padding
+
+<Example
+  height={650}
+  panes={['player']}
+  playerOptions={{ css: main }}
+  files={{
+    'App.tsx': ArticleListApp,
+    'components/Block.tsx': Block,
+    'components/Article.tsx': Article,
+    'components/List.tsx': List,
+    'components/Spacer.tsx': Spacer,
+    'resources.ts': resources,
+  }}
+/>
+
+## StarButton
+
+First, we could make a `Button` component that takes arbitrary `children`. Then, we can make a `StarButton` which wraps it and passes in the `Star` component and a title.
+
+<Example
+  height={100}
+  panes={['player']}
+  playerOptions={{ css: main }}
+  files={{
+    'App.tsx': StarButtonApp,
+    'components/StarButton.tsx': StarButton,
+    'components/Button.tsx': Button,
+    'components/Star.tsx': Star,
+    'components/Spacer.tsx': Spacer,
+    'resources.ts': resources,
+  }}
+/>
+
+## App
+
+Finally, we can assemble these into our top-level `App` component.
+
+<Example
+  height={1000}
+  panes={['player']}
+  playerOptions={{ css: main }}
+  files={{
+    'App.tsx': Day1App,
+    'components/Article.tsx': Article,
+    'components/Block.tsx': Block,
+    'components/Button.tsx': Button,
+    'components/Info.tsx': Info,
+    'components/List.tsx': List,
+    'components/Spacer.tsx': Spacer,
+    'components/Star.tsx': Star,
+    'components/StarButton.tsx': StarButton,
+    'resources.ts': resources,
+  }}
+/>
