@@ -1,6 +1,7 @@
 import InfoResourceApp from '../../../examples/files/dashboard/InfoResourceApp.tsx'
 import ArticlesResoureApp from '../../../examples/files/dashboard/ArticlesResourceApp.tsx'
 import TabsApp from '../../../examples/files/dashboard/TabsApp.tsx'
+import TradeApp from '../../../examples/files/dashboard/TradeApp.tsx'
 import Day3App from '../../../examples/files/dashboard/Day3App.tsx'
 
 import Article from '../../../examples/files/dashboard/components/Article.tsx'
@@ -12,7 +13,9 @@ import Info from '../../../examples/files/dashboard/components/Info.tsx'
 import Block from '../../../examples/files/dashboard/components/Block.tsx'
 import Spacer from '../../../examples/files/dashboard/components/Spacer.tsx'
 import Tabs from '../../../examples/files/dashboard/components/Tabs.tsx'
+import Trade from '../../../examples/files/dashboard/components/Trade2.tsx'
 import useFetch from '../../../examples/files/dashboard/hooks/useFetch.tsx'
+import useNumericValue from '../../../examples/files/dashboard/hooks/useNumericValue.tsx'
 import resources from '../../../examples/files/dashboard/resources.ts'
 import api from '../../../examples/files/dashboard/api.ts'
 import main from '!!raw-loader!../../../examples/files/dashboard/main.css'
@@ -73,6 +76,27 @@ Next, fetch all articles using `useFetch`.
   }}
 />
 
+## Trade
+
+Now that we can fetch the current price of BTC (via `/info`), we can properly convert between USD and BTC. Validate the number at a basic level (validating a number perfectly is fairly tricky - it's OK if you don't handle every edge case).
+
+> Hint: see [parseFloat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/parseFloat) and [isNaN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/isNaN) for parsing/validating numbers.
+
+<Example
+  height={390}
+  panes={['player']}
+  playerOptions={{ css: main }}
+  files={{
+    'App.tsx': TradeApp,
+    'hooks/useNumericValue.ts': useNumericValue,
+    'components/Trade.tsx': Trade,
+    'components/Tabs.tsx': Tabs,
+    'components/Button.tsx': Button,
+    'components/Spacer.tsx': Spacer,
+    'resources.ts': resources,
+  }}
+/>
+
 ## App
 
 Putting it all together, we should be able to fetch data for our entire initial screen.
@@ -84,6 +108,7 @@ Putting it all together, we should be able to fetch data for our entire initial 
   files={{
     'App.tsx': Day3App,
     'hooks/useFetch.ts': useFetch,
+    'hooks/useNumericValue.ts': useNumericValue,
     'components/Article.tsx': Article,
     'components/Block.tsx': Block,
     'components/Button.tsx': Button,
@@ -93,6 +118,7 @@ Putting it all together, we should be able to fetch data for our entire initial 
     'components/Star.tsx': Star,
     'components/StarButton.tsx': StarButton,
     'components/Tabs.tsx': Tabs,
+    'components/Trade.tsx': Trade,
     'resources.ts': resources,
     'api.tsx': api,
   }}

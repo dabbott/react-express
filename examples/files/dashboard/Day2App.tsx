@@ -6,6 +6,7 @@ import List from './components/List'
 import { VerticalSpacer } from './components/Spacer'
 import StarButton from './components/StarButton'
 import Tabs from './components/Tabs'
+import Trade from './components/Trade'
 
 function Overview() {
   return (
@@ -20,6 +21,8 @@ function Overview() {
           ]}
         />
       </Block>
+      <VerticalSpacer size={20} />
+      <Trade />
       <VerticalSpacer size={20} />
       <List>
         <Article

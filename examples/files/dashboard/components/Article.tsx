@@ -35,7 +35,7 @@ export default function Article({
         <>
           <HorizontalSpacer size={32} />
           <HorizontalSpacer />
-          <img className="thumbnail" src={image} />
+          <img alt="" className="thumbnail" src={image} />
         </>
       )}
     </a>

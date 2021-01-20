@@ -1,5 +1,6 @@
 import StarButtonApp from '../../../examples/files/dashboard/StarButtonApp.tsx'
 import TabsApp from '../../../examples/files/dashboard/TabsApp.tsx'
+import TradeApp from '../../../examples/files/dashboard/TradeApp.tsx'
 import Day2App from '../../../examples/files/dashboard/Day2App.tsx'
 
 import Article from '../../../examples/files/dashboard/components/Article.tsx'
@@ -11,10 +12,11 @@ import Info from '../../../examples/files/dashboard/components/Info.tsx'
 import Block from '../../../examples/files/dashboard/components/Block.tsx'
 import Spacer from '../../../examples/files/dashboard/components/Spacer.tsx'
 import Tabs from '../../../examples/files/dashboard/components/Tabs.tsx'
+import Trade from '../../../examples/files/dashboard/components/Trade1.tsx'
 import resources from '../../../examples/files/dashboard/resources.ts'
 import main from '!!raw-loader!../../../examples/files/dashboard/main.css'
 
-Today we'll be finishing the `StarButton` and adding the `Tabs` components.
+Today we'll be finishing the `StarButton`, and then adding the `Tabs` and `Trade` components.
 
 ## StarButton
 
@@ -56,6 +58,26 @@ This component should be implemented as a **controlled component**, i.e. its par
 
 > To build _accessible_ tabs, we would likely want to use the HTML elements and keyboard shortcuts recommended here: https://www.w3.org/TR/2019/WD-wai-aria-practices-1.2-20191218/examples/tabs/tabs-2/tabs.html. However, the goal of this exercise is to practice React, so it's fine to use any elements you'd like and ignore keyboard shortcuts for now.
 
+## Trade
+
+This component will let us exchange currencies. Today, we should be able to enter any string in the input (we'll validate it tomorrow). If the input is empty, we should disable the button.
+
+> This component can use our `Tabs` and `Button` components.
+
+<Example
+  height={390}
+  panes={['player']}
+  playerOptions={{ css: main }}
+  files={{
+    'App.tsx': TradeApp,
+    'components/Trade.tsx': Trade,
+    'components/Tabs.tsx': Tabs,
+    'components/Button.tsx': Button,
+    'components/Spacer.tsx': Spacer,
+    'resources.ts': resources,
+  }}
+/>
+
 ## App
 
 Finally, we can assemble these into our top-level `App` component. We'll only be building the first tab, so the other tabs can contain anything you'd like.
@@ -75,6 +97,7 @@ Finally, we can assemble these into our top-level `App` component. We'll only be
     'components/Star.tsx': Star,
     'components/StarButton.tsx': StarButton,
     'components/Tabs.tsx': Tabs,
+    'components/Trade.tsx': Trade,
     'resources.ts': resources,
   }}
 />

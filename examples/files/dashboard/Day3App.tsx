@@ -9,6 +9,7 @@ import Tabs from './components/Tabs'
 import useFetch from './hooks/useFetch'
 import { ArticleResource, InfoResource } from './resources'
 import * as api from './api'
+import Trade from './components/Trade'
 
 function Articles() {
   const articles = useFetch<ArticleResource[]>(api.articles())
@@ -53,6 +54,8 @@ function Overview() {
   return (
     <>
       <HeroInfo />
+      <VerticalSpacer size={20} />
+      <Trade />
       <VerticalSpacer size={20} />
       <Articles />
     </>
