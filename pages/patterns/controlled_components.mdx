@@ -1,0 +1,20 @@
+import controlledInput from '../../examples/files/patterns/controlledInput.tsx'
+import uncontrolledInput from '../../examples/files/patterns/uncontrolledInput.tsx'
+
+**Uncontrolled components** store their state internally, while **controlled components** expect their state to be passed in from their parent.
+
+This typically applies to user input components. Most of the built-in form components (like `input`, `select`, etc) are typically used as controlled components, accepting a `value` and `onChange` prop. However, if `value` isn't supplied, these components act as uncontrolled components, with their state initialized internally.
+
+## Uncontrolled components
+
+Suppose we want to create an `TextInput` component that supports submitting a text value via an `onSubmit` callback.
+
+In this example, we store the `input` element's state internally in our `TextInput` component. The component API is then just a single prop, `onSubmit`. However, we have no way to access the _current_ state of the `input` element outside of this component.
+
+<Example code={uncontrolledInput} />
+
+## Controlled components
+
+In this example, we store the `input` element's state externally in the parent `App` component, passing it in via `value` on listening for changes via `onChange`. The component API now includes 3 props, so it's a little more complex, but we often prefer this approach so that we can potentially use the _current_ state of the `input` element even before it's been submitted via `onSubmit`.
+
+<Example code={controlledInput} />

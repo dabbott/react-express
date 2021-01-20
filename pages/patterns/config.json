@@ -1,3 +1,9 @@
 {
-  "order": ["returning_multiple_elements", "arbitrary_children"]
+  "order": [
+    "returning_multiple_elements",
+    "arbitrary_children",
+    "render_props",
+    "controlled_components",
+    "react_children"
+  ]
 }

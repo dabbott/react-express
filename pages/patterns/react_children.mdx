@@ -1,0 +1,11 @@
+---
+title: React.Children
+---
+
+import reactChildrenList from '../../examples/files/patterns/reactChildrenList.tsx'
+
+We can use the `React.Children` APIs to modify elements created by React before they're rendered. For more info, see: https://reactjs.org/docs/react-api.html#reactchildren
+
+For example, here we insert an `<hr />` element between any arbitrary children. Note that our `List` component accepts a `children` prop just like any other React component might, but then we transform the passed `children` before returning them from our `List`.
+
+<Example code={reactChildrenList} />
