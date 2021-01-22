@@ -5,22 +5,16 @@ interface Props {
 }
 
 function List({ children }: Props) {
-  const array = Children.toArray(children)
-
-  const withSeparator = array.reduce(
-    (result: React.ReactNode[], child: React.ReactNode, index) => {
-      result.push(child)
-
-      if (index < array.length - 1) {
-        result.push(<hr key={`hr-${index}`} />)
-      }
-
-      return result
-    },
-    [] as React.ReactNode[]
+  return (
+    <>
+      {Children.toArray(children).map((child, index, array) => (
+        <>
+          {child}
+          {index < array.length - 1 && <hr key={`hr-${index}`} />}
+        </>
+      ))}
+    </>
   )
-
-  return <>{withSeparator}</>
 }
 
 export default function App() {

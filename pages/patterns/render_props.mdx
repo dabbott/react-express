@@ -1,0 +1,18 @@
+import tabsObjects from '../../examples/files/patterns/tabsObjects.tsx'
+import tabsRenderProps from '../../examples/files/patterns/tabsRenderProps.tsx'
+
+Some components support multiple children of a _specific_ type, rather than an [arbitrary](/patterns/arbitrary_children) type. For example, a tabs or accordian component take multiple children but only show one at a time. Let's look at a few of the ways we might impelment a `Tabs` component.
+
+## Passing objects
+
+We could create an object for each tab, likely containing an id, and pass an array of these.
+
+<Example code={tabsObjects} />
+
+The advantage of this approach is that there's no extra level of abstraction to understand. The disadvantage is, we need to create React elements (the `content` property) for _every_ tab object, not just the visible tab. In other words, we're doing a small amount of work that goes unused. Most of the time, the performance impact will be negligible - however, if we're working with a very big set of tabs (or more likely a list component of some kind), we may want to optimize further.
+
+## Render props
+
+We can instead use callback props, typically prefixed with `render`, to create React elements on-demand for the different parts of the UI we need.
+
+<Example code={tabsRenderProps} />

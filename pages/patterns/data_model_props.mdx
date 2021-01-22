@@ -1,0 +1,49 @@
+import dataModelPropsSpread from '../../examples/files/patterns/dataModelPropsSpread.tsx'
+import dataModelPropsDuplicated from '../../examples/files/patterns/dataModelPropsDuplicated.tsx'
+import dataModelPropsObject from '../../examples/files/patterns/dataModelPropsObject.tsx'
+import resources from '../../examples/files/patterns/dataModelPropsResources.ts'
+import styles from '../../examples/files/patterns/dataModelPropsStyles.ts'
+
+Sometimes our components represent entities in our data schema, such as people, articles, posts, multimedia, etc. In these cases, we have to decide how we want to pass our data into our components, e.g. our `post` data model into our `Post` component.
+
+> This is especially common if we're using a REST API, since we often fetch entire resources vs. just the data we need (e.g. when using GraphQL).
+
+## Passing the resource directly
+
+Suppose we have an array of `PostResource` objects. The simplest way to pass one into a `Post` component is by passing the entire resource as a prop.
+
+The disadvantages of this approach are that we may pass some data that isn't used by the component (e.g. the `author` field of `PostResource`), and we closely couple our components and data models.
+
+<Example
+  files={{
+    'App.tsx': dataModelPropsObject,
+    'resources.ts': resources,
+    'styles.ts': styles,
+  }}
+/>
+
+## Duplicating the props
+
+It's more common to pass each individual property that we need from the resource into our component. While it can be a bit of a hassle to write out each property, the explicitness helps us make changes to either our data model or our component more easily.
+
+<Example
+  files={{
+    'App.tsx': dataModelPropsDuplicated,
+    'resources.ts': resources,
+    'styles.ts': styles,
+  }}
+/>
+
+## Spreading props
+
+We can pass any number of props from an object into a component using the `...` spread syntax.
+
+This is convenient when we have a lot of props to pass. However, it can also result in us passing props that aren't actually used (e.g. the `author` of the `PostResource` gets passed to the `<Post />`, even though it isn't used).
+
+<Example
+  files={{
+    'App.tsx': dataModelPropsSpread,
+    'resources.ts': resources,
+    'styles.ts': styles,
+  }}
+/>

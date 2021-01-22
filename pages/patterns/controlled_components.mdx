@@ -15,6 +15,6 @@ In this example, we store the `input` element's state internally in our `TextInp
 
 ## Controlled components
 
-In this example, we store the `input` element's state externally in the parent `App` component, passing it in via `value` on listening for changes via `onChange`. The component API now includes 3 props, so it's a little more complex, but we often prefer this approach so that we can potentially use the _current_ state of the `input` element even before it's been submitted via `onSubmit`.
+In this example, we store the `input` element's state externally in the parent `App` component, passing it in via `value` and listening for changes via `onChange`. The component API now includes 3 props, so it's a little more complex, but we often prefer this approach so that we can potentially use the _current_ state of the `input` element even before it's been submitted via `onSubmit`.
 
 <Example code={controlledInput} />
