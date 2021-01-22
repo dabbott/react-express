@@ -2,7 +2,7 @@ import { CSSProperties } from 'react'
 
 const styles: Record<string, CSSProperties> = {
   article: {
-    margin: '10px 20px',
+    margin: '10px 10px 0 10px',
     borderRadius: '4px',
     padding: '10px',
     display: 'flex',
