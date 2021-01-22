@@ -1,5 +1,6 @@
 import InfoResourceApp from '../../../examples/files/dashboard/InfoResourceApp.tsx'
 import ArticlesResoureApp from '../../../examples/files/dashboard/ArticlesResourceApp.tsx'
+import ThemeSwitcherApp from '../../../examples/files/dashboard/ThemeSwitcherApp.tsx'
 import TabsApp from '../../../examples/files/dashboard/TabsApp.tsx'
 import TradeApp from '../../../examples/files/dashboard/TradeApp.tsx'
 import Day3App from '../../../examples/files/dashboard/Day3App.tsx'
@@ -20,9 +21,25 @@ import resources from '../../../examples/files/dashboard/resources.ts'
 import api from '../../../examples/files/dashboard/api.ts'
 import main from '!!raw-loader!../../../examples/files/dashboard/main.css'
 
-Today we'll be focusing on fetching and displaying remote data.
+Today we'll fetch and display remote data, add a theme switcher, and handle currency conversion.
 
-## API
+## Dark mode
+
+Add a button that switches the theme of the app. We can do this by toggling the CSS class `theme--dark` on the root (`html`) element in a `useEffect` hook. (This is one of many ways to do theming)
+
+> Tip: You can use `document.documentElement.classList` to access the list of CSS classes on the root element. You can then call `.add` and `.remove` to modify the list.
+
+<Example
+  height={130}
+  panes={['player']}
+  playerOptions={{ css: main, title: 'Dark mode', reloadable: true }}
+  files={{
+    'App.tsx': ThemeSwitcherApp,
+    'components/Button.tsx': Button,
+  }}
+/>
+
+## Fetching data
 
 We'll be using a REST API that returns static data: https://my-json-server.typicode.com/dabbott/dashboard-json-server
 
@@ -33,7 +50,7 @@ Endpoints:
 
 We can access an individual article or info object by its id, e.g. [`/info/1`](https://my-json-server.typicode.com/dabbott/dashboard-json-server/info).
 
-## Fetching `/info/1`
+### Fetching `/info/1`
 
 Start by fetching and displaying the first info resource. You should use `useFetch.ts` and `api.ts`.
 
@@ -56,7 +73,7 @@ When the resource is loading, display a loading state (e.g. the string `"Loading
   }}
 />
 
-## Fetching `/articles`
+### Fetching `/articles`
 
 Next, fetch all articles using `useFetch`.
 

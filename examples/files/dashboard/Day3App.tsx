@@ -1,9 +1,10 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Article from './components/Article'
 import Block from './components/Block'
+import Button from './components/Button'
 import Info from './components/Info'
 import List from './components/List'
-import { VerticalSpacer } from './components/Spacer'
+import { HorizontalSpacer, VerticalSpacer } from './components/Spacer'
 import StarButton from './components/StarButton'
 import Tabs from './components/Tabs'
 import useFetch from './hooks/useFetch'
@@ -64,11 +65,28 @@ function Overview() {
 
 export default function App() {
   const [selectedTabIndex, setSelectedTabIndex] = useState(0)
+  const [isDarkMode, setIsDarkMode] = useState(false)
+
+  useEffect(() => {
+    if (isDarkMode) {
+      document.documentElement.classList.add('theme--dark')
+    } else {
+      document.documentElement.classList.remove('theme--dark')
+    }
+  }, [isDarkMode])
 
   return (
     <main>
       <div style={{ display: 'flex' }}>
         <h1 style={{ flex: 1 }}>My Dashboard</h1>
+        <Button
+          onClick={() => {
+            setIsDarkMode(!isDarkMode)
+          }}
+        >
+          Enable {isDarkMode ? 'light' : 'dark'} mode
+        </Button>
+        <HorizontalSpacer size={12} />
         <StarButton activeTitle="Unwatch" inactiveTitle="Watch" />
       </div>
       <VerticalSpacer size={20} />
