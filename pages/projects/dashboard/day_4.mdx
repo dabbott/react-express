@@ -1,9 +1,28 @@
-## TBD
+Today we'll optimize the performance of our app and improve the initial loading UX using `Suspense`.
 
-Let's see how far we get in the first 3 days. Possible topics:
+## Performance optimization
 
-- Performance
-- Devtools
-- Lifecycle
-- Patterns
-- Testing
+We can use `memo`, `useMemo`, and `useCallback` to only re-render components when our data actually changes. This is something we want to do for _most_ components, especially ones that are used a lot of times.
+
+Try optimizing all of the components on the landing page:
+
+- `StarButton`
+- `Button`
+- `HorizontalSpacer`
+- `VerticalSpacer`
+- `Info`
+- `ArticleList`
+
+You can generally start by wrapping the component function in `memo()`. Then, look at the list of props: are there any object, array, or function props (i.e. non-primitive props)? If so, anywhere the component is used, try to wrap those values in `useMemo` (for objects and arrays) or `useCallback` (for callback functions).
+
+> Tip: you can use the **Profiler** tab in the [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en) for Chrome to measure how often components re-render.
+
+## Fetching data with `Suspense`
+
+So far, we've been fetching data with our `useFetch` hook. However, by using `Suspense`, we'll be able to define our sequence of loading states more easily.
+
+Today, try using the (provided) `useResource` hook to fetch data, instead of `useFetch`.
+
+> Tip: Since `useResource` is generic, you may want to _specialize_ it at the callsite for better type checking, e.g. `useResource<InfoResource>(...)`
+
+Note that you'll need at least one `<Suspense>` component higher up in the React component tree than whatever component you call `useResource` from. I recommend wrapping each of the "blocks" in our UI, the `Info`, `ArticleList`, and `Trade` components, in a separate wrapper component (e.g. `InfoBlock`, `ArticleListBlock`, `TradeBlock`) that fetches the resource specifically for that component, and assemble these new components in `App`.
