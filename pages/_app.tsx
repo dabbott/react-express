@@ -51,8 +51,6 @@ export default function GuidebookApp({
 
   const LinkComponent = useMemo(() => {
     return ({ href, children, style }: LinkProps) => {
-      // console.log(localePrefix, href)
-
       return (
         <Link
           href={isExternalUrl(href) ? href : `${localePrefix}${href}`}
@@ -67,42 +65,6 @@ export default function GuidebookApp({
   const Components = useMemo(
     () => ({
       ...PageComponents,
-      code: (props: any) => (
-        <PageComponents.code
-          {...props}
-          style={{
-            ...props.style,
-            color: defaultTheme.colors.textDecorativeLight,
-          }}
-        />
-      ),
-      pre: (props: any) => (
-        <PageComponents.pre
-          {...props}
-          style={{
-            ...props.style,
-            backgroundColor: defaultTheme.colors.text,
-            padding: '8px 10px',
-            color: 'white',
-            borderRadius: '0',
-            borderLeft: '4px solid #435080',
-            overflowX: 'auto',
-            marginTop: '15px',
-          }}
-        />
-      ),
-      inlineCode: (props: any) => (
-        <PageComponents.inlineCode
-          {...props}
-          style={{
-            ...props.style,
-            // color: '#009688',
-            color: '#2e9f74',
-            backgroundColor: '#0096881a',
-            padding: '4px 6px',
-          }}
-        />
-      ),
       Example: EditorConsole,
       Author,
       Details: ({ children }: { children: React.ReactNode }) => children,
